@@ -476,12 +476,30 @@ textarea.input { resize: vertical; min-height: 80px; }
 
         <span class="sect-label">How do you want to stand with Karmelo?</span>
         <div class="commit-chips">
-          <label class="commit-chip"><input type="radio" name="commitment" value="court_presence"/> 🏛️ Be at the courthouse</label>
-          <label class="commit-chip"><input type="radio" name="commitment" value="co_signatory" checked/> ✍️ Sign this record</label>
-          <label class="commit-chip"><input type="radio" name="commitment" value="remote_solidarity"/> 📣 Remote solidarity</label>
-          <label class="commit-chip"><input type="radio" name="commitment" value="legal_network"/> ⚖️ I'm a legal professional</label>
-          <label class="commit-chip"><input type="radio" name="commitment" value="media_press"/> 📰 Press / media</label>
-          <label class="commit-chip"><input type="radio" name="commitment" value="updates_only"/> 📬 Keep me updated</label>
+          <!-- AXIS A: Presence (radio — mutually exclusive) -->
+          <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9b59b6;margin:0 0 8px;">How will you be there? <span style="color:#e74c3c;">*</span></p>
+          <label class="commit-chip"><input type="radio" name="commitment_type" value="court_presence" id="pres_court"/> 🏛️ I'll be at the courthouse</label>
+          <label class="commit-chip"><input type="radio" name="commitment_type" value="remote_solidarity" id="pres_remote" checked/> 📣 Remote solidarity</label>
+          <!-- AXIS B: Who you are (multi-checkbox) -->
+          <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9b59b6;margin:16px 0 8px;">Who are you? <span style="font-weight:400;opacity:.6;">(all that apply)</span></p>
+          <label class="commit-chip"><input type="checkbox" name="roles[]" value="legal_professional"/> ⚖️ Legal professional</label>
+          <label class="commit-chip"><input type="checkbox" name="roles[]" value="press_media"/> 📰 Press / media</label>
+          <label class="commit-chip"><input type="checkbox" name="roles[]" value="organizer_activist"/> ✊ Organizer / activist</label>
+          <label class="commit-chip"><input type="checkbox" name="roles[]" value="educator"/> 🎓 Educator</label>
+          <label class="commit-chip"><input type="checkbox" name="roles[]" value="supporter"/> 💜 Supporter</label>
+          <!-- AXIS C: Sign the Manifesto (standalone) -->
+          <div style="background:rgba(155,89,182,0.08);border:1px solid rgba(155,89,182,0.3);border-radius:10px;padding:14px 16px;margin:16px 0 0;">
+            <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
+              <input type="checkbox" id="signManifesto" name="sign_manifesto" value="true"
+                style="margin-top:3px;accent-color:#9b59b6;flex-shrink:0;width:18px;height:18px;"/>
+              <div>
+                <strong style="font-size:14px;">✍️ Sign the Manifesto</strong>
+                <p style="margin:4px 0 0;font-size:12px;line-height:1.6;opacity:.75;">
+                  Your first name, last initial, and location will appear publicly on the site — alongside <strong>Israel Armstead</strong> and every other signatory.
+                </p>
+              </div>
+            </label>
+          </div>
         </div>
 
         <div id="texasFields">
@@ -575,7 +593,7 @@ textarea.input { resize: vertical; min-height: 80px; }
 })();
 
 // ── COMMITMENT → show/hide Texas fields ──
-document.querySelectorAll('input[name="commitment"]').forEach(function(r) {
+document.querySelectorAll('input[name="commitment_type"]').forEach(function(r) {
   r.addEventListener('change', function() {
     var show = ['court_presence','legal_network','organization',''].includes(this.value);
     document.getElementById('texasFields').style.display = show ? 'block' : 'none';
