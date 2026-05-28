@@ -308,11 +308,14 @@ a { color: inherit; text-decoration: none; }
 .carousel-track {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden; /* CRITICAL: prevent any vertical scroll bleed */
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   gap: 10px;
   padding: 0 16px 16px;
+  overscroll-behavior-x: contain; /* contain horizontal scroll to this element */
+  will-change: scroll-position; /* hint browser this element scrolls independently */
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 .carousel-slide {
@@ -892,11 +895,11 @@ textarea.f-input { resize: vertical; min-height: 78px; }
   <div class="nav-inner">
     <div class="brand">Free Karmelo</div>
     <div class="nav-tabs">
-      <button class="nav-tab active" onclick="switchTab('manifesto')">Who He Is</button>
-      <button class="nav-tab" onclick="switchTab('credo')">What Happened</button>
-      <button class="nav-tab" onclick="switchTab('facts')">The Law</button>
-      <button class="nav-tab" onclick="switchTab('charge')">The Charge</button>
-          <button class="nav-tab" onclick="switchTab('truth')">The Truth</button>
+      <button class="nav-tab active" onclick="switchTab('manifesto', true)">Who He Is</button>
+      <button class="nav-tab" onclick="switchTab('credo', true)">What Happened</button>
+      <button class="nav-tab" onclick="switchTab('facts', true)">The Law</button>
+      <button class="nav-tab" onclick="switchTab('charge', true)">The Charge</button>
+          <button class="nav-tab" onclick="switchTab('truth', true)">The Truth</button>
     </div>
     <button class="nav-cta-btn" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth',block:'start'})">Sign Up →</button>
   </div>
@@ -991,6 +994,19 @@ textarea.f-input { resize: vertical; min-height: 78px; }
       <div class="slide-caption">A 17-year-old on trial for surviving.</div>
     </div>
 
+  </div>
+      <div class="carousel-slide">
+        <img src="https://media.base44.com/images/public/69d7dd5e015cd1aa45c3e283/8293324cf_IMG_2636.jpg" alt="Karmelo Anthony — scholar-athlete, Centennial High School" loading="lazy" style="object-position: center 5%;">
+        <div class="slide-caption">A scholar-athlete — 3.7+ GPA — carrying a future worth protecting.</div>
+      </div>
+      <div class="carousel-slide">
+        <img src="https://media.base44.com/images/public/69d7dd5e015cd1aa45c3e283/61278a9ae_IMG_2656.jpg" alt="Karmelo Anthony — a young man with his community" loading="lazy" style="object-position: center 20%;">
+        <div class="slide-caption">The kind of kid who gives everything to the people he loves.</div>
+      </div>
+      <div class="carousel-slide">
+        <img src="https://media.base44.com/images/public/69d7dd5e015cd1aa45c3e283/f61cd3cc9_IMG_2672.jpg" alt="Karmelo Anthony — a young man who deserves his future" loading="lazy" style="object-position: center 15%;">
+        <div class="slide-caption">He is not a headline. He is a person. He deserves his future.</div>
+      </div>
   </div>
   <div class="carousel-hint">← Swipe to scroll →</div>
 </section>
@@ -1516,8 +1532,13 @@ textarea.f-input { resize: vertical; min-height: 78px; }
 
 <script>
 // ── TAB SYSTEM ──
-function switchTab(name) {
-  if (name === 'signup') { var el = document.getElementById('signup'); if (el) el.scrollIntoView({behavior:'smooth',block:'start'}); return; }
+function switchTab(name, doScroll) {
+  // doScroll=true only when user explicitly clicks a tab — not on programmatic calls
+  if (name === 'signup') {
+    var el = document.getElementById('signup');
+    if (el && doScroll) el.scrollIntoView({behavior:'smooth',block:'start'});
+    return;
+  }
   document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
   const pane = document.getElementById('pane-' + name);
@@ -1527,12 +1548,13 @@ function switchTab(name) {
     const idx = tabs.indexOf(name);
     const btns = document.querySelectorAll('.nav-tab');
     if (btns[idx]) btns[idx].classList.add('active');
-    if (name !== 'signup') {
+    // Only scroll when user explicitly triggered via tab click
+    if (name !== 'signup' && doScroll) {
       const tabSection = document.querySelector('.tab-section');
       if (tabSection) window.scrollTo({ top: tabSection.offsetTop - 110, behavior: 'smooth' });
     }
   }
-  if (name === 'signup') {
+  if (name === 'signup' && doScroll) {
     const el = document.getElementById('signup');
     if (el) window.scrollTo({ top: el.offsetTop - 60, behavior: 'smooth' });
   }
@@ -1696,6 +1718,7 @@ function copyLink() {
 
 
 // ── EYE CANDY: AUTO-PLAY CAROUSEL ──
+// FIX: use scrollLeft-only to prevent vertical scroll hijack on every advance
 (function() {
   const track = document.querySelector('.carousel-track');
   if (!track) return;
@@ -1705,16 +1728,29 @@ function copyLink() {
   let paused = false;
   let interval;
 
+  function scrollToSlide(idx) {
+    // Only move the carousel's OWN horizontal scrollLeft — never touches window scroll
+    const slide = slides[idx];
+    if (!slide) return;
+    const slideLeft = slide.offsetLeft - track.offsetLeft;
+    track.scrollTo({ left: slideLeft, behavior: 'smooth' });
+  }
+
   function advance() {
     if (paused) return;
     current = (current + 1) % slides.length;
-    slides[current].scrollIntoView({behavior:'smooth', block:'nearest', inline:'start'});
+    scrollToSlide(current);
   }
 
   interval = setInterval(advance, 3200);
   track.addEventListener('mouseenter', () => { paused = true; });
   track.addEventListener('mouseleave', () => { paused = false; });
   track.addEventListener('touchstart', () => { paused = true; clearInterval(interval); }, {passive:true});
+  // Also reset current index when user manually scrolls
+  track.addEventListener('scroll', () => {
+    const slideWidth = slides[0].offsetWidth + 10; // 10 = gap
+    current = Math.round(track.scrollLeft / slideWidth) % slides.length;
+  }, { passive: true });
 })();
 
 // ── EYE CANDY: TOUCH SWIPE on carousel ──
