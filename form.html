@@ -154,6 +154,99 @@ a { color: inherit; text-decoration: none; }
 }
 .wear-purple strong { color: #fff; }
 
+/* ── PRESENCE CHIPS — enhanced layout ── */
+.presence-chip {
+  flex: 1; min-width: 180px;
+  flex-direction: column; align-items: flex-start; gap: 4px;
+  padding: 12px 14px;
+}
+.presence-chip .chip-icon { font-size: 20px; margin-bottom: 4px; }
+.presence-chip .chip-text strong { display: block; font-size: 13px; font-weight: 600; color: var(--fg); line-height: 1.3; }
+.presence-chip .chip-text small { display: block; font-size: 11px; color: var(--fg-dim); margin-top: 2px; }
+
+/* ── ROLE CHIPS ── */
+.role-chip { flex-direction: row; align-items: center; }
+.role-chip input[type="checkbox"] { display: none; }
+.role-chip:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  color: var(--fg);
+}
+
+/* ── MANIFESTO BLOCK — standalone card ── */
+.manifesto-block {
+  margin: 20px 0 4px;
+  border: 1.5px solid rgba(155,89,182,0.35);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(155,89,182,0.05);
+  transition: border-color .2s ease, background .2s ease;
+}
+.manifesto-block.is-signed {
+  border-color: var(--accent);
+  background: rgba(155,89,182,0.10);
+}
+.manifesto-toggle-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 18px; gap: 16px;
+}
+.manifesto-toggle-label {
+  display: flex; align-items: flex-start; gap: 12px; flex: 1;
+}
+.manifesto-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+.manifesto-toggle-label strong { font-size: 14px; font-weight: 600; color: var(--fg); display: block; margin-bottom: 3px; }
+.manifesto-toggle-label p { font-size: 12px; color: var(--fg-dim); line-height: 1.5; margin: 0; }
+
+/* ── TOGGLE SWITCH ── */
+.manifesto-toggle-btn {
+  background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+  padding: 4px 0;
+}
+.toggle-track {
+  width: 44px; height: 24px; background: var(--border-2);
+  border-radius: 12px; position: relative;
+  transition: background .2s ease;
+  display: block; flex-shrink: 0;
+}
+.toggle-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; transition: transform .2s ease, background .2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.manifesto-toggle-btn[aria-pressed="true"] .toggle-track { background: var(--accent); }
+.manifesto-toggle-btn[aria-pressed="true"] .toggle-thumb { transform: translateX(20px); }
+.toggle-label-text {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--fg-dim); min-width: 22px;
+  transition: color .2s ease;
+}
+.manifesto-toggle-btn[aria-pressed="true"] .toggle-label-text { color: var(--accent-light); }
+
+/* ── MANIFESTO DISCLOSURE PANEL ── */
+.manifesto-disclosure {
+  display: none;
+  border-top: 1px solid rgba(155,89,182,0.25);
+  padding: 0;
+  animation: slideDown .2s ease;
+}
+.manifesto-disclosure.visible { display: block; }
+.disclosure-inner {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 18px;
+  background: rgba(155,89,182,0.07);
+}
+.disclosure-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.disclosure-inner p {
+  font-size: 12px; line-height: 1.65; color: var(--fg-dim);
+  margin: 0;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ── FORM CARD ── */
 .form-wrap {
   max-width: 680px; margin: 0 auto; padding: 0 24px 80px;
@@ -403,6 +496,57 @@ textarea.input { resize: vertical; min-height: 80px; }
   color: var(--fg-dimmer); line-height: 1.8;
 }
 .foot .fist { color: var(--accent); font-size: 14px; }
+
+/* ── SIGNATORY WALL ── */
+.signatory-section {
+  max-width: 680px; margin: 0 auto 40px; padding: 0 24px;
+}
+.sig-inner {
+  background: var(--bg-1);
+  border: 1px solid var(--border-2);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 28px;
+}
+.sig-header { margin-bottom: 20px; }
+.sig-title {
+  font-size: 20px; font-weight: 600; letter-spacing: -0.03em;
+  color: var(--fg); margin-bottom: 6px;
+}
+.sig-sub { font-size: 13px; color: var(--fg-dim); line-height: 1.5; }
+.sig-list { display: flex; flex-direction: column; gap: 8px; }
+.sig-item {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.sig-item-first {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+.sig-name {
+  font-size: 14px; font-weight: 600; color: var(--fg);
+  letter-spacing: -0.01em;
+}
+.sig-loc {
+  font-size: 12px; color: var(--fg-dim);
+  font-family: var(--mono);
+  margin-left: auto;
+}
+.sig-badge {
+  font-size: 10px; color: var(--accent-light);
+  font-family: var(--mono); letter-spacing: .1em;
+  text-transform: uppercase;
+  background: rgba(155,89,182,0.15);
+  padding: 2px 8px; border-radius: 4px;
+}
+.sig-count {
+  font-size: 11px; color: var(--fg-dimmer);
+  font-family: var(--mono); letter-spacing: .1em;
+  text-transform: uppercase; margin-top: 16px; text-align: center;
+}
 </style>
 </head>
 <body>
@@ -474,31 +618,93 @@ textarea.input { resize: vertical; min-height: 80px; }
           </div>
         </div>
 
-        <span class="sect-label">How do you want to stand with Karmelo?</span>
-        <div class="commit-chips">
-          <!-- AXIS A: Presence (radio — mutually exclusive) -->
-          <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9b59b6;margin:0 0 8px;">How will you be there? <span style="color:#e74c3c;">*</span></p>
-          <label class="commit-chip"><input type="radio" name="commitment_type" value="court_presence" id="pres_court"/> 🏛️ I'll be at the courthouse</label>
-          <label class="commit-chip"><input type="radio" name="commitment_type" value="remote_solidarity" id="pres_remote" checked/> 📣 Remote solidarity</label>
-          <!-- AXIS B: Who you are (multi-checkbox) -->
-          <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9b59b6;margin:16px 0 8px;">Who are you? <span style="font-weight:400;opacity:.6;">(all that apply)</span></p>
-          <label class="commit-chip"><input type="checkbox" name="roles[]" value="legal_professional"/> ⚖️ Legal professional</label>
-          <label class="commit-chip"><input type="checkbox" name="roles[]" value="press_media"/> 📰 Press / media</label>
-          <label class="commit-chip"><input type="checkbox" name="roles[]" value="organizer_activist"/> ✊ Organizer / activist</label>
-          <label class="commit-chip"><input type="checkbox" name="roles[]" value="educator"/> 🎓 Educator</label>
-          <label class="commit-chip"><input type="checkbox" name="roles[]" value="supporter"/> 💜 Supporter</label>
-          <!-- AXIS C: Sign the Manifesto (standalone) -->
-          <div style="background:rgba(155,89,182,0.08);border:1px solid rgba(155,89,182,0.3);border-radius:10px;padding:14px 16px;margin:16px 0 0;">
-            <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
-              <input type="checkbox" id="signManifesto" name="sign_manifesto" value="true"
-                style="margin-top:3px;accent-color:#9b59b6;flex-shrink:0;width:18px;height:18px;"/>
+        <!-- ══════════════════════════════════════════════════════════════
+             AXIS A — HOW YOU WILL BE THERE (radio — MUTUALLY EXCLUSIVE)
+             Court presence vs. Virtual/Remote support are two distinct modes.
+             Only one can be selected at a time. Texas-specific fields
+             (dates, lodging) appear only when court_presence is chosen.
+        ═══════════════════════════════════════════════════════════════ -->
+        <span class="sect-label">How will you stand with Karmelo? <span style="color:#e74c3c;">*</span></span>
+        <div class="commit-chips" id="presenceChips">
+          <label class="commit-chip presence-chip" for="pres_court">
+            <input type="radio" name="commitment_type" value="court_presence" id="pres_court"/>
+            <span class="chip-icon">🏛️</span>
+            <span class="chip-text">
+              <strong>I'll be at the courthouse</strong>
+              <small>McKinney, TX — in-person presence</small>
+            </span>
+          </label>
+          <label class="commit-chip presence-chip" for="pres_remote">
+            <input type="radio" name="commitment_type" value="virtual_support" id="pres_remote" checked/>
+            <span class="chip-icon">📣</span>
+            <span class="chip-text">
+              <strong>Virtual / remote support</strong>
+              <small>Amplifying from wherever I am</small>
+            </span>
+          </label>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             AXIS B — WHO YOU ARE (multi-checkbox — NOT mutually exclusive)
+             Independent from AXIS A. Someone can be a legal professional
+             AND be physically present OR be remote. Both axes are orthogonal.
+        ═══════════════════════════════════════════════════════════════ -->
+        <span class="sect-label">Who are you? <span style="font-weight:400;opacity:.6;">(all that apply)</span></span>
+        <div class="commit-chips" id="roleChips">
+          <label class="commit-chip role-chip">
+            <input type="checkbox" name="roles[]" value="legal_professional"/>
+            <span>⚖️ Legal professional</span>
+          </label>
+          <label class="commit-chip role-chip">
+            <input type="checkbox" name="roles[]" value="press_media"/>
+            <span>📰 Press / media</span>
+          </label>
+          <label class="commit-chip role-chip">
+            <input type="checkbox" name="roles[]" value="organizer_activist"/>
+            <span>✊ Organizer / activist</span>
+          </label>
+          <label class="commit-chip role-chip">
+            <input type="checkbox" name="roles[]" value="educator"/>
+            <span>🎓 Educator</span>
+          </label>
+          <label class="commit-chip role-chip">
+            <input type="checkbox" name="roles[]" value="supporter"/>
+            <span>💜 Supporter</span>
+          </label>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             AXIS C — SIGN THE MANIFESTO (fully independent toggle)
+             Completely separate from AXIS A and AXIS B.
+             Someone who is virtual-only AND a legal professional CAN sign.
+             Someone who is courthouse-only with no role CAN sign.
+             No cross-dependency. This is a public signatory commitment.
+             When checked: shows the name/location disclosure notice.
+        ═══════════════════════════════════════════════════════════════ -->
+        <div class="manifesto-block" id="manifestoBlock">
+          <div class="manifesto-toggle-row">
+            <div class="manifesto-toggle-label">
+              <span class="manifesto-icon">✍️</span>
               <div>
-                <strong style="font-size:14px;">✍️ Sign the Manifesto</strong>
-                <p style="margin:4px 0 0;font-size:12px;line-height:1.6;opacity:.75;">
-                  Your first name, last initial, and location will appear publicly on the site — alongside <strong>Israel Armstead</strong> and every other signatory.
-                </p>
+                <strong>Sign the Manifesto</strong>
+                <p>Add your name to the public record of those who stand with Karmelo.</p>
               </div>
-            </label>
+            </div>
+            <button type="button" class="manifesto-toggle-btn" id="manifestoToggleBtn" aria-pressed="false" aria-label="Sign the manifesto">
+              <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+              </span>
+              <span class="toggle-label-text" id="toggleLabelText">Off</span>
+            </button>
+          </div>
+          <input type="hidden" id="signManifesto" name="sign_manifesto" value="false"/>
+          <div class="manifesto-disclosure" id="manifestoDisclosure">
+            <div class="disclosure-inner">
+              <span class="disclosure-icon">📋</span>
+              <p>
+                By signing, your <strong>first name, last initial, and city/state</strong> will appear publicly on this site — listed beneath <strong>Israel Armstead</strong> as a named signatory. This is a permanent public record. You can request removal by emailing <a href="mailto:accounts@e5enclave.com" style="color:var(--accent-light);">accounts@e5enclave.com</a>.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -561,6 +767,27 @@ textarea.input { resize: vertical; min-height: 80px; }
   </div>
 </div>
 
+<!-- SIGNATORY WALL -->
+<div class="signatory-section" id="signatorySection">
+  <div class="sig-inner">
+    <div class="sig-header">
+      <h2 class="sig-title">Signatories</h2>
+      <p class="sig-sub">Those who signed the manifesto. Every name is a witness. The record is permanent.</p>
+    </div>
+    <div class="sig-list" id="signatoryList">
+      <!-- First signatory — always Israel Armstead -->
+      <div class="sig-item sig-item-first">
+        <span class="sig-name">Israel Armstead</span>
+        <span class="sig-loc">Miami, FL</span>
+        <span class="sig-badge">✦ First Signatory</span>
+      </div>
+      <!-- Additional signatories loaded dynamically -->
+      <div id="dynamicSignatories"></div>
+    </div>
+    <p class="sig-count" id="sigCount">Loading signatory count...</p>
+  </div>
+</div>
+
 <!-- QR SECTION -->
 <div class="qr-section">
   <div class="qr-card">
@@ -595,10 +822,39 @@ textarea.input { resize: vertical; min-height: 80px; }
 // ── COMMITMENT → show/hide Texas fields ──
 document.querySelectorAll('input[name="commitment_type"]').forEach(function(r) {
   r.addEventListener('change', function() {
-    var show = ['court_presence','legal_network','organization',''].includes(this.value);
-    document.getElementById('texasFields').style.display = show ? 'block' : 'none';
+    var tx = document.getElementById('texasFields');
+    if (tx) tx.style.display = this.value === 'court_presence' ? 'block' : 'none';
   });
 });
+});
+
+// ── MANIFESTO TOGGLE ──
+(function() {
+  var btn = document.getElementById('manifestoToggleBtn');
+  var block = document.getElementById('manifestoBlock');
+  var disclosure = document.getElementById('manifestoDisclosure');
+  var hiddenInput = document.getElementById('signManifesto');
+  var labelText = document.getElementById('toggleLabelText');
+
+  if (!btn) return;
+
+  btn.addEventListener('click', function() {
+    var isSigned = btn.getAttribute('aria-pressed') === 'true';
+    var newState = !isSigned;
+
+    btn.setAttribute('aria-pressed', String(newState));
+    hiddenInput.value = String(newState);
+    labelText.textContent = newState ? 'On' : 'Off';
+
+    if (newState) {
+      disclosure.classList.add('visible');
+      block.classList.add('is-signed');
+    } else {
+      disclosure.classList.remove('visible');
+      block.classList.remove('is-signed');
+    }
+  });
+})();
 
 // ── GROUP lodging toggle ──
 document.querySelectorAll('input[name="needs_lodging"]').forEach(function(r) {
@@ -659,6 +915,72 @@ function shareLink() {
     alert('Link copied! Share it everywhere.');
   });
 }
+
+// ── SIGNATORY WALL — load from form submissions ──
+(function() {
+  var wall = document.getElementById('dynamicSignatories');
+  var countEl = document.getElementById('sigCount');
+  
+  if (!wall) return;
+
+  // Load real signatories from the API
+  fetch('https://sue-45c3e283.base44.app/functions/e5fpMcp', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      tool: 'e5fp_list',
+      arguments: { formName: 'KarmeloSupporter', limit: 50 }
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var records = [];
+    // Handle both direct array and nested response
+    if (Array.isArray(data)) records = data;
+    else if (data.records) records = data.records;
+    else if (data.result && data.result.records) records = data.result.records;
+
+    // Filter to only those who signed the manifesto
+    var signatories = records.filter(function(r) {
+      return r.sign_manifesto === 'true' || r.sign_manifesto === true;
+    });
+
+    var count = signatories.length + 1; // +1 for Israel
+    if (countEl) countEl.textContent = count + ' signator' + (count === 1 ? 'y' : 'ies') + ' and counting.';
+
+    signatories.forEach(function(rec) {
+      var firstName = (rec.first_name || '').trim();
+      var lastInitial = (rec.last_name || '').trim().charAt(0).toUpperCase();
+      var city = rec.city || '';
+      var state = rec.state || '';
+      var loc = [city, state].filter(Boolean).join(', ');
+
+      if (!firstName) return;
+
+      var div = document.createElement('div');
+      div.className = 'sig-item';
+      div.innerHTML = '<span class="sig-name">' + firstName + ' ' + lastInitial + '.</span>' +
+        (loc ? '<span class="sig-loc">' + loc + '</span>' : '');
+      wall.appendChild(div);
+    });
+  })
+  .catch(function() {
+    if (countEl) countEl.textContent = '1 signatory and counting.';
+  });
+})();
+
+// ── UPDATE success message to reflect manifesto signing ──
+(function() {
+  var form = document.getElementById('supportForm');
+  if (!form) return;
+  form.addEventListener('submit', function() {
+    var signed = document.getElementById('signManifesto');
+    var successMsg = document.querySelector('.success-state p');
+    if (signed && signed.value === 'true' && successMsg) {
+      successMsg.textContent = 'Thank you. Your name has been added to the record and to the public signatory wall. We will be in touch with updates before June 1.';
+    }
+  });
+})();
 </script>
 </body>
 </html>
