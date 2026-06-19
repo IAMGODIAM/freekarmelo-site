@@ -1144,6 +1144,7 @@ textarea.f-input { resize: vertical; min-height: 78px; }
 
 <!-- LIVING LETTER WALL (moved above the fold) -->
 <section class="letterwall" id="letters">
+  <canvas id="netFx" aria-hidden="true"></canvas>
   <style>
     .letterwall{padding:72px 24px;background:linear-gradient(180deg,#060410,#0c0820);border-top:1px solid var(--border);}
     .lw-inner{max-width:1100px;margin:0 auto;}
@@ -1172,6 +1173,16 @@ textarea.f-input { resize: vertical; min-height: 78px; }
     .lw-msg.ok{display:block;background:rgba(155,89,182,0.12);color:var(--purple-light);}
     .lw-msg.err{display:block;background:rgba(180,60,60,0.12);color:#e89aa0;}
     /* masonry wall */
+        /* ===== CONSTELLATION OF VOICES (Hero A · .net) ===== */
+    .letterwall{position:relative;overflow:hidden;}
+    #netFx{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5;}
+    .lw-inner{position:relative;z-index:1;}
+    .lw-card{background:linear-gradient(165deg,rgba(20,16,40,.78),rgba(10,7,22,.6))!important;backdrop-filter:blur(6px);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s,border-color .5s,opacity .7s;opacity:0;transform:translateY(20px);}
+    .lw-card.in{opacity:1;transform:translateY(0);}
+    .lw-card:hover{transform:translateY(-4px);border-color:var(--purple)!important;box-shadow:0 14px 40px rgba(0,0,0,.5),0 0 0 1px var(--purple-glow),0 0 28px var(--purple-glow);}
+    .lw-counter b{color:var(--purple-light);}
+    @media(prefers-reduced-motion:reduce){#netFx{display:none;}.lw-card{opacity:1;transform:none;transition:none;}}
+
     .lw-wall{column-count:3;column-gap:18px;}
     @media(max-width:880px){.lw-wall{column-count:2;}}
     @media(max-width:560px){.lw-wall{column-count:1;}.lw-title{font-size:30px;}}
@@ -2182,6 +2193,30 @@ function loadSignatories() {
 }
 document.addEventListener('DOMContentLoaded', loadSignatories);
 
+</script>
+
+
+<script>
+/* Constellation reveal + purple canvas for .net wall (additive, degrades) */
+(function(){
+  // scroll-reveal on wall cards (re-applies as pagination adds more)
+  function wireReveal(){
+    if(!('IntersectionObserver' in window)) return;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.lw-card:not(.in)').forEach(function(c,i){c.style.transitionDelay=(Math.min(i,12)*40)+'ms';io.observe(c);});
+  }
+  var wall=document.getElementById('lwWall');
+  if(wall){ var mo=new MutationObserver(function(){wireReveal();}); mo.observe(wall,{childList:true}); setTimeout(wireReveal,400); }
+  // purple constellation
+  var c=document.getElementById('netFx'); if(!c||!c.getContext)return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var x=c.getContext('2d'),W,H,P=[],raf;
+  function sz(){var r=c.parentElement.getBoundingClientRect();W=c.width=r.width;H=c.height=Math.max(r.height,1);}
+  function ini(){P=[];var n=Math.min(70,Math.floor(W/24));for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.6+.5});}
+  function dr(){x.clearRect(0,0,W,H);for(var i=0;i<P.length;i++){var p=P[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fillStyle='rgba(195,155,211,.6)';x.fill();for(var j=i+1;j<P.length;j++){var q=P[j],dx=p.x-q.x,dy=p.y-q.y,d=dx*dx+dy*dy;if(d<13000){x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.strokeStyle='rgba(155,89,182,'+(.12*(1-d/13000))+')';x.lineWidth=.6;x.stroke();}}}raf=requestAnimationFrame(dr);}
+  function go(){sz();ini();cancelAnimationFrame(raf);dr();}go();
+  var to;window.addEventListener('resize',function(){clearTimeout(to);to=setTimeout(go,200);});
+})();
 </script>
 
 </body>
