@@ -1182,6 +1182,7 @@ textarea.f-input { resize: vertical; min-height: 78px; }
       <a class="nav-tab" href="#letters" style="text-decoration:none;display:flex" onclick="document.getElementById('letters').scrollIntoView({behavior:'smooth'})">💜 Stand With Him</a>
       <a class="nav-tab" href="/statement" style="text-decoration:none;display:flex">The Statement</a>
       <a class="nav-tab" href="/signs" style="text-decoration:none;display:flex">Signs &amp; Flyers</a>
+      <a class="nav-tab" href="/bar-complaint" style="text-decoration:none;display:flex;color:var(--purple-light);font-weight:600">⚖️ File a Complaint</a>
       <a class="nav-tab" href="/mediakit" style="text-decoration:none;display:flex">💜 Media Kit</a>
     </div>
 <button class="nav-cta-btn" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth',block:'start'})">Sign Up →</button>
@@ -1546,6 +1547,23 @@ textarea.f-input { resize: vertical; min-height: 78px; }
 </section>
 <script>
 (function(){var b=document.getElementById('statement-band');if(!b)return;
+if(!('IntersectionObserver'in window)){b.classList.add('in');return;}
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:0.2});
+io.observe(b);})();
+</script>
+
+<!-- BAR COMPLAINT CTA BAND -->
+<section class="stmt-band" id="bar-complaint-band" style="border-top:2px solid var(--purple);border-bottom:2px solid var(--purple);">
+  <div class="inner" style="text-align:center;">
+    <div class="badge"><span class="d"></span> Take Action · Texas State Bar</div>
+    <h2 style="font-size:22px;margin:12px 0 8px;">Prosecutors Let False Evidence Stand.<br><span class="accent">Hold Them Accountable.</span></h2>
+    <p class="src" style="max-width:560px;margin:0 auto 16px;font-size:13px;">Eddie Parra — a Memorial High School student — called Karmelo Anthony to the tent. The prosecution knew this. They told the jury he was an unauthorized intruder. <strong>File a grievance with the Texas State Bar.</strong></p>
+    <a class="cta" href="/bar-complaint" style="background:var(--purple);color:#fff;border:none;padding:12px 28px;border-radius:6px;font-size:13px;font-weight:700;display:inline-block;margin:4px;">File a Complaint →</a>
+    <a class="cta" href="https://sbotservices.texasbar.com/" target="_blank" rel="noopener" style="background:transparent;color:var(--purple-light);border:1px solid var(--purple);padding:12px 28px;border-radius:6px;font-size:13px;font-weight:700;display:inline-block;margin:4px;">Go to State Bar Portal →</a>
+  </div>
+</section>
+<script>
+(function(){var b=document.getElementById('bar-complaint-band');if(!b)return;
 if(!('IntersectionObserver'in window)){b.classList.add('in');return;}
 var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:0.2});
 io.observe(b);})();

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Texas State Bar Complaint — Free Karmelo Anthony</title>
+<meta name="description" content="File a grievance with the Texas State Bar against Collin County prosecutors who allowed false evidence to stand in the Karmelo Anthony case. The Eddie Parra evidence proves Anthony was invited to the tent.">
+<link rel="canonical" href="https://freekarmelo.net/bar-complaint">
+<meta property="og:title" content="Texas State Bar Complaint — Free Karmelo Anthony">
+<meta property="og:description" content="Prosecutors knew Anthony was invited to the tent. They let the jury believe a lie. File a grievance.">
+<meta property="og:url" content="https://freekarmelo.net/bar-complaint">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#060410; --bg-1:#0d0a1e; --bg-2:#141028; --bg-evidence:#08070c;
+  --fg:#f0eefc; --fg-dim:#9d98c0; --fg-dimmer:#5a5478;
+  --border:#1a1630; --border-2:#252040; --border-3:#342e58;
+  --purple:#9b59b6; --purple-2:#7d3c98; --purple-light:#c39bd3;
+  --purple-glow:rgba(155,89,182,0.13); --purple-soft:rgba(155,89,182,0.06);
+  --gold:#c9a84c; --gold-light:#d4b96a;
+  --signal:#ff4d4d; --signal-soft:rgba(255,77,77,0.08);
+  --green:#2ecc71;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  --mono:ui-monospace,'SF Mono','Menlo',monospace;
+  --serif:Georgia,'Times New Roman',serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--purple);color:#fff}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:50}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:52px}
+nav .brand{font-family:var(--serif);font-size:15px;color:var(--fg);font-weight:700}
+nav .brand b{color:var(--purple-light)}
+nav .links{display:flex;align-items:center;gap:20px}
+nav .links a{font-size:12px;color:var(--fg-dim);transition:color .2s}
+nav .links a:hover{color:var(--purple-light)}
+nav .cta{font-size:12px;color:var(--purple-light)!important;border:1px solid var(--purple-3);padding:6px 14px;border-radius:4px;transition:all .2s}
+nav .cta:hover{background:var(--purple-glow)}
+
+/* HERO */
+.hero{padding:48px 0 36px;text-align:center;border-bottom:1px solid var(--border)}
+.hero .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-dimmer);margin-bottom:14px}
+.hero h1{font-family:var(--serif);font-size:28px;line-height:1.25;color:var(--fg);margin-bottom:10px}
+.hero h1 em{color:var(--purple-light);font-style:normal}
+.hero .sub{font-size:14px;color:var(--fg-dim);max-width:560px;margin:0 auto;line-height:1.5}
+
+/* SECTIONS */
+.section{padding:36px 0;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+.section-title{font-family:var(--serif);font-size:18px;color:var(--fg);margin-bottom:16px;line-height:1.3}
+.section-title .num{color:var(--purple-light);font-family:var(--mono);font-size:11px;margin-right:8px}
+p{margin-bottom:14px;font-size:13.5px;color:var(--fg-dim);line-height:1.65}
+p strong{color:var(--fg);font-weight:600}
+p .gold{color:var(--gold);font-weight:600}
+
+/* HIGHLIGHT BOX */
+.hl-box{background:var(--bg-1);border:1px solid var(--border-2);border-left:4px solid var(--purple);padding:18px 22px;margin:20px 0;border-radius:0 6px 6px 0}
+.hl-box p:last-child{margin-bottom:0}
+.hl-box .hl-title{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-light);margin-bottom:10px}
+
+/* EVIDENCE ITEM */
+.evi{background:var(--bg-evidence);border:1px solid var(--border);padding:16px 18px;margin:14px 0;border-radius:6px}
+.evi .evi-label{font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.evi p{font-size:12.5px;margin-bottom:0}
+
+/* STATUTE BOX */
+.statute{background:var(--bg-2);border:1px solid var(--border-2);border-left:4px solid var(--gold);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+.statute .cite{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.statute p{font-size:12.5px;font-family:var(--serif);line-height:1.6;color:var(--fg);margin-bottom:0}
+
+/* ACTION STEPS */
+.steps{background:var(--bg-1);border:1px solid var(--border-2);padding:20px 24px;margin:18px 0;border-radius:6px}
+.steps ol{padding-left:20px}
+.steps li{font-size:13px;color:var(--fg-dim);margin-bottom:10px;line-height:1.55}
+.steps li strong{color:var(--fg)}
+
+/* LETTER TEMPLATE */
+.letter{background:#fff;color:#1a1a2e;padding:28px 32px;margin:20px 0;border-radius:6px;font-family:var(--serif);font-size:12px;line-height:1.6}
+.letter .date{text-align:right;margin-bottom:18px;color:#555}
+.letter .addr{margin-bottom:18px;color:#444}
+.letter .body-text{margin:14px 0;text-align:justify}
+.letter .close{margin-top:20px}
+.letter strong{color:#1a1a2e}
+
+/* CTA */
+.cta-box{text-align:center;padding:32px 0}
+.cta-box .btn{display:inline-block;padding:14px 32px;border-radius:6px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;transition:all .2s;margin:6px}
+.cta-box .btn-purple{background:var(--purple);color:#fff}
+.cta-box .btn-purple:hover{background:var(--purple-2)}
+.cta-box .btn-outline{background:transparent;border:2px solid var(--purple);color:var(--purple-light)}
+.cta-box .btn-outline:hover{background:var(--purple-glow)}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:12px}
+.tbl th{text-align:left;padding:10px 12px;border-bottom:2px solid var(--border-2);font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-light)}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--fg-dim);vertical-align:top;line-height:1.5}
+.tbl td:first-child{color:var(--fg);font-weight:600;width:25%}
+.tbl td:nth-child(2){color:var(--signal);width:35%}
+.tbl td:nth-child(3){color:var(--green);width:40%}
+
+/* CALLOUT */
+.callout{background:var(--bg-1);border:1px solid var(--purple-3);padding:24px 28px;margin:24px 0;text-align:center;border-radius:6px}
+.callout p{font-size:14px;color:var(--fg);line-height:1.7;margin-bottom:0}
+.callout .big{font-size:16px;color:var(--purple-light);font-weight:700}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:24px 0;text-align:center}
+footer p{font-family:var(--mono);font-size:9px;color:var(--fg-dimmer);letter-spacing:.06em;line-height:1.8}
+
+@media(max-width:640px){
+  .hero h1{font-size:22px}
+  .tbl{font-size:11px}
+  .tbl td:first-child,.tbl td:nth-child(2),.tbl td:nth-child(3){display:block;width:100%;padding:4px 12px}
+  .tbl td:first-child{padding-top:10px}
+  .tbl td:last-child{padding-bottom:10px;border-bottom:1px solid var(--border-2)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="/" class="brand">Free <b>Karmelo</b></a>
+    <div class="links">
+      <a href="/#whoheis">Who He Is</a>
+      <a href="/#whathappened">What Happened</a>
+      <a href="/#thelaw">The Law</a>
+      <a href="/updates">Updates</a>
+      <a href="/statement">Statement</a>
+    </div>
+    <a href="https://sbotservices.texasbar.com/" class="cta" target="_blank" rel="noopener">File Grievance →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Texas State Bar · Formal Grievance · Prosecutor Misconduct</div>
+    <h1>They Let the Jury Believe <em>a Lie</em></h1>
+    <p class="sub">Prosecutors in the Karmelo Anthony case possessed evidence that Anthony was <strong>invited</strong> to the tent by a Memorial High School student. They presented him as an unauthorized intruder. A child is serving 35 years.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="hl-box">
+  <div class="hl-title">The Core Issue</div>
+  <p>Prosecutors in the Karmelo Anthony case allowed <strong>false evidence to stand</strong> before the jury. They presented Anthony as an <strong>unauthorized intruder</strong> who entered a tent uninvited — while possessing evidence that <strong>Eddie Parra, a Memorial High School student, had called Anthony to the tent</strong> and the two had a friendly interaction for five minutes before the confrontation.</p>
+  <p>Anthony was <strong>invited</strong>. He knew someone there. The prosecution knew this. And they let the jury believe a lie.</p>
+  <p style="margin-bottom:0">A 17-year-old child is now serving <strong>35 years in prison</strong>.</p>
+</div>
+
+<!-- WHAT YOU CAN DO -->
+<div class="section">
+  <h2 class="section-title">What You Can Do</h2>
+  
+  <div class="steps">
+    <p style="font-size:13px;color:var(--fg);margin-bottom:12px;font-weight:600">Step 1: File a Grievance with the Texas State Bar</p>
+    <ol>
+      <li>Go to <strong>https://sbotservices.texasbar.com/</strong></li>
+      <li>Click <strong>"File a Grievance"</strong></li>
+      <li>Select <strong>"Attorney Misconduct"</strong> as the grievance type</li>
+      <li>Reference: <strong>State of Texas v. Karmelo Sincere Anthony</strong>, 296th District Court, Collin County, Texas</li>
+      <li>Allege violations of <strong>Rule 3.03(a)</strong> (Candor Toward the Tribunal) and <strong>Rule 8.04(a)</strong> (Misconduct)</li>
+      <li><strong>Mail or fax supporting documentation within 10 days</strong> or the grievance will not be considered</li>
+    </ol>
+  </div>
+
+  <div class="steps">
+    <p style="font-size:13px;color:var(--fg);margin-bottom:12px;font-weight:600">Step 2: Send a Letter to the Chief Disciplinary Counsel</p>
+    <p style="font-size:12.5px;color:var(--fg-dim);margin-bottom:10px">Mail to: Office of Chief Disciplinary Counsel, State Bar of Texas, P.O. Box 12487, Austin, TX 78711-2487. Fax: (512) 427-4167.</p>
+    <p style="font-size:12.5px;color:var(--fg-dim)">Use the template below. Personalize it. Every letter matters.</p>
+  </div>
+</div>
+
+<!-- LETTER TEMPLATE -->
+<div class="section">
+  <h2 class="section-title">Letter Template</h2>
+  <p>Copy, personalize, and mail or fax to the State Bar. The letter below is a starting point — add your own voice.</p>
+  
+  <div class="letter">
+    <div class="date">[DATE]</div>
+    <div class="addr">
+      Office of Chief Disciplinary Counsel<br>
+      State Bar of Texas<br>
+      P.O. Box 12487<br>
+      Austin, TX 78711-2487
+    </div>
+    <p><strong>RE: Formal Grievance — Professional Misconduct of Collin County Prosecutors in <em>State of Texas v. Karmelo Sincere Anthony</em>, 296th District Court, Collin County, Texas</strong></p>
+    <p>Dear Chief Disciplinary Counsel:</p>
+    <p class="body-text">[PERSONAL OPENING — Who you are, why you care]</p>
+    <p class="body-text">I am writing to file a formal grievance against the prosecutors in the Collin County District Attorney's Office, specifically District Attorney Bill Wirskye and the prosecution team in the case of <em>State of Texas v. Karmelo Sincere Anthony</em>.</p>
+    <p class="body-text">I allege that the prosecution violated <strong>RULE 3.03(a)</strong> of the Texas Disciplinary Rules of Professional Conduct — the duty of candor toward the tribunal — by allowing false and misleading evidence to stand before the jury.</p>
+    <p class="body-text">The prosecution presented Karmelo Anthony as an <strong>unauthorized intruder</strong> who entered the Memorial High School tent uninvited. This narrative was central to the prosecution's theory that Anthony was the aggressor.</p>
+    <p class="body-text"><strong>This narrative was false, and the prosecution knew or should have known it was false.</strong> Trial testimony from June 2026 and the Frisco Police Arrest Report from April 2, 2025 both establish that <strong>Eddie Parra, a Memorial High School student, called Karmelo Anthony over to the Memorial tent</strong>, and the two had a friendly interaction for approximately five minutes before the confrontation began.</p>
+    <p class="body-text">By presenting the "unauthorized intruder" theory while possessing evidence that Anthony was <strong>invited</strong> to the tent, the prosecution violated its duty of candor. This goes directly to Anthony's self-defense claim under Texas Penal Code §9.32(b).</p>
+    <p class="body-text">I also note: <strong>(1) Batson violations</strong> — the prosecution struck three Black female jurors while retaining a similarly situated white female juror, resulting in a jury with <strong>zero Black jurors</strong>. <strong>(2) Disproportionate charging</strong> — Anthony was 17, with no prior record, a 3.7+ GPA, and two part-time jobs. He was charged with murder, not manslaughter.</p>
+    <p class="body-text">[PERSONAL CLOSING — Why this matters]</p>
+    <p class="body-text">A child is serving 35 years in prison. The integrity of our legal system demands accountability when prosecutors allow false evidence to stand.</p>
+    <div class="close">
+      Respectfully,<br><br>
+      [YOUR FULL NAME]<br>
+      [YOUR ADDRESS]<br>
+      [CITY, STATE, ZIP]<br>
+      [EMAIL]<br>
+      [PHONE]
+    </div>
+  </div>
+</div>
+
+<!-- THE EVIDENCE -->
+<div class="section">
+  <h2 class="section-title">The Evidence at a Glance</h2>
+  <table class="tbl">
+    <tr>
+      <th>Fact</th>
+      <th>Prosecution Claim</th>
+      <th>Actual Evidence</th>
+    </tr>
+    <tr>
+      <td>How Anthony got to the tent</td>
+      <td>Unauthorized intruder</td>
+      <td><strong>Eddie Parra, a Memorial student, called Anthony over</strong></td>
+    </tr>
+    <tr>
+      <td>Anthony's relationship to people at the tent</td>
+      <td>Stranger — no prior contact</td>
+      <td><strong>Knew Eddie Parra; had a 5-minute friendly interaction</strong></td>
+    </tr>
+    <tr>
+      <td>Who initiated the confrontation</td>
+      <td>Anthony was the aggressor</td>
+      <td><strong>Hunter Metcalf approached Anthony and told him to leave</strong></td>
+    </tr>
+    <tr>
+      <td>Physical contact</td>
+      <td>Anthony provoked Metcalf</td>
+      <td><strong>Austin Metcalf (50-60 lbs heavier) grabbed/pushed Anthony first</strong></td>
+    </tr>
+    <tr>
+      <td>Jury composition</td>
+      <td>Fair selection</td>
+      <td><strong>Zero Black jurors after prosecution struck 3 Black women</strong></td>
+    </tr>
+  </table>
+</div>
+
+<!-- LEGAL ANALYSIS -->
+<div class="section">
+  <h2 class="section-title"><span class="num">I.</span> Count One — Rule 3.03(a): Candor Toward the Tribunal</h2>
+  
+  <div class="statute">
+    <div class="cite">Texas Disciplinary Rules of Professional Conduct — Rule 3.03(a)</div>
+    <p>"A lawyer shall not knowingly make a false statement of fact or law to a tribunal or fail to correct a false statement of material fact or law previously made to the tribunal by the lawyer."</p>
+  </div>
+
+  <p>Throughout the trial, the prosecution presented the theory that Karmelo Anthony was an <strong>unauthorized intruder</strong> who entered the Memorial High School tent uninvited. This narrative was central to the prosecution's argument that Anthony was the aggressor.</p>
+  <p><strong>This narrative was false, and the prosecution knew or should have known it was false.</strong></p>
+
+  <div class="evi">
+    <div class="evi-label">Evidence Item 1 — Trial Testimony</div>
+    <p>Witness testimony at trial established that <strong>Eddie Parra, a Memorial High School student, called Karmelo Anthony over to the Memorial tent</strong>. Parra and Anthony had a friendly interaction for approximately five minutes before Hunter Metcalf intervened.</p>
+  </div>
+
+  <div class="evi">
+    <div class="evi-label">Evidence Item 2 — Police Arrest Report</div>
+    <p>The Frisco Police Arrest Report documented the Eddie Parra interaction. This report was in the prosecution's possession from the date of arrest (April 2, 2025) and was subject to discovery obligations under <em>Brady v. Maryland</em>.</p>
+  </div>
+
+  <div class="evi">
+    <div class="evi-label">Evidence Item 3 — Prosecution's Contradictory Narrative</div>
+    <p>DA Bill Wirskye's opening statement characterized the killing as a "provoked unjustified murder." The prosecution's theory required the jury to believe Anthony was a stranger who forced his way into the tent. The Eddie Parra evidence directly contradicts this.</p>
+  </div>
+
+  <p>The materiality of this evidence is beyond dispute: whether Anthony was invited or trespassing goes directly to (a) his right to be present under Texas Penal Code §9.32(b), (b) whether he was the aggressor, and (c) whether the Metcalfs' physical response was unlawful force triggering Anthony's right to self-defense.</p>
+</div>
+
+<div class="section">
+  <h2 class="section-title"><span class="num">II.</span> Count Two — Rule 8.04(a): Misconduct</h2>
+  
+  <div class="statute">
+    <div class="cite">Texas Disciplinary Rules of Professional Conduct — Rule 8.04(a)</div>
+    <p>"A lawyer shall not... engage in conduct involving dishonesty, fraud, deceit or misrepresentation."</p>
+  </div>
+
+  <p>If the prosecution knowingly suppressed the Eddie Parra evidence or deliberately allowed the false "unauthorized intruder" narrative to stand despite possessing contradictory evidence, such conduct constitutes dishonesty and misrepresentation in violation of Rule 8.04(a).</p>
+</div>
+
+<div class="section">
+  <h2 class="section-title"><span class="num">III.</span> Additional Concerns</h2>
+  
+  <div class="evi">
+    <div class="evi-label">Batson Violations in Jury Selection</div>
+    <p>The prosecution used peremptory strikes to remove <strong>three Black female jurors</strong> while retaining a similarly situated white female juror. The defense raised a <em>Batson</em> challenge. Judge John Roach Jr. accepted the prosecution's race-neutral explanation (they were teachers). The resulting jury had <strong>zero Black jurors</strong>.</p>
+  </div>
+
+  <div class="evi">
+    <div class="evi-label">Disproportionate Charging</div>
+    <p>Anthony was 17 years old, with no prior criminal record, a 3.7+ GPA, and two part-time jobs. He was charged with murder rather than manslaughter, despite evidence that he was invited to the location, was confronted by two larger individuals, and responded to physical contact initiated by the victim.</p>
+  </div>
+
+  <div class="evi">
+    <div class="evi-label">Size Disparity and Party Liability</div>
+    <p>Trial testimony established that Austin Metcalf was <strong>50–60 pounds heavier</strong> than Anthony. Both Austin and his twin brother Hunter were active participants in the confrontation. Under Texas Penal Code §7.02(a)(2), both twins could have been considered parties to any assault.</p>
+  </div>
+</div>
+
+<div class="callout">
+  <p>Karmelo Anthony was <strong>invited</strong> to that tent by a Memorial High School student.<br>
+  He was not a trespasser. He was not an intruder. He knew someone there.<br>
+  The prosecution knew this. The police report documented this.<br>
+  And they let the jury believe a lie.</p>
+  <p class="big" style="margin-top:14px;">A child is serving 35 years because prosecutors allowed false evidence to stand.</p>
+</div>
+
+<div class="cta-box">
+  <a href="https://sbotservices.texasbar.com/" class="btn btn-purple" target="_blank" rel="noopener">File a Grievance Now →</a>
+  <a href="/" class="btn btn-outline">← Back to Free Karmelo</a>
+  <p style="font-size:11px;color:var(--fg-dimmer);margin-top:14px;">Every person who files a grievance increases the pressure.<br>The State Bar is required to investigate formal complaints. Volume matters.</p>
+</div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>FREE KARMELO JUSTICE COALITION · E5 ENCLAVE INCORPORATED</p>
+    <p>freekarmelo.net · e5enclave.com/justice/karmelo-anthony</p>
+    <p style="margin-top:8px">This page is an advocacy document. It is not legal advice.</p>
+  </div>
+</footer>
+
+</body>
+</html>
