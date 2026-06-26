@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>His Medicine — Karmelo Anthony Advocacy</title>
+<style>
+:root {
+  --color-bg-primary: #111118;
+  --color-bg-secondary: #1a1a20;
+  --color-bg-elevated: #22222a;
+  --color-gold: #c9a84c;
+  --color-gold-light: #d4b96a;
+  --color-gold-dark: #a88a3c;
+  --color-gold-muted: rgba(201,168,76,0.15);
+  --color-text-primary: #f0f0f2;
+  --color-text-secondary: #a0a0a8;
+  --color-text-muted: #6a6a72;
+  --color-text-gold: #c9a84c;
+  --color-border-subtle: rgba(255,255,255,0.05);
+  --color-border-default: rgba(255,255,255,0.08);
+  --color-border-elevated: rgba(255,255,255,0.12);
+  --color-border-gold: rgba(201,168,76,0.3);
+  --color-error: #f44336;
+  --color-warning: #ff9800;
+  --color-success: #4caf50;
+  --font-display: 'Georgia', 'Times New Roman', serif;
+  --font-body: 'Inter Variable', -apple-system, sans-serif;
+  --font-mono: 'Berkeley Mono', 'SF Mono', ui-monospace;
+  --bento-gap: 16px;
+  --bento-radius: 16px;
+  --bento-padding: 24px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--color-gold); text-decoration: none; }
+a:hover { color: var(--color-gold-light); }
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+.nav-bar {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-bar .logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--color-gold);
+}
+.nav-bar .nav-links {
+  display: flex;
+  gap: 24px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.nav-bar .nav-links a { color: var(--color-text-secondary); }
+.nav-bar .nav-links a:hover { color: var(--color-gold); }
+.nav-bar .nav-links a.active { color: var(--color-gold); border-bottom: 2px solid var(--color-gold); padding-bottom: 4px; }
+
+/* Hero */
+.hero {
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero .tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  background: var(--color-gold-muted);
+  padding: 6px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 0.92;
+  letter-spacing: -1.5px;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+}
+.hero h1 .gold { color: var(--color-gold); }
+.hero .subtitle {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+.hero .cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: var(--color-gold);
+  color: var(--color-bg-primary);
+}
+.btn-primary:hover { background: var(--color-gold-light); color: var(--color-bg-primary); }
+.btn-secondary {
+  background: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-border-gold);
+}
+.btn-secondary:hover { background: var(--color-gold-muted); }
+
+/* Section */
+.section { padding: 60px 0; border-top: 1px solid var(--color-border-subtle); }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-gold);
+  background: var(--color-gold-muted);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1.0;
+  letter-spacing: -0.4px;
+}
+
+/* Alert Banner */
+.alert-banner {
+  background: rgba(244,67,54,0.1);
+  border: 1px solid rgba(244,67,54,0.3);
+  border-radius: var(--bento-radius);
+  padding: 20px 24px;
+  margin: 24px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.alert-banner .alert-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+.alert-banner .alert-text {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+.alert-banner .alert-text strong { color: var(--color-error); }
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--bento-gap);
+}
+.bento-cell {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--bento-radius);
+  padding: var(--bento-padding);
+  transition: border-color 0.2s;
+}
+.bento-cell:hover { border-color: var(--color-border-gold); }
+.bento-cell.gold { background: var(--color-gold-muted); border-color: var(--color-border-gold); }
+.bento-cell.gold-strong { background: rgba(201,168,76,0.2); border-color: var(--color-gold); }
+.bento-cell.hero-cell { grid-column: span 2; }
+.bento-cell .label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+.bento-cell .value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.0;
+  color: var(--color-text-primary);
+}
+.bento-cell .value.gold { color: var(--color-gold); }
+.bento-cell .desc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.bento-cell .desc strong { color: var(--color-text-primary); }
+
+/* Quote */
+.quote-block {
+  border-left: 3px solid var(--color-gold);
+  padding: 16px 24px;
+  margin: 24px 0;
+  background: var(--color-bg-secondary);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.quote-block .attribution {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 12px;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  margin: 24px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border-gold);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 32px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 2px solid var(--color-bg-primary);
+}
+.timeline-item .tl-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.timeline-item .tl-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+.timeline-item .tl-desc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+/* Legal Card */
+.legal-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--bento-radius);
+  padding: 24px;
+  margin: 16px 0;
+}
+.legal-card h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+.legal-card .statute {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+.legal-card p { font-size: 14px; color: var(--color-text-secondary); }
+
+/* Action Block */
+.action-block {
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-gold);
+  border-radius: var(--bento-radius);
+  padding: 32px;
+  margin: 32px 0;
+}
+.action-block h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+}
+.action-block p { color: var(--color-text-secondary); margin-bottom: 12px; }
+.action-block ol { margin: 16px 0; padding-left: 24px; }
+.action-block li {
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.action-block li strong { color: var(--color-text-primary); }
+
+/* Petition */
+.petition-section {
+  background: var(--color-gold-muted);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--bento-radius);
+  padding: 32px;
+  margin: 32px 0;
+  text-align: center;
+}
+.petition-section h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+.petition-section .petition-count {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: var(--color-text-primary);
+  margin: 16px 0;
+}
+.petition-section p { color: var(--color-text-secondary); margin-bottom: 20px; }
+
+/* Footer */
+.footer {
+  padding: 60px 0;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.footer .gold { color: var(--color-gold); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-cell.hero-cell { grid-column: span 2; }
+}
+@media (max-width: 768px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-cell.hero-cell { grid-column: span 1; }
+  .hero h1 { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <a href="/" class="logo" style="text-decoration:none;color:inherit;">← FREEKARMELO.NET</a>
+  <div class="nav-links">
+    <a href="#his-story">His Story</a>
+    <a href="#his-medicine" class="active">His Medicine</a>
+    <a href="#the-law">The Law</a>
+    <a href="#take-action">Take Action</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="his-medicine">
+  <div class="tag">Advocacy Campaign</div>
+  <h1>His Medicine.<br><span class="gold">They Have It.</span></h1>
+  <p class="subtitle">TDCJ has a $1.3 billion healthcare contract. It has the medication. It has the legal obligation. Every time Karmelo Anthony is transferred, his family is forced to drive across Texas with life-saving epilepsy medication — because the prison won't.</p>
+  <div class="cta-row">
+    <a href="#take-action" class="btn btn-primary">Take Action Now</a>
+    <a href="#the-law" class="btn btn-secondary">See the Legal Case</a>
+  </div>
+</div>
+
+<!-- ALERT -->
+<div class="alert-banner">
+  <div class="alert-icon">⚠</div>
+  <div class="alert-text">
+    <strong>Medical Emergency Risk:</strong> Karmelo Anthony has epilepsy. Missing even one dose of his anti-seizure medication can trigger <strong>status epilepticus</strong> — a life-threatening seizure that can cause brain damage or death. Every transfer without medication continuity is a potential death sentence.
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<div class="section" id="his-story">
+  <div class="section-header">
+    <div class="section-number">§01</div>
+    <h2>The Problem</h2>
+  </div>
+
+  <div class="bento-grid">
+    <div class="bento-cell hero-cell">
+      <div class="label">What's Happening</div>
+      <div class="value" style="font-size:22px;">Family Forced to Deliver</div>
+      <div class="desc">Every time Karmelo is transferred between TDCJ facilities, his parents must drop everything and <strong>personally drive his epilepsy medication</strong> to the new lockup. This has happened multiple times since his incarceration began June 10, 2026.</div>
+    </div>
+    <div class="bento-cell gold-strong">
+      <div class="label">The Quote</div>
+      <div class="value" style="font-size:18px;">"Every time he's transferred, you have to get the medication to the new facility"</div>
+      <div class="desc">— Meghan Metcalf, Karmelo's mother, as reported June 2026</div>
+    </div>
+    <div class="bento-cell">
+      <div class="label">The Human Cost</div>
+      <div class="value" style="color:var(--color-error);">DANGER</div>
+      <div class="desc">Uncontrolled epilepsy can result in <strong>SUDEP</strong> (Sudden Unexpected Death in Epilepsy). The stress of transfers + medication gaps compounds the risk exponentially.</div>
+    </div>
+    <div class="bento-cell">
+      <div class="label">The System</div>
+      <div class="value gold">TDCJ</div>
+      <div class="desc">Texas Department of Criminal Justice has <strong>written policies</strong> requiring medication continuity during transfers. They are not following them.</div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    "His family has been tasked with delivering the meds to different lockups during his prison transfers. Every time he's transferred, you have to get the medication to the new facility, so the last time he was transferred out of his last facility..."
+    <div class="attribution">— Meghan Metcalf (mother), NY Post / Yahoo / Daily Mail, June 24-25, 2026</div>
+  </div>
+</div>
+
+<!-- THE SYSTEM IS FAILING -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">§02</div>
+    <h2>How the System Fails</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-date">Step 1 — Transfer Initiated</div>
+      <div class="tl-title">TDCJ decides to move Karmelo to a new facility</div>
+      <div class="tl-desc">No coordination with medical department. No verification that current medication orders will travel with the inmate.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Step 2 — Sending Facility</div>
+      <div class="tl-title">KOP medications left behind</div>
+      <div class="tl-desc">TDCJ policy E-32.01 <strong>requires</strong> sending facility to transfer all issued KOP medications with current orders. In practice, this does not happen. Medication stays at the old facility or is discarded.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Step 3 — Transit</div>
+      <div class="tl-title">Karmelo is without medication during transport</div>
+      <div class="tl-desc">Hours or days in transit with no anti-seizure medication. His brain is in a state of withdrawal. Risk of seizure increases with every hour.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Step 4 — Receiving Facility</div>
+      <div class="tl-title">24-hour screening misses the gap</div>
+      <div class="tl-desc">TDCJ policy requires nursing staff to review health records within 24 hours of arrival. But if the sending facility didn't document the transfer, the receiving facility doesn't know what's missing.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Step 5 — Family Called</div>
+      <div class="tl-title">Parents get the call: "Bring his meds"</div>
+      <div class="tl-desc">The family drives across Texas — sometimes hours — to deliver life-saving medication to a state prison. They should never have to do this. The state is legally obligated to provide it.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Step 6 — Repeat</div>
+      <div class="tl-title">Every. Single. Transfer.</div>
+      <div class="tl-desc">This is not a one-time failure. It is a <strong>systemic, repeating failure</strong> that will continue for the duration of Karmelo's 35-year sentence unless forced to stop.</div>
+    </div>
+  </div>
+</div>
+
+<!-- THE LAW -->
+<div class="section" id="the-law">
+  <div class="section-header">
+    <div class="section-number">§03</div>
+    <h2>The Law</h2>
+  </div>
+
+  <div class="legal-card">
+    <div class="statute">U.S. Constitution — Eighth Amendment</div>
+    <h4>Cruel and Unusual Punishment</h4>
+    <p>"Deliberate indifference by prison personnel to a prisoner's serious illness or injury constitutes cruel and unusual punishment contravening the Eighth Amendment." — <strong>Estelle v. Gamble</strong>, 429 U.S. 97 (1976)</p>
+  </div>
+
+  <div class="legal-card">
+    <div class="statute">TDCJ CMHC Policy E-32.01</div>
+    <h4>Transfer &amp; Continuity of Care — The Prison's Own Rule</h4>
+    <p><strong>Sending facility:</strong> "Inmates should be transferred with any issued KOP medications with a current order, medical equipment and supplies."</p>
+    <p><strong>Receiving facility:</strong> Health record review by licensed nursing staff within 24 hours of arrival. Medications continued as ordered unless changed by unit provider.</p>
+    <p><strong>The violation:</strong> TDCJ is failing its own policy. This is not a gap in the rules — it is a failure of execution.</p>
+  </div>
+
+  <div class="legal-card">
+    <div class="statute">Americans with Disabilities Act (ADA)</div>
+    <h4>Disability Discrimination</h4>
+    <p>Epilepsy is a protected disability under the ADA. TDCJ must provide reasonable accommodation — including a reliable, uninterrupted medication delivery system that does not depend on family logistics. Requiring family to deliver medication is <strong>not a reasonable accommodation</strong>. It is the abdication of institutional responsibility.</p>
+  </div>
+
+  <div class="legal-card">
+    <div class="statute">42 U.S.C. § 1983 — Civil Rights Action</div>
+    <h4>Liability for Non-Compliance</h4>
+    <p>Any TDCJ official who knowingly fails to provide prescribed medication for a life-threatening condition is personally liable under §1983. The <strong>$2.25 million jury verdict</strong> in the LCS Texas prisoner death case (2014) demonstrates that courts will award heavily for medication failures in Texas prisons.</p>
+  </div>
+</div>
+
+<!-- TAKE ACTION -->
+<div class="section" id="take-action">
+  <div class="section-header">
+    <div class="section-number">§04</div>
+    <h2>Take Action</h2>
+  </div>
+
+  <div class="action-block">
+    <h3>What You Can Do Right Now</h3>
+    <ol>
+      <li><strong>Call TDCJ Ombudsman:</strong> (936) 437-6791 — Demand medication continuity protocol for Karmelo Anthony (TDCJ # [ID]). Cite policy E-32.01.</li>
+      <li><strong>File a grievance:</strong> TDCJ Online Grievance System — Category: Medical/Dental. Demand Eighth Amendment compliance.</li>
+      <li><strong>Contact your Texas State Representative:</strong> Demand oversight hearings on TDCJ medication transfer failures.</li>
+      <li><strong>Share this page:</strong> Every person who knows about this creates pressure. Silence protects the system.</li>
+      <li><strong>Support the family:</strong> The Metcalf family should not bear the burden of the state's legal obligations.</li>
+    </ol>
+  </div>
+
+  <div class="action-block" style="border-color:var(--color-gold,#c9a84c);">
+    <h3>Read the Full Investigation</h3>
+    <p>The legal and factual basis for these demands — TDCJ's own policy E-32.01, the Eighth Amendment standard, and the documented delivery failures — is laid out in full in the investigation report.</p>
+    <p style="margin-top:14px;">
+      <a href="/medication-report" class="btn btn-primary" style="margin-right:10px;">Read the Investigation Report &rarr;</a>
+      <a href="/karmelo-medication-report.pdf" class="btn" style="border:1px solid var(--color-gold,#c9a84c);" download>Download PDF</a>
+    </p>
+  </div>
+
+  <div class="petition-section">
+    <h3>Demand Medication Justice</h3>
+    <div class="petition-count">—</div>
+    <p>TDCJ has the medication. TDCJ has the policy. TDCJ has the legal obligation.<br><strong>Make them do their job.</strong></p>
+    <a href="#" class="btn btn-primary">Sign the Petition</a>
+    <p style="margin-top:16px; font-size:12px; color:var(--color-text-muted);">Petition directed to: TDCJ Executive Director, Texas Governor, Texas Commission on Jail Standards</p>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">§05</div>
+    <h2>The Bottom Line</h2>
+  </div>
+
+  <div class="quote-block" style="border-color:var(--color-error);">
+    A 19-year-old should not spend the next 35 years wondering if his life-saving medication will arrive — or if his parents will have to drive across Texas to keep him alive. The prison has the medicine. The prison has the policy. The prison has the legal obligation. <strong>The prison simply won't execute it.</strong>
+    <div class="attribution">— E5 Enclave Advocacy Intelligence, June 25, 2026</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p><span class="gold">FREEDOM KARMELO</span> — A Project of E5 Enclave Advocacy</p>
+  <p>Sources: NY Post (Jun 24, 2026) · Yahoo News (Jun 25, 2026) · TDCJ CMHC Policy E-32.01 · Estelle v. Gamble, 429 U.S. 97 (1976) · ACLU of Texas</p>
+  <p style="margin-top:8px;">#HisMedicine #FreedomKarmelo #TDCJAccountability</p>
+</div>
+
+</div>
+</body>
+</html>
