@@ -1264,6 +1264,19 @@ textarea.f-input { resize: vertical; min-height: 78px; }
     .lw-msg{text-align:center;padding:12px;border-radius:9px;margin-top:14px;font-size:14px;display:none;}
     .lw-msg.ok{display:block;background:rgba(155,89,182,0.12);color:var(--purple-light);}
     .lw-msg.err{display:block;background:rgba(180,60,60,0.12);color:#e89aa0;}
+
+    /* share / growth loop */
+    .lw-sharebar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px auto 32px;max-width:760px;}
+    .lw-sharebtn{appearance:none;border:1px solid var(--border);background:#0a0716;color:var(--fg);border-radius:999px;padding:10px 14px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;}
+    .lw-sharebtn:hover{border-color:var(--purple);color:var(--purple-light);filter:brightness(1.08);}
+    .lw-card-share{margin-top:12px;display:flex;justify-content:flex-end;}
+    .lw-mini-share{appearance:none;border:1px solid var(--border);background:transparent;color:var(--purple-light);border-radius:999px;padding:7px 10px;font-family:var(--mono);font-size:10px;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;}
+    .lw-mini-share:hover{border-color:var(--purple);filter:brightness(1.08);}
+    .lw-success-share{display:none;margin-top:16px;padding:16px;border:1px solid var(--border);background:#0a0716;border-radius:12px;text-align:center;}
+    .lw-success-share strong{display:block;color:var(--fg);font-family:var(--serif);font-size:18px;margin-bottom:4px;}
+    .lw-success-share span{display:block;color:var(--fg-dimmer);font-size:12px;line-height:1.5;margin-bottom:12px;}
+    .lw-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:9999;background:#0a0716;color:var(--fg);border:1px solid var(--purple);border-radius:999px;padding:10px 16px;font-family:var(--mono);font-size:11px;letter-spacing:0.04em;opacity:0;pointer-events:none;transition:opacity .22s ease;}
+    .lw-toast.show{opacity:1;}
     /* masonry wall */
         /* ===== CONSTELLATION OF VOICES (Hero A · .net) ===== */
     .letterwall{position:relative;overflow:hidden;}
@@ -1292,6 +1305,13 @@ textarea.f-input { resize: vertical; min-height: 78px; }
     <h1 class="lw-title">Post Him a <em>Public Word.</em></h1>
     <p class="lw-sub">Every message left above appears here, so Karmelo and the whole world can see he is not alone. <a href="#signup" style="color:var(--purple-light);text-decoration:underline">Add your message ↑</a></p>
     <div class="lw-counter"><b id="lwCount">—</b> letters and counting</div>
+    <div class="lw-sharebar" aria-label="Share the Letter Wall">
+      <button class="lw-sharebtn" type="button" data-lw-share="x">Share on X</button>
+      <button class="lw-sharebtn" type="button" data-lw-share="facebook">Facebook</button>
+      <button class="lw-sharebtn" type="button" data-lw-share="whatsapp">WhatsApp</button>
+      <button class="lw-sharebtn" type="button" data-lw-share="sms">Text it</button>
+      <button class="lw-sharebtn" type="button" data-lw-share="copy">Copy link</button>
+    </div>
 
     <div class="lw-wall" id="lwWall"><div class="lw-empty">Loading the wall…</div></div>
     <button class="lw-more" id="lwMore" style="display:none">Show more letters</button>
@@ -1303,14 +1323,41 @@ textarea.f-input { resize: vertical; min-height: 78px; }
     var rendered=0, ALL=[], PAGE=24;
     var formShown=Date.now();
     function esc(s){return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
-    function card(l){
+    var WALL_URL="https://freekarmelo.net/#letters";
+    function shareText(letter){
+      var count=document.getElementById("lwCount");
+      var n=count && count.textContent && count.textContent !== "—" ? count.textContent : "102+";
+      if(letter && letter.text){
+        var quote=String(letter.text).replace(/\s+/g," ").trim();
+        if(quote.length>130) quote=quote.slice(0,127)+"…";
+        var who=(letter.name||"A supporter")+(letter.state?" from "+letter.state:"");
+        return '"'+quote+'" — '+who+'\n\nAdd your voice to the Letter Wall for Karmelo: '+WALL_URL+' #FreeKarmelo #JusticeForKarmelo';
+      }
+      return n+' letters are live for Karmelo. Add your voice to the wall and invite one more person to sign: '+WALL_URL+' #FreeKarmelo #JusticeForKarmelo';
+    }
+    function toast(t){
+      var el=document.getElementById("lwToast");
+      if(!el){ el=document.createElement("div"); el.id="lwToast"; el.className="lw-toast"; document.body.appendChild(el); }
+      el.textContent=t; el.classList.add("show"); setTimeout(function(){el.classList.remove("show");},1800);
+    }
+    function doShare(kind, letter){
+      var text=shareText(letter), url=WALL_URL;
+      if(kind==="x") return window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text),'_blank','noopener');
+      if(kind==="facebook") return window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url),'_blank','noopener');
+      if(kind==="whatsapp") return window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
+      if(kind==="sms") { window.location.href='sms:?&body='+encodeURIComponent(text); return; }
+      if(navigator.share && kind==="native") return navigator.share({title:'Free Karmelo Letter Wall',text:text,url:url}).catch(function(){});
+      if(navigator.clipboard) return navigator.clipboard.writeText(text).then(function(){toast('Share text copied');});
+      window.prompt('Copy this share text:', text);
+    }
+    function card(l, i){
       var where=[l.city,l.state].filter(Boolean).join(", ");
-      return '<div class="lw-card"><div class="quote">'+esc(l.text)+'</div><div class="meta"><span class="who">'+esc(l.name)+'</span><span class="where">'+esc(where)+'</span></div></div>';
+      return '<div class="lw-card"><div class="quote">'+esc(l.text)+'</div><div class="meta"><span class="who">'+esc(l.name)+'</span><span class="where">'+esc(where)+'</span></div><div class="lw-card-share"><button class="lw-mini-share" type="button" data-letter-share="'+i+'">Share this</button></div></div>';
     }
     function paint(){
       var wall=document.getElementById("lwWall");
       var slice=ALL.slice(0,rendered+PAGE);
-      wall.innerHTML = slice.length? slice.map(card).join("") : '<div class="lw-empty">Be the first to write Karmelo a letter. 💜</div>';
+      wall.innerHTML = slice.length? slice.map(function(l,i){return card(l,i);}).join("") : '<div class="lw-empty">Be the first to write Karmelo a letter. 💜</div>';
       rendered=slice.length;
       var _m=document.getElementById("lwMore"); if(_m) _m.style.display = rendered<ALL.length? "block":"none";
     }
@@ -1965,6 +2012,7 @@ io.observe(b);})();
         <div class="s-check">&#10003;</div>
         <h3 id="successHd">Your message is on the wall.</h3>
         <p id="successMsg">Karmelo will know you stood with him. Thank you.</p>
+        <p style="font-size:13px;opacity:.72;margin:10px 0 14px;">Now bring one more voice with you. Share the wall and ask someone you trust to sign.</p>
         <div class="share-row">
           <button class="share-btn" onclick="shareTwitter()">&#128038; Share on X</button>
           <button class="share-btn" onclick="shareFacebook()">&#128280; Share on Facebook</button>
@@ -2021,9 +2069,13 @@ io.observe(b);})();
     }
   });
 })();
-function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('I stand with Karmelo Anthony. Add your name and your message: ')+encodeURIComponent(location.href),'_blank');}
-function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank');}
-function copyLink(){navigator.clipboard.writeText(location.href);}
+function shareTwitter(){
+  var url='https://freekarmelo.net/#letters';
+  var text='The Letter Wall for Karmelo is growing across the country. Add your voice and invite one more person to sign: '+url+' #FreeKarmelo #JusticeForKarmelo';
+  window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text),'_blank','noopener');
+}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://freekarmelo.net/#letters'),'_blank','noopener');}
+function copyLink(){var text='Add your voice to the Letter Wall for Karmelo: https://freekarmelo.net/#letters'; if(navigator.clipboard){navigator.clipboard.writeText(text);} else {window.prompt('Copy this share text:', text);}}
 </script>
 
 <!-- ══ LIVING LETTER WALL ══ -->
