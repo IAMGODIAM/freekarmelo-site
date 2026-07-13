@@ -1029,6 +1029,22 @@ textarea.f-input { resize: vertical; min-height: 78px; }
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-05PYDYP5S0');
+  window.fkTrackShare = function(surface, channel, context){
+    var payload = {
+      event_category: 'letter_wall_share',
+      event_label: surface + ':' + channel,
+      share_surface: surface,
+      share_channel: channel,
+      share_context: context || 'wall',
+      page_location: window.location.href
+    };
+    if (typeof gtag === 'function') {
+      gtag('event', 'letter_wall_share', payload);
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({event:'letter_wall_share'}, payload));
+    }
+  };
 </script>
 
 </head>
@@ -1342,6 +1358,7 @@ textarea.f-input { resize: vertical; min-height: 78px; }
     }
     function doShare(kind, letter){
       var text=shareText(letter), url=WALL_URL;
+      if(window.fkTrackShare) window.fkTrackShare(letter ? 'letter_card' : 'wall_header', kind === 'native' ? 'native' : kind, letter ? 'letter' : 'wall');
       if(kind==="x") return window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text),'_blank','noopener');
       if(kind==="facebook") return window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url),'_blank','noopener');
       if(kind==="whatsapp") return window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
@@ -2070,12 +2087,13 @@ io.observe(b);})();
   });
 })();
 function shareTwitter(){
+  if(window.fkTrackShare) window.fkTrackShare('signup_success','x','post_signup');
   var url='https://freekarmelo.net/#letters';
   var text='The Letter Wall for Karmelo is growing across the country. Add your voice and invite one more person to sign: '+url+' #FreeKarmelo #JusticeForKarmelo';
   window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text),'_blank','noopener');
 }
-function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://freekarmelo.net/#letters'),'_blank','noopener');}
-function copyLink(){var text='Add your voice to the Letter Wall for Karmelo: https://freekarmelo.net/#letters'; if(navigator.clipboard){navigator.clipboard.writeText(text);} else {window.prompt('Copy this share text:', text);}}
+function shareFacebook(){if(window.fkTrackShare) window.fkTrackShare('signup_success','facebook','post_signup'); window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://freekarmelo.net/#letters'),'_blank','noopener');}
+function copyLink(){if(window.fkTrackShare) window.fkTrackShare('signup_success','copy','post_signup'); var text='Add your voice to the Letter Wall for Karmelo: https://freekarmelo.net/#letters'; if(navigator.clipboard){navigator.clipboard.writeText(text);} else {window.prompt('Copy this share text:', text);}}
 </script>
 
 <!-- ══ LIVING LETTER WALL ══ -->
