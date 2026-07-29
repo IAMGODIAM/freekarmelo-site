@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black August 2026 — Free Karmelo Events Calendar | freekarmelo.net/events</title>
+<meta name="description" content="One reliable place for the Free Karmelo Black August 2026 campaign: a verified public events calendar (Aug 02 teach-in, Aug 18–19 post-trial hearings, Aug 20 status release, Aug 29 national solidarity rallies), an organizer toolkit, and a moderated local-action intake. Every date is verified before it publishes — and updated the moment it changes.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://freekarmelo.net/events">
+<meta property="og:title" content="Free Karmelo · Black August 2026 Events Calendar">
+<meta property="og:description" content="One reliable place to understand what is happening, choose an action, and get approved materials. Every date is verified before it is published.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freekarmelo.net/events">
+<meta name="theme-color" content="#0E0913">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#0E0913;color:#F2EDF7;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#C9B2FF;text-decoration:none}
+a:hover{color:#E3C88F}
+::selection{background:#7C5CD6;color:#fff}
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+input,select,textarea{font-family:'IBM Plex Mono',monospace}
+input::placeholder,textarea::placeholder{color:#5E5273}
+@keyframes fkPulse{0%,100%{opacity:1}50%{opacity:.35}}
+[hidden]{display:none!important}
+
+/* ---- shared hover translations of the design's style-hover attrs ---- */
+.hv-gold:hover{background:rgba(217,179,108,.12)}
+.hv-purplebtn:hover{filter:brightness(1.15);color:#fff}
+.hv-purpleghost:hover{background:rgba(139,92,246,.15);color:#fff}
+.hv-card:hover{border-color:rgba(167,139,250,.45)}
+.hv-navtab:hover{color:#E3C88F}
+.hv-cta:hover{background:rgba(139,92,246,.25);color:#fff}
+.hv-purpleline:hover{color:#C9B2FF;background:rgba(139,92,246,.1)}
+.hv-flyer:hover{border-color:rgba(217,179,108,.7)}
+.hv-icsborder:hover{background:rgba(217,179,108,.12)}
+
+/* ---- mobile-first responsive scaffolding for the inline-style grids ---- */
+@media (max-width:900px){
+  .fk-hero-grid{grid-template-columns:1fr!important;gap:44px!important}
+  .fk-rally-grid{grid-template-columns:1fr!important;gap:48px!important}
+  .fk-toolkit-grid{grid-template-columns:1fr!important;gap:48px!important}
+  .fk-updates-grid{grid-template-columns:1fr!important;gap:56px!important}
+  .fk-act-grid{grid-template-columns:1fr!important}
+  .fk-header-inner{padding:16px 20px!important;gap:14px!important}
+  .fk-header-nav{gap:18px!important}
+  .fk-section{padding:64px 20px!important}
+  .fk-tz-grid{grid-template-columns:repeat(2,1fr)!important}
+  .fk-cd-grid{grid-template-columns:repeat(4,1fr)!important;gap:8px!important}
+  .fk-event-row{grid-template-columns:1fr!important;gap:16px!important}
+  .fk-event-row .fk-event-actions{flex-direction:row!important;flex-wrap:wrap!important}
+  .fk-form-grid{grid-template-columns:1fr!important}
+}
+@media (max-width:1180px){
+  .fk-header-inner{padding:18px 20px}
+  .fk-section{padding:92px 20px}
+}
+@media (max-width:680px){
+  .fk-header-nav{display:none!important}
+  .fk-header-brand{font-size:14px!important}
+  .fk-mobnav{display:flex!important}
+  .fk-cd-grid{grid-template-columns:repeat(4,1fr)!important;gap:6px!important}
+  .fk-cd-cell{padding:10px 4px!important}
+  .fk-cd-num{font-size:20px!important}
+  .fk-tz-grid{grid-template-columns:repeat(2,1fr)!important}
+  .fk-h1{font-size:clamp(40px,11vw,62px)!important}
+  .fk-h2{font-size:clamp(34px,8vw,46px)!important}
+}
+.fk-mobnav{display:none;gap:8px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;padding:0 20px 12px;border-bottom:1px solid rgba(167,139,250,.12);background:rgba(14,9,19,.95)}
+.fk-mobnav a{color:#9C8FB0;padding:6px 0}
+.fk-mobnav a:hover{color:#E3C88F}
+.fk-skip{position:absolute;left:-9999px;top:0;background:#0E0913;color:#E3C88F;padding:10px 16px;z-index:200;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em}
+.fk-skip:focus{left:0}
+button{font:inherit}
+*[tabindex]:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #A78BFA;outline-offset:2px}
+</style>
+</head>
+<body>
+
+<!-- ONE JS CONFIG OBJECT — campaign staff flip a banner or set the form endpoint by editing one line -->
+<script>
+const FK_CONFIG = {
+  bannerWatch: false,   // true → show the gold "HEARING WATCH" banner
+  bannerLive:  false,   // true → show the purple "VERIFIED UPDATE LIVE" banner
+  formEndpoint: ""      // live e5form intake URL; while empty the form renders a graceful disabled state
+};
+</script>
+
+<a href="#top" class="fk-skip">Skip to content</a>
+
+<div style="height:4px;background:linear-gradient(90deg,#6a5124,#D9B36C 25%,#F0DCAC 50%,#D9B36C 75%,#6a5124)"></div>
+
+<header style="border-bottom:1px solid rgba(167,139,250,.12);background:rgba(14,9,19,.9);position:sticky;top:0;z-index:50;backdrop-filter:blur(10px)">
+  <div class="fk-header-inner" style="max-width:1180px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#top" class="fk-header-brand" style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;letter-spacing:.06em;color:#F2EDF7">FREE<span style="color:#A78BFA">KARMELO</span><span style="color:#D9B36C">.NET</span><span style="color:#6E6284">/EVENTS</span></a>
+    <nav class="fk-header-nav" aria-label="Events page" style="display:flex;align-items:center;gap:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em">
+      <a href="#timeline" class="hv-navtab" style="color:#9C8FB0">CALENDAR</a>
+      <a href="#rally" class="hv-navtab" style="color:#9C8FB0">AUG 29</a>
+      <a href="#act" class="hv-navtab" style="color:#9C8FB0">TAKE ACTION</a>
+      <a href="#toolkit" class="hv-navtab" style="color:#9C8FB0">TOOLKIT</a>
+      <a href="#updates" class="hv-cta" style="display:inline-block;padding:10px 18px;border:1px solid rgba(167,139,250,.4);color:#C9B2FF;background:rgba(139,92,246,.1)">GET UPDATES</a>
+    </nav>
+  </div>
+  <div class="fk-mobnav" aria-label="Events page (mobile)">
+    <a href="#timeline" class="hv-navtab">CALENDAR</a>
+    <a href="#rally" class="hv-navtab">AUG 29</a>
+    <a href="#act" class="hv-navtab">TAKE ACTION</a>
+    <a href="#toolkit" class="hv-navtab">TOOLKIT</a>
+    <a href="#updates" class="hv-navtab">UPDATES</a>
+  </div>
+</header>
+
+<div id="bannerWatch" hidden style="background:rgba(217,179,108,.1);border-bottom:1px solid rgba(217,179,108,.3)">
+  <div style="max-width:1180px;margin:0 auto;padding:12px 32px;display:flex;align-items:center;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:#E3C88F">
+    <span style="width:8px;height:8px;background:#D9B36C;border-radius:50%;animation:fkPulse 1.6s infinite;flex:none"></span>
+    HEARING WATCH — VERIFIED UPDATES POST HERE AFTER EACH ADJOURNMENT. NOTHING PUBLISHES BEFORE LEGAL &amp; FACT-CHECK REVIEW.
+  </div>
+</div>
+<div id="bannerLive" hidden style="background:rgba(139,92,246,.14);border-bottom:1px solid rgba(167,139,250,.35)">
+  <div style="max-width:1180px;margin:0 auto;padding:12px 32px;display:flex;align-items:center;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:#C9B2FF">
+    <span style="width:8px;height:8px;background:#A78BFA;border-radius:50%;animation:fkPulse 1.6s infinite;flex:none"></span>
+    VERIFIED UPDATE LIVE — <a href="#updates" style="color:#fff;text-decoration:underline">READ THE POST-HEARING STATUS</a>
+  </div>
+</div>
+
+<main id="top">
+
+<section data-screen-label="Hero" style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(900px 480px at 78% -10%,rgba(124,92,214,.22),transparent 65%),radial-gradient(700px 400px at 8% 110%,rgba(217,179,108,.07),transparent 60%)"></div>
+  <div class="fk-hero-grid fk-section" style="position:relative;max-width:1180px;margin:0 auto;padding:104px 32px 96px;display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:center">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:26px">
+        <svg width="14" height="13" viewBox="0 0 14 13" fill="#A78BFA" aria-hidden="true"><path d="M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z"></path></svg>
+        <span>BLACK AUGUST 2026 · NATIONAL CAMPAIGN</span>
+      </div>
+      <h1 class="fk-h1" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(54px,6.4vw,86px);line-height:1.02;margin:0 0 22px;letter-spacing:-.01em">Free Karmelo.<br>Free Them All.<br><em style="font-weight:500;color:#D9B36C">This is Black August.</em></h1>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.5;color:#B4A8C6;max-width:540px;margin:0 0 36px">One reliable place to understand what is happening, choose an action, and get approved materials. Every date below is verified before it is published — and updated the moment it changes.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px">
+        <a href="#timeline" class="hv-purplebtn" style="display:inline-block;padding:16px 30px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;box-shadow:0 8px 28px rgba(124,92,214,.35)">ATTEND THE NEXT EVENT</a>
+        <a href="#e5form" class="hv-purpleghost" style="display:inline-block;padding:16px 30px;border:1px solid rgba(167,139,250,.4);color:#C9B2FF;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em">START A LOCAL ACTION</a>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#6E6284;display:flex;flex-wrap:wrap;gap:8px 22px">
+        <span>LAST VERIFIED UPDATE · JUL 29, 2026</span>
+        <span style="color:#D9B36C">SOME DETAILS PENDING VERIFICATION</span>
+      </div>
+    </div>
+    <div style="background:#150E1E;border:1px solid rgba(167,139,250,.18);box-shadow:0 24px 60px rgba(0,0,0,.5);padding:34px 34px 30px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.3em;color:#A78BFA;margin-bottom:16px">NEXT PUBLIC EVENT</div>
+      <div id="nextName" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;line-height:1.1;margin-bottom:6px">National Solidarity Rallies</div>
+      <div id="nextDate" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#B4A8C6;margin-bottom:24px">SATURDAY · AUG 29, 2026 · 3PM ET / 2 CT / 1 MT / 12 PT</div>
+      <div class="fk-cd-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px" aria-label="Countdown to the next event">
+        <div class="fk-cd-cell" style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div class="fk-cd-num" id="cdD" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">DAYS</div></div>
+        <div class="fk-cd-cell" style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div class="fk-cd-num" id="cdH" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">HRS</div></div>
+        <div class="fk-cd-cell" style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div class="fk-cd-num" id="cdM" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">MIN</div></div>
+        <div class="fk-cd-cell" style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div class="fk-cd-num" id="cdS" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">SEC</div></div>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button data-ics="rally" class="hv-icsborder" style="flex:1;padding:13px 10px;background:none;border:1px solid rgba(217,179,108,.4);color:#E3C88F;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;cursor:pointer">ADD TO CALENDAR</button>
+        <a href="#timeline" class="hv-purpleline" style="flex:1;padding:13px 10px;border:1px solid rgba(167,139,250,.3);color:#C9B2FF;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-align:center">FULL CALENDAR</a>
+      </div>
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(167,139,250,.12);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#6E6284;line-height:1.7">STATUS · <span style="color:#E3C88F">FORMAT &amp; LOCATION PENDING</span><br>DETAILS POST HERE THE MOMENT THEY ARE VERIFIED.</div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline" data-screen-label="Calendar" style="border-top:1px solid rgba(167,139,250,.12);scroll-margin-top:80px">
+  <div class="fk-section" style="max-width:1180px;margin:0 auto;padding:92px 32px 100px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">AUGUST 2026 · PUBLIC CALENDAR</div>
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:54px">
+      <h2 class="fk-h2" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;line-height:1.05;margin:0">Five public moments.<br><em style="color:#D9B36C;font-weight:500">One destination.</em></h2>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6E6284;max-width:320px;line-height:1.8">EVERY LISTING CARRIES A VERIFICATION STATUS. PENDING MEANS WE KNOW THE DATE — NOT YET EVERY DETAIL.</div>
+    </div>
+
+    <div style="border-top:1px solid rgba(167,139,250,.14)">
+
+      <div class="fk-event-row" style="display:grid;grid-template-columns:170px 1fr 250px;gap:28px;padding:34px 0;border-bottom:1px solid rgba(167,139,250,.14);align-items:start">
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:#A78BFA;letter-spacing:.06em">AUG 02</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.26em;color:#6E6284;margin-top:6px">SUNDAY</div></div>
+        <div>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:10px"><span style="font-size:21px;font-weight:700;letter-spacing:-.01em">Karmelo Teach-In</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#E3C88F;border:1px solid rgba(217,179,108,.35);background:rgba(217,179,108,.08)">DETAILS PENDING</span></div>
+          <p style="margin:0 0 12px;font-size:14.5px;line-height:1.65;color:#B4A8C6;max-width:560px;font-weight:500">Shared facts, campaign language, and the Black August frame — so every supporter and organizer works from the same verified ground.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6E6284">FORMAT · VIRTUAL OPTION PLANNED &nbsp;·&nbsp; TIME &amp; LOCATION · TBA</div>
+        </div>
+        <div class="fk-event-actions" style="display:flex;flex-direction:column;gap:10px">
+          <button data-ics="teachin" class="hv-icsborder" style="padding:12px 10px;background:none;border:1px solid rgba(217,179,108,.4);color:#E3C88F;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;cursor:pointer">ADD TO CALENDAR</button>
+          <a href="#updates" class="hv-purpleline" style="padding:12px 10px;border:1px solid rgba(167,139,250,.25);color:#9C8FB0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-align:center">NOTIFY ME OF DETAILS</a>
+        </div>
+      </div>
+
+      <div class="fk-event-row" style="display:grid;grid-template-columns:170px 1fr 250px;gap:28px;padding:34px 0;border-bottom:1px solid rgba(167,139,250,.14);align-items:start">
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:#A78BFA;letter-spacing:.06em">AUG 18</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.26em;color:#6E6284;margin-top:6px">TUESDAY</div></div>
+        <div>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:10px"><span style="font-size:21px;font-weight:700;letter-spacing:-.01em">New Judge Hearing</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#E3C88F;border:1px solid rgba(217,179,108,.35);background:rgba(217,179,108,.08)">DATE PENDING VERIFICATION</span></div>
+          <p style="margin:0 0 12px;font-size:14.5px;line-height:1.65;color:#B4A8C6;max-width:560px;font-weight:500">The court takes up which judge presides over post-trial motions. We publish holding language only — verified status follows adjournment.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6E6284">MCKINNEY, TX · PUBLIC ACCESS &amp; POSTURE · TBA</div>
+        </div>
+        <div class="fk-event-actions" style="display:flex;flex-direction:column;gap:10px">
+          <button data-ics="judge" class="hv-icsborder" style="padding:12px 10px;background:none;border:1px solid rgba(217,179,108,.4);color:#E3C88F;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;cursor:pointer">ADD TO CALENDAR</button>
+          <a href="#updates" class="hv-purpleline" style="padding:12px 10px;border:1px solid rgba(167,139,250,.25);color:#9C8FB0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-align:center">FOLLOW VERIFIED UPDATES</a>
+        </div>
+      </div>
+
+      <div class="fk-event-row" style="display:grid;grid-template-columns:170px 1fr 250px;gap:28px;padding:34px 0;border-bottom:1px solid rgba(167,139,250,.14);align-items:start">
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:#A78BFA;letter-spacing:.06em">AUG 19</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.26em;color:#6E6284;margin-top:6px">WEDNESDAY</div></div>
+        <div>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:10px"><span style="font-size:21px;font-weight:700;letter-spacing:-.01em">New Trial Hearing</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#E3C88F;border:1px solid rgba(217,179,108,.35);background:rgba(217,179,108,.08)">DATE PENDING VERIFICATION</span></div>
+          <p style="margin:0 0 12px;font-size:14.5px;line-height:1.65;color:#B4A8C6;max-width:560px;font-weight:500">The motion for a new trial is heard. No outcome language publishes until legal and fact-check review confirms what occurred.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6E6284">MCKINNEY, TX · PUBLIC ACCESS &amp; POSTURE · TBA</div>
+        </div>
+        <div class="fk-event-actions" style="display:flex;flex-direction:column;gap:10px">
+          <button data-ics="trial" class="hv-icsborder" style="padding:12px 10px;background:none;border:1px solid rgba(217,179,108,.4);color:#E3C88F;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;cursor:pointer">ADD TO CALENDAR</button>
+          <a href="#updates" class="hv-purpleline" style="padding:12px 10px;border:1px solid rgba(167,139,250,.25);color:#9C8FB0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-align:center">FOLLOW VERIFIED UPDATES</a>
+        </div>
+      </div>
+
+      <div class="fk-event-row" style="display:grid;grid-template-columns:170px 1fr 250px;gap:28px;padding:34px 0;border-bottom:1px solid rgba(167,139,250,.14);align-items:start;background:linear-gradient(90deg,rgba(217,179,108,.045),transparent 60%)">
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:#D9B36C;letter-spacing:.06em">AUG 20</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.26em;color:#6E6284;margin-top:6px">THURSDAY</div></div>
+        <div>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:10px"><span style="font-size:21px;font-weight:700;letter-spacing:-.01em">Post-Hearing Status Release</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#F2EDF7;border:1px solid rgba(242,237,247,.3);background:rgba(242,237,247,.06)">RAPID RESPONSE</span></div>
+          <p style="margin:0 0 12px;font-size:14.5px;line-height:1.65;color:#B4A8C6;max-width:560px;font-weight:500">The dedicated post-hearing flyer and verified status drop here — what happened, what it means, and the next action.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6E6284">PUBLISHES ON THIS PAGE + EMAIL LIST</div>
+        </div>
+        <div class="fk-event-actions" style="display:flex;flex-direction:column;gap:10px">
+          <button data-ics="update" class="hv-icsborder" style="padding:12px 10px;background:none;border:1px solid rgba(217,179,108,.4);color:#E3C88F;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;cursor:pointer">ADD TO CALENDAR</button>
+          <a href="#updates" class="hv-purpleline" style="padding:12px 10px;border:1px solid rgba(167,139,250,.25);color:#9C8FB0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-align:center">GET IT BY EMAIL</a>
+        </div>
+      </div>
+
+      <div class="fk-event-row" style="display:grid;grid-template-columns:170px 1fr 250px;gap:28px;padding:34px 0;border-bottom:1px solid rgba(167,139,250,.14);align-items:start">
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:#A78BFA;letter-spacing:.06em">AUG 29</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.26em;color:#6E6284;margin-top:6px">SATURDAY</div></div>
+        <div>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:10px"><span style="font-size:21px;font-weight:700;letter-spacing:-.01em">National Solidarity Rallies</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#C9B2FF;border:1px solid rgba(167,139,250,.4);background:rgba(139,92,246,.12)">TIME CONFIRMED</span></div>
+          <p style="margin:0 0 12px;font-size:14.5px;line-height:1.65;color:#B4A8C6;max-width:560px;font-weight:500">Synchronized public rallies across the country — one hour, every timezone, one message. Find a verified local action or start your own.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#D9B36C">3:00 PM ET · 2:00 CT · 1:00 MT · 12:00 PT</div>
+        </div>
+        <div class="fk-event-actions" style="display:flex;flex-direction:column;gap:10px">
+          <button data-ics="rally" class="hv-purplebtn" style="padding:12px 10px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;cursor:pointer">ADD TO CALENDAR</button>
+          <a href="#rally" class="hv-purpleline" style="padding:12px 10px;border:1px solid rgba(167,139,250,.25);color:#9C8FB0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-align:center">FIND A LOCAL ACTION</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:26px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#9C8FB0">Dates and access details are published only after verification. When something changes, this calendar changes first.</div>
+  </div>
+</section>
+
+<section id="rally" data-screen-label="Aug 29 Rallies" style="background:#150E1E;border-top:1px solid rgba(167,139,250,.14);border-bottom:1px solid rgba(167,139,250,.14);scroll-margin-top:80px">
+  <div class="fk-rally-grid fk-section" style="max-width:1180px;margin:0 auto;padding:96px 32px;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#D9B36C;margin-bottom:16px">FEATURED · SATURDAY, AUG 29, 2026</div>
+      <h2 class="fk-h2" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1.05;margin:0 0 18px">One hour.<br>Every timezone.<br><em style="color:#A78BFA;font-weight:500">Every block.</em></h2>
+      <p style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:480px;margin:0 0 30px;font-weight:500">National solidarity rallies, synchronized to a single hour. Attend one near you, or put your city on the map — the toolkit carries everything an organizer needs.</p>
+      <div class="fk-tz-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(167,139,250,.18);border:1px solid rgba(167,139,250,.18);max-width:480px;margin-bottom:16px">
+        <div style="background:#0E0913;padding:16px 8px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#F2EDF7">3:00<span style="font-size:11px;color:#9C8FB0"> PM</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.3em;color:#A78BFA;margin-top:6px">ET</div></div>
+        <div style="background:#0E0913;padding:16px 8px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#F2EDF7">2:00<span style="font-size:11px;color:#9C8FB0"> PM</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.3em;color:#A78BFA;margin-top:6px">CT</div></div>
+        <div style="background:#0E0913;padding:16px 8px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#F2EDF7">1:00<span style="font-size:11px;color:#9C8FB0"> PM</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.3em;color:#A78BFA;margin-top:6px">MT</div></div>
+        <div style="background:#0E0913;padding:16px 8px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#F2EDF7">12:00<span style="font-size:11px;color:#9C8FB0"> PM</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.3em;color:#A78BFA;margin-top:6px">PT</div></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#E3C88F;margin-bottom:30px">YOUR LOCAL TIME · <span id="rallyLocal">3:00 PM ET</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px">
+        <button data-ics="rally" class="hv-purplebtn" style="padding:15px 26px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em;cursor:pointer;box-shadow:0 8px 28px rgba(124,92,214,.35)">ADD TO CALENDAR</button>
+        <a href="#e5form" class="hv-gold" style="padding:15px 26px;border:1px solid rgba(217,179,108,.4);color:#E3C88F;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em">HOST ONE IN YOUR CITY</a>
+      </div>
+    </div>
+    <div>
+      <div style="position:relative;border:1px solid rgba(167,139,250,.2);padding:10px;background:#0E0913">
+        <!-- RESERVED PHOTO SLOT — approved imagery only; tasteful intentional empty state per the design language -->
+        <div style="width:100%;aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:repeating-linear-gradient(45deg,#0E0913,#0E0913 14px,#120B1A 14px,#120B1A 28px);border:1px dashed rgba(167,139,250,.22)" role="img" aria-label="Reserved space for an approved community or rally photo, to be added before publication">
+          <svg width="30" height="28" viewBox="0 0 14 13" fill="rgba(167,139,250,.35)" aria-hidden="true"><path d="M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z"></path></svg>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:#6E6284;text-align:center;line-height:1.7;max-width:80%">APPROVED COMMUNITY / RALLY PHOTO<br>RESERVED · PENDING APPROVAL</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:#6E6284;margin-top:12px"><span>APPROVED IMAGERY ONLY</span><span style="color:#A78BFA">WEAR PURPLE — HIS COLOR</span></div>
+      <div style="margin-top:28px;border:1px solid rgba(167,139,250,.16);background:#0E0913;padding:26px 28px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:14px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.28em;color:#A78BFA">VERIFIED LOCAL ACTIONS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#E3C88F">LISTINGS PENDING</span></div>
+        <div id="actionsLive" hidden>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;padding:9px 14px;border:1px solid rgba(167,139,250,.3);color:#C9B2FF">DALLAS–FT WORTH</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;padding:9px 14px;border:1px solid rgba(167,139,250,.3);color:#C9B2FF">HOUSTON</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;padding:9px 14px;border:1px solid rgba(167,139,250,.3);color:#C9B2FF">ATLANTA</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;padding:9px 14px;border:1px solid rgba(167,139,250,.3);color:#C9B2FF">CHICAGO</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;padding:9px 14px;border:1px solid rgba(167,139,250,.3);color:#C9B2FF">WASHINGTON, DC</span>
+            <a href="#e5form" class="hv-gold" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;padding:9px 14px;border:1px dashed rgba(217,179,108,.5);color:#E3C88F">+ YOUR CITY</a>
+          </div>
+        </div>
+        <div id="actionsPending">
+          <p style="margin:0 0 14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.55;color:#9C8FB0">City listings appear here as organizers are verified — reviewed before publishing, never automatic.</p>
+          <a href="#e5form" class="hv-gold" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#E3C88F;border-bottom:1px solid rgba(217,179,108,.4);padding-bottom:3px">BE THE FIRST — SUBMIT YOUR CITY →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="act" data-screen-label="Take Action" style="scroll-margin-top:80px">
+  <div class="fk-section" style="max-width:1180px;margin:0 auto;padding:96px 32px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">TAKE ACTION</div>
+    <h2 class="fk-h2" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;line-height:1.05;margin:0 0 12px">Attend. Organize. <em style="color:#D9B36C;font-weight:500">Amplify.</em></h2>
+    <p style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:560px;margin:0 0 48px;font-weight:500">Bring a Free Karmelo / Free Them All action to your community. Choose one path — each takes under two minutes to start.</p>
+    <div class="fk-act-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:64px">
+      <a href="#timeline" class="hv-card" style="display:block;background:#150E1E;border:1px solid rgba(167,139,250,.14);padding:28px;color:inherit">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D9B36C;letter-spacing:.2em;margin-bottom:18px">01</div>
+        <div style="font-size:17px;font-weight:700;margin-bottom:8px;color:#F2EDF7">Attend an Event</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#9C8FB0;font-weight:500">Show up for the teach-in or an Aug 29 rally near you.</div>
+      </a>
+      <a href="#e5form" class="hv-card" style="display:block;background:#150E1E;border:1px solid rgba(167,139,250,.14);padding:28px;color:inherit">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D9B36C;letter-spacing:.2em;margin-bottom:18px">02</div>
+        <div style="font-size:17px;font-weight:700;margin-bottom:8px;color:#F2EDF7">Start an Action</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#9C8FB0;font-weight:500">Host a teach-in, vigil, watch party, or rally — we review and list it.</div>
+      </a>
+      <a href="#toolkit" class="hv-card" style="display:block;background:#150E1E;border:1px solid rgba(167,139,250,.14);padding:28px;color:inherit">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D9B36C;letter-spacing:.2em;margin-bottom:18px">03</div>
+        <div style="font-size:17px;font-weight:700;margin-bottom:8px;color:#F2EDF7">Download the Toolkit</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#9C8FB0;font-weight:500">Approved flyers, captions, and message bank — share without rewriting.</div>
+      </a>
+      <a href="#e5form" class="hv-card" style="display:block;background:#150E1E;border:1px solid rgba(167,139,250,.14);padding:28px;color:inherit">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D9B36C;letter-spacing:.2em;margin-bottom:18px">04</div>
+        <div style="font-size:17px;font-weight:700;margin-bottom:8px;color:#F2EDF7">Become a Partner</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#9C8FB0;font-weight:500">Faith, student, civic, and community organizations — organize with us.</div>
+      </a>
+      <a href="#updates" class="hv-card" style="display:block;background:#150E1E;border:1px solid rgba(167,139,250,.14);padding:28px;color:inherit">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D9B36C;letter-spacing:.2em;margin-bottom:18px">05</div>
+        <div style="font-size:17px;font-weight:700;margin-bottom:8px;color:#F2EDF7">Get Updates</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#9C8FB0;font-weight:500">Verified hearing status and next steps, straight to your inbox.</div>
+      </a>
+      <div style="background:linear-gradient(135deg,rgba(139,92,246,.16),rgba(217,179,108,.08));border:1px solid rgba(167,139,250,.2);padding:28px;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;line-height:1.4;color:#E9E2F2">One dominant ask per asset. Every road leads back to this page.</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#A78BFA;margin-top:14px">CAMPAIGN DOCTRINE</div>
+      </div>
+    </div>
+
+    <div id="e5form" data-screen-label="Start an Action Form" style="border:1px solid rgba(167,139,250,.2);background:#150E1E;scroll-margin-top:80px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:26px 34px;border-bottom:1px solid rgba(167,139,250,.14)">
+        <div style="display:flex;align-items:center;gap:16px"><span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:27px">Start a Local Action</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#C9B2FF;border:1px solid rgba(167,139,250,.4);background:rgba(139,92,246,.12)">MODERATED</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#6E6284">E5FORM INTAKE · REVIEWED BEFORE LISTING</div>
+      </div>
+
+      <!-- DISABLED STATE: shown while FK_CONFIG.formEndpoint is empty -->
+      <div id="formClosed" style="padding:56px 34px;text-align:center">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.3em;color:#A78BFA;margin-bottom:16px">INTAKE OPENS SHORTLY</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:#B4A8C6;max-width:560px;margin:0 auto 22px;line-height:1.55">Intake opens shortly — follow <a href="https://x.com/e5blackdragons" target="_blank" rel="noopener" style="color:#C9B2FF;text-decoration:underline">@e5blackdragons</a> for updates, or join verified updates below and we&rsquo;ll bring it to you.</p>
+        <a href="#updates" class="hv-purplebtn" style="display:inline-block;padding:14px 30px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em">JOIN VERIFIED UPDATES</a>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#6E6284;margin-top:20px">NOTHING PUBLISHES AUTOMATICALLY · SPAM-CONTROLLED</div>
+      </div>
+
+      <!-- OPEN FORM STATE: shown when FK_CONFIG.formEndpoint is set -->
+      <div id="formOpen" hidden style="padding:34px">
+        <form id="fkActionForm" novalidate>
+          <div class="fk-form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px 22px;margin-bottom:18px">
+            <div><label for="fName" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px">FULL NAME *</label><input id="fName" name="fullName" required placeholder="Your name" style="width:100%;box-sizing:border-box;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:13px 14px;font-size:13px;outline:none"></div>
+            <div><label for="fEmail" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px">EMAIL *</label><input id="fEmail" name="email" type="email" required placeholder="you@example.org" style="width:100%;box-sizing:border-box;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:13px 14px;font-size:13px;outline:none"></div>
+            <div><label for="fCity" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px">CITY / STATE *</label><input id="fCity" name="cityState" required placeholder="e.g. Dallas, TX" style="width:100%;box-sizing:border-box;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:13px 14px;font-size:13px;outline:none"></div>
+            <div><label for="fOrg" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px">ORGANIZATION (OPTIONAL)</label><input id="fOrg" name="organization" placeholder="Group, congregation, campus…" style="width:100%;box-sizing:border-box;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:13px 14px;font-size:13px;outline:none"></div>
+            <div><label for="fType" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px">ACTION TYPE</label><select id="fType" name="actionType" style="width:100%;box-sizing:border-box;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:13px 14px;font-size:13px;outline:none"><option>Aug 29 rally or vigil</option><option>Teach-in</option><option>Watch party</option><option>Community conversation</option><option>Other solidarity action</option></select></div>
+            <div><label for="fDate" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px">TARGET DATE</label><input id="fDate" name="targetDate" type="date" style="width:100%;box-sizing:border-box;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:12px 14px;font-size:13px;outline:none;color-scheme:dark"></div>
+          </div>
+          <div style="margin-bottom:20px"><label for="fNotes" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px">WHAT ARE YOU PLANNING?</label><textarea id="fNotes" name="notes" rows="3" placeholder="Venue ideas, expected turnout, accessibility plans, what support you need…" style="width:100%;box-sizing:border-box;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:13px 14px;font-size:13px;outline:none;resize:vertical"></textarea></div>
+          <label style="display:flex;gap:12px;align-items:flex-start;margin-bottom:24px;cursor:pointer;max-width:640px"><input id="fConsent" name="consent" type="checkbox" style="margin-top:3px;accent-color:#8B5CF6"><span style="font-size:12.5px;line-height:1.6;color:#9C8FB0;font-weight:500">I agree to keep this action lawful, nonviolent, and accessible, and consent to being contacted about this submission. Data is minimized, never sold, and exportable on request.</span></label>
+          <div id="formErr" hidden style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:#E8A0A0;margin-bottom:16px"></div>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px">
+            <button type="submit" class="hv-purplebtn" style="padding:16px 32px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em;cursor:pointer;box-shadow:0 8px 28px rgba(124,92,214,.35)">SUBMIT FOR REVIEW</button>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#6E6284">NOTHING PUBLISHES AUTOMATICALLY · SPAM-CONTROLLED</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- DONE STATE: shown after a successful submission -->
+      <div id="formDone" hidden style="padding:56px 34px;text-align:center">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.3em;color:#A78BFA;margin-bottom:16px">SUBMISSION RECEIVED</div>
+        <div id="formDoneName" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;margin-bottom:12px">Thank you.</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#9C8FB0;max-width:520px;margin:0 auto 26px;line-height:1.6">Your action is in review. An organizer-support lead follows up by email — verified listings post to this page.</p>
+        <button id="resetForm" class="hv-purpleline" style="padding:13px 24px;background:none;border:1px solid rgba(167,139,250,.3);color:#C9B2FF;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;cursor:pointer">SUBMIT ANOTHER</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="toolkit" data-screen-label="Toolkit" style="background:#150E1E;border-top:1px solid rgba(167,139,250,.14);border-bottom:1px solid rgba(167,139,250,.14);scroll-margin-top:80px">
+  <div class="fk-toolkit-grid fk-section" style="max-width:1180px;margin:0 auto;padding:96px 32px;display:grid;grid-template-columns:1fr 380px;gap:72px;align-items:center">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#D9B36C;margin-bottom:14px">ORGANIZER TOOLKIT &amp; SHARE KIT</div>
+      <h2 class="fk-h2" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:50px;line-height:1.06;margin:0 0 14px">Approved materials.<br><em style="color:#A78BFA;font-weight:500">Zero rewriting.</em></h2>
+      <p style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:520px;margin:0 0 40px;font-weight:500">Locked campaign identity, editable local fields. Fact-checked language so partners can share without touching core case wording.</p>
+      <div style="border-top:1px solid rgba(167,139,250,.14)">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:22px 0;border-bottom:1px solid rgba(167,139,250,.14)">
+          <div><div style="font-size:15.5px;font-weight:700;margin-bottom:5px">Master events flyer</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:#6E6284">VERTICAL · SQUARE · STORY · PRINT-SAFE</div></div>
+          <a href="/events-flyer" class="hv-gold" style="padding:11px 18px;border:1px solid rgba(217,179,108,.4);color:#E3C88F;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em">VIEW MASTER →</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:22px 0;border-bottom:1px solid rgba(167,139,250,.14)">
+          <div><div style="font-size:15.5px;font-weight:700;margin-bottom:5px">Organizer toolkit</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:#6E6284">RUN-OF-SHOW · SAFETY · ACCESSIBILITY · PRESS</div></div>
+          <span style="padding:11px 18px;border:1px solid rgba(167,139,250,.18);color:#6E6284;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em">AVAILABLE SOON</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:22px 0;border-bottom:1px solid rgba(167,139,250,.14)">
+          <div><div style="font-size:15.5px;font-weight:700;margin-bottom:5px">Approved message bank</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:#6E6284">CAPTIONS · EMAIL COPY · PRESS LANGUAGE</div></div>
+          <span style="padding:11px 18px;border:1px solid rgba(167,139,250,.18);color:#6E6284;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em">AVAILABLE SOON</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:22px 0;border-bottom:1px solid rgba(167,139,250,.14)">
+          <div><div style="font-size:15.5px;font-weight:700;margin-bottom:5px">Share this page</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:#6E6284">QR-SAFE URL · ONE LINK EVERYWHERE</div></div>
+          <button id="copyLink" class="hv-purpleline" style="padding:11px 18px;background:none;border:1px solid rgba(167,139,250,.35);color:#C9B2FF;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;cursor:pointer">COPY LINK</button>
+        </div>
+      </div>
+    </div>
+    <a href="/events-flyer" class="hv-flyer" style="display:block;color:inherit">
+      <div style="background:#0E0913;border:1px solid rgba(217,179,108,.35);padding:34px 30px;box-shadow:0 24px 60px rgba(0,0,0,.5);aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:26px"><svg width="14" height="13" viewBox="0 0 14 13" fill="#A78BFA" aria-hidden="true"><path d="M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z"></path></svg><span style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.3em;color:#D9B36C">BLACK AUGUST</span></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:40px;line-height:1.02">Free Karmelo.<br>Free Them All.</div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#9C8FB0;line-height:2.1">AUG 02 · TEACH-IN<br>AUG 18–19 · HEARINGS<br>AUG 20 · VERIFIED STATUS<br><span style="color:#E3C88F">AUG 29 · NATIONAL RALLIES</span></div>
+        <div style="border-top:1px solid rgba(217,179,108,.3);padding-top:16px;display:flex;justify-content:space-between;align-items:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#F2EDF7">FREEKARMELO.NET<span style="color:#A78BFA">/EVENTS</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.2em;color:#6E6284">MASTER V1</span></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#6E6284;text-align:center;margin-top:14px">MASTER FLYER · OPEN FULL SIZE →</div>
+    </a>
+  </div>
+</section>
+
+<section id="updates" data-screen-label="Verified Updates" style="scroll-margin-top:80px">
+  <div class="fk-updates-grid fk-section" style="max-width:1180px;margin:0 auto;padding:96px 32px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">UPDATES</div>
+      <h2 class="fk-h2" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:50px;line-height:1.06;margin:0 0 26px">Verified, <em style="color:#D9B36C;font-weight:500">or unpublished.</em></h2>
+      <div style="border:1px solid rgba(167,139,250,.18);background:#150E1E;padding:28px 30px;margin-bottom:26px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:14px"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#E3C88F;border:1px solid rgba(217,179,108,.35);background:rgba(217,179,108,.08)">LATEST VERIFIED UPDATE</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;color:#6E6284">JUL 29, 2026</span></div>
+        <p style="margin:0;font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.55;color:#E9E2F2">Post-trial hearings are on the August calendar. Times, access rules, and outcomes publish here — and only here — after legal and fact-check review.</p>
+      </div>
+      <div style="border:1px solid rgba(167,139,250,.18);background:#150E1E;padding:28px 30px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.28em;color:#A78BFA;margin-bottom:14px">GET VERIFIED UPDATES</div>
+        <div id="emailOpen">
+          <form id="fkEmailForm" novalidate style="display:flex;gap:10px">
+            <label for="emailInput" style="position:absolute;left:-9999px">Email address</label>
+            <input id="emailInput" name="email" type="email" required placeholder="you@example.org" style="flex:1;min-width:0;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:14px;font-size:13px;outline:none">
+            <button type="submit" class="hv-purplebtn" style="padding:14px 22px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;cursor:pointer">JOIN</button>
+          </form>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#6E6284;margin-top:14px;line-height:1.8">HEARING STATUS + NEXT ACTIONS ONLY. NO NOISE. UNSUBSCRIBE ANYTIME.</div>
+        </div>
+        <div id="emailDone" hidden>
+          <p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#C9B2FF">You&rsquo;re on the list. The Aug 20 verified status will reach your inbox first.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.28em;color:#6E6284;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(167,139,250,.14)">QUESTIONS SUPPORTERS ASK</div>
+      <details style="border-bottom:1px solid rgba(167,139,250,.14);padding:20px 0">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15.5px;font-weight:700;color:#F2EDF7">When do hearing outcomes post here?<span aria-hidden="true" style="font-family:'IBM Plex Mono',monospace;color:#D9B36C;font-size:16px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:13.5px;line-height:1.7;color:#9C8FB0;font-weight:500">After each adjournment, once legal and fact-check review confirms what occurred and what may safely be said. The dedicated Aug 20 release carries the full verified status.</p>
+      </details>
+      <details style="border-bottom:1px solid rgba(167,139,250,.14);padding:20px 0">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15.5px;font-weight:700;color:#F2EDF7">Can I show support during the hearings?<span aria-hidden="true" style="font-family:'IBM Plex Mono',monospace;color:#D9B36C;font-size:16px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:13.5px;line-height:1.7;color:#9C8FB0;font-weight:500">Public access and campaign posture publish here once confirmed. Any presence must follow designated areas and local rules. Never contact judges, jurors, witnesses, or court staff — support the campaign, not the proceedings.</p>
+      </details>
+      <details style="border-bottom:1px solid rgba(167,139,250,.14);padding:20px 0">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15.5px;font-weight:700;color:#F2EDF7">How do local actions get listed?<span aria-hidden="true" style="font-family:'IBM Plex Mono',monospace;color:#D9B36C;font-size:16px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:13.5px;line-height:1.7;color:#9C8FB0;font-weight:500">Submit through the form above. An organizer-support lead reviews every submission against campaign standards — lawful, nonviolent, accessible — before it appears on this page.</p>
+      </details>
+      <details style="border-bottom:1px solid rgba(167,139,250,.14);padding:20px 0">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15.5px;font-weight:700;color:#F2EDF7">How should I talk about the case?<span aria-hidden="true" style="font-family:'IBM Plex Mono',monospace;color:#D9B36C;font-size:16px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:13.5px;line-height:1.7;color:#9C8FB0;font-weight:500">Use the approved message bank in the toolkit. Post the real Karmelo, don&rsquo;t share the mugshot, don&rsquo;t spread unverified claims, and keep verified facts distinct from campaign positions.</p>
+      </details>
+      <details style="padding:20px 0">
+        <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15.5px;font-weight:700;color:#F2EDF7">Why do some listings say &ldquo;pending&rdquo;?<span aria-hidden="true" style="font-family:'IBM Plex Mono',monospace;color:#D9B36C;font-size:16px">+</span></summary>
+        <p style="margin:14px 0 0;font-size:13.5px;line-height:1.7;color:#9C8FB0;font-weight:500">Because we publish nothing before it&rsquo;s confirmed. A pending label means the date is real and details are being verified — check back, or join updates and we&rsquo;ll bring them to you.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer data-screen-label="Footer" style="border-top:1px solid rgba(167,139,250,.14)">
+  <div style="height:4px;background:linear-gradient(90deg,#6a5124,#D9B36C 25%,#F0DCAC 50%,#D9B36C 75%,#6a5124)"></div>
+  <div style="max-width:1180px;margin:0 auto;padding:64px 32px 48px">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;margin-bottom:44px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;letter-spacing:.06em;margin-bottom:16px">FREE<span style="color:#A78BFA">KARMELO</span><span style="color:#D9B36C">.NET</span></div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#B4A8C6;max-width:420px;line-height:1.5">Wear purple. His color — on your block and on your feed, every day.</div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-align:right;line-height:2.6"><span style="color:#A78BFA">#FREEKARMELO</span><br><span style="color:#A78BFA">#SELFDEFENSEISNOTACRIME</span><br><span style="color:#6E6284">FREEKARMELO.NET · FREEKARMELO.TODAY</span></div>
+    </div>
+    <div style="border-top:1px solid rgba(167,139,250,.12);padding-top:26px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#6E6284;line-height:1.9">
+      <span style="max-width:680px">ALL PUBLIC ACTIONS ARE LAWFUL, NONVIOLENT, AND ACCESSIBLE. THIS PAGE PUBLISHES VERIFIED INFORMATION ONLY AND NEVER MATERIAL THAT COULD INTERFERE WITH LEGAL PROCEEDINGS. ORGANIZER DATA IS MINIMIZED AND PROTECTED.</span>
+      <span>INTAKE POWERED BY E5FORM</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var CFG = window.FK_CONFIG || {};
+
+  // ---- Banner toggles (sc-if bannerWatch / bannerLive) ----
+  function show(id,on){ var el=document.getElementById(id); if(el) el.hidden = !on; }
+  show('bannerWatch', !!CFG.bannerWatch);
+  show('bannerLive',  !!CFG.bannerLive);
+
+  // ---- Aug 29 local actions (sc-if actionsLive vs actionsPending) ----
+  // Default pending (per design: actionsPending hint true). Flip by editing
+  // FK_CONFIG.actionsLive = true when verified city listings are ready.
+  var actionsLive = !!CFG.actionsLive;
+  show('actionsLive', actionsLive);
+  show('actionsPending', !actionsLive);
+
+  // ---- Events data (ported verbatim from the design's Component.events()) ----
+  var EVENTS = [
+    { key:'teachin', name:'Karmelo Teach-In', date:'SUNDAY · AUG 02, 2026 · TIME TBA', allDay:'20260802', desc:'Shared facts, campaign language, and next actions. Details: freekarmelo.net/events' },
+    { key:'judge',   name:'New Judge Hearing', date:'TUESDAY · AUG 18, 2026', allDay:'20260818', desc:'Verified status posts at freekarmelo.net/events after adjournment.' },
+    { key:'trial',   name:'New Trial Hearing', date:'WEDNESDAY · AUG 19, 2026', allDay:'20260819', desc:'Verified status posts at freekarmelo.net/events after adjournment.' },
+    { key:'update',  name:'Post-Hearing Status Release', date:'THURSDAY · AUG 20, 2026', allDay:'20260820', desc:'Verified post-hearing status + flyer at freekarmelo.net/events' },
+    { key:'rally',   name:'National Solidarity Rallies', date:'SATURDAY · AUG 29, 2026 · 3PM ET / 2 CT / 1 MT / 12 PT', utc:'20260829T190000Z', end:'20260829T203000Z', desc:'Synchronized national rallies. Find or start a local action: freekarmelo.net/events' }
+  ];
+  var BYKEY = {}; EVENTS.forEach(function(e){ BYKEY[e.key]=e; });
+
+  function startMs(e){
+    if(e.utc) return Date.parse(e.utc.replace(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/, '$1-$2-$3T$4:$5:$6Z'));
+    var d=e.allDay; return new Date(+d.slice(0,4), +d.slice(4,6)-1, +d.slice(6,8)).getTime();
+  }
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  // ---- Countdown + next-event card (ported from renderVals) ----
+  function tick(){
+    var now=Date.now();
+    var next=EVENTS.find(function(e){return startMs(e)>now;})||EVENTS[EVENTS.length-1];
+    var ms=Math.max(0, startMs(next)-now);
+    var dd=Math.floor(ms/864e5), hh=Math.floor(ms/36e5)%24, mm=Math.floor(ms/6e4)%60, ss=Math.floor(ms/1e3)%60;
+    setText('cdD',pad(dd)); setText('cdH',pad(hh)); setText('cdM',pad(mm)); setText('cdS',pad(ss));
+    setText('nextName',next.name); setText('nextDate',next.date);
+  }
+  function setText(id,v){ var el=document.getElementById(id); if(el && el.textContent!==v) el.textContent=v; }
+  tick(); setInterval(tick,1000);
+
+  // ---- Local time for Aug 29 rally (ported from renderVals) ----
+  try{
+    var rl=new Intl.DateTimeFormat(undefined,{hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(new Date('2026-08-29T19:00:00Z')).toUpperCase();
+    setText('rallyLocal',rl);
+  }catch(e){}
+
+  // ---- .ics generation (ported verbatim from Component.ics()) ----  function downloadIcs(e){
+    var lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//FreeKarmelo//Events//EN','BEGIN:VEVENT','UID:'+e.key+'-2026@freekarmelo.net'];
+    if(e.utc){ lines.push('DTSTART:'+e.utc,'DTEND:'+e.end); }
+    else{
+      var d=e.allDay, nd=new Date(+d.slice(0,4), +d.slice(4,6)-1, +d.slice(6,8)+1);
+      lines.push('DTSTART;VALUE=DATE:'+d,'DTEND;VALUE=DATE:'+nd.getFullYear()+pad(nd.getMonth()+1)+pad(nd.getDate()));
+    }
+    lines.push('SUMMARY:'+e.name+' — Free Karmelo | Black August','DESCRIPTION:'+e.desc,'URL:https://freekarmelo.net/events','END:VEVENT','END:VCALENDAR');
+    var blob=new Blob([lines.join('\r\n')],{type:'text/calendar'});
+    var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='freekarmelo-'+e.key+'.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){URL.revokeObjectURL(a.href);},4000);
+  }
+  document.querySelectorAll('[data-ics]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var ev=BYKEY[btn.getAttribute('data-ics')]; if(ev) downloadIcs(ev);
+    });
+  });
+
+  // ---- Copy link (ported from renderVals copyLink) ----
+  var copyBtn=document.getElementById('copyLink');
+  if(copyBtn){
+    copyBtn.addEventListener('click',function(){
+      try{ navigator.clipboard.writeText('https://freekarmelo.net/events'); }catch(e){}
+      copyBtn.textContent='COPIED ✓';
+      setTimeout(function(){ copyBtn.textContent='COPY LINK'; },1800);
+    });
+  }
+
+  // ---- Email join (ported from submitEmail) ----
+  var emailForm=document.getElementById('fkEmailForm');
+  if(emailForm){
+    emailForm.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var v=(document.getElementById('emailInput').value||'').trim();
+      if(/.+@.+\..+/.test(v)){ document.getElementById('emailOpen').hidden=true; document.getElementById('emailDone').hidden=false; }
+    });
+  }
+
+  // ---- Start a Local Action form ----
+  var formOpenEl=document.getElementById('formOpen');
+  var formClosedEl=document.getElementById('formClosed');
+  var formDoneEl=document.getElementById('formDone');
+  var formErrEl=document.getElementById('formErr');
+  var actionForm=document.getElementById('fkActionForm');
+  var endpoint=(CFG.formEndpoint||'').trim();
+
+  function setErr(msg){ if(!formErrEl) return; if(msg){ formErrEl.textContent=msg; formErrEl.hidden=false; } else { formErrEl.hidden=true; formErrEl.textContent=''; } }
+
+  if(endpoint && formOpenEl && formClosedEl){
+    // endpoint wired → show the live intake form
+    formClosedEl.hidden=true; formOpenEl.hidden=false;
+    if(actionForm){
+      actionForm.setAttribute('action',endpoint);
+      actionForm.setAttribute('method','POST');
+      actionForm.addEventListener('submit',function(ev){
+        var f=ev.target, name=(f.elements['fullName']||{}).value||'', email=(f.elements['email']||{}).value||'', city=(f.elements['cityState']||{}).value||'', consent=(f.elements['consent']||{}).checked;
+        if(!name || !/.+@.+\..+/.test(email) || !city){ ev.preventDefault(); setErr('NAME, EMAIL, AND CITY ARE REQUIRED.'); return; }
+        if(!consent){ ev.preventDefault(); setErr('PLEASE AGREE TO THE CAMPAIGN STANDARDS TO SUBMIT.'); return; }
+        setErr('');
+        // If the endpoint is on a different origin it may not return a navigable page;
+        // fall back to the thank-you state on a successful fetch.
+        if(endpoint.indexOf('http')===0 && (endpoint.indexOf('e5form')>-1 || endpoint.indexOf('/functions/')>-1)){
+          ev.preventDefault();
+          var body=new FormData(f);
+          fetch(endpoint,{method:'POST',body:body}).then(function(r){ if(!r.ok) throw new Error('bad status'); })
+            .then(function(){ showDone(name); })
+            .catch(function(){ setErr('SUBMISSION COULD NOT BE COMPLETED. PLEASE TRY AGAIN.'); });
+        }
+        // else: let the native form submit navigate/POST as designed
+      });
+    }
+  }
+  // else: endpoint empty → graceful disabled state stays (formOpen hidden, formClosed shown)
+
+  function showDone(name){
+    if(formOpenEl) formOpenEl.hidden=true;
+    if(formDoneEl) formDoneEl.hidden=false;
+    var dn=document.getElementById('formDoneName');
+    if(dn) dn.textContent = name ? ('Thank you, '+name+'.') : 'Thank you.';
+  }
+  var resetBtn=document.getElementById('resetForm');
+  if(resetBtn){
+    resetBtn.addEventListener('click',function(){
+      if(formDoneEl) formDoneEl.hidden=true;
+      if(formOpenEl) formOpenEl.hidden=false;
+      if(actionForm) actionForm.reset();
+      setErr('');
+    });
+  }
+})();
+</script>
+</body>
+</html>
