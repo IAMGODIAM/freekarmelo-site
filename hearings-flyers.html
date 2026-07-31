@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hearing Watch — Flyer Source · Free Karmelo | Four Crops</title>
+<title>Free Karmelo — Court-Support Mobilization · Flyer Source · Four Crops</title>
 <link rel="canonical" href="https://freekarmelo.net/hearings-flyers">
 <meta name="theme-color" content="#0E0913">
 <meta name="robots" content="noindex,follow">
-<meta name="description" content="Hearing Watch flyer source page for Free Karmelo — four deterministic artboards (vertical 1080x1350, square 1080x1080, story 1080x1920, landscape 1920x1080) for the Aug 19 & Aug 20 post-trial hearings.">
+<meta name="description" content="Court-support mobilization flyer source for Free Karmelo — four deterministic artboards (vertical 1080x1350, square 1080x1080, story 1080x1920, landscape 1920x1080) for the Aug 19 &amp; Aug 20 post-trial hearings. Show up early. Understand why your presence matters. Carry yourself with disciplined dignity.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#080510;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased;color:#F2EDF7}
@@ -24,17 +24,30 @@ a:hover{color:#E3C88F}
 .fk-back:hover{color:#E3C88F}
 .fk-label-row{max-width:1920px;margin:0 auto;padding:48px 24px 10px;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px}
 .fk-foot{max-width:1920px;margin:0 auto;padding:36px 24px 64px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#6E6284;line-height:2}
-/* shared flyer primitives */
-.fk-goldtop{position:absolute;top:0;left:0;right:0;pointer-events:none;background:linear-gradient(90deg,#6a5124,#D9B36C 25%,#F0DCAC 50%,#D9B36C 75%,#6a5124)}
-.fk-rule1{position:absolute;pointer-events:none;border:1px solid rgba(217,179,108,.55)}
-.fk-rule2{position:absolute;pointer-events:none;border:1px solid rgba(217,179,108,.22)}
-.fk-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(700px 460px at 82% 6%,rgba(124,92,214,.28),transparent 65%)}
-.fk-content{position:absolute;inset:0;pointer-events:none;padding:64px 66px;display:flex;flex-direction:column;box-sizing:border-box}
-.fk-eyebrow{display:flex;align-items:center;gap:14px}
+/* mobilization primitives */
 .fk-mono{font-family:'IBM Plex Mono',monospace}
 .fk-serif{font-family:'Cormorant Garamond',serif}
-.fk-chip{font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.2em;padding:5px 10px;color:#C9B2FF;border:1px solid rgba(167,139,250,.4);background:rgba(139,92,246,.12)}
-.fk-dest{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.04em;color:#F2EDF7}
+.fk-goldtop{position:absolute;top:0;left:0;right:0;pointer-events:none;background:linear-gradient(90deg,#6a5124,#D9B36C 25%,#F0DCAC 50%,#D9B36C 75%,#6a5124);z-index:6}
+.fk-portrait{position:absolute;inset:0;z-index:1;pointer-events:none}
+.fk-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.fk-scrim-top{position:absolute;top:0;left:0;right:0;pointer-events:none;z-index:2}
+.fk-scrim-bottom{position:absolute;bottom:0;left:0;right:0;pointer-events:none;z-index:2}
+.fk-scrim-side{position:absolute;top:0;bottom:0;pointer-events:none;z-index:2}
+.fk-content{position:absolute;inset:0;pointer-events:none;z-index:5;display:flex;flex-direction:column;box-sizing:border-box}
+.fk-rule-gold{position:absolute;left:0;right:0;pointer-events:none;height:1px;background:linear-gradient(90deg,transparent,rgba(217,179,108,.65) 18%,rgba(240,220,172,.85) 50%,rgba(217,179,108,.65) 82%,transparent);z-index:5}
+.fk-rule1{position:absolute;pointer-events:none;border:1px solid rgba(217,179,108,.5);z-index:4}
+.fk-tagbar{display:inline-flex;align-items:center;gap:10px}
+.fk-dot{width:7px;height:7px;background:#D9B36C;flex:none}
+.fk-kicker{font-family:'IBM Plex Mono',monospace;letter-spacing:.3em;color:#E3C88F}
+.fk-ask{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.028em;line-height:.9;color:#F8F4FB}
+.fk-ask-em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;letter-spacing:-.012em;color:#E3C88F;display:block}
+.fk-action{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.06em;color:#F2EDF7}
+.fk-hday{font-family:'IBM Plex Mono',monospace;font-weight:700;letter-spacing:.05em}
+.fk-hmote{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:-.005em;color:#F2EDF7}
+.fk-arrive{background:linear-gradient(90deg,rgba(139,92,246,.32),rgba(14,9,19,.08) 96%);border-left:3px solid #D9B36C}
+.fk-conduct{font-family:'IBM Plex Mono',monospace;letter-spacing:.16em;color:#C9C0D4}
+.fk-dest{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.04em;color:#F8F4FB}
+.fk-never{color:#E3C88F}
 </style>
 </head>
 <body>
@@ -42,69 +55,99 @@ a:hover{color:#E3C88F}
 <div style="position:sticky;top:0;z-index:50;background:rgba(8,5,16,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(167,139,250,.14)">
   <div style="max-width:1920px;margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
     <a href="hearings.html" class="fk-back" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;color:#C9B2FF">&larr; BACK TO HEARING WATCH</a>
-    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#6E6284">FREEKARMELO.NET/HEARINGS · FLYER SOURCE · 4 ARTBOARDS</span>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;color:#6E6284">FREEKARMELO.NET/HEARINGS · COURT-SUPPORT FLYERS · 4 ARTBOARDS</span>
   </div>
 </div>
 
 <!-- ═══ 01 · MASTER VERTICAL · 1080 × 1350 · #board-vertical ═══ -->
 <div class="fk-label-row">
   <div class="fk-mono" style="font-size:12px;letter-spacing:.3em;color:#D9B36C">01 · MASTER VERTICAL · 1080 &times; 1350</div>
-  <div class="fk-mono" style="font-size:11px;letter-spacing:.22em;color:#6E6284">PRINT + FEED · TYPOGRAPHIC COMPOSITION</div>
+  <div class="fk-mono" style="font-size:11px;letter-spacing:.22em;color:#6E6284">PRINT POSTER + FEED · FULL BRIEFING</div>
 </div>
 <div class="fk-scroll"><div class="fk-board-wrap">
 <div id="board-vertical" class="fk-board" style="width:1080px;height:1350px">
+  <div class="fk-portrait"><img src="https://freekarmelo.net/assets/sharp_hero2.jpg" alt="Karmelo Anthony — court portrait"></div>
+  <div class="fk-scrim-top" style="height:560px;background:linear-gradient(180deg,rgba(8,5,16,.96) 0%,rgba(8,5,16,.78) 32%,rgba(8,5,16,.32) 66%,transparent 100%)"></div>
+  <div class="fk-scrim-bottom" style="height:880px;background:linear-gradient(0deg,rgba(6,3,12,.99) 0%,rgba(8,5,16,.97) 12%,rgba(10,6,18,.9) 30%,rgba(14,9,19,.62) 58%,rgba(14,9,19,.28) 82%,transparent 100%)"></div>
   <div class="fk-goldtop" style="height:10px"></div>
-  <div class="fk-glow"></div>
   <div class="fk-rule1" style="inset:30px"></div>
-  <div class="fk-rule2" style="inset:38px"></div>
 
-  <div class="fk-content" style="inset:38px;padding:62px 64px 56px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:54px">
-      <div class="fk-eyebrow">
-        <svg width="24" height="22" viewBox="0 0 14 13" fill="#A78BFA" aria-hidden="true"><path d="M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z"></path></svg>
-        <span class="fk-mono" style="font-size:17px;letter-spacing:.32em;color:#D9B36C">HEARING WATCH · 2026</span>
-      </div>
-      <span class="fk-mono" style="font-size:17px;letter-spacing:.28em;color:#6E6284">FREEKARMELO</span>
-    </div>
-
-    <div style="margin-bottom:18px">
-      <div class="fk-serif" style="font-weight:600;font-size:108px;line-height:.96;color:#F2EDF7;letter-spacing:-.012em">Free Karmelo.</div>
-      <div class="fk-serif" style="font-weight:500;font-style:italic;font-size:108px;line-height:.96;color:#D9B36C;letter-spacing:-.012em">Hearings, watched.</div>
-    </div>
-    <div class="fk-serif" style="font-style:italic;font-size:29px;color:#B4A8C6;margin-bottom:50px;max-width:760px">Two days. One court. The record, verified &mdash; published the moment it is confirmed.</div>
-
-    <div style="border-top:1px solid rgba(167,139,250,.28)">
-      <div style="display:flex;align-items:center;gap:28px;padding:24px 0;border-bottom:1px solid rgba(167,139,250,.22)">
-        <span class="fk-mono" style="font-size:26px;font-weight:600;color:#A78BFA;letter-spacing:.06em;width:184px;flex:none">AUG 19</span>
-        <span style="font-size:27px;font-weight:700;color:#F2EDF7;letter-spacing:-.01em;flex:1">Motion to Recuse</span>
-        <span class="fk-chip" style="font-size:12px">9 AM CT</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:28px;padding:24px 0;border-bottom:1px solid rgba(167,139,250,.22)">
-        <span class="fk-mono" style="font-size:26px;font-weight:600;color:#A78BFA;letter-spacing:.06em;width:184px;flex:none">AUG 20</span>
-        <span style="font-size:27px;font-weight:700;color:#F2EDF7;letter-spacing:-.01em;flex:1">Motion for New Trial</span>
-        <span class="fk-chip" style="font-size:12px">9 AM CT</span>
-      </div>
-      <div style="padding:24px 0;border-bottom:1px solid rgba(217,179,108,.45);background:linear-gradient(90deg,rgba(139,92,246,.14),transparent 78%)">
-        <div style="display:flex;align-items:center;gap:28px">
-          <span class="fk-mono" style="font-size:26px;font-weight:600;color:#E3C88F;letter-spacing:.06em;width:184px;flex:none">VENUE</span>
-          <span class="fk-serif" style="font-size:27px;font-weight:600;color:#F2EDF7;letter-spacing:-.005em">Collin County Courthouse</span>
+  <div class="fk-content" style="padding:62px 64px 60px;justify-content:space-between">
+    <!-- TOP: identity + ask -->
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:40px">
+        <div class="fk-tagbar">
+          <span class="fk-dot"></span>
+          <span class="fk-kicker" style="font-size:16px">SHOW UP FOR KARMELO</span>
         </div>
-        <div class="fk-mono" style="font-size:19px;letter-spacing:.12em;color:#E3C88F;margin-top:12px;padding-left:212px">MCKINNEY, TX · 2100 BLOOMDALE RD</div>
+        <span class="fk-mono" style="font-size:16px;letter-spacing:.26em;color:#B4A8C6">FREEKARMELO</span>
       </div>
+      <div class="fk-ask" style="font-size:124px;margin-bottom:8px">SHOW UP</div>
+      <div class="fk-ask" style="font-size:124px;margin-bottom:20px">FOR KARMELO.</div>
+      <div class="fk-action" style="font-size:27px;margin-bottom:6px">BE THERE. BE EARLY. BE DIGNIFIED.</div>
     </div>
 
-    <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:36px">
-      <div>
-        <div class="fk-serif" style="font-style:italic;font-size:26px;color:#B4A8C6;margin-bottom:22px">Verified only. The moment it is confirmed.</div>
-        <div class="fk-dest" style="font-size:32px;margin-bottom:14px">FREEKARMELO<span style="color:#A78BFA">.NET</span><span style="color:#D9B36C">/HEARINGS</span></div>
-        <div class="fk-mono" style="font-size:16px;letter-spacing:.16em;color:#A78BFA">#FREEKARMELO &nbsp;·&nbsp; #BELIEVEKARMELO</div>
-      </div>
-      <div style="flex:none;text-align:center">
-        <div style="width:148px;height:148px;border:1px dashed rgba(217,179,108,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(14,9,19,.6)">
-          <span class="fk-mono" style="font-size:24px;color:#D9B36C;letter-spacing:.1em">QR</span>
-          <span class="fk-mono" style="font-size:10.5px;letter-spacing:.18em;color:#9C8FB0;line-height:1.6">PLACE FINAL<br>CODE HERE</span>
+    <!-- BOTTOM: logistics stack -->
+    <div>
+      <!-- Hearings -->
+      <div style="border-top:1px solid rgba(217,179,108,.4);padding-top:22px;margin-bottom:24px">
+        <div style="display:flex;align-items:center;gap:22px;padding:16px 0;border-bottom:1px solid rgba(167,139,250,.22)">
+          <span class="fk-hday" style="font-size:25px;color:#A78BFA;width:180px;flex:none">WED · AUG 19</span>
+          <span class="fk-hmote" style="font-size:27px;flex:1">Motion to Recuse</span>
         </div>
-        <div class="fk-mono" style="font-size:11.5px;letter-spacing:.2em;color:#6E6284;margin-top:11px">LINKS TO /HEARINGS</div>
+        <div style="display:flex;align-items:center;gap:22px;padding:16px 0">
+          <span class="fk-hday" style="font-size:25px;color:#A78BFA;width:180px;flex:none">THU · AUG 20</span>
+          <div style="flex:1">
+            <span class="fk-hmote" style="font-size:27px">Motion for New Trial</span>
+            <div class="fk-mono" style="font-size:15px;letter-spacing:.1em;color:#E3C88F;margin-top:5px">JUDGE &amp; COURTROOM TBD</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Venue -->
+      <div style="margin-bottom:24px">
+        <div class="fk-mono" style="font-size:15px;letter-spacing:.22em;color:#E3C88F;margin-bottom:8px">RUSSELL A. STEINDAM COURTS BUILDING</div>
+        <div class="fk-mono" style="font-size:20px;font-weight:600;letter-spacing:.04em;color:#F2EDF7;line-height:1.4">2100 Bloomdale Rd &middot; McKinney, TX 75071</div>
+        <div class="fk-mono" style="font-size:15px;letter-spacing:.14em;color:#B4A8C6;margin-top:6px">9:00 AM CT &middot; BOTH DAYS</div>
+      </div>
+
+      <!-- Arrive by -->
+      <div class="fk-arrive" style="padding:22px 24px;margin-bottom:26px">
+        <div class="fk-mono" style="font-size:15px;letter-spacing:.24em;color:#E3C88F;margin-bottom:10px">ARRIVE BY 7:30 AM</div>
+        <div class="fk-mono" style="font-size:17px;letter-spacing:.02em;color:#F2EDF7;line-height:1.55">Doors open 7:00 AM. Security screening. Seating is limited &mdash; at the June trial only 27 public seats were available. No overflow has been announced.</div>
+      </div>
+
+      <!-- Why presence -->
+      <div class="fk-serif" style="font-style:italic;font-size:26px;line-height:1.4;color:#D8CFE6;margin-bottom:26px;max-width:920px">A full courtroom tells Karmelo he does not stand alone &mdash; and tells the court this community is paying attention.</div>
+
+      <!-- Conduct contract -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px">
+        <div>
+          <div class="fk-mono" style="font-size:13px;letter-spacing:.22em;color:#A78BFA;margin-bottom:10px">INSIDE</div>
+          <div class="fk-conduct" style="font-size:14px;line-height:1.75">Quiet presence. Neutral attire. Phones silent. No signs, no recording, no reactions.</div>
+        </div>
+        <div>
+          <div class="fk-mono" style="font-size:13px;letter-spacing:.22em;color:#A78BFA;margin-bottom:10px">OUTSIDE</div>
+          <div class="fk-conduct" style="font-size:14px;line-height:1.75">Designated areas only. Follow on-site directions. Keep entrances and walkways clear.</div>
+        </div>
+      </div>
+      <div class="fk-mono" style="font-size:13px;letter-spacing:.14em;color:#E3C88F;margin-bottom:30px;line-height:1.7">NEVER APPROACH JUDGES, JURORS, WITNESSES, COURT STAFF, OR THE FAMILIES.</div>
+
+      <!-- Updates + support -->
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px">
+        <div>
+          <div class="fk-dest" style="font-size:30px;margin-bottom:10px">FREEKARMELO<span style="color:#A78BFA">.NET</span><span style="color:#D9B36C">/HEARINGS</span></div>
+          <div class="fk-mono" style="font-size:14px;letter-spacing:.14em;color:#B4A8C6;margin-bottom:12px;line-height:1.6">VERIFY BEFORE YOU MOVE.<br>CONFIRMED UPDATES AFTER ADJOURNMENT.</div>
+          <div class="fk-mono" style="font-size:14px;letter-spacing:.12em;color:#C9C0D4">SUPPORT ONLY VIA TDCJ eCommDirect &middot; #02617665</div>
+          <div class="fk-mono" style="font-size:15px;letter-spacing:.16em;color:#A78BFA;margin-top:12px">#FREEKARMELO &nbsp;·&nbsp; #BELIEVEKARMELO</div>
+        </div>
+        <div style="flex:none;text-align:center">
+          <div style="width:148px;height:148px;border:1px dashed rgba(217,179,108,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(14,9,19,.6)">
+            <span class="fk-mono" style="font-size:24px;color:#D9B36C;letter-spacing:.1em">QR</span>
+            <span class="fk-mono" style="font-size:10.5px;letter-spacing:.18em;color:#9C8FB0;line-height:1.6">PLACE FINAL<br>CODE HERE</span>
+          </div>
+          <div class="fk-mono" style="font-size:11.5px;letter-spacing:.2em;color:#6E6284;margin-top:11px">LINKS TO /HEARINGS</div>
+        </div>
       </div>
     </div>
   </div>
@@ -114,61 +157,71 @@ a:hover{color:#E3C88F}
 <!-- ═══ 02 · SQUARE · 1080 × 1080 · #board-square ═══ -->
 <div class="fk-label-row">
   <div class="fk-mono" style="font-size:12px;letter-spacing:.3em;color:#D9B36C">02 · SQUARE · 1080 &times; 1080</div>
-  <div class="fk-mono" style="font-size:11px;letter-spacing:.22em;color:#6E6284">FEED POST · PARTNER NEWSLETTER</div>
+  <div class="fk-mono" style="font-size:11px;letter-spacing:.22em;color:#6E6284">FEED POST &middot; PARTNER NEWSLETTER</div>
 </div>
 <div class="fk-scroll"><div class="fk-board-wrap">
 <div id="board-square" class="fk-board" style="width:1080px;height:1080px">
+  <div class="fk-portrait"><img src="https://freekarmelo.net/assets/sharp_hero2.jpg" alt="Karmelo Anthony — court portrait"></div>
+  <div class="fk-scrim-top" style="height:300px;background:linear-gradient(180deg,rgba(8,5,16,.97) 0%,rgba(8,5,16,.82) 42%,rgba(8,5,16,.3) 78%,transparent 100%)"></div>
+  <div class="fk-scrim-bottom" style="height:660px;background:linear-gradient(0deg,rgba(6,3,12,.99) 0%,rgba(8,5,16,.96) 14%,rgba(10,6,18,.86) 36%,rgba(14,9,19,.5) 64%,rgba(14,9,19,.18) 88%,transparent 100%)"></div>
   <div class="fk-goldtop" style="height:10px"></div>
-  <div class="fk-glow" style="background:radial-gradient(600px 400px at 84% 4%,rgba(124,92,214,.3),transparent 65%)"></div>
   <div class="fk-rule1" style="inset:26px"></div>
-  <div class="fk-rule2" style="inset:34px"></div>
 
-  <div class="fk-content" style="inset:34px;padding:50px 52px 46px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px">
-      <div class="fk-eyebrow">
-        <svg width="20" height="18" viewBox="0 0 14 13" fill="#A78BFA" aria-hidden="true"><path d="M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z"></path></svg>
-        <span class="fk-mono" style="font-size:15px;letter-spacing:.3em;color:#D9B36C">HEARING WATCH · 2026</span>
+  <div class="fk-content" style="padding:54px 52px 52px;justify-content:space-between">
+    <!-- TOP: identity + ask -->
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:30px">
+        <div class="fk-tagbar">
+          <span class="fk-dot"></span>
+          <span class="fk-kicker" style="font-size:14px">SHOW UP FOR KARMELO</span>
+        </div>
+        <span class="fk-mono" style="font-size:14px;letter-spacing:.24em;color:#B4A8C6">FREEKARMELO</span>
       </div>
-      <span class="fk-mono" style="font-size:14px;letter-spacing:.26em;color:#6E6284">FREEKARMELO</span>
+      <div class="fk-ask" style="font-size:96px;margin-bottom:4px">SHOW UP</div>
+      <div class="fk-ask" style="font-size:96px;margin-bottom:16px">FOR KARMELO.</div>
+      <div class="fk-action" style="font-size:21px;margin-bottom:4px">BE THERE. BE EARLY. BE DIGNIFIED.</div>
     </div>
 
-    <div style="margin-bottom:14px">
-      <div class="fk-serif" style="font-weight:600;font-size:84px;line-height:.97;color:#F2EDF7;letter-spacing:-.012em">Free Karmelo.</div>
-      <div class="fk-serif" style="font-weight:500;font-style:italic;font-size:84px;line-height:.97;color:#D9B36C;letter-spacing:-.012em">Hearings, watched.</div>
-    </div>
-    <div class="fk-serif" style="font-style:italic;font-size:23px;color:#B4A8C6;margin-bottom:30px;max-width:880px">Two days. One court. The record, verified.</div>
-
-    <div style="border-top:1px solid rgba(167,139,250,.28)">
-      <div style="display:flex;align-items:center;gap:22px;padding:15px 0;border-bottom:1px solid rgba(167,139,250,.22)">
-        <span class="fk-mono" style="font-size:20px;font-weight:600;color:#A78BFA;letter-spacing:.06em;width:140px;flex:none">AUG 19</span>
-        <span style="font-size:22px;font-weight:700;color:#F2EDF7;letter-spacing:-.01em;flex:1">Motion to Recuse</span>
-        <span class="fk-chip" style="font-size:10px">9 AM CT</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:22px;padding:15px 0;border-bottom:1px solid rgba(167,139,250,.22)">
-        <span class="fk-mono" style="font-size:20px;font-weight:600;color:#A78BFA;letter-spacing:.06em;width:140px;flex:none">AUG 20</span>
-        <span style="font-size:22px;font-weight:700;color:#F2EDF7;letter-spacing:-.01em;flex:1">Motion for New Trial</span>
-        <span class="fk-chip" style="font-size:10px">9 AM CT</span>
-      </div>
-      <div style="padding:18px 0;border-bottom:1px solid rgba(217,179,108,.45);background:linear-gradient(90deg,rgba(139,92,246,.14),transparent 78%)">
-        <div style="display:flex;align-items:center;gap:22px">
-          <span class="fk-mono" style="font-size:20px;font-weight:600;color:#E3C88F;letter-spacing:.06em;width:140px;flex:none">VENUE</span>
-          <span class="fk-serif" style="font-size:24px;font-weight:600;color:#F2EDF7;letter-spacing:-.005em;flex:1">Collin County Courthouse · McKinney, TX</span>
+    <!-- BOTTOM: core logistics (ranks 1-4 + 7) -->
+    <div>
+      <div style="border-top:1px solid rgba(217,179,108,.4);padding-top:18px;margin-bottom:20px">
+        <div style="display:flex;align-items:center;gap:18px;padding:13px 0;border-bottom:1px solid rgba(167,139,250,.22)">
+          <span class="fk-hday" style="font-size:19px;color:#A78BFA;width:150px;flex:none">WED · AUG 19</span>
+          <span class="fk-hmote" style="font-size:22px;flex:1">Motion to Recuse</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:18px;padding:13px 0">
+          <span class="fk-hday" style="font-size:19px;color:#A78BFA;width:150px;flex:none">THU · AUG 20</span>
+          <div style="flex:1">
+            <span class="fk-hmote" style="font-size:22px">Motion for New Trial</span>
+            <div class="fk-mono" style="font-size:13px;letter-spacing:.1em;color:#E3C88F;margin-top:3px">JUDGE &amp; COURTROOM TBD</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:28px">
-      <div>
-        <div class="fk-serif" style="font-style:italic;font-size:22px;color:#B4A8C6;margin-bottom:16px">Verified only.</div>
-        <div class="fk-dest" style="font-size:26px;margin-bottom:11px">FREEKARMELO<span style="color:#A78BFA">.NET</span><span style="color:#D9B36C">/HEARINGS</span></div>
-        <div class="fk-mono" style="font-size:13px;letter-spacing:.16em;color:#A78BFA">#FREEKARMELO · #BELIEVEKARMELO</div>
+      <div style="margin-bottom:20px">
+        <div class="fk-mono" style="font-size:13px;letter-spacing:.2em;color:#E3C88F;margin-bottom:6px">RUSSELL A. STEINDAM COURTS BUILDING</div>
+        <div class="fk-mono" style="font-size:17px;font-weight:600;letter-spacing:.04em;color:#F2EDF7;line-height:1.4">2100 Bloomdale Rd &middot; McKinney, TX 75071</div>
+        <div class="fk-mono" style="font-size:13px;letter-spacing:.12em;color:#B4A8C6;margin-top:5px">9:00 AM CT &middot; BOTH DAYS</div>
       </div>
-      <div style="flex:none;text-align:center">
-        <div style="width:116px;height:116px;border:1px dashed rgba(217,179,108,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:rgba(14,9,19,.6)">
-          <span class="fk-mono" style="font-size:19px;color:#D9B36C;letter-spacing:.1em">QR</span>
-          <span class="fk-mono" style="font-size:9px;letter-spacing:.18em;color:#9C8FB0;line-height:1.6">PLACE FINAL<br>CODE HERE</span>
+
+      <div class="fk-arrive" style="padding:18px 20px;margin-bottom:24px">
+        <div class="fk-mono" style="font-size:13px;letter-spacing:.22em;color:#E3C88F;margin-bottom:8px">ARRIVE BY 7:30 AM</div>
+        <div class="fk-mono" style="font-size:14px;letter-spacing:.02em;color:#F2EDF7;line-height:1.55">Doors open 7:00 AM. Security screening. Seating is limited &mdash; 27 public seats at the June trial. No overflow announced.</div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+        <div>
+          <div class="fk-dest" style="font-size:24px;margin-bottom:8px">FREEKARMELO<span style="color:#A78BFA">.NET</span><span style="color:#D9B36C">/HEARINGS</span></div>
+          <div class="fk-mono" style="font-size:12px;letter-spacing:.14em;color:#B4A8C6;margin-bottom:9px;line-height:1.55">VERIFY BEFORE YOU MOVE.<br>UPDATES AFTER ADJOURNMENT.</div>
+          <div class="fk-mono" style="font-size:13px;letter-spacing:.16em;color:#A78BFA">#FREEKARMELO &nbsp;·&nbsp; #BELIEVEKARMELO</div>
         </div>
-        <div class="fk-mono" style="font-size:10px;letter-spacing:.2em;color:#6E6284;margin-top:9px">LINKS TO /HEARINGS</div>
+        <div style="flex:none;text-align:center">
+          <div style="width:116px;height:116px;border:1px dashed rgba(217,179,108,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:rgba(14,9,19,.6)">
+            <span class="fk-mono" style="font-size:19px;color:#D9B36C;letter-spacing:.1em">QR</span>
+            <span class="fk-mono" style="font-size:9px;letter-spacing:.18em;color:#9C8FB0;line-height:1.6">PLACE FINAL<br>CODE HERE</span>
+          </div>
+          <div class="fk-mono" style="font-size:10px;letter-spacing:.2em;color:#6E6284;margin-top:9px">LINKS TO /HEARINGS</div>
+        </div>
       </div>
     </div>
   </div>
@@ -178,49 +231,81 @@ a:hover{color:#E3C88F}
 <!-- ═══ 03 · STORY / REEL · 1080 × 1920 · #board-story ═══ -->
 <div class="fk-label-row">
   <div class="fk-mono" style="font-size:12px;letter-spacing:.3em;color:#D9B36C">03 · STORY / REEL · 1080 &times; 1920</div>
-  <div class="fk-mono" style="font-size:11px;letter-spacing:.22em;color:#6E6284">SAFE MARGINS FOR PLATFORM UI</div>
+  <div class="fk-mono" style="font-size:11px;letter-spacing:.22em;color:#6E6284">MOBILE FULLSCREEN &middot; SAFE MARGINS</div>
 </div>
 <div class="fk-scroll"><div class="fk-board-wrap">
 <div id="board-story" class="fk-board" style="width:1080px;height:1920px">
+  <div class="fk-portrait"><img src="https://freekarmelo.net/assets/sharp_hero2.jpg" alt="Karmelo Anthony — court portrait"></div>
+  <div class="fk-scrim-top" style="height:430px;background:linear-gradient(180deg,rgba(8,5,16,.97) 0%,rgba(8,5,16,.8) 30%,rgba(8,5,16,.3) 64%,transparent 100%)"></div>
+  <div class="fk-scrim-bottom" style="height:1450px;background:linear-gradient(0deg,rgba(6,3,12,.99) 0%,rgba(8,5,16,.97) 9%,rgba(10,6,18,.9) 24%,rgba(14,9,19,.6) 52%,rgba(14,9,19,.26) 80%,transparent 100%)"></div>
   <div class="fk-goldtop" style="height:10px"></div>
-  <div class="fk-glow" style="background:radial-gradient(780px 600px at 78% 8%,rgba(124,92,214,.3),transparent 65%)"></div>
   <div class="fk-rule1" style="inset:30px"></div>
-  <div class="fk-rule2" style="inset:38px"></div>
 
-  <div class="fk-content" style="inset:38px;padding:150px 62px 170px">
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:42px">
-      <svg width="24" height="22" viewBox="0 0 14 13" fill="#A78BFA" aria-hidden="true"><path d="M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z"></path></svg>
-      <span class="fk-mono" style="font-size:18px;letter-spacing:.32em;color:#D9B36C">HEARING WATCH · 2026</span>
+  <div class="fk-content" style="padding:170px 62px 175px;justify-content:space-between">
+    <!-- TOP: identity + ask -->
+    <div>
+      <div class="fk-tagbar" style="margin-bottom:44px">
+        <span class="fk-dot"></span>
+        <span class="fk-kicker" style="font-size:17px">SHOW UP FOR KARMELO</span>
+      </div>
+      <div class="fk-ask" style="font-size:148px;margin-bottom:10px">SHOW UP</div>
+      <div class="fk-ask" style="font-size:148px;margin-bottom:24px">FOR KARMELO.</div>
+      <div class="fk-action" style="font-size:30px;margin-bottom:6px">BE THERE. BE EARLY. BE DIGNIFIED.</div>
     </div>
 
-    <div style="margin-bottom:20px">
-      <div class="fk-serif" style="font-weight:600;font-size:120px;line-height:.94;color:#F2EDF7;letter-spacing:-.014em">Free<br>Karmelo.</div>
-      <div class="fk-serif" style="font-weight:500;font-style:italic;font-size:96px;line-height:.96;color:#D9B36C;letter-spacing:-.012em;margin-top:6px">Hearings,<br>watched.</div>
-    </div>
-    <div class="fk-serif" style="font-style:italic;font-size:32px;color:#B4A8C6;margin-bottom:50px;line-height:1.3">Two days. One court.<br>The record, verified.</div>
+    <!-- BOTTOM: full briefing -->
+    <div>
+      <!-- Hearings -->
+      <div style="border-top:1px solid rgba(217,179,108,.4);padding-top:24px;margin-bottom:26px">
+        <div style="display:flex;align-items:center;gap:22px;padding:18px 0;border-bottom:1px solid rgba(167,139,250,.22)">
+          <span class="fk-hday" style="font-size:25px;color:#A78BFA;width:210px;flex:none">WED · AUG 19</span>
+          <span class="fk-hmote" style="font-size:30px;flex:1">Motion to Recuse</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:22px;padding:18px 0">
+          <span class="fk-hday" style="font-size:25px;color:#A78BFA;width:210px;flex:none">THU · AUG 20</span>
+          <div style="flex:1">
+            <span class="fk-hmote" style="font-size:30px">Motion for New Trial</span>
+            <div class="fk-mono" style="font-size:16px;letter-spacing:.1em;color:#E3C88F;margin-top:5px">JUDGE &amp; COURTROOM TBD</div>
+          </div>
+        </div>
+      </div>
 
-    <div style="border-top:1px solid rgba(167,139,250,.28)">
-      <div style="display:flex;align-items:center;gap:22px;padding:20px 0;border-bottom:1px solid rgba(167,139,250,.22)">
-        <span class="fk-mono" style="font-size:25px;font-weight:600;color:#A78BFA;letter-spacing:.06em;width:186px;flex:none">AUG 19</span>
-        <span style="font-size:29px;font-weight:700;color:#F2EDF7;letter-spacing:-.01em;flex:1">Motion to Recuse</span>
+      <!-- Venue -->
+      <div style="margin-bottom:26px">
+        <div class="fk-mono" style="font-size:16px;letter-spacing:.22em;color:#E3C88F;margin-bottom:8px">RUSSELL A. STEINDAM COURTS BUILDING</div>
+        <div class="fk-mono" style="font-size:22px;font-weight:600;letter-spacing:.04em;color:#F2EDF7;line-height:1.4">2100 Bloomdale Rd &middot; McKinney, TX 75071</div>
+        <div class="fk-mono" style="font-size:16px;letter-spacing:.14em;color:#B4A8C6;margin-top:6px">9:00 AM CT &middot; BOTH DAYS</div>
       </div>
-      <div style="display:flex;align-items:center;gap:22px;padding:20px 0;border-bottom:1px solid rgba(167,139,250,.22)">
-        <span class="fk-mono" style="font-size:25px;font-weight:600;color:#A78BFA;letter-spacing:.06em;width:186px;flex:none">AUG 20</span>
-        <span style="font-size:29px;font-weight:700;color:#F2EDF7;letter-spacing:-.01em;flex:1">Motion for New Trial</span>
-      </div>
-      <div style="padding:24px 0;border-bottom:1px solid rgba(217,179,108,.45);background:linear-gradient(90deg,rgba(139,92,246,.14),transparent 78%)">
-        <div class="fk-mono" style="font-size:22px;letter-spacing:.12em;color:#E3C88F;margin-bottom:8px">9:00 AM CT · BOTH DAYS</div>
-        <div class="fk-serif" style="font-size:30px;font-weight:600;color:#F2EDF7;letter-spacing:-.005em">Collin County Courthouse</div>
-        <div class="fk-mono" style="font-size:20px;letter-spacing:.12em;color:#E3C88F;margin-top:8px;padding-left:0">MCKINNEY, TX · 2100 BLOOMDALE RD</div>
-      </div>
-    </div>
 
-    <div style="margin-top:auto">
-      <div class="fk-serif" style="font-style:italic;font-size:30px;color:#B4A8C6;margin-bottom:32px;line-height:1.3">Verified only.<br>The moment it is confirmed.</div>
+      <!-- Arrive by -->
+      <div class="fk-arrive" style="padding:24px 26px;margin-bottom:30px">
+        <div class="fk-mono" style="font-size:16px;letter-spacing:.24em;color:#E3C88F;margin-bottom:11px">ARRIVE BY 7:30 AM</div>
+        <div class="fk-mono" style="font-size:18px;letter-spacing:.02em;color:#F2EDF7;line-height:1.55">Doors open 7:00 AM. Security screening. Seating is limited &mdash; at the June trial only 27 public seats were available. No overflow has been announced.</div>
+      </div>
+
+      <!-- Why presence — triad -->
+      <div class="fk-serif" style="font-style:italic;font-weight:500;font-size:32px;line-height:1.4;color:#E3C88F;margin-bottom:30px">Presence is witness.<br>Presence is solidarity.<br>Presence is power.</div>
+
+      <!-- Conduct contract -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:26px">
+        <div>
+          <div class="fk-mono" style="font-size:14px;letter-spacing:.22em;color:#A78BFA;margin-bottom:11px">INSIDE</div>
+          <div class="fk-conduct" style="font-size:15px;line-height:1.75">Quiet presence. Neutral attire. Phones silent. No signs, no recording, no reactions.</div>
+        </div>
+        <div>
+          <div class="fk-mono" style="font-size:14px;letter-spacing:.22em;color:#A78BFA;margin-bottom:11px">OUTSIDE</div>
+          <div class="fk-conduct" style="font-size:15px;line-height:1.75">Designated areas only. Follow on-site directions. Keep entrances and walkways clear.</div>
+        </div>
+      </div>
+      <div class="fk-mono" style="font-size:14px;letter-spacing:.14em;color:#E3C88F;margin-bottom:34px;line-height:1.7">NEVER APPROACH JUDGES, JURORS, WITNESSES, COURT STAFF, OR THE FAMILIES.</div>
+
+      <!-- Updates + support -->
       <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px">
         <div>
-          <div class="fk-dest" style="font-size:33px;margin-bottom:14px;line-height:1.1">FREEKARMELO<span style="color:#A78BFA">.NET</span><br><span style="color:#D9B36C">/HEARINGS</span></div>
-          <div class="fk-mono" style="font-size:16px;letter-spacing:.16em;color:#A78BFA">#FREEKARMELO<br>#BELIEVEKARMELO</div>
+          <div class="fk-dest" style="font-size:33px;margin-bottom:12px;line-height:1.1">FREEKARMELO<span style="color:#A78BFA">.NET</span><br><span style="color:#D9B36C">/HEARINGS</span></div>
+          <div class="fk-mono" style="font-size:15px;letter-spacing:.14em;color:#B4A8C6;margin-bottom:13px;line-height:1.6">VERIFY BEFORE YOU MOVE.<br>CONFIRMED UPDATES AFTER ADJOURNMENT.</div>
+          <div class="fk-mono" style="font-size:15px;letter-spacing:.12em;color:#C9C0D4">SUPPORT ONLY VIA TDCJ eCommDirect &middot; #02617665</div>
+          <div class="fk-mono" style="font-size:16px;letter-spacing:.16em;color:#A78BFA;margin-top:13px">#FREEKARMELO<br>#BELIEVEKARMELO</div>
         </div>
         <div style="flex:none;text-align:center">
           <div style="width:162px;height:162px;border:1px dashed rgba(217,179,108,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(14,9,19,.6)">
@@ -238,51 +323,56 @@ a:hover{color:#E3C88F}
 <!-- ═══ 04 · LANDSCAPE / SHARE CARD · 1920 × 1080 · #board-landscape ═══ -->
 <div class="fk-label-row">
   <div class="fk-mono" style="font-size:12px;letter-spacing:.3em;color:#D9B36C">04 · LANDSCAPE · 1920 &times; 1080</div>
-  <div class="fk-mono" style="font-size:11px;letter-spacing:.22em;color:#6E6284">SHARE CARD · OG IMAGE · BANNER</div>
+  <div class="fk-mono" style="font-size:11px;letter-spacing:.22em;color:#6E6284">SHARE CARD &middot; OG IMAGE &middot; BANNER</div>
 </div>
 <div class="fk-scroll"><div class="fk-board-wrap">
 <div id="board-landscape" class="fk-board" style="width:1920px;height:1080px">
+  <div class="fk-portrait"><img src="https://freekarmelo.net/assets/sharp_hero2.jpg" alt="Karmelo Anthony — court portrait"></div>
+  <div class="fk-scrim-side" style="left:0;width:62%;background:linear-gradient(90deg,rgba(6,3,12,.97) 0%,rgba(8,5,16,.9) 30%,rgba(10,6,18,.6) 62%,rgba(14,9,19,.16) 88%,transparent 100%)"></div>
+  <div class="fk-scrim-bottom" style="height:300px;background:linear-gradient(0deg,rgba(6,3,12,.96) 0%,rgba(8,5,16,.6) 50%,transparent 100%)"></div>
   <div class="fk-goldtop" style="height:10px"></div>
-  <div class="fk-glow" style="background:radial-gradient(900px 540px at 18% 50%,rgba(124,92,214,.26),transparent 62%),radial-gradient(680px 420px at 96% 96%,rgba(217,179,108,.1),transparent 60%)"></div>
   <div class="fk-rule1" style="inset:34px"></div>
-  <div class="fk-rule2" style="inset:42px"></div>
 
-  <div class="fk-content" style="inset:42px;padding:64px 76px;display:flex;flex-direction:row;align-items:stretch;gap:64px">
-    <!-- Left: identity + headline -->
+  <div class="fk-content" style="padding:70px 80px 64px;flex-direction:row;align-items:stretch;gap:48px">
+    <!-- LEFT: identity + ask + arrive -->
     <div style="flex:1 1 0;display:flex;flex-direction:column;min-width:0">
-      <div style="display:flex;align-items:center;gap:16px;margin-bottom:38px">
-        <svg width="24" height="22" viewBox="0 0 14 13" fill="#A78BFA" aria-hidden="true"><path d="M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z"></path></svg>
-        <span class="fk-mono" style="font-size:17px;letter-spacing:.32em;color:#D9B36C">HEARING WATCH · 2026</span>
+      <div class="fk-tagbar" style="margin-bottom:46px">
+        <span class="fk-dot"></span>
+        <span class="fk-kicker" style="font-size:18px">SHOW UP FOR KARMELO</span>
       </div>
-      <div class="fk-serif" style="font-weight:600;font-size:118px;line-height:.94;color:#F2EDF7;letter-spacing:-.014em;margin-bottom:4px">Free Karmelo.</div>
-      <div class="fk-serif" style="font-weight:500;font-style:italic;font-size:96px;line-height:.96;color:#D9B36C;letter-spacing:-.012em;margin-bottom:34px">Hearings, watched.</div>
-      <div class="fk-serif" style="font-style:italic;font-size:27px;color:#B4A8C6;max-width:760px;line-height:1.4;margin-bottom:auto">Two days. One court. The record, verified &mdash; published the moment it is confirmed.</div>
+      <div class="fk-ask" style="font-size:150px;margin-bottom:8px">SHOW UP</div>
+      <div class="fk-ask" style="font-size:150px;margin-bottom:30px">FOR KARMELO.</div>
+      <div class="fk-action" style="font-size:31px;margin-bottom:40px">BE THERE. BE EARLY. BE DIGNIFIED.</div>
+      <div class="fk-arrive" style="padding:26px 30px;margin-top:auto;margin-bottom:36px;max-width:720px">
+        <div class="fk-mono" style="font-size:16px;letter-spacing:.24em;color:#E3C88F;margin-bottom:12px">ARRIVE BY 7:30 AM</div>
+        <div class="fk-mono" style="font-size:19px;letter-spacing:.02em;color:#F2EDF7;line-height:1.55">Doors open 7:00 AM. Security screening. Seating is limited &mdash; at the June trial only 27 public seats were available. No overflow has been announced.</div>
+      </div>
       <div>
         <div class="fk-dest" style="font-size:34px;margin-bottom:12px">FREEKARMELO<span style="color:#A78BFA">.NET</span><span style="color:#D9B36C">/HEARINGS</span></div>
         <div class="fk-mono" style="font-size:16px;letter-spacing:.16em;color:#A78BFA">#FREEKARMELO &nbsp;·&nbsp; #BELIEVEKARMELO</div>
       </div>
     </div>
-    <!-- Right: hearing panel + QR -->
+    <!-- RIGHT: hearings panel + QR -->
     <div style="flex:0 0 720px;display:flex;flex-direction:column;justify-content:center;gap:0">
-      <div style="border:1px solid rgba(167,139,250,.22);padding:38px 40px;background:rgba(139,92,246,.06)">
-        <div class="fk-mono" style="font-size:12px;letter-spacing:.28em;color:#A78BFA;margin-bottom:24px">THE POST-TRIAL HEARINGS</div>
-        <div style="display:flex;align-items:baseline;gap:26px;padding:22px 0;border-bottom:1px solid rgba(167,139,250,.22)">
-          <span class="fk-mono" style="font-size:30px;font-weight:600;color:#A78BFA;letter-spacing:.06em;width:170px;flex:none">AUG 19</span>
+      <div style="border:1px solid rgba(217,179,108,.35);padding:40px 44px;background:rgba(10,6,18,.78);backdrop-filter:none">
+        <div class="fk-mono" style="font-size:13px;letter-spacing:.26em;color:#E3C88F;margin-bottom:26px">THE POST-TRIAL HEARINGS</div>
+        <div style="display:flex;align-items:flex-start;gap:24px;padding:22px 0;border-bottom:1px solid rgba(167,139,250,.22)">
+          <span class="fk-hday" style="font-size:30px;color:#A78BFA;width:176px;flex:none">WED · AUG 19</span>
           <div style="flex:1">
-            <div class="fk-serif" style="font-weight:600;font-size:34px;line-height:1.1;color:#F2EDF7">Motion to Recuse</div>
-            <div class="fk-mono" style="font-size:15px;letter-spacing:.14em;color:#E3C88F;margin-top:8px">9:00 AM CT · WED</div>
+            <div class="fk-hmote" style="font-size:34px;line-height:1.1">Motion to Recuse</div>
+            <div class="fk-mono" style="font-size:15px;letter-spacing:.12em;color:#E3C88F;margin-top:8px">9:00 AM CT</div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:26px;padding:22px 0">
-          <span class="fk-mono" style="font-size:30px;font-weight:600;color:#A78BFA;letter-spacing:.06em;width:170px;flex:none">AUG 20</span>
+        <div style="display:flex;align-items:flex-start;gap:24px;padding:22px 0">
+          <span class="fk-hday" style="font-size:30px;color:#A78BFA;width:176px;flex:none">THU · AUG 20</span>
           <div style="flex:1">
-            <div class="fk-serif" style="font-weight:600;font-size:34px;line-height:1.1;color:#F2EDF7">Motion for New Trial</div>
-            <div class="fk-mono" style="font-size:15px;letter-spacing:.14em;color:#E3C88F;margin-top:8px">9:00 AM CT · THU</div>
+            <div class="fk-hmote" style="font-size:34px;line-height:1.1">Motion for New Trial</div>
+            <div class="fk-mono" style="font-size:15px;letter-spacing:.12em;color:#E3C88F;margin-top:8px">9:00 AM CT &middot; JUDGE &amp; COURTROOM TBD</div>
           </div>
         </div>
-        <div style="border-top:1px solid rgba(217,179,108,.45);padding-top:22px;margin-top:6px">
-          <div class="fk-serif" style="font-weight:600;font-size:26px;color:#F2EDF7;letter-spacing:-.005em">Collin County Courthouse</div>
-          <div class="fk-mono" style="font-size:15px;letter-spacing:.14em;color:#E3C88F;margin-top:8px">MCKINNEY, TX · 2100 BLOOMDALE RD</div>
+        <div style="border-top:1px solid rgba(217,179,108,.4);padding-top:24px;margin-top:8px">
+          <div class="fk-mono" style="font-size:14px;letter-spacing:.2em;color:#E3C88F;margin-bottom:8px">RUSSELL A. STEINDAM COURTS BUILDING</div>
+          <div class="fk-mono" style="font-size:18px;font-weight:600;letter-spacing:.04em;color:#F2EDF7;line-height:1.35">2100 Bloomdale Rd &middot; McKinney, TX 75071</div>
         </div>
       </div>
       <div style="display:flex;justify-content:flex-end;margin-top:30px">
@@ -300,9 +390,9 @@ a:hover{color:#E3C88F}
 </div></div>
 
 <div class="fk-foot">
-  SOURCE PAGE FOR THE HEARING-WATCH FLYER SET · DETERMINISTIC RENDER · FOUR FIXED ARTBOARDS<br>
+  SOURCE PAGE FOR THE COURT-SUPPORT MOBILIZATION FLYER SET &middot; DETERMINISTIC RENDER &middot; FOUR FIXED ARTBOARDS<br>
   THE ORCHESTRATOR SCREENSHOTS EACH ARTBOARD BY ELEMENT ID (#board-vertical, #board-square, #board-story, #board-landscape)<br>
-  <span style="color:#E3C88F">HEARING DATES CONFIRMED VIA THE OFFICIAL COLLIN COUNTY CASE RECORD (NO. 296-83565-2025): AUG 19 MOTION TO RECUSE · AUG 20 MOTION FOR NEW TRIAL · 9:00 AM CT.</span>
+  <span style="color:#E3C88F">HEARING DATES CONFIRMED VIA THE OFFICIAL COLLIN COUNTY CASE RECORD (NO. 296-83565-2025): AUG 19 MOTION TO RECUSE (JUDGE SID HARLE PRESIDING) &middot; AUG 20 MOTION FOR NEW TRIAL (JUDGE &amp; COURTROOM TBD) &middot; 9:00 AM CT.</span>
 </div>
 
 </body>
