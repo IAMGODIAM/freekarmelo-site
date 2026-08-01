@@ -28,6 +28,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<!-- FK35 · Cinematic scroll layer — GSAP 3 + ScrollTrigger (progressive enhancement; gracefully inert if CDN fails) -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 13'%3E%3Cpath fill='%23A78BFA' d='M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z'/%3E%3C/svg%3E">
 <script type="application/ld+json">[
  { "@context": "https://schema.org", "@type": "Event", "name": "Karmelo Teach-In", "startDate": "2026-08-02", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode", "url": "https://freekarmelo.net/events", "description": "Shared facts, campaign language, and the Black August frame.", "organizer": { "@type": "Organization", "name": "Free Karmelo Campaign", "url": "https://freekarmelo.net" }, "location": { "@type": "VirtualLocation", "url": "https://freekarmelo.net/events" } },
@@ -62,6 +65,48 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
 .fk-share-tile{transition:border-color .2s,background .2s,color .2s}
 .fk-share-tile:hover{border-color:rgba(167,139,250,.5)!important;background:rgba(139,92,246,.12)!important;color:#fff!important}
 .fk-photo-pending{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(139,92,246,.08),rgba(217,179,108,.05));border:1px dashed rgba(167,139,250,.2);color:#6E6284;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-align:center;padding:20px}
+
+/* ═══ FK35 · CINEMATIC SCROLL LAYER — progressive enhancement ═══
+   All animation is transform/opacity only (no layout thrash).
+   Default state: content fully visible & readable. JS adds the .fk-cinema-ready
+   class to <html>, which opts elements into the parallax/scene choreography.
+   No-JS and reduced-motion users see the un-animated, fully-functional page. */
+html.fk-cinema-ready .fk-depth{will-change:transform,opacity}
+html.fk-cinema-ready .fk-scene{opacity:0}                       /* hidden only when JS is live */
+html.fk-cinema-ready .fk-scene-in{opacity:1;transition:opacity .9s cubic-bezier(.22,1,.36,1)}
+html.fk-cinema-ready .fk-rise{transform:translateY(46px);opacity:0}
+html.fk-cinema-ready .fk-rise-in{transform:translateY(0);opacity:1;transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .9s cubic-bezier(.22,1,.36,1)}
+html.fk-cinema-ready .fk-stagger > *{opacity:0;transform:translateY(28px)}
+html.fk-cinema-ready .fk-float{will-change:transform}
+html.fk-cinema-ready .fk-cd-glow{animation:fkCdGlow 3.2s ease-in-out infinite}
+@keyframes fkCdGlow{0%,100%{text-shadow:0 0 12px rgba(217,179,108,.22)}50%{text-shadow:0 0 22px rgba(217,179,108,.45)}}
+html.fk-cinema-ready .fk-rule-draw{transform-origin:left center;transform:scaleX(0)}
+html.fk-cinema-ready .fk-rule-draw-in{transform:scaleX(1);transition:transform 1.1s cubic-bezier(.65,0,.35,1)}
+html.fk-cinema-ready .fk-cascade{opacity:0}
+html.fk-cinema-ready .fk-cascade-in{opacity:1;transition:opacity .55s ease-out}
+
+/* starfield / dust — lightweight CSS radial points, no WebGL */
+.fk-starfield{position:absolute;inset:0;pointer-events:none;opacity:0;overflow:hidden}
+html.fk-cinema-ready .fk-starfield{opacity:1;transition:opacity 1.6s ease-out}
+.fk-starfield i{position:absolute;display:block;width:2px;height:2px;border-radius:50%;background:#E3C88F;opacity:0}
+html.fk-cinema-ready .fk-starfield i{animation:fkTwinkle var(--fk-t,4s) ease-in-out infinite;animation-delay:var(--fk-d,0s)}
+@keyframes fkTwinkle{0%,100%{opacity:0}50%{opacity:.55}}
+
+/* Reduced-motion: disable ALL cinematic animation wholesale */
+@media (prefers-reduced-motion:reduce){
+  html.fk-cinema-ready .fk-scene,html.fk-cinema-ready .fk-scene-in,
+  html.fk-cinema-ready .fk-rise,html.fk-cinema-ready .fk-rise-in,
+  html.fk-cinema-ready .fk-stagger > *,
+  html.fk-cinema-ready .fk-cascade,html.fk-cinema-ready .fk-cascade-in,
+  html.fk-cinema-ready .fk-rule-draw,html.fk-cinema-ready .fk-rule-draw-in{
+    opacity:1!important;transform:none!important;transition:none!important;animation:none!important
+  }
+  html.fk-cinema-ready .fk-cd-glow,html.fk-cinema-ready .fk-starfield i{animation:none!important}
+  html.fk-cinema-ready .fk-starfield{display:none}
+  html.fk-cinema-ready .fk-float{transform:none!important}
+}
+/* No-JS fallback: if JS never runs, .fk-cinema-ready is never set, so every
+   .fk-scene/.fk-rise/.fk-stagger element stays at its natural visible state. */
 </style>
 </head>
 <body>
@@ -96,14 +141,15 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
 </div>
 
 <section id="top" style="position:relative;overflow:hidden">
+  <div class="fk-starfield" aria-hidden="true"></div>
   <div style="position:absolute;inset:0;background:radial-gradient(900px 480px at 78% -10%,rgba(124,92,214,.22),transparent 65%),radial-gradient(700px 400px at 8% 110%,rgba(217,179,108,.07),transparent 60%)"></div>
   <div style="position:relative;max-width:1180px;margin:0 auto;padding:104px 32px 96px;display:flex;flex-wrap:wrap;gap:56px 72px;align-items:center">
-    <div style="flex:1 1 520px;min-width:0">
-      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:26px">
+    <div class="fk-depth" data-fk-speed="0.08" style="flex:1 1 520px;min-width:0">
+      <div class="fk-depth" data-fk-speed="0.04" style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:26px">
         <svg width="14" height="13" viewBox="0 0 14 13" fill="#A78BFA" aria-hidden="true"><path d="M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z"></path></svg>
         <span>BLACK AUGUST 2026 · NATIONAL CAMPAIGN</span>
       </div>
-      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(54px,6.4vw,86px);line-height:1.02;margin:0 0 22px;letter-spacing:-.01em">Free Karmelo.<br>Free Them All.<br><em style="font-weight:500;color:#D9B36C">This is Black August.</em></h1>
+      <h1 class="fk-hero-head" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(54px,6.4vw,86px);line-height:1.02;margin:0 0 22px;letter-spacing:-.01em">Free Karmelo.<br>Free Them All.<br><em style="font-weight:500;color:#D9B36C">This is Black August.</em></h1>
       <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.5;color:#B4A8C6;max-width:540px;margin:0 0 36px">One reliable place to understand what is happening, choose an action, and get approved materials. Every date below is verified before it is published — and updated the moment it changes.</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px">
         <a href="#timeline" class="fk-btn-grad" style="display:inline-block;padding:16px 30px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;box-shadow:0 8px 28px rgba(124,92,214,.35)">ATTEND THE NEXT EVENT</a>
@@ -114,15 +160,15 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
         <span style="color:#D9B36C">SOME DETAILS PENDING VERIFICATION</span>
       </div>
     </div>
-    <div style="flex:1 1 350px;min-width:0;background:#150E1E;border:1px solid rgba(167,139,250,.18);box-shadow:0 24px 60px rgba(0,0,0,.5);padding:34px 34px 30px">
+    <div class="fk-depth" data-fk-speed="0.18" style="flex:1 1 350px;min-width:0;background:#150E1E;border:1px solid rgba(167,139,250,.18);box-shadow:0 24px 60px rgba(0,0,0,.5);padding:34px 34px 30px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.3em;color:#A78BFA;margin-bottom:16px">NEXT PUBLIC EVENT</div>
       <div id="fkNextName" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;line-height:1.1;margin-bottom:6px">National Solidarity Rallies</div>
       <div id="fkNextDate" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:#B4A8C6;margin-bottom:24px">SATURDAY · AUG 29, 2026 · 3PM ET / 2 CT / 1 MT / 12 PT</div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px">
-        <div style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div id="fkCdD" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">DAYS</div></div>
-        <div style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div id="fkCdH" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">HRS</div></div>
-        <div style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div id="fkCdM" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">MIN</div></div>
-        <div style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div id="fkCdS" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">SEC</div></div>
+        <div style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div id="fkCdD" class="fk-cd-glow" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">DAYS</div></div>
+        <div style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div id="fkCdH" class="fk-cd-glow" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">HRS</div></div>
+        <div style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div id="fkCdM" class="fk-cd-glow" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">MIN</div></div>
+        <div style="background:#0E0913;border:1px solid rgba(167,139,250,.14);padding:14px 6px;text-align:center"><div id="fkCdS" class="fk-cd-glow" style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#E3C88F">00</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.26em;color:#6E6284;margin-top:6px">SEC</div></div>
       </div>
       <div style="display:flex;gap:10px">
         <button id="fkIcsNext" class="fk-btn-gold" style="flex:1;padding:13px 10px;background:none;border:1px solid rgba(217,179,108,.4);color:#E3C88F;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;cursor:pointer">ADD TO CALENDAR</button>
@@ -133,15 +179,16 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
   </div>
 </section>
 
-<section id="timeline" style="border-top:1px solid rgba(167,139,250,.12);scroll-margin-top:80px">
+<section id="timeline" class="fk-scene" style="border-top:1px solid rgba(167,139,250,.12);scroll-margin-top:80px">
   <div style="max-width:1180px;margin:0 auto;padding:92px 32px 100px">
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">AUGUST 2026 · PUBLIC CALENDAR</div>
+    <div class="fk-rise" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">AUGUST 2026 · PUBLIC CALENDAR</div>
+    <div class="fk-rule-draw" style="height:1px;background:linear-gradient(90deg,rgba(217,179,108,.5),transparent);margin-bottom:54px"></div>
     <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:54px">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;line-height:1.05;margin:0">Five public moments.<br><em style="color:#D9B36C;font-weight:500">One destination.</em></h2>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6E6284;max-width:320px;line-height:1.8">EVERY LISTING CARRIES A VERIFICATION STATUS. CONFIRMED MEANS THE COURT RECORD VERIFIES IT — DETAILS FOLLOW AS THEY ARE CLEARED.</div>
+      <h2 class="fk-rise" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;line-height:1.05;margin:0">Five public moments.<br><em style="color:#D9B36C;font-weight:500">One destination.</em></h2>
+      <div class="fk-rise" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#6E6284;max-width:320px;line-height:1.8">EVERY LISTING CARRIES A VERIFICATION STATUS. CONFIRMED MEANS THE COURT RECORD VERIFIES IT — DETAILS FOLLOW AS THEY ARE CLEARED.</div>
     </div>
 
-    <div style="border-top:1px solid rgba(167,139,250,.14)">
+    <div class="fk-stagger" style="border-top:1px solid rgba(167,139,250,.14)">
       <!-- Row 1: Aug 02 Teach-In -->
       <div style="display:flex;flex-wrap:wrap;gap:20px 28px;padding:34px 0;border-bottom:1px solid rgba(167,139,250,.14);align-items:flex-start">
         <div style="flex:0 0 150px"><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:#A78BFA;letter-spacing:.06em">AUG 02</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.26em;color:#6E6284;margin-top:6px">SUNDAY</div></div>
@@ -212,17 +259,17 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
         </div>
       </div>
     </div>
-    <div style="margin-top:26px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#9C8FB0">Dates and access details are published only after verification. When something changes, this calendar changes first.</div>
+    <div class="fk-rise" style="margin-top:26px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#9C8FB0">Dates and access details are published only after verification. When something changes, this calendar changes first.</div>
   </div>
 </section>
 
-<section id="rally" style="background:#150E1E;border-top:1px solid rgba(167,139,250,.14);border-bottom:1px solid rgba(167,139,250,.14);scroll-margin-top:80px">
+<section id="rally" class="fk-scene" style="background:#150E1E;border-top:1px solid rgba(167,139,250,.14);border-bottom:1px solid rgba(167,139,250,.14);scroll-margin-top:80px">
   <div style="max-width:1180px;margin:0 auto;padding:96px 32px;display:flex;flex-wrap:wrap;gap:56px 64px;align-items:center">
     <div style="flex:1 1 450px;min-width:0">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#D9B36C;margin-bottom:16px">FEATURED · SATURDAY, AUG 29, 2026</div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1.05;margin:0 0 18px">One hour.<br>Every timezone.<br><em style="color:#A78BFA;font-weight:500">Every block.</em></h2>
-      <p style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:480px;margin:0 0 30px;font-weight:500">National solidarity rallies, synchronized to a single hour. Attend one near you, or put your city on the map — the toolkit carries everything an organizer needs.</p>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(167,139,250,.18);border:1px solid rgba(167,139,250,.18);max-width:480px;margin-bottom:16px">
+      <div class="fk-rise" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#D9B36C;margin-bottom:16px">FEATURED · SATURDAY, AUG 29, 2026</div>
+      <h2 class="fk-rise" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1.05;margin:0 0 18px">One hour.<br>Every timezone.<br><em style="color:#A78BFA;font-weight:500">Every block.</em></h2>
+      <p class="fk-rise" style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:480px;margin:0 0 30px;font-weight:500">National solidarity rallies, synchronized to a single hour. Attend one near you, or put your city on the map — the toolkit carries everything an organizer needs.</p>
+      <div class="fk-cascade" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(167,139,250,.18);border:1px solid rgba(167,139,250,.18);max-width:480px;margin-bottom:16px">
         <div style="background:#0E0913;padding:16px 8px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#F2EDF7">3:00<span style="font-size:11px;color:#9C8FB0"> PM</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.3em;color:#A78BFA;margin-top:6px">ET</div></div>
         <div style="background:#0E0913;padding:16px 8px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#F2EDF7">2:00<span style="font-size:11px;color:#9C8FB0"> PM</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.3em;color:#A78BFA;margin-top:6px">CT</div></div>
         <div style="background:#0E0913;padding:16px 8px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#F2EDF7">1:00<span style="font-size:11px;color:#9C8FB0"> PM</span></div><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.3em;color:#A78BFA;margin-top:6px">MT</div></div>
@@ -235,10 +282,11 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
       </div>
     </div>
     <div style="flex:1 1 380px;min-width:0">
-      <div style="position:relative;border:1px solid rgba(167,139,250,.2);padding:10px;background:#0E0913">
-        <div class="fk-photo-pending" style="width:100%;aspect-ratio:4/3;position:relative">APPROVED RALLY PHOTOGRAPHY PENDING</div>
+      <div class="fk-float" style="position:relative;border:1px solid rgba(167,139,250,.2);padding:10px;background:#0E0913;overflow:hidden">
+        <img src="assets/events/solidarity-crowd.jpg" alt="Crowd gathers outside the Collin County courthouse holding prayer signs in solidarity with Karmelo Anthony, June 2026." style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;height:auto">
       </div>
       <div style="display:flex;justify-content:space-between;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:#6E6284;margin-top:12px"><span>APPROVED IMAGERY ONLY</span><span style="color:#A78BFA">WEAR PURPLE — HIS COLOR</span></div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:#5E5273;margin-top:6px">PHOTO: DALLAS MORNING NEWS</div>
       <div id="fkActionsPanel" style="margin-top:28px;border:1px solid rgba(167,139,250,.16);background:#0E0913;padding:26px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:14px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.28em;color:#A78BFA">VERIFIED LOCAL ACTIONS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#E3C88F">LISTINGS PENDING</span></div>
         <div id="fkActionsPending">
@@ -253,12 +301,12 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
   </div>
 </section>
 
-<section id="act" style="scroll-margin-top:80px">
+<section id="act" class="fk-scene" style="scroll-margin-top:80px">
   <div style="max-width:1180px;margin:0 auto;padding:96px 32px">
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">TAKE ACTION</div>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;line-height:1.05;margin:0 0 12px">Attend. Organize. <em style="color:#D9B36C;font-weight:500">Amplify.</em></h2>
-    <p style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:560px;margin:0 0 48px;font-weight:500">Bring a Free Karmelo / Free Them All action to your community. Choose one path — each takes under two minutes to start.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:18px;margin-bottom:64px">
+    <div class="fk-rise" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">TAKE ACTION</div>
+    <h2 class="fk-rise" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;line-height:1.05;margin:0 0 12px">Attend. Organize. <em style="color:#D9B36C;font-weight:500">Amplify.</em></h2>
+    <p class="fk-rise" style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:560px;margin:0 0 48px;font-weight:500">Bring a Free Karmelo / Free Them All action to your community. Choose one path — each takes under two minutes to start.</p>
+    <div class="fk-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:18px;margin-bottom:64px">
       <a href="#timeline" class="fk-hover-card" style="display:block;background:#150E1E;border:1px solid rgba(167,139,250,.14);padding:28px;color:inherit">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D9B36C;letter-spacing:.2em;margin-bottom:18px">01</div>
         <div style="font-size:17px;font-weight:700;margin-bottom:8px;color:#F2EDF7">Attend an Event</div>
@@ -305,7 +353,20 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
           <div><label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px" for="fkFDate">TARGET DATE</label><input id="fkFDate" type="date" style="width:100%;box-sizing:border-box;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:12px 14px;font-size:13px;outline:none;color-scheme:dark"></div>
         </div>
         <div style="margin-bottom:20px"><label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px" for="fkFNotes">WHAT ARE YOU PLANNING?</label><textarea id="fkFNotes" rows="3" placeholder="Venue ideas, expected turnout, accessibility plans, what support you need…" style="width:100%;box-sizing:border-box;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:13px 14px;font-size:13px;outline:none;resize:vertical"></textarea></div>
-        <label style="display:flex;gap:12px;align-items:flex-start;margin-bottom:24px;cursor:pointer;max-width:640px"><input id="fkFConsent" type="checkbox" style="margin-top:3px;accent-color:#8B5CF6"><span style="font-size:12.5px;line-height:1.6;color:#9C8FB0;font-weight:500">I agree to keep this action lawful, nonviolent, and accessible, and consent to being contacted about this submission. Data is minimized, never sold, and exportable on request.</span></label>
+        <label style="display:flex;gap:12px;align-items:flex-start;margin-bottom:20px;cursor:pointer;max-width:640px"><input id="fkFConsent" type="checkbox" style="margin-top:3px;accent-color:#8B5CF6"><span style="font-size:12.5px;line-height:1.6;color:#9C8FB0;font-weight:500">I agree to keep this action lawful, nonviolent, and accessible, and consent to being contacted about this submission. Data is minimized, never sold, and exportable on request.</span></label>
+        <!-- FK35 · Community letter opt-in (Chairman's law: never push people off-page) -->
+        <label id="fkLetterOpt" style="display:flex;gap:12px;align-items:flex-start;margin-bottom:0;cursor:pointer;max-width:640px"><input id="fkFLetter" type="checkbox" style="margin-top:3px;accent-color:#D9B36C"><span style="font-size:12.5px;line-height:1.6;color:#B4A8C6;font-weight:500">Add me to the community letter effort.</span></label>
+        <div id="fkLetterReveal" style="max-height:0;overflow:hidden;opacity:0;transition:max-height .5s cubic-bezier(.22,1,.36,1),opacity .4s ease,margin .4s ease;margin-bottom:0">
+          <div style="padding-top:16px">
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px" for="fkFLetterPledge">CHOOSE YOUR ROLE</label>
+            <select id="fkFLetterPledge" style="width:100%;max-width:520px;box-sizing:border-box;background:#0E0913;border:1px solid rgba(217,179,108,.3);color:#F2EDF7;padding:13px 14px;font-size:13px;outline:none">
+              <option value="" disabled selected>Select how you want to take part…</option>
+              <option value="sign-community">Sign the community letter</option>
+              <option value="write-own">Write my own — send me the guide</option>
+              <option value="join-session">Join a letter-writing session</option>
+            </select>
+          </div>
+        </div>
         <div id="fkTurnstileAction" class="cf-turnstile" data-sitekey="0x4AAAAAAEAo1uozlYeV9QpL" data-theme="dark" style="margin-bottom:16px"></div>
         <div id="fkFormErr" style="display:none;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:#E8A0A0;margin-bottom:16px"></div>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px">
@@ -317,18 +378,19 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.3em;color:#A78BFA;margin-bottom:16px">SUBMISSION RECEIVED</div>
         <div id="fkFormDoneName" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;margin-bottom:12px">Thank you.</div>
         <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#9C8FB0;max-width:520px;margin:0 auto 26px;line-height:1.6">Your action is in review. An organizer-support lead follows up by email — verified listings post to this page.</p>
+        <p id="fkFormDoneLetter" style="display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#E3C88F;max-width:520px;margin:0 auto 26px;line-height:1.6">You're on the letter effort — details come with your confirmation.</p>
         <button id="fkResetForm" class="fk-btn-purple" style="padding:13px 24px;background:none;border:1px solid rgba(167,139,250,.3);color:#C9B2FF;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;cursor:pointer">SUBMIT ANOTHER</button>
       </div>
     </div>
   </div>
 </section>
 
-<section id="toolkit" style="background:#150E1E;border-top:1px solid rgba(167,139,250,.14);border-bottom:1px solid rgba(167,139,250,.14);scroll-margin-top:80px">
+<section id="toolkit" class="fk-scene" style="background:#150E1E;border-top:1px solid rgba(167,139,250,.14);border-bottom:1px solid rgba(167,139,250,.14);scroll-margin-top:80px">
   <div style="max-width:1180px;margin:0 auto;padding:96px 32px;display:flex;flex-wrap:wrap;gap:56px 72px;align-items:center">
     <div style="flex:1 1 480px;min-width:0">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#D9B36C;margin-bottom:14px">ORGANIZER TOOLKIT &amp; SHARE KIT</div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:50px;line-height:1.06;margin:0 0 14px">Approved materials.<br><em style="color:#A78BFA;font-weight:500">Zero rewriting.</em></h2>
-      <p style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:520px;margin:0 0 40px;font-weight:500">Locked campaign identity, editable local fields. Fact-checked language so partners can share without touching core case wording.</p>
+      <div class="fk-rise" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#D9B36C;margin-bottom:14px">ORGANIZER TOOLKIT &amp; SHARE KIT</div>
+      <h2 class="fk-rise" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:50px;line-height:1.06;margin:0 0 14px">Approved materials.<br><em style="color:#A78BFA;font-weight:500">Zero rewriting.</em></h2>
+      <p class="fk-rise" style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:520px;margin:0 0 40px;font-weight:500">Locked campaign identity, editable local fields. Fact-checked language so partners can share without touching core case wording.</p>
       <div style="border-top:1px solid rgba(167,139,250,.14)">
         <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:22px 0;border-bottom:1px solid rgba(167,139,250,.14)">
           <div><div style="font-size:15.5px;font-weight:700;margin-bottom:5px">Master events flyer</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:#6E6284">VERTICAL · SQUARE · STORY · PRINT-SAFE</div></div>
@@ -348,7 +410,12 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
         </div>
       </div>
     </div>
-    <a href="events-flyer.html" class="fk-hover-gold" style="flex:0 1 360px;display:block;color:inherit">
+    <div style="flex:0 1 360px;display:flex;flex-direction:column;gap:24px">
+      <div class="fk-float" style="position:relative;border:1px solid rgba(217,179,108,.3);padding:10px;background:#0E0913;overflow:hidden">
+        <img src="assets/sharp_hero2.jpg" alt="Formal portrait of Karmelo Anthony — the real Karmelo, not the mugshot. Approved campaign imagery." style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;height:auto">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:#5E5273;margin-top:8px;text-align:center">POST THE REAL KARMELO · NEVER THE MUGSHOT</div>
+      </div>
+    <a href="events-flyer.html" class="fk-hover-gold fk-rise" style="display:block;color:inherit">
       <div style="background:#0E0913;border:1px solid rgba(217,179,108,.35);padding:34px 30px;box-shadow:0 24px 60px rgba(0,0,0,.5);aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:space-between">
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:26px"><svg width="14" height="13" viewBox="0 0 14 13" fill="#A78BFA" aria-hidden="true"><path d="M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z"></path></svg><span style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.3em;color:#D9B36C">BLACK AUGUST</span></div>
@@ -359,16 +426,17 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
       </div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#6E6284;text-align:center;margin-top:14px">MASTER FLYER · OPEN FULL SIZE →</div>
     </a>
+    </div>
   </div>
 </section>
 
 
-<section id="share" style="border-top:1px solid rgba(167,139,250,.14);scroll-margin-top:80px">
+<section id="share" class="fk-scene" style="border-top:1px solid rgba(167,139,250,.14);scroll-margin-top:80px">
   <div style="max-width:1180px;margin:0 auto;padding:96px 32px;display:flex;flex-wrap:wrap;gap:56px 72px;align-items:flex-start">
     <div style="flex:1 1 460px;min-width:0">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">AMPLIFY</div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:50px;line-height:1.06;margin:0 0 14px">Share it in one tap.<br><em style="color:#D9B36C;font-weight:500">Nothing to rewrite.</em></h2>
-      <p style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:500px;margin:0 0 34px;font-weight:500">Every button carries the approved line and the same destination. The link previews as the card on the right — anywhere it lands.</p>
+      <div class="fk-rise" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">AMPLIFY</div>
+      <h2 class="fk-rise" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:50px;line-height:1.06;margin:0 0 14px">Share it in one tap.<br><em style="color:#D9B36C;font-weight:500">Nothing to rewrite.</em></h2>
+      <p class="fk-rise" style="font-size:15px;line-height:1.7;color:#B4A8C6;max-width:500px;margin:0 0 34px;font-weight:500">Every button carries the approved line and the same destination. The link previews as the card on the right — anywhere it lands.</p>
       <div id="fkShareGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px;margin-bottom:22px"></div>
       <div style="display:flex;flex-wrap:wrap;gap:12px">
         <button id="fkShareNative" class="fk-btn-grad" style="padding:15px 26px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em;cursor:pointer;box-shadow:0 8px 28px rgba(124,92,214,.35)">SHARE SHEET</button>
@@ -414,11 +482,11 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
   </div>
 </section>
 
-<section id="updates" style="scroll-margin-top:80px">
+<section id="updates" class="fk-scene" style="scroll-margin-top:80px">
   <div style="max-width:1180px;margin:0 auto;padding:96px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:72px;align-items:start">
     <div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">UPDATES</div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:50px;line-height:1.06;margin:0 0 26px">Verified, <em style="color:#D9B36C;font-weight:500">or unpublished.</em></h2>
+      <div class="fk-rise" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;color:#A78BFA;margin-bottom:14px">UPDATES</div>
+      <h2 class="fk-rise" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:50px;line-height:1.06;margin:0 0 26px">Verified, <em style="color:#D9B36C;font-weight:500">or unpublished.</em></h2>
       <div style="border:1px solid rgba(167,139,250,.18);background:#150E1E;padding:28px 30px;margin-bottom:26px">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:14px"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#E3C88F;border:1px solid rgba(217,179,108,.35);background:rgba(217,179,108,.08)">LATEST VERIFIED UPDATE</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;color:#6E6284">JUL 29, 2026</span></div>
         <p style="margin:0;font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.55;color:#E9E2F2">Confirmed: the motion to recuse Judge John Roach is set for Aug. 19 at 9:00 a.m.; the motion for a new trial is set for Aug. 20 at 9:00 a.m. in Collin County. The Aug. 20 judge and courtroom remain to be assigned. Verified status publishes after adjournment and legal review.</p>
@@ -427,13 +495,25 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(167,139,250,.6);outl
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.28em;color:#A78BFA;margin-bottom:14px">GET VERIFIED UPDATES</div>
         <div id="fkEmailOpen">
           <div id="fkTurnstileUpdates" class="cf-turnstile" data-sitekey="0x4AAAAAAEAo1uozlYeV9QpL" data-theme="dark" style="margin-bottom:10px"></div>
-          <div style="display:flex;gap:10px">
+          <div style="display:flex;gap:10px;margin-bottom:14px">
           <input id="fkEmail" placeholder="you@example.org" style="flex:1;min-width:0;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:14px;font-size:13px;outline:none">
           <button id="fkSubmitEmail" class="fk-btn-grad" style="padding:14px 22px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;cursor:pointer">JOIN</button>
         </div>
+          <!-- FK35 · Community letter opt-in (Get Updates capture) -->
+          <label id="fkEmailLetterOpt" style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;max-width:520px"><input id="fkEmailLetter" type="checkbox" style="margin-top:3px;accent-color:#D9B36C"><span style="font-size:12.5px;line-height:1.6;color:#B4A8C6;font-weight:500">Add me to the community letter effort.</span></label>
+          <div id="fkEmailLetterReveal" style="max-height:0;overflow:hidden;opacity:0;transition:max-height .5s cubic-bezier(.22,1,.36,1),opacity .4s ease,margin .4s ease;margin-bottom:0">
+            <div style="padding-top:12px">
+              <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;color:#9C8FB0;margin-bottom:9px" for="fkEmailLetterPledge">CHOOSE YOUR ROLE</label>
+              <select id="fkEmailLetterPledge" style="width:100%;max-width:520px;box-sizing:border-box;background:#0E0913;border:1px solid rgba(217,179,108,.3);color:#F2EDF7;padding:13px 14px;font-size:13px;outline:none">
+                <option value="" disabled selected>Select how you want to take part…</option>
+                <option value="sign-community">Sign the community letter</option>
+                <option value="write-own">Write my own — send me the guide</option>
+                <option value="join-session">Join a letter-writing session</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div id="fkEmailDone" style="display:none"><p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#C9B2FF">You're on the list. The Aug 20 verified status will reach your inbox first.</p></div>
+        <div id="fkEmailDone" style="display:none"><p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#C9B2FF">You're on the list. The Aug 20 verified status will reach your inbox first.</p><p id="fkEmailDoneLetter" style="display:none;margin:12px 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#E3C88F">You're on the letter effort — details come with your confirmation.</p></div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#6E6284;margin-top:14px;line-height:1.8">HEARING STATUS + NEXT ACTIONS ONLY. NO NOISE. UNSUBSCRIBE ANYTIME.</div>
       </div>
       <div style="margin-top:26px;padding:20px 22px;border:1px solid rgba(217,179,108,.22);background:rgba(217,179,108,.04);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#9C8FB0;line-height:1.8">
@@ -640,13 +720,56 @@ function fkCopy(text, btn, doneLabel) {
     if (/.+@.+\..+/.test(em)) {
       var tsEl = document.querySelector("#fkTurnstileUpdates iframe");
       var tsTok = (window.turnstile && tsEl) ? (document.querySelector("#fkTurnstileUpdates input[name=cf-turnstile-response]")||{}).value : "";
+      // FK35 · Community letter opt-in payload (Get Updates)
+      var emLetterCb = document.getElementById("fkEmailLetter");
+      var emLetterOn = emLetterCb && emLetterCb.checked;
+      var emPayload = { form_type: "updates", email: em, affirmed: true, source: "freekarmelo-events", turnstile_token: tsTok };
+      if (emLetterOn) {
+        var emPledge = document.getElementById("fkEmailLetterPledge").value;
+        emPayload.letter_optin = true;
+        if (emPledge) emPayload.letter_pledge = emPledge;
+      }
       document.getElementById("fkEmailOpen").style.display = "none";
       document.getElementById("fkEmailDone").style.display = "block";
+      var emDoneLetter = document.getElementById("fkEmailDoneLetter");
+      if (emDoneLetter) emDoneLetter.style.display = emLetterOn ? "block" : "none";
       if (FK_CONFIG.FK_SIGNUP_ENDPOINT) {
-        fetch(FK_CONFIG.FK_SIGNUP_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ form_type: "updates", email: em, affirmed: true, source: "freekarmelo-events", turnstile_token: tsTok }) }).catch(() => {});
+        fetch(FK_CONFIG.FK_SIGNUP_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(emPayload) }).catch(() => {});
       }
     }
   });
+
+  // FK35 · Community letter opt-in — animated reveal for Get Updates capture
+  (function(){
+    var cb = document.getElementById("fkEmailLetter");
+    var rev = document.getElementById("fkEmailLetterReveal");
+    if (!cb || !rev) return;
+    cb.addEventListener("change", function(){
+      if (cb.checked) { rev.style.maxHeight = "120px"; rev.style.opacity = "1"; rev.style.marginBottom = "16px"; }
+      else { rev.style.maxHeight = "0"; rev.style.opacity = "0"; rev.style.marginBottom = "0"; var s = document.getElementById("fkEmailLetterPledge"); if (s) s.selectedIndex = 0; }
+    });
+  })();
+
+  // FK35 · Community letter opt-in — animated reveal (in-flow, never pushes off-page)
+  (function(){
+    var cb = document.getElementById("fkFLetter");
+    var rev = document.getElementById("fkLetterReveal");
+    if (!cb || !rev) return;
+    function sync(){
+      if (cb.checked) {
+        rev.style.maxHeight = "120px";
+        rev.style.opacity = "1";
+        rev.style.marginBottom = "20px";
+      } else {
+        rev.style.maxHeight = "0";
+        rev.style.opacity = "0";
+        rev.style.marginBottom = "0";
+        var sel = document.getElementById("fkFLetterPledge");
+        if (sel) sel.selectedIndex = 0;
+      }
+    }
+    cb.addEventListener("change", sync);
+  })();
 
   // Action form
   document.getElementById("fkSubmitAction").addEventListener("click", () => {
@@ -664,11 +787,23 @@ function fkCopy(text, btn, doneLabel) {
       var cityParts = fc.split(",").map(s=>s.trim());
       var city = cityParts[0], state = cityParts[1]||"";
       var data = { form_type: "local-action", name: fn, organization: document.getElementById("fkFOrg").value, email: fe, city: city, state: state, action_type: document.getElementById("fkFType").value, proposed_date: document.getElementById("fkFDate").value, details: document.getElementById("fkFNotes").value, turnstile_token: tsTok };
+      // FK35 · Community letter opt-in — serialize ONLY when checked (contract: omit both fields when unchecked)
+      var letterCb = document.getElementById("fkFLetter");
+      if (letterCb && letterCb.checked) {
+        var pledgeVal = document.getElementById("fkFLetterPledge").value;
+        data.letter_optin = true;
+        if (pledgeVal) data.letter_pledge = pledgeVal;  // enum: sign-community | write-own | join-session
+      }
       fetch(FK_CONFIG.FK_FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) }).catch(() => {});
     }
     document.getElementById("fkFormOpen").style.display = "none";
     document.getElementById("fkFormDone").style.display = "block";
     document.getElementById("fkFormDoneName").textContent = "Thank you, " + fn + ".";
+    // FK35 · Letter confirmation copy
+    var letterDone = document.getElementById("fkFormDoneLetter");
+    var letterCb2 = document.getElementById("fkFLetter");
+    if (letterDone && letterCb2 && letterCb2.checked) letterDone.style.display = "block";
+    else if (letterDone) letterDone.style.display = "none";
   });
 
   document.getElementById("fkResetForm").addEventListener("click", () => {
@@ -677,7 +812,147 @@ function fkCopy(text, btn, doneLabel) {
     ["fkFName","fkFEmail","fkFCity","fkFOrg","fkFDate","fkFNotes"].forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
     document.getElementById("fkFType").selectedIndex = 0;
     document.getElementById("fkFConsent").checked = false;
+    // FK35 · reset letter opt-in
+    var lcb = document.getElementById("fkFLetter"); if (lcb) lcb.checked = false;
+    var lsel = document.getElementById("fkFLetterPledge"); if (lsel) lsel.selectedIndex = 0;
+    var lrev = document.getElementById("fkLetterReveal");
+    if (lrev) { lrev.style.maxHeight = "0"; lrev.style.opacity = "0"; lrev.style.marginBottom = "0"; }
   });
+})();
+</script>
+
+<!-- ═══ FK35 · CINEMATIC SCROLL ENGINE ═══
+     One continuous scroll-flight through the Black August world.
+     Progressive enhancement: inert if GSAP fails to load (page stays fully
+     functional). Honors prefers-reduced-motion (all timelines skipped). -->
+<script>
+(function(){
+  "use strict";
+  // Gate: only run if GSAP + ScrollTrigger actually loaded
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Mark readiness — this opts content into the animated states
+  document.documentElement.classList.add("fk-cinema-ready");
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (reduce) {
+    // Reduced-motion: reveal everything immediately, no timelines
+    document.querySelectorAll(".fk-scene,.fk-rise,.fk-cascade,.fk-rule-draw,.fk-stagger > *")
+      .forEach(function(el){ el.classList.add("fk-scene-in","fk-rise-in","fk-cascade-in","fk-rule-draw-in"); });
+    return;
+  }
+
+  // ── Starfield / dust (lightweight CSS-point layer) ──
+  var sf = document.querySelector(".fk-starfield");
+  if (sf) {
+    var n = 38, frag = document.createDocumentFragment();
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement("i");
+      var sz = Math.random() * 1.8 + 1;
+      s.style.cssText = "left:" + (Math.random() * 100).toFixed(2) + "%;top:" +
+        (Math.random() * 100).toFixed(2) + "%;width:" + sz + "px;height:" + sz +
+        "px;--fk-t:" + (3 + Math.random() * 4).toFixed(1) + "s;--fk-d:" +
+        (Math.random() * 5).toFixed(1) + "s";
+      frag.appendChild(s);
+    }
+    sf.appendChild(frag);
+  }
+
+  // ── HERO depth-of-field opening ──
+  // Layered parallax: gold rule, kicker, headline, countdown card at different speeds.
+  var hero = document.getElementById("top");
+  if (hero) {
+    var layers = hero.querySelectorAll(".fk-depth");
+    if (layers.length) {
+      layers.forEach(function(el, idx){
+        var speed = parseFloat(el.getAttribute("data-fk-speed") || (0.12 + idx * 0.07));
+        gsap.to(el, {
+          yPercent: speed * 100,
+          ease: "none",
+          scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 }
+        });
+      });
+    }
+    // Headline scale/fade as the flight begins
+    var h1 = hero.querySelector(".fk-hero-head");
+    if (h1) {
+      gsap.fromTo(h1, { scale: 1, opacity: 1 }, {
+        scale: 0.93, opacity: 0.35, ease: "none",
+        scrollTrigger: { trigger: hero, start: "top top", end: "55% top", scrub: 1.2 }
+      });
+    }
+  }
+
+  // ── Floating media: scroll-scrubbed scale + parallax depth (Apple product-float) ──
+  document.querySelectorAll(".fk-float").forEach(function(el){
+    var img = el.querySelector("img");
+    gsap.fromTo(el, { yPercent: 6 }, {
+      yPercent: -8, ease: "none",
+      scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 1.4 }
+    });
+    if (img) {
+      gsap.fromTo(img, { scale: 1.08 }, {
+        scale: 1.0, ease: "none",
+        scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 1.4 }
+      });
+    }
+  });
+
+  // ── SCENE transitions: each major section enters as a scene ──
+  var scenes = document.querySelectorAll(".fk-scene");
+  scenes.forEach(function(scene){
+    // Scene container fade-in
+    ScrollTrigger.create({
+      trigger: scene, start: "top 82%", once: true,
+      onEnter: function(){ scene.classList.add("fk-scene-in"); }
+    });
+    // Rising elements inside the scene (cards, rows, headings)
+    var risers = scene.querySelectorAll(".fk-rise");
+    if (risers.length) {
+      ScrollTrigger.create({
+        trigger: scene, start: "top 80%", once: true,
+        onEnter: function(){
+          risers.forEach(function(r, i){
+            setTimeout(function(){ r.classList.add("fk-rise-in"); }, i * 90);
+          });
+        }
+      });
+    }
+    // Staggered children (calendar rows, action cards)
+    var stag = scene.querySelectorAll(".fk-stagger");
+    stag.forEach(function(grp){
+      ScrollTrigger.create({
+        trigger: grp, start: "top 85%", once: true,
+        onEnter: function(){
+          Array.prototype.forEach.call(grp.children, function(c, i){
+            setTimeout(function(){ c.style.transition = "transform .7s cubic-bezier(.22,1,.36,1),opacity .7s ease"; c.style.transform = "translateY(0)"; c.style.opacity = "1"; }, i * 70);
+          });
+        }
+      });
+    });
+    // Gold hairline self-draw on scroll
+    scene.querySelectorAll(".fk-rule-draw").forEach(function(rule){
+      ScrollTrigger.create({
+        trigger: rule, start: "top 90%", once: true,
+        onEnter: function(){ rule.classList.add("fk-rule-draw-in"); }
+      });
+    });
+    // Cascade reveals (timezone grid, misc panels)
+    scene.querySelectorAll(".fk-cascade").forEach(function(c){
+      ScrollTrigger.create({
+        trigger: c, start: "top 88%", once: true,
+        onEnter: function(){ c.classList.add("fk-cascade-in"); }
+      });
+    });
+  });
+
+  // ── Countdown numerals: breathing glow ──
+  document.querySelectorAll(".fk-cd-glow").forEach(function(el){
+    // CSS animation handles the glow; we add the class on ready (already added via html class)
+  });
+
+  // Refresh after fonts/images settle so triggers pin to final layout
+  window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
 })();
 </script>
 </body>
