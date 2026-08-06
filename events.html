@@ -209,13 +209,13 @@ html.fk-cinema-ready .fk-starfield i{animation:fkTwinkle var(--fk-t,4s) ease-in-
       <div style="display:flex;flex-wrap:wrap;gap:20px 28px;padding:34px 0;border-bottom:1px solid rgba(167,139,250,.14);align-items:flex-start">
         <div style="flex:0 0 150px"><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:#A78BFA;letter-spacing:.06em">AUG 02</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.26em;color:#6E6284;margin-top:6px">SUNDAY</div></div>
         <div style="flex:1 1 340px;min-width:0">
-          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:10px"><span style="font-size:21px;font-weight:700;letter-spacing:-.01em">Karmelo Teach-In</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#E3C88F;border:1px solid rgba(217,179,108,.35);background:rgba(217,179,108,.08)">DETAILS PENDING</span></div>
-          <p style="margin:0 0 12px;font-size:14.5px;line-height:1.65;color:#B4A8C6;max-width:560px;font-weight:500">Shared facts, campaign language, and the Black August frame — so every supporter and organizer works from the same verified ground.</p>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6E6284">FORMAT · VIRTUAL OPTION PLANNED &nbsp;·&nbsp; TIME &amp; LOCATION · TBA</div>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:10px"><span style="font-size:21px;font-weight:700;letter-spacing:-.01em">Karmelo Teach-In · The Series</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;padding:5px 10px;color:#D9B36C;border:1px solid rgba(217,179,108,.35);background:rgba(217,179,108,.08)">NO. 001 · ON THE RECORD</span></div>
+          <p style="margin:0 0 12px;font-size:14.5px;line-height:1.65;color:#B4A8C6;max-width:560px;font-weight:500">No. 001 filled the Pan African Connection Bookstore in Dallas — verified facts, letters written together, next actions assigned. The series continues; dates reach the update list first.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6E6284">SERIES · NEXT SESSION TBA &nbsp;·&nbsp; ANNOUNCED TO THE LIST FIRST</div>
         </div>
         <div style="flex:0 1 226px;display:flex;flex-direction:column;gap:10px">
           <button data-ics="teachin" class="fk-btn-gold" style="padding:12px 10px;background:none;border:1px solid rgba(217,179,108,.4);color:#E3C88F;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;cursor:pointer">ADD TO CALENDAR</button>
-          <a href="#updates" class="fk-btn-purple" style="padding:12px 10px;border:1px solid rgba(167,139,250,.25);color:#9C8FB0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-align:center;background:none">NOTIFY ME OF DETAILS</a>
+          <a href="teach-in.html" class="fk-btn-purple" style="padding:12px 10px;border:1px solid rgba(167,139,250,.25);color:#A78BFA;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-align:center;background:none">SEE THE RECAP →</a>
         </div>
       </div>
 
@@ -299,10 +299,10 @@ html.fk-cinema-ready .fk-starfield i{animation:fkTwinkle var(--fk-t,4s) ease-in-
     </div>
     <div style="flex:1 1 380px;min-width:0">
       <div class="fk-float" style="position:relative;border:1px solid rgba(167,139,250,.2);padding:10px;background:#0E0913;overflow:hidden">
-        <img src="assets/events/solidarity-crowd.jpg" alt="Crowd gathers outside the Collin County courthouse holding prayer signs in solidarity with Karmelo Anthony, June 2026." style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;height:auto">
+        <img src="assets/teachin/teachin-group.jpeg" alt="Organizers and supporters at the first Karmelo Teach-In — FREE KARMELO shirts, fists raised — Pan African Connection Bookstore, Dallas, August 2026." style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;height:auto">
       </div>
       <div style="display:flex;justify-content:space-between;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:#6E6284;margin-top:12px"><span>APPROVED IMAGERY ONLY</span><span style="color:#A78BFA">WEAR PURPLE — HIS COLOR</span></div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:#5E5273;margin-top:6px">PHOTO: DALLAS MORNING NEWS</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:#5E5273;margin-top:6px">PHOTO: FREE KARMELO CAMPAIGN · TEACH-IN NO. 001</div>
       <div id="fkActionsPanel" style="margin-top:28px;border:1px solid rgba(167,139,250,.16);background:#0E0913;padding:26px 28px">
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:14px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.28em;color:#A78BFA">VERIFIED LOCAL ACTIONS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#E3C88F">LISTINGS PENDING</span></div>
         <div id="fkActionsPending">
@@ -595,7 +595,7 @@ const FK_CONFIG = {
 
 // ═══ Event data (court-verified Aug 19 / Aug 20) ═══
 const FK_EVENTS = [
-  { key: "teachin", name: "Karmelo Teach-In", date: "SUNDAY · AUG 02, 2026 · TIME TBA", allDay: "20260802", desc: "Shared facts, campaign language, and next actions. Details: freekarmelo.net/events" },
+  { key: "teachin", name: "Karmelo Teach-In", date: "SUNDAY · AUG 02, 2026 · TIME TBA", allDay: "20260802", desc: "Teach-in series — No. 001 held Aug 2, Pan African Connection, Dallas. Recap + next session: freekarmelo.net/teach-in" },
   { key: "recuse", name: "Motion to Recuse", date: "WEDNESDAY · AUG 19, 2026 · 9:00 AM CT", utc: "20260819T140000Z", end: "20260819T150000Z", desc: "Motion to Recuse hearing — Judge Sid Harle presiding. Collin County, TX. Verified status posts at freekarmelo.net/events after adjournment." },
   { key: "newtrial", name: "Motion for New Trial", date: "THURSDAY · AUG 20, 2026 · 9:00 AM CT", utc: "20260820T140000Z", end: "20260820T150000Z", desc: "Motion for New Trial hearing. Judge and courtroom to be assigned. Collin County, TX. Verified status posts at freekarmelo.net/events after adjournment." },
   { key: "update", name: "Post-Hearing Status Release", date: "THURSDAY · AUG 20, 2026 · POST-ADJOURNMENT", allDay: "20260820", desc: "Verified post-hearing status + flyer at freekarmelo.net/events" },
