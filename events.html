@@ -30,11 +30,15 @@
 <script>
 // FK39 · Deterministic Turnstile: explicit render for both widgets on every load
 // (two implicit widgets raced — some loads rendered one or neither)
+window.fkTsReset = function(cid){
+  try { var el = document.getElementById(cid); var w = el && el.getAttribute("data-fk-widget");
+        if (window.turnstile) { if (w) window.turnstile.reset(w); else if (el) { el.removeAttribute("data-fk-rendered"); window.fkTsInit(); } } } catch(e) {}
+};
 window.fkTsInit = function(){
   ["fkTurnstileAction","fkTurnstileUpdates"].forEach(function(id){
     var el = document.getElementById(id);
     if (el && !el.getAttribute("data-fk-rendered")) {
-      try { window.turnstile.render(el, { sitekey: "0x4AAAAAAEAo1uozlYeV9QpL", theme: "dark" }); el.setAttribute("data-fk-rendered","1"); } catch(e) {}
+      try { var wid = window.turnstile.render(el, { sitekey: "0x4AAAAAAEAo1uozlYeV9QpL", theme: "dark" }); el.setAttribute("data-fk-rendered","1"); if (wid) el.setAttribute("data-fk-widget", wid); } catch(e) {}
     }
   });
 };
@@ -754,7 +758,7 @@ function fkCopy(text, btn, doneLabel) {
             if (emDoneLetter) emDoneLetter.style.display = emLetterOn ? "block" : "none";
           } else {
             emBtn.textContent = "DIDN'T GO THROUGH — TRY AGAIN"; setTimeout(function(){ emBtn.textContent = "JOIN"; }, 3200);
-            if (window.turnstile && tsEl) try { window.turnstile.reset(); } catch(e) {}
+            window.fkTsReset("fkTurnstileUpdates");
           }
         })
         .catch(function(){ emBtn.textContent = "NETWORK ERROR — TRY AGAIN"; setTimeout(function(){ emBtn.textContent = "JOIN"; }, 3200); });
@@ -833,7 +837,7 @@ function fkCopy(text, btn, doneLabel) {
           return res.json().then(function(j){
             var msg = (j && j.error === "turnstile_failed") ? "SECURITY CHECK EXPIRED — PLEASE COMPLETE IT AGAIN." : "SUBMISSION DIDN'T GO THROUGH — PLEASE CHECK YOUR ENTRIES AND TRY AGAIN.";
             err.textContent = msg; err.style.display = "block";
-            if (window.turnstile) try { window.turnstile.reset(); } catch(e) {}
+            window.fkTsReset("fkTurnstileAction");
           }).catch(function(){ err.textContent = "SUBMISSION DIDN'T GO THROUGH — PLEASE TRY AGAIN."; err.style.display = "block"; });
         })
         .catch(function(){ err.textContent = "NETWORK ERROR — YOUR ENTRIES ARE STILL HERE. PLEASE TRY AGAIN."; err.style.display = "block"; });
