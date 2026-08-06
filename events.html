@@ -27,7 +27,19 @@
 <meta name="twitter:image:alt" content="Free Karmelo. Free Them All. Black August 2026 — Aug 29 national solidarity rallies, 3 PM ET. freekarmelo.net/events">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+// FK39 · Deterministic Turnstile: explicit render for both widgets on every load
+// (two implicit widgets raced — some loads rendered one or neither)
+window.fkTsInit = function(){
+  ["fkTurnstileAction","fkTurnstileUpdates"].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el && !el.getAttribute("data-fk-rendered")) {
+      try { window.turnstile.render(el, { sitekey: "0x4AAAAAAEAo1uozlYeV9QpL", theme: "dark" }); el.setAttribute("data-fk-rendered","1"); } catch(e) {}
+    }
+  });
+};
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=fkTsInit&render=explicit" async defer></script>
 <!-- FK35 · Cinematic scroll layer — GSAP 3 + ScrollTrigger (progressive enhancement; gracefully inert if CDN fails) -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
@@ -367,7 +379,7 @@ html.fk-cinema-ready .fk-starfield i{animation:fkTwinkle var(--fk-t,4s) ease-in-
             </select>
           </div>
         </div>
-        <div id="fkTurnstileAction" class="cf-turnstile" data-sitekey="0x4AAAAAAEAo1uozlYeV9QpL" data-theme="dark" style="margin-bottom:16px"></div>
+        <div id="fkTurnstileAction" data-sitekey="0x4AAAAAAEAo1uozlYeV9QpL" data-theme="dark" style="margin-bottom:16px"></div>
         <div id="fkFormErr" style="display:none;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:#E8A0A0;margin-bottom:16px"></div>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px">
           <button id="fkSubmitAction" class="fk-btn-grad" style="padding:16px 32px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.22em;cursor:pointer;box-shadow:0 8px 28px rgba(124,92,214,.35)">SUBMIT FOR REVIEW</button>
@@ -494,7 +506,7 @@ html.fk-cinema-ready .fk-starfield i{animation:fkTwinkle var(--fk-t,4s) ease-in-
       <div style="border:1px solid rgba(167,139,250,.18);background:#150E1E;padding:28px 30px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.28em;color:#A78BFA;margin-bottom:14px">GET VERIFIED UPDATES</div>
         <div id="fkEmailOpen">
-          <div id="fkTurnstileUpdates" class="cf-turnstile" data-sitekey="0x4AAAAAAEAo1uozlYeV9QpL" data-theme="dark" style="margin-bottom:10px"></div>
+          <div id="fkTurnstileUpdates" data-sitekey="0x4AAAAAAEAo1uozlYeV9QpL" data-theme="dark" style="margin-bottom:10px"></div>
           <div style="display:flex;gap:10px;margin-bottom:14px">
           <input id="fkEmail" placeholder="you@example.org" style="flex:1;min-width:0;background:#0E0913;border:1px solid rgba(167,139,250,.25);color:#F2EDF7;padding:14px;font-size:13px;outline:none">
           <button id="fkSubmitEmail" class="fk-btn-grad" style="padding:14px 22px;background:linear-gradient(135deg,#8B5CF6,#6D3FD1);border:none;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;cursor:pointer">JOIN</button>
