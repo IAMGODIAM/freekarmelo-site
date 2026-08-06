@@ -729,13 +729,23 @@ function fkCopy(text, btn, doneLabel) {
         emPayload.letter_optin = true;
         if (emPledge) emPayload.letter_pledge = emPledge;
       }
-      document.getElementById("fkEmailOpen").style.display = "none";
-      document.getElementById("fkEmailDone").style.display = "block";
-      var emDoneLetter = document.getElementById("fkEmailDoneLetter");
-      if (emDoneLetter) emDoneLetter.style.display = emLetterOn ? "block" : "none";
-      if (FK_CONFIG.FK_SIGNUP_ENDPOINT) {
-        fetch(FK_CONFIG.FK_SIGNUP_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(emPayload) }).catch(() => {});
-      }
+      // FK39 · Honest submit: success only on a confirmed 2xx; failures speak.
+      var emBtn = document.getElementById("fkSubmitEmail");
+      if (!tsTok) { emBtn.textContent = "COMPLETE THE SECURITY CHECK FIRST"; setTimeout(function(){ emBtn.textContent = "JOIN"; }, 2600); return; }
+      emBtn.textContent = "SENDING…";
+      fetch(FK_CONFIG.FK_SIGNUP_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(emPayload) })
+        .then(function(res){
+          if (res.ok) {
+            document.getElementById("fkEmailOpen").style.display = "none";
+            document.getElementById("fkEmailDone").style.display = "block";
+            var emDoneLetter = document.getElementById("fkEmailDoneLetter");
+            if (emDoneLetter) emDoneLetter.style.display = emLetterOn ? "block" : "none";
+          } else {
+            emBtn.textContent = "DIDN'T GO THROUGH — TRY AGAIN"; setTimeout(function(){ emBtn.textContent = "JOIN"; }, 3200);
+            if (window.turnstile && tsEl) try { window.turnstile.reset(); } catch(e) {}
+          }
+        })
+        .catch(function(){ emBtn.textContent = "NETWORK ERROR — TRY AGAIN"; setTimeout(function(){ emBtn.textContent = "JOIN"; }, 3200); });
     }
   });
 
@@ -794,16 +804,28 @@ function fkCopy(text, btn, doneLabel) {
         data.letter_optin = true;
         if (pledgeVal) data.letter_pledge = pledgeVal;  // enum: sign-community | write-own | join-session
       }
-      fetch(FK_CONFIG.FK_FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) }).catch(() => {});
+      // FK39 · Honest submit: success only on a confirmed 2xx; failures speak.
+      if (!tsTok) { err.textContent = "PLEASE COMPLETE THE SECURITY CHECK ABOVE THE BUTTON."; err.style.display = "block"; return; }
+      var showDone = function(){
+        document.getElementById("fkFormOpen").style.display = "none";
+        document.getElementById("fkFormDone").style.display = "block";
+        document.getElementById("fkFormDoneName").textContent = "Thank you, " + fn + ".";
+        var letterDone = document.getElementById("fkFormDoneLetter");
+        var letterCb2 = document.getElementById("fkFLetter");
+        if (letterDone && letterCb2 && letterCb2.checked) letterDone.style.display = "block";
+        else if (letterDone) letterDone.style.display = "none";
+      };
+      fetch(FK_CONFIG.FK_FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+        .then(function(res){
+          if (res.ok) { showDone(); return; }
+          return res.json().then(function(j){
+            var msg = (j && j.error === "turnstile_failed") ? "SECURITY CHECK EXPIRED — PLEASE COMPLETE IT AGAIN." : "SUBMISSION DIDN'T GO THROUGH — PLEASE CHECK YOUR ENTRIES AND TRY AGAIN.";
+            err.textContent = msg; err.style.display = "block";
+            if (window.turnstile) try { window.turnstile.reset(); } catch(e) {}
+          }).catch(function(){ err.textContent = "SUBMISSION DIDN'T GO THROUGH — PLEASE TRY AGAIN."; err.style.display = "block"; });
+        })
+        .catch(function(){ err.textContent = "NETWORK ERROR — YOUR ENTRIES ARE STILL HERE. PLEASE TRY AGAIN."; err.style.display = "block"; });
     }
-    document.getElementById("fkFormOpen").style.display = "none";
-    document.getElementById("fkFormDone").style.display = "block";
-    document.getElementById("fkFormDoneName").textContent = "Thank you, " + fn + ".";
-    // FK35 · Letter confirmation copy
-    var letterDone = document.getElementById("fkFormDoneLetter");
-    var letterCb2 = document.getElementById("fkFLetter");
-    if (letterDone && letterCb2 && letterCb2.checked) letterDone.style.display = "block";
-    else if (letterDone) letterDone.style.display = "none";
   });
 
   document.getElementById("fkResetForm").addEventListener("click", () => {
