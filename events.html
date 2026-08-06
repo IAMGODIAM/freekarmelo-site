@@ -749,6 +749,24 @@ function fkCopy(text, btn, doneLabel) {
     }
   });
 
+  // FK39 · Turnstile belt-and-suspenders: explicit render for any container implicit rendering missed
+  (function(){
+    var tries = 0;
+    function ensure(){
+      tries++;
+      if (!window.turnstile || !window.turnstile.render) { if (tries < 30) setTimeout(ensure, 500); return; }
+      ["fkTurnstileAction","fkTurnstileUpdates"].forEach(function(id){
+        var el = document.getElementById(id);
+        if (el && !el.querySelector("iframe")) {
+          try { el.innerHTML = ""; window.turnstile.render(el, { sitekey: "0x4AAAAAAEAo1uozlYeV9QpL", theme: "dark" }); } catch(e) {}
+        }
+      });
+      if (tries < 6) setTimeout(ensure, 1500);
+    }
+    if (document.readyState === "complete") setTimeout(ensure, 900);
+    else window.addEventListener("load", function(){ setTimeout(ensure, 900); });
+  })();
+
   // FK35 · Community letter opt-in — animated reveal for Get Updates capture
   (function(){
     var cb = document.getElementById("fkEmailLetter");
