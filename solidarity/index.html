@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8/29–8/30 Worldwide Solidarity Weekend for Karmelo Anthony · 23 Cities · 3 Countries</title>
+<link rel="canonical" href="https://freekarmelo.net/solidarity">
+<meta name="theme-color" content="#080510">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Aug 29–30, 2026: Worldwide Solidarity Weekend for Karmelo Anthony. 23 cities, 3 countries. The new trial was denied Aug 22 — the appeal is live. Find your city, get the flyer, add your name.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="8/29–8/30 Worldwide Solidarity Weekend for Karmelo Anthony">
+<meta property="og:description" content="We were coming anyway. Now you know why. 23 cities. 3 countries. One name.">
+<meta property="og:url" content="https://freekarmelo.net/solidarity">
+<meta property="og:image" content="https://freekarmelo.net/solidarity/share-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" fill="%23080510"/><circle cx="20" cy="20" r="12.5" fill="none" stroke="%238B5CF6" stroke-width="1.6" opacity=".65"/><ellipse cx="20" cy="20" rx="12.5" ry="4.6" fill="none" stroke="%238B5CF6" stroke-width="1.1" opacity=".45"/><circle cx="14" cy="15" r="2.2" fill="%23D9B36C"/><circle cx="24.5" cy="24.5" r="1.8" fill="%23C9B2FF"/><circle cx="26" cy="14.5" r="1.6" fill="%23F0DCAC"/></svg>'>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   FREE KARMELO · DAY OF SOLIDARITY — freekarmelo.net/solidarity
+   Production build of "Day of Solidarity.dc.html" (Claude Design handoff).
+   Zero dependencies. Values are carried over from the design 1:1.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --ink:#080510; --ink-2:#0B0713;
+  --paper:#F7F3FB; --body:#B7ACC9; --muted:#9C8FB5; --faint:#8478A0;
+  --gold:#D9B36C; --gold-lt:#F0DCAC;
+  --violet:#8B5CF6; --lilac:#C9B2FF; --lilac-2:#A78BFA;
+  --win:#7BE0A8; --loss:#F09090;
+  --line:rgba(139,92,246,.16); --line-2:rgba(139,92,246,.2);
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --black:'Archivo Black','Archivo',system-ui,sans-serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --wrap:1440px; --pad:34px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--lilac);text-decoration:none}
+a:hover{color:var(--gold-lt)}
+::selection{background:var(--violet);color:#fff}
+img{max-width:100%}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.skip{position:absolute;top:0;left:0;z-index:200;background:var(--gold);color:var(--ink-2);
+  padding:12px 20px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+  transform:translateY(-140%);transition:transform .18s}
+.skip:focus{transform:translateY(0)}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+input,select,textarea{font-family:var(--mono);font-size:14px}
+input::placeholder,textarea::placeholder{color:var(--faint)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--violet)!important;
+  background:rgba(139,92,246,.07)!important}
+
+.trk{scrollbar-width:none;-ms-overflow-style:none}
+.trk::-webkit-scrollbar{display:none}
+
+@keyframes fkOrbit{to{transform:rotate(360deg)}}
+@keyframes fkBreathe{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:1;transform:scale(1.35)}}
+@keyframes fkRise{0%{transform:translateY(14px);opacity:0}100%{transform:translateY(0);opacity:1}}
+@keyframes fkTick{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;
+  animation-iteration-count:1!important;transition-duration:.001s!important;scroll-behavior:auto!important}}
+
+/* ── shared type ─────────────────────────────────────────────────────── */
+.kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;color:var(--violet);margin-bottom:14px}
+.h2{font-family:var(--black);font-size:clamp(30px,3.4vw,50px);line-height:1;letter-spacing:-.03em;margin:0}
+.lede{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0}
+.mono{font-family:var(--mono)}
+.rule{border-bottom:1px solid var(--line)}
+.secthead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
+
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink-2);
+  padding:16px 26px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;
+  border:none;cursor:pointer;transition:background .25s}
+.btn-gold:hover{background:var(--gold-lt);color:var(--ink-2)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(199,178,255,.42);
+  color:var(--paper);padding:16px 26px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;
+  transition:border-color .25s,color .25s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-lt)}
+
+/* ── topbar / header ─────────────────────────────────────────────────── */
+.hairline{height:3px;background:linear-gradient(90deg,#3A2C14,#D9B36C 22%,#F0DCAC 50%,#8B5CF6 78%,#2A1A4A)}
+.site-head{position:sticky;top:0;z-index:60;background:rgba(8,5,16,.86);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)}
+.site-head .wrap{padding-top:14px;padding-bottom:14px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--paper);min-width:0}
+.brand:hover{color:var(--paper)}
+.brand svg{flex:none;overflow:visible}
+.b-k{color:#8B5CF6}.b-net{color:#D9B36C}.b-slug{color:#9C8FB5}
+.brand-txt{font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.05em;
+  white-space:nowrap;overflow:hidden;text-overflow:clip}
+.nav{display:flex;align-items:center;gap:26px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.16em;white-space:nowrap;flex:none}
+.nav a.navlink{color:var(--muted)}
+.nav a.navlink:hover,.nav a.navlink[aria-current="true"]{color:var(--gold-lt)}
+.nav .cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink-2);
+  padding:11px 20px;font-weight:600;letter-spacing:.14em}
+.nav .cta:hover{background:var(--gold-lt);color:var(--ink-2)}
+
+/* ── hero ────────────────────────────────────────────────────────────── */
+.hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.hero-glow{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 74% 42%,rgba(139,92,246,.20),transparent 58%),
+             radial-gradient(circle at 12% 88%,rgba(217,179,108,.09),transparent 52%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1.18fr);
+  gap:20px;align-items:center;min-height:min(880px,92vh)}
+.hero-copy{padding:64px 0 72px;animation:fkRise .8s ease both}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;border:1px solid rgba(217,179,108,.38);
+  padding:8px 15px;margin-bottom:30px}
+.eyebrow span:last-child{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;
+  color:var(--gold-lt);white-space:nowrap}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:fkTick 1.8s ease-in-out infinite}
+.hero h1{font-family:var(--black);font-size:clamp(46px,5.6vw,86px);line-height:.92;
+  letter-spacing:-.035em;margin:0 0 8px}
+.hero-sub{font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.5vw,36px);
+  line-height:1.18;color:var(--gold);margin:0 0 26px}
+.hero-body{max-width:50ch;font-size:16.5px;line-height:1.62;color:var(--body);margin:0 0 32px}
+.hero-body strong{color:var(--paper);font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
+.countbar{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 26px;
+  border-top:1px solid var(--line-2);padding-top:22px}
+.count-label{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--muted);margin-bottom:9px}
+.count-units{display:flex;gap:16px;align-items:baseline}
+.cu{display:flex;flex-direction:column;gap:3px}
+.cu-v{font-family:var(--black);font-size:30px;line-height:1;letter-spacing:-.03em;
+  color:var(--paper);font-variant-numeric:tabular-nums}
+.cu-k{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--muted)}
+.tz{font-family:var(--mono);font-size:10px;line-height:1.9;letter-spacing:.1em;color:var(--muted);padding-bottom:2px}
+.globe-slot{position:relative;align-self:stretch;min-height:520px;margin-right:-90px}
+.globe-slot solidarity-globe{position:absolute;inset:0}
+.globe-count{position:absolute;left:0;bottom:34px;display:flex;flex-direction:column;gap:5px;pointer-events:none}
+.globe-count b{font-family:var(--black);font-size:52px;line-height:1;letter-spacing:-.04em;
+  color:var(--paper);font-weight:400}
+.globe-count span{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--gold)}
+
+/* ── status band ─────────────────────────────────────────────────────── */
+.status{border-bottom:1px solid var(--line);
+  background:linear-gradient(90deg,rgba(139,92,246,.10),rgba(8,5,16,0) 60%)}
+.status .wrap{padding-top:16px;padding-bottom:16px;display:flex;flex-wrap:wrap;align-items:center;
+  gap:14px 30px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em}
+.status .live{display:flex;align-items:center;gap:9px;color:var(--gold-lt)}
+.status .sep{color:var(--muted)}
+.status .b{color:var(--body)}
+.status .v{color:var(--lilac)}
+.status .more{margin-left:auto;color:var(--gold)}
+
+/* ── §01 posters ─────────────────────────────────────────────────────── */
+.posters{border-bottom:1px solid var(--line);padding:74px 0 82px}
+.poster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:16px;margin-top:34px}
+.poster{position:relative;display:block;border:1px solid rgba(139,92,246,.22);background:var(--ink-2);
+  overflow:hidden;transition:border-color .3s,transform .3s}
+.poster:hover{border-color:rgba(217,179,108,.75);transform:translateY(-4px)}
+.poster img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .5s ease}
+.poster:hover img{transform:scale(1.045)}
+.poster-tag{position:absolute;top:9px;left:9px;background:rgba(8,5,16,.82);backdrop-filter:blur(6px);
+  padding:5px 9px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--gold-lt)}
+.poster-foot{position:absolute;left:0;right:0;bottom:0;padding:24px 11px 10px;
+  background:linear-gradient(transparent,rgba(8,5,16,.96));font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;color:var(--paper);display:flex;justify-content:space-between;gap:8px}
+.poster-foot i{font-style:normal;color:var(--gold)}
+.poster-note{margin-top:20px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted)}
+.poster-note .warn{color:var(--gold-lt);font-weight:500}
+
+/* ── §02 cities ──────────────────────────────────────────────────────── */
+.cities{border-bottom:1px solid var(--line);padding:78px 0 88px}
+.city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:14px;margin-top:36px}
+.city{position:relative;overflow:hidden;border:1px solid rgba(139,92,246,.24);background:rgba(11,7,19,.5);
+  padding:20px 20px 18px;display:flex;flex-direction:column;gap:12px;min-height:152px;
+  transition:border-color .3s,transform .3s}
+.city:hover,.city:focus-within{border-color:rgba(217,179,108,.7);transform:translateY(-3px);z-index:5}
+.city.locked{border-color:rgba(217,179,108,.4);background:rgba(217,179,108,.05)}
+.city.hot{border-color:rgba(217,179,108,.8);background:rgba(217,179,108,.08)}
+.city-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.city h3{font-family:var(--black);font-size:23px;line-height:1.04;letter-spacing:-.025em;
+  margin:0;color:var(--paper)}
+.city-region{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--muted);margin-top:6px}
+.city.intl .city-region{color:var(--lilac)}
+.city-badge{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);
+  border:1px solid rgba(139,92,246,.26);padding:4px 7px;flex:none;white-space:nowrap}
+.city-det{display:flex;flex-direction:column;gap:5px;font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.city-det .when{color:var(--gold-lt)}
+.city-det .where{color:var(--muted)}
+.city-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding-top:13px;border-top:1px solid var(--line)}
+.city-status{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;color:var(--violet)}
+.city-status i{width:5px;height:5px;border-radius:50%;background:currentColor;flex:none}
+.city.locked .city-status,.city.hot .city-status{color:var(--win)}
+.city-dl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--lilac)}
+.city-pop{position:absolute;inset:0;display:block;background:var(--ink-2);opacity:0;transform:scale(1.05);
+  transition:opacity .24s ease,transform .5s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.city:hover .city-pop,.city:focus-within .city-pop{opacity:1;transform:scale(1);pointer-events:auto}
+.city-pop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:center 18%;opacity:.62}
+.city-pop .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,5,16,.30) 0%,
+  rgba(8,5,16,.55) 55%,rgba(8,5,16,.95) 100%)}
+.city-pop .cap{position:absolute;left:16px;right:16px;bottom:14px;display:flex;flex-direction:column;gap:5px}
+.city-pop .cap b{font-family:var(--black);font-size:17px;line-height:1.05;letter-spacing:-.02em;
+  color:var(--paper);font-weight:400}
+.city-pop .cap span{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em}
+.city-pop .cap span i{font-style:normal;color:var(--lilac)}
+.city-pop .cap span em{font-style:normal;color:var(--gold-lt)}
+.city-claim{border:1px dashed rgba(217,179,108,.42);background:rgba(217,179,108,.04);padding:20px;
+  display:flex;flex-direction:column;justify-content:center;gap:10px;min-height:170px;transition:border-color .3s,background .3s}
+.city-claim:hover{border-color:var(--gold);background:rgba(217,179,108,.08)}
+.city-claim b{font-family:var(--black);font-size:21px;line-height:1.06;letter-spacing:-.025em;
+  color:var(--gold-lt);font-weight:400}
+.city-claim p{font-size:13.5px;line-height:1.55;color:var(--body);margin:0}
+.city-claim i{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+  color:var(--gold);margin-top:2px}
+
+/* ── §03 record ──────────────────────────────────────────────────────── */
+.record{border-bottom:1px solid var(--line);padding:78px 0 86px;
+  background:linear-gradient(180deg,rgba(139,92,246,.055),transparent 40%)}
+.record h2{margin-bottom:12px;max-width:24ch}
+.record-lede{max-width:64ch;font-size:16px;line-height:1.65;color:var(--body);margin:0 0 42px}
+.stack{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:52px;align-items:start}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:112px minmax(0,1fr);gap:22px;padding:24px 0;
+  border-top:1px solid var(--line-2)}
+.tl-date{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--gold-lt)}
+.chip{display:inline-block;margin-top:9px;padding:4px 8px;border:1px solid rgba(139,92,246,.4);
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--lilac)}
+.chip.win{color:var(--win);border-color:rgba(123,224,168,.42)}
+.chip.loss{color:var(--loss);border-color:rgba(240,144,144,.42)}
+.chip.live{color:var(--gold-lt);border-color:rgba(217,179,108,.5)}
+.tl h3{font-size:19px;font-weight:700;line-height:1.28;letter-spacing:-.01em;margin:0 0 8px;color:var(--paper)}
+.tl p{font-size:14.5px;line-height:1.62;color:var(--body);margin:0 0 9px}
+.tl-src{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted)}
+.aside{display:flex;flex-direction:column;gap:18px;position:sticky;top:96px}
+.card-gold{border:1px solid rgba(217,179,108,.34);padding:26px 24px;background:rgba(217,179,108,.05)}
+.card-gold .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--gold);margin-bottom:16px}
+.card-gold .pull{font-family:var(--serif);font-size:22px;line-height:1.32;color:var(--paper);margin:0 0 16px}
+.card-gold p{font-size:14px;line-height:1.62;color:var(--body);margin:0 0 18px}
+.card-gold p strong{color:var(--paper);font-weight:600}
+.preserved{display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid rgba(217,179,108,.24)}
+.preserved div{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:var(--body)}
+.preserved span:first-child{color:var(--gold);flex:none}
+.card-violet{border:1px solid rgba(139,92,246,.28);padding:24px}
+.card-violet .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--violet);margin-bottom:14px}
+.card-violet blockquote{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.38;
+  color:var(--paper);margin:0 0 12px}
+.card-violet cite{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted)}
+.posture{border:1px solid var(--line-2);padding:20px 22px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.2em;color:var(--muted);line-height:1.9}
+
+/* ── §04 commit ──────────────────────────────────────────────────────── */
+.commit{border-bottom:1px solid var(--line);padding:80px 0 88px;
+  background:radial-gradient(circle at 78% 12%,rgba(139,92,246,.16),transparent 55%)}
+.commit .wrap{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:56px;align-items:start}
+.commit h2{margin-bottom:18px}
+.commit-lede{max-width:48ch;font-size:16px;line-height:1.64;color:var(--body);margin:0 0 26px}
+.promises{display:flex;flex-direction:column;gap:16px;padding-top:24px;border-top:1px solid var(--line-2)}
+.promise{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start}
+.promise .n{font-family:var(--mono);font-size:10px;color:var(--gold);padding-top:3px}
+.promise .t{font-size:14.5px;font-weight:600;color:var(--paper);margin-bottom:3px}
+.promise .d{font-size:13.5px;line-height:1.55;color:var(--muted)}
+.formcard{border:1px solid rgba(139,92,246,.32);background:rgba(11,7,19,.72);backdrop-filter:blur(8px)}
+.formcard-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 26px;
+  border-bottom:1px solid rgba(139,92,246,.24)}
+.formcard-head .l{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--gold-lt)}
+.formcard-head .r{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--muted)}
+form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{display:flex;flex-direction:column;gap:7px}
+.f>span{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted)}
+.f>span i{font-style:normal;color:var(--gold)}
+.f input,.f select,.f textarea{background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.28);
+  color:var(--paper);padding:12px 13px;width:100%}
+.f textarea{resize:vertical}
+.f select option{background:var(--ink-2);color:var(--paper)}
+.check{display:flex;gap:11px;align-items:flex-start;cursor:pointer}
+.check.boxed{padding:13px 14px;border:1px solid rgba(217,179,108,.3);background:rgba(217,179,108,.04)}
+.check input{margin:2px 0 0;width:15px;height:15px;flex:none;accent-color:var(--violet)}
+.check.boxed input{accent-color:var(--gold)}
+.check .t{font-size:13.5px;line-height:1.5;color:var(--paper)}
+.check .t strong{font-weight:600}
+.check .t small{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.check.subtle .t{color:var(--body)}
+.check.subtle .t strong{color:var(--paper)}
+.form-fine{font-family:var(--mono);font-size:10px;line-height:1.9;letter-spacing:.1em;
+  color:var(--faint);text-align:center}
+.form-err{font-family:var(--mono);font-size:11px;line-height:1.6;letter-spacing:.06em;color:var(--loss);
+  border:1px solid rgba(240,144,144,.4);background:rgba(240,144,144,.06);padding:11px 13px}
+.form-err[hidden]{display:none}
+.cf-turnstile{min-height:0}
+.sent{padding:64px 30px 70px;text-align:center}
+.sent .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--gold);margin-bottom:20px}
+.sent h3{font-family:var(--black);font-size:30px;line-height:1.06;letter-spacing:-.03em;margin:0 0 14px}
+.sent p{max-width:38ch;margin:0 auto 26px;font-size:15px;line-height:1.6;color:var(--body)}
+.sent button{background:none;border:1px solid rgba(199,178,255,.4);color:var(--lilac);padding:12px 22px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;cursor:pointer}
+.sent button:hover{border-color:var(--gold);color:var(--gold-lt)}
+
+/* ── §05 wall ────────────────────────────────────────────────────────── */
+.wall{border-bottom:1px solid var(--line);padding:76px 0 84px}
+.wall .secthead{margin-bottom:32px}
+.wall h2{margin-bottom:12px}
+.wall-lede{max-width:56ch;font-size:15px;line-height:1.6;color:var(--muted);margin:0}
+.wall-nav{display:flex;gap:9px}
+.wall-nav button{width:44px;height:44px;background:none;border:1px solid rgba(139,92,246,.34);
+  color:var(--lilac);cursor:pointer;font-size:16px;transition:border-color .25s,color .25s}
+.wall-nav button:hover{border-color:var(--gold);color:var(--gold-lt)}
+.wall-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+.quote{flex:0 0 clamp(280px,30vw,392px);scroll-snap-align:start;margin:0;
+  border:1px solid rgba(139,92,246,.24);
+  background:linear-gradient(160deg,rgba(139,92,246,.08),rgba(11,7,19,.4));
+  padding:26px 24px 22px;display:flex;flex-direction:column;gap:16px;transition:border-color .3s}
+.quote:hover{border-color:rgba(217,179,108,.5)}
+.quote .kind{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--lilac-2)}
+.quote blockquote{font-family:var(--serif);font-size:21px;line-height:1.36;color:var(--paper);margin:0;flex:1}
+.quote figcaption{display:flex;flex-direction:column;gap:4px;padding-top:15px;border-top:1px solid var(--line-2)}
+.quote .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gold-lt)}
+.quote .meta{font-family:var(--mono);font-size:10px;letter-spacing:.13em;color:var(--muted)}
+.wall-add{flex:0 0 clamp(240px,24vw,300px);scroll-snap-align:start;border:1px dashed rgba(217,179,108,.42);
+  background:rgba(217,179,108,.04);padding:26px 24px;display:flex;flex-direction:column;
+  justify-content:center;gap:12px;transition:border-color .3s}
+.wall-add:hover{border-color:var(--gold)}
+.wall-add b{font-family:var(--black);font-size:24px;line-height:1.04;letter-spacing:-.03em;
+  color:var(--gold-lt);font-weight:400}
+.wall-add p{font-size:13.5px;line-height:1.55;color:var(--body);margin:0}
+.wall-add i{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--gold)}
+.wall-tags{margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--faint)}
+
+/* ── partners + footer ───────────────────────────────────────────────── */
+.partners{border-bottom:1px solid var(--line);padding:44px 0}
+.partners .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:34px}
+.partners .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--gold)}
+.partners img{height:44px;width:auto;filter:brightness(0) invert(1);opacity:.82}
+.partners .by{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--muted)}
+.site-foot{padding:64px 0 40px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:40px;
+  padding-bottom:44px;border-bottom:1px solid var(--line-2)}
+.foot-mark{font-family:var(--black);font-size:30px;line-height:1;letter-spacing:-.035em;margin-bottom:14px}
+.foot-grid p{max-width:38ch;font-size:14px;line-height:1.6;color:var(--muted);margin:0 0 16px}
+.foot-stamp{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--muted)}
+.foot-col{display:flex;flex-direction:column;gap:11px}
+.foot-col .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--gold);margin-bottom:4px}
+.foot-col a{font-size:14px;color:var(--body)}
+.foot-col a:hover{color:var(--gold-lt)}
+.foot-col p{font-size:13px;line-height:1.65;color:var(--muted);margin:0;max-width:none}
+.foot-legal{padding-top:26px;display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--faint)}
+
+/* ── responsive ──────────────────────────────────────────────────────── */
+@media (max-width:1120px){
+  .hero .wrap,.stack,.commit .wrap{grid-template-columns:minmax(0,1fr)!important;gap:34px!important;
+    min-height:0!important}
+  .globe-slot{margin-right:0;min-height:340px}
+  .aside{position:static}
+  .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .b-slug{display:none}
+}
+@media (max-width:760px){
+  :root{--pad:20px}
+  .nav a.navlink{display:none}
+  .nav .cta{padding:10px 14px;letter-spacing:.1em;font-size:10.5px}
+  /* one deliberate deviation from the prototype: at 196px min the poster grid
+     collapses to a single column on a phone, putting ~4,400px of scroll in
+     front of "find your city". 140px keeps two columns and the same rhythm. */
+  .poster-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+  .poster-foot{padding:20px 9px 9px;font-size:9.5px;letter-spacing:.08em}
+  .poster-tag{font-size:9px;letter-spacing:.12em;padding:4px 7px}
+  .brand svg{width:26px;height:26px}
+  .brand-txt{font-size:12px;letter-spacing:.02em}
+  .two{grid-template-columns:minmax(0,1fr)}
+  .tl li{grid-template-columns:minmax(0,1fr);gap:10px}
+  .status .more{margin-left:0}
+  .foot-grid{grid-template-columns:minmax(0,1fr)}
+  .partners .by{margin-left:0}
+  .globe-count b{font-size:40px}
+}
+@media (max-width:420px){
+  .b-net{display:none}
+  .site-head .wrap{gap:10px}
+  .count-units{gap:11px}
+  .cu-v{font-size:25px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+<div class="hairline"></div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Free Karmelo — Solidarity home">
+      <svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="12.5" fill="none" stroke="#8B5CF6" stroke-width="1.1" opacity=".5"></circle>
+        <ellipse cx="20" cy="20" rx="12.5" ry="4.6" fill="none" stroke="#8B5CF6" stroke-width=".8" opacity=".32"></ellipse>
+        <ellipse cx="20" cy="20" rx="4.6" ry="12.5" fill="none" stroke="#8B5CF6" stroke-width=".8" opacity=".32"></ellipse>
+        <circle cx="14" cy="15" r="1.5" fill="#D9B36C"></circle>
+        <circle cx="24" cy="24" r="1.2" fill="#C9B2FF"></circle>
+        <circle cx="15.5" cy="26" r="1.1" fill="#C9B2FF"></circle>
+        <circle cx="26" cy="14.5" r="1.1" fill="#D9B36C" style="animation:fkBreathe 2.6s ease-in-out infinite"></circle>
+        <g style="transform-origin:20px 20px;animation:fkOrbit 14s linear infinite">
+          <ellipse cx="20" cy="20" rx="18" ry="7" fill="none" stroke="#D9B36C" stroke-width=".7" opacity=".45" transform="rotate(-24 20 20)"></ellipse>
+          <circle cx="38" cy="20" r="1.9" fill="#F0DCAC" transform="rotate(-24 20 20)"></circle>
+        </g>
+      </svg>
+      <span class="brand-txt">FREE<span class="b-k">KARMELO</span><span class="b-net">.NET</span><span class="b-slug">/SOLIDARITY</span></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a class="navlink" href="#posters">POSTERS</a>
+      <a class="navlink" href="#cities">CITIES</a>
+      <a class="navlink" href="#record">THE RECORD</a>
+      <a class="navlink" href="#wall">THE WALL</a>
+      <a class="cta" href="#commit">COMMIT<span aria-hidden="true">→</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════ -->
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span>AUG 29–30 · 2026 · WORLDWIDE</span></p>
+      <h1 id="hero-h">WE WERE<br>COMING<br>ANYWAY.</h1>
+      <p class="hero-sub">Now you know why.</p>
+      <p class="hero-body">On <strong>August 22</strong> a judge denied Karmelo Anthony a new trial in a half-page order with no explanation. The 35-year sentence stands. The appeal is live before the Fifth District Court of Appeals. This weekend was on the calendar long before that ruling — and <strong>23 cities across 3 countries</strong> are still coming.</p>
+      <div class="hero-actions">
+        <a class="btn-gold" href="#cities">FIND YOUR CITY<span aria-hidden="true">→</span></a>
+        <a class="btn-ghost" href="#commit">ADD YOUR NAME</a>
+      </div>
+      <div class="countbar">
+        <div>
+          <div class="count-label">SYNCHRONIZED START</div>
+          <div class="count-units" id="countdown" role="timer" aria-live="off"></div>
+        </div>
+        <div class="tz">3<span>PM ET</span> · 2<span>CT</span> · 1<span>MT</span> · 12<span>PT</span></div>
+      </div>
+    </div>
+    <div class="globe-slot">
+      <solidarity-globe aria-hidden="true"></solidarity-globe>
+      <div class="globe-count"><b>23</b><span>CITIES · 3 COUNTRIES</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATUS BAND ═══════════════════════════════════════════════════ -->
+<section class="status" aria-label="Case status">
+  <div class="wrap">
+    <span class="live"><span class="dot" aria-hidden="true"></span>CASE STATUS · <span data-stamp></span></span>
+    <span class="b">NEW TRIAL DENIED AUG 22</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="b">35-YEAR SENTENCE STANDS</span>
+    <span class="sep" aria-hidden="true">·</span>
+    <span class="v">APPEAL LIVE · 5TH COURT OF APPEALS, DALLAS</span>
+    <a class="more" href="#record">READ THE RECORD →</a>
+  </div>
+</section>
+
+<!-- ══ §01 THE PAPER ═════════════════════════════════════════════════ -->
+<section class="posters" id="posters" aria-labelledby="posters-h">
+  <div class="wrap">
+    <div class="secthead">
+      <div>
+        <div class="kicker">§01 · THE PAPER</div>
+        <h2 class="h2" id="posters-h">PUT IT ON EVERY WALL.</h2>
+      </div>
+      <p class="lede" style="max-width:42ch">Every sheet is print-ready and free. His name is the largest element on all of them. Download, print, post — no permission needed.</p>
+    </div>
+    <div class="poster-grid" id="poster-grid" data-fk-block="posters"></div>
+    <div class="poster-note">
+      <span><span id="poster-count">0</span> SHEETS · PRINT-READY</span>
+      <a href="https://freekarmelo.net/assets/kit/11d58dd2d_FreeKarmelo-Supporter-Kit.zip" style="color:#D9B36C">DOWNLOAD THE FULL KIT ↓</a>
+      <span class="warn">DO NOT POST HIS MUGSHOT OR ANY MAILING ADDRESS.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §02 THE ROSTER ════════════════════════════════════════════════ -->
+<section class="cities" id="cities" aria-labelledby="cities-h">
+  <div class="wrap">
+    <div class="secthead">
+      <div>
+        <div class="kicker">§02 · THE ROSTER</div>
+        <h2 class="h2" id="cities-h">FIND YOUR CITY.</h2>
+      </div>
+      <p class="lede" style="max-width:44ch">Houston is confirmed, and sixteen cities now carry their own sheet. Each local time and meet point publishes here the moment its lead locks it. Hover a city to see its sheet — and to spin the globe to it.</p>
+    </div>
+    <div class="city-grid" id="city-grid" data-fk-block="cities"></div>
+  </div>
+</section>
+
+<!-- ══ §03 THE RECORD ════════════════════════════════════════════════ -->
+<section class="record" id="record" aria-labelledby="record-h">
+  <div class="wrap">
+    <div class="kicker">§03 · THE RECORD</div>
+    <h2 class="h2" id="record-h">WHAT HAPPENED LAST WEEK, WITHOUT VARNISH.</h2>
+    <p class="record-lede">Three days in McKinney. One motion won, one motion lost, and a conviction that now moves up. Every line below is sourced to the public record — nothing here is campaign interpretation.</p>
+    <div class="stack">
+      <ol class="tl" id="timeline"></ol>
+      <aside class="aside">
+        <div class="card-gold">
+          <div class="lbl">WHERE IT GOES NEXT</div>
+          <p class="pull">The denial is not the end of the case. It is the door to the appeal.</p>
+          <p>The conviction now goes before the <strong>Fifth District Court of Appeals in Dallas</strong> — out of the county that produced the jury. Grounds raised and overruled at trial survive to review.</p>
+          <div class="preserved" id="preserved"></div>
+        </div>
+        <div class="card-violet">
+          <div class="lbl">FROM COUNSEL</div>
+          <blockquote>&ldquo;Our commitment to our client has not changed.&rdquo;</blockquote>
+          <cite>RUSSELL WILSON · LEAD APPELLATE COUNSEL · AUG 22, 2026</cite>
+        </div>
+        <div class="posture">POSTURE · PEACEFUL · LAWFUL · SUSTAINED<br>NEVER CONTACT JUDGES, JURORS,<br>WITNESSES, OR COURT STAFF.</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §04 COMMIT ════════════════════════════════════════════════════ -->
+<section class="commit" id="commit" aria-labelledby="commit-h">
+  <div class="wrap">
+    <div>
+      <div class="kicker">§04 · COMMIT</div>
+      <h2 class="h2" id="commit-h">ADD YOUR NAME<br>TO THE LIST.</h2>
+      <p class="commit-lede">One form. It tells your city lead to expect you, and it puts a number on the record that a courtroom cannot ignore. Your message, if you leave one, posts to the wall for Karmelo to read.</p>
+      <div class="promises" id="promises"></div>
+    </div>
+
+    <div class="formcard">
+      <div class="formcard-head">
+        <span class="l">E5 FORM PROTOCOL · ONE FORM</span>
+        <span class="r"><span data-signups></span> COMMITTED</span>
+      </div>
+
+      <div class="sent" id="sent-panel" hidden>
+        <div class="lbl">RECORDED</div>
+        <h3>YOU'RE ON THE LIST.</h3>
+        <p>Your city lead will send the meet point before Saturday. If you left a message, it posts to the wall after a safety check.</p>
+        <button type="button" id="reset-btn">ADD ANOTHER NAME</button>
+      </div>
+
+      <form class="commit-form" id="commit-form" novalidate>
+        <p class="form-err" id="form-err" hidden role="alert"></p>
+        <div class="two">
+          <label class="f"><span>NAME <i>*</i></span>
+            <input type="text" name="name" required autocomplete="name" placeholder="First and last"></label>
+          <label class="f"><span>EMAIL <i>*</i></span>
+            <input type="email" name="email" required autocomplete="email" placeholder="you@email.com"></label>
+        </div>
+        <div class="two">
+          <label class="f"><span>CITY / METRO <i>*</i></span>
+            <select name="city" id="city-select" required><option value="">Select…</option></select></label>
+          <label class="f"><span>ORGANIZATION</span>
+            <input type="text" name="organization" autocomplete="organization" placeholder="Optional"></label>
+        </div>
+        <label class="f"><span>YOUR MESSAGE TO KARMELO</span>
+          <textarea name="message" rows="3" maxlength="2000" placeholder="He reads these. Keep it warm."></textarea></label>
+
+        <label class="check boxed">
+          <input type="checkbox" name="wall_optin" checked>
+          <span class="t">Post my message to the <strong>Karmelo Support Wall</strong>
+            <small>Your name and city post publicly. Your contact details never do.</small></span>
+        </label>
+        <label class="check subtle">
+          <input type="checkbox" name="affirm" checked>
+          <span class="t">Send me verified case updates. I affirm a <strong>peaceful, lawful</strong> commitment.</span>
+        </label>
+
+        <!-- Turnstile · required by e5-fk-events /submit. Set FK.turnstileSiteKey below. -->
+        <div class="cf-turnstile" id="turnstile-slot"></div>
+
+        <!-- honeypots, matched to the worker's isHoneypotTriggered() -->
+        <div class="vh" aria-hidden="true">
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn-gold" id="submit-btn" style="justify-content:center;padding:17px">
+          COUNT ME IN — I'M COMING<span aria-hidden="true">→</span></button>
+        <div class="form-fine">FREE · NO SPAM · NO DATA SOLD · UNSUBSCRIBE ANY TIME</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ §05 THE WALL ══════════════════════════════════════════════════ -->
+<section class="wall" id="wall" aria-labelledby="wall-h">
+  <div class="wrap">
+    <div class="secthead">
+      <div>
+        <div class="kicker">§05 · THE WALL OF SUPPORT</div>
+        <h2 class="h2" id="wall-h">THEY ARE STANDING WITH HIM.</h2>
+        <p class="wall-lede">Every card is a real voice on the public record. The fight moved to appeal — and the movement is answering.</p>
+      </div>
+      <div class="wall-nav">
+        <button type="button" id="wall-prev" aria-label="Previous quotes">←</button>
+        <button type="button" id="wall-next" aria-label="Next quotes">→</button>
+      </div>
+    </div>
+    <div class="trk wall-track" id="wall-track" data-fk-block="wall" tabindex="0" role="region" aria-label="Support wall"></div>
+    <div class="wall-tags">#BELIEVEKARMELO · #FREEKARMELO · #FREETHEMALL</div>
+  </div>
+</section>
+
+</main>
+
+<section class="partners" id="partners" aria-label="Partners">
+  <div class="wrap">
+    <div class="lbl">IN PARTNERSHIP WITH</div>
+    <img src="assets/partner-community-movement-builders.jpeg" alt="Community Movement Builders" width="176" height="44" loading="lazy">
+    <img src="assets/partner-blm-grassroots.jpeg" alt="Black Lives Matter Grassroots" width="176" height="44" loading="lazy">
+    <div class="by">CONVENED BY E5 ENCLAVE INCORPORATED · BDI</div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-mark">FREE KARMELO.<br>FREE THEM ALL.</div>
+        <p>Aug 29–30, 2026 · 23 cities · 3 countries. 1 LOVE</p>
+        <div class="foot-stamp">LAST UPDATED <span data-stamp></span></div>
+      </div>
+      <div class="foot-col">
+        <div class="lbl">THIS WEEKEND</div>
+        <a href="#cities">All 23 cities</a>
+        <a href="#posters">Posters &amp; share kit</a>
+        <a href="#commit">Add your name</a>
+        <a href="#wall">The Wall of Support</a>
+      </div>
+      <div class="foot-col">
+        <div class="lbl">THE NETWORK</div>
+        <a href="https://freekarmelo.net/">freekarmelo.net — the record</a>
+        <a href="https://freekarmelo.today/">freekarmelo.today — live updates</a>
+        <a href="https://freekarmelo.net/events">/events — campaign hub</a>
+        <a href="https://e5enclave.com/justice/karmelo-anthony/">Stand with his appeal</a>
+      </div>
+      <div class="foot-col">
+        <div class="lbl">POSTURE</div>
+        <p>All actions are lawful, nonviolent, accessible, and locally compliant. Never contact judges, jurors, witnesses, or court staff. Do not publish material that could interfere with the appeal.</p>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 · A PROJECT OF E5 ENCLAVE INCORPORATED · 501(C)(3) · EIN 99-3822441</span>
+      <span>PEACEFUL · LAWFUL · NON-PARTISAN</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     THE ONE EDITABLE BLOCK.
+     Anything in here is merged over the defaults in the script below,
+     so the Solidarity Admin dashboard can publish by rewriting only this
+     element. Same contract as the design file. Shape:
+       { stamp, rallyISO, signupCount, posters[], cities[], timeline[],
+         preserved[], promises[], wall[] }
+     ═══════════════════════════════════════════════════════════════════ -->
+<script type="application/json" id="fk-content">{}</script>
+
+<!-- The globe's two runtime dependencies, served from this origin. They were on
+     unpkg in the prototype; a CDN blip there would have degraded the hero on the
+     one weekend this page exists for. solidarity-globe.js still falls back to
+     unpkg if these are absent, so deleting them degrades gracefully. -->
+<script src="./vendor/three-0.160.0.min.js" defer></script>
+<script>
+  /* Started at parse time, before the deferred scripts run, and handed to the
+     component as a promise — so the globe neither waits on a round trip it
+     could have begun earlier nor races it. Resolving to null falls through to
+     the CDN; a failure there still leaves the lattice globe. */
+  window.__FK_LAND_110M_PROMISE = fetch('./vendor/land-110m.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .catch(function () { return null; });
+</script>
+<script src="./solidarity-globe.js?v=10" defer></script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ═══ CONFIG ══════════════════════════════════════════════════════
+     INTAKE  — e5-fk-events worker. Origin must be in its ALLOWED_ORIGINS
+               (freekarmelo.net, freekarmelo.today, e5enclave.com).
+     TURNSTILE_SITE_KEY — REQUIRED. /submit rejects with `turnstile_required`
+               when the token is absent. Paste the sitekey whose widget is
+               registered for freekarmelo.net, then the form goes live.
+     WALL_LIVE — append moderator-approved supporter messages from
+               GET /wall?mode=feed after the sourced, on-the-record cards.
+     ═══════════════════════════════════════════════════════════════════ */
+  var FK = window.FK = {
+    intake: 'https://e5-fk-events.yisraelleemccartney.workers.dev',
+    turnstileSiteKey: '0x4AAAAAAEAo1uozlYeV9QpL', // freekarmelo.net widget — same key as /events; secret lives in the worker
+    wallLive: true,
+    source: 'solidarity-weekend-2026',
+    commitmentType: 'appeal_advocacy'
+  };
+
+  /* ═══ CONTENT ═════════════════════════════════════════════════════
+     Add a poster: one line in `posters`. Add a city: one line in
+     `cities` — it inherits the master broadside, "AUG 29–30 · TIME TBA"
+     and status COMMITTED. Add a wall quote: one entry in `wall`.
+     To put a new city's pin on the globe, add the same slug + lat/lng to
+     DEFAULT_CITIES in solidarity-globe.js — matched by slug.
+     ═══════════════════════════════════════════════════════════════════ */
+  var MASTER = 'flyers-master-23-cities/3c-the-broadside-1080x1350.png';
+
+  var content = {
+    stamp: 'AUG 27, 2026 · 03:40 CT',
+    rallyISO: '2026-08-29T19:00:00Z',
+    signupCount: '1,480',
+
+    posters: [
+      { src: 'flyers-master-23-cities/3c-the-broadside-1080x1350.png', title: 'THE BROADSIDE', tag: 'PRINT THIS ONE', alt: 'Letterpress-style broadside listing all 23 solidarity cities' },
+      { src: 'flyers-master-23-cities/3a-the-wall-1080x1350.png', title: 'THE WALL', tag: 'MASTER', alt: 'Dark master flyer with Karmelo Anthony name set as a monument' },
+      { src: 'flyers-master-23-cities/3b-the-cut-1080x1350.png', title: 'THE CUT', tag: 'MASTER', alt: 'Duotone photo poster for the solidarity weekend' },
+      { src: 'flyers-houston/houston-8-29-2pm-broadside-1080x1350.png', title: 'HOUSTON 8/29', tag: 'CITY', alt: 'Houston solidarity flyer, August 29 at 2 PM CT' },
+      { src: 'flyers-final/solidarity-vertical-1080x1350.png', title: 'SOLIDARITY', tag: 'FEED', alt: 'Vertical solidarity flyer' },
+      { src: 'flyers-final/solidarity-square-1080x1080.png', title: 'SQUARE', tag: 'FEED', alt: 'Square solidarity graphic' },
+      { src: 'flyers-final/solidarity-story-1080x1920.png', title: 'STORY', tag: 'STORY', alt: 'Story-format solidarity graphic' },
+      { src: 'flyers-final/black-august-vertical-1080x1350.png', title: 'BLACK AUGUST', tag: 'CAMPAIGN', alt: 'Black August campaign flyer' },
+      { src: 'flyers-final/victory-01-vertical-1080x1350.png', title: 'RECUSAL WON', tag: 'AUG 19', alt: 'Graphic announcing the trial judge was recused from the case' },
+      { src: 'flyers-final/hearing-watch-vertical-1080x1350.png', title: 'HEARING WATCH', tag: 'ARCHIVE', alt: 'Hearing watch flyer' }
+    ],
+
+    /* status: 'locked' | undefined · flyer falls back to the master broadside */
+    cities: [
+      { name: 'HOUSTON', region: 'TX', slug: 'houston', status: 'locked', when: 'SAT AUG 29 · 2:00 PM CT', where: 'Meet point sent to registrants', flyer: 'flyers-houston/houston-8-29-2pm-broadside-1080x1350.png' },
+      { name: 'ATLANTA', region: 'GA', slug: 'atlanta' },
+      { name: 'DEKALB', region: 'GA', slug: 'dekalb' },
+      { name: 'DALLAS', region: 'TX', slug: 'dallas' },
+      { name: 'CHICAGO', region: 'IL', slug: 'chicago', flyer: 'flyers-cities/chicago.png', art: 'flyers-cities/web/chicago.webp' },
+      { name: 'EVANSTON', region: 'IL', slug: 'evanston' },
+      { name: 'GARY', region: 'IN', slug: 'gary', flyer: 'flyers-cities/gary.png', art: 'flyers-cities/web/gary.webp' },
+      { name: 'KENOSHA', region: 'WI', slug: 'kenosha', flyer: 'flyers-cities/kenosha.png', art: 'flyers-cities/web/kenosha.webp' },
+      { name: 'NEW ORLEANS', region: 'LA', slug: 'new-orleans', flyer: 'flyers-cities/new-orleans.png', art: 'flyers-cities/web/new-orleans.webp' },
+      { name: 'BATON ROUGE', region: 'LA', slug: 'baton-rouge', flyer: 'flyers-cities/baton-rouge.png', art: 'flyers-cities/web/baton-rouge.webp' },
+      { name: 'MIAMI', region: 'FL', slug: 'miami', flyer: 'flyers-cities/miami.png', art: 'flyers-cities/web/miami.webp' },
+      { name: 'TAMPA', region: 'FL', slug: 'tampa', flyer: 'flyers-cities/tampa.png', art: 'flyers-cities/web/tampa.webp' },
+      { name: 'BRADENTON', region: 'FL', slug: 'bradenton', flyer: 'flyers-cities/bradenton.png', art: 'flyers-cities/web/bradenton.webp' },
+      { name: 'NEW YORK CITY', region: 'NY', slug: 'nyc', flyer: 'flyers-cities/nyc.png', art: 'flyers-cities/web/nyc.webp' },
+      { name: 'BUFFALO', region: 'NY', slug: 'buffalo', flyer: 'flyers-cities/buffalo.png', art: 'flyers-cities/web/buffalo.webp' },
+      { name: 'BOSTON', region: 'MA', slug: 'boston' },
+      { name: 'TWIN CITIES', region: 'MN', slug: 'twin-cities', flyer: 'flyers-cities/twin-cities.png', art: 'flyers-cities/web/twin-cities.webp' },
+      { name: 'OAKLAND', region: 'CA', slug: 'oakland', flyer: 'flyers-cities/oakland.png', art: 'flyers-cities/web/oakland.webp' },
+      { name: 'LOS ANGELES', region: 'CA', slug: 'los-angeles', flyer: 'flyers-cities/los-angeles.png', art: 'flyers-cities/web/los-angeles.webp' },
+      { name: 'SANTA CLARITA', region: 'CA', slug: 'santa-clarita' },
+      { name: 'BOISE', region: 'ID', slug: 'boise', flyer: 'flyers-cities/boise.png', art: 'flyers-cities/web/boise.webp' },
+      { name: 'ACCRA', region: 'GHANA', slug: 'accra', intl: true, flyer: 'flyers-cities/accra.png', art: 'flyers-cities/web/accra.webp' },
+      { name: 'STOCKHOLM', region: 'SWEDEN', slug: 'stockholm', intl: true, flyer: 'flyers-master-23-cities/3a-the-wall-1080x1350.png' }
+    ],
+
+    timeline: [
+      { date: 'AUG 19', chip: 'MOTION GRANTED', tone: 'win', title: 'Judge John Roach recused from the case.', body: 'The trial judge was recused from deciding the motion for a new trial. Retired Kaufman County Judge Michael Chitty was assigned to hear the challenge instead.', source: 'WFAA · CBS TEXAS · COLLIN COUNTY RECORD' },
+      { date: 'AUG 20–21', chip: 'TWO-DAY HEARING', tone: 'neutral', title: 'Two days of argument on grounds the jury never heard.', body: 'Appellate counsel argued Karmelo was denied his right to an open trial by restrictions on public access, and that the breakdown of an evidentiary agreement between the parties coerced him into waiving his right to testify. Attorneys unveiled evidence about both teenagers that jurors never heard.', source: 'COURTHOUSE NEWS · DALLAS MORNING NEWS' },
+      { date: 'AUG 22', chip: 'MOTION DENIED', tone: 'loss', title: 'The new trial was denied in a half-page order.', body: 'Judge Chitty denied the motion, writing only that upon reviewing the motion, the record, the evidence and argument, and the relevant case law, the Court had determined the motion should be denied. He did not elaborate. The 35-year sentence stands.', source: 'WFAA · CNN · CBS TEXAS · NBC 5 DFW' },
+      { date: 'NEXT', chip: 'APPEAL LIVE', tone: 'live', title: 'The fight to overturn the conviction moves up.', body: 'The defense has said it will appeal. The case goes to the Fifth District Court of Appeals in Dallas — out of the county that produced the jury. No argument date has been set; this page updates when one is.', source: 'DEFENSE STATEMENT · AUG 22, 2026' }
+    ],
+
+    preserved: [
+      'Batson — three Black prospective jurors struck, none seated, in a county roughly 10–12% Black. Raised and overruled at trial, so preserved for review.',
+      'Jury charge — the defense objected to the instructions and was overruled; the court refused criminally negligent homicide as a lesser included offense.',
+      'Public access — the April 18 order restricting press, recording, and attendance is now argued as a Sixth Amendment question.',
+      'Sudden passion — rejected at punishment, where a finding would have capped the sentence at 2–20 years.'
+    ],
+
+    promises: [
+      { n: '01', t: 'Your city lead gets a headcount.', d: 'Nothing else works without it — signs, water, permits, and legal observers all scale to the number.' },
+      { n: '02', t: 'You get the meet point before Saturday.', d: 'Locations go to registrants first, not to the open internet.' },
+      { n: '03', t: 'Your message reaches him.', d: 'Opt in and your words post to the Support Wall, which is printed and delivered.' },
+      { n: '04', t: 'Your data stays yours.', d: 'Name and city post publicly if you choose. Email and phone never do, and are never sold.' }
+    ],
+
+    /* Seeded with sourced, on-the-record voices so the section is honest on
+       day one. Moderated supporter messages append after these when
+       FK.wallLive is true. */
+    wall: [
+      { kind: 'APPELLATE COUNSEL', quote: 'We continue to maintain that serious constitutional and legal errors denied Karmelo Anthony the fair trial to which he was entitled.', who: 'RUSSELL WILSON', meta: 'LEAD APPELLATE COUNSEL · AUG 22, 2026' },
+      { kind: 'FAMILY', quote: 'He was not the aggressor. He was not the one who started it.', who: 'ANDREW ANTHONY', meta: 'KARMELO’S FATHER · ON THE RECORD' },
+      { kind: 'IN OPEN COURT', quote: 'How do you know in a split second of chaos when it is too late? If you wait too long to defend yourself, self-defense is meaningless.', who: 'MIKE HOWARD', meta: 'DEFENSE COUNSEL · CLOSING ARGUMENT' },
+      { kind: 'IN OPEN COURT', quote: 'Karmelo is in a public place. He had no legal right to use force to eject Karmelo from the tent.', who: 'MIKE HOWARD', meta: 'DEFENSE COUNSEL · CLOSING ARGUMENT' },
+      { kind: 'ON THE RECORD', quote: 'The restrictions placed on public access to his trial raised fundamental Sixth Amendment concerns.', who: 'DEFENSE STATEMENT', meta: 'AUG 22, 2026' },
+      { kind: 'THE JURY QUESTION', quote: 'The all-white jury was a choice, not inevitable.', who: 'SMU LAW PROFESSOR', meta: 'AS REPORTED · KERA · KWTX' },
+      { kind: 'CAMPAIGN', quote: 'We were coming anyway. A ruling on a Saturday does not cancel twenty-three cities.', who: 'FREE KARMELO CAMPAIGN', meta: 'AUG 22, 2026' }
+    ]
+  };
+
+  /* merge the published override block over the defaults */
+  var inlineOverride = null;
+  try {
+    var blk = document.getElementById('fk-content');
+    if (blk && blk.textContent.trim()) {
+      var over = JSON.parse(blk.textContent);
+      if (over && typeof over === 'object' && Object.keys(over).length) {
+        inlineOverride = over;
+        Object.assign(content, over);
+      }
+    }
+  } catch (e) { console.warn('fk-content override ignored', e); }
+
+  /* ═══ helpers ═════════════════════════════════════════════════════ */
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  var pad = function (n) { return String(n).padStart(2, '0'); };
+  var TONES = { win: 'win', loss: 'loss', live: 'live', neutral: '' };
+  var ADD_CARD =
+    '<a class="wall-add" href="#commit">' +
+      '<b>ADD YOUR<br>VOICE.</b>' +
+      '<p>He reads the wall. Write him a word and it posts here after a safety check.</p>' +
+      '<i>WRITE TO KARMELO →</i></a>';
+
+  var track = $('#wall-track');
+  var sel = $('#city-select');
+  var liveWall = [];          // moderator-approved supporter cards, once fetched
+
+  /* ═══ paint ═══════════════════════════════════════════════════════
+     Everything the page publishes comes from `content`. Calling
+     paintAll() again after `content` changes re-renders in place — that
+     is what makes solidarity.json / #fk-content live without a refactor.
+     ═══════════════════════════════════════════════════════════════════ */
+  function paintAll() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-stamp]'), function (el) {
+      el.textContent = content.stamp;
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-signups]'), function (el) {
+      el.textContent = content.signupCount;
+    });
+
+    /* §01 posters */
+    $('#poster-grid').innerHTML = content.posters.map(function (p) {
+      return '<a class="poster" href="' + esc(p.src) + '" download>' +
+        '<img src="' + esc(p.src) + '" alt="' + esc(p.alt) + '" loading="lazy" decoding="async">' +
+        '<span class="poster-tag">' + esc(p.tag) + '</span>' +
+        '<span class="poster-foot"><span>' + esc(p.title) + '</span><i aria-hidden="true">↓</i></span></a>';
+    }).join('');
+    $('#poster-count').textContent = content.posters.length;
+
+    /* §02 cities */
+    $('#city-grid').innerHTML = content.cities.map(cityCard).join('') +
+      '<a class="city-claim" href="#commit">' +
+        '<b>YOUR CITY<br>ISN’T HERE?</b>' +
+        '<p>Twenty-three started with one person deciding to stand on a corner. Claim yours.</p>' +
+        '<i>START A CITY →</i></a>';
+
+    /* §03 record */
+    $('#timeline').innerHTML = content.timeline.map(function (t) {
+      return '<li><div>' +
+        '<div class="tl-date">' + esc(t.date) + '</div>' +
+        '<div class="chip ' + (TONES[t.tone] || '') + '">' + esc(t.chip) + '</div>' +
+      '</div><div>' +
+        '<h3>' + esc(t.title) + '</h3>' +
+        '<p>' + esc(t.body) + '</p>' +
+        '<div class="tl-src">' + esc(t.source) + '</div>' +
+      '</div></li>';
+    }).join('');
+
+    $('#preserved').innerHTML = content.preserved.map(function (g) {
+      return '<div><span aria-hidden="true">§</span><span>' + esc(g) + '</span></div>';
+    }).join('');
+
+    /* §04 commit */
+    $('#promises').innerHTML = content.promises.map(function (p) {
+      return '<div class="promise"><span class="n">' + esc(p.n) + '</span><div>' +
+        '<div class="t">' + esc(p.t) + '</div><div class="d">' + esc(p.d) + '</div></div></div>';
+    }).join('');
+
+    var keep = sel.value;
+    sel.innerHTML = '<option value="">Select…</option>' +
+      content.cities.map(function (c) {
+        return '<option value="' + esc(c.slug) + '" data-name="' + esc(c.name) + '" data-region="' +
+          esc(c.region) + '">' + esc(c.name) + ' · ' + esc(c.region) + '</option>';
+      }).join('') +
+      '<option value="other" data-name="" data-region="">MY CITY ISN’T LISTED — I WANT TO START ONE</option>';
+    if (keep) sel.value = keep;
+
+    /* §05 wall — sourced cards first, moderated supporter voices after */
+    track.innerHTML = content.wall.concat(liveWall).map(quoteCard).join('') + ADD_CARD;
+  }
+
+  function cityCard(c) {
+    var locked = c.status === 'locked';
+    var flyer = c.flyer || MASTER;           /* what a supporter downloads: the print PNG */
+    var art = c.art || flyer;                /* what the card renders: the 640w webp */
+    var badge = c.flyer ? 'CITY SHEET' : 'MASTER SHEET';
+    var cls = 'city' + (locked ? ' locked' : '') + (c.intl ? ' intl' : '');
+    return '<article class="' + cls + '" id="' + esc(c.slug) + '" data-slug="' + esc(c.slug) + '">' +
+      '<div class="city-top"><div>' +
+        '<h3>' + esc(c.name) + '</h3>' +
+        '<div class="city-region">' + esc(c.region) + '</div>' +
+      '</div><span class="city-badge">' + badge + '</span></div>' +
+      (locked ? '<div class="city-det"><div class="when">' + esc(c.when || '') + '</div>' +
+                '<div class="where">' + esc(c.where || '') + '</div></div>' : '') +
+      '<div class="city-foot">' +
+        '<span class="city-status"><i aria-hidden="true"></i>' + (locked ? 'CONFIRMED' : 'COMMITTED') + '</span>' +
+        '<a class="city-dl" href="' + esc(flyer) + '" download>FLYER ↓</a>' +
+      '</div>' +
+      '<a class="city-pop" href="' + esc(flyer) + '" download aria-label="Open the solidarity sheet for ' + esc(c.name) + '">' +
+        '<img src="' + esc(art) + '" alt="" loading="lazy" decoding="async">' +
+        '<span class="scrim"></span>' +
+        '<span class="cap"><b>' + esc(c.name) + '</b>' +
+          '<span><i>' + badge + '</i><em>OPEN THE SHEET ↓</em></span></span>' +
+      '</a></article>';
+  }
+
+  function quoteCard(w) {
+    return '<figure class="quote">' +
+      '<div class="kind">' + esc(w.kind) + '</div>' +
+      '<blockquote>' + esc(w.quote) + '</blockquote>' +
+      '<figcaption><span class="who">' + esc(w.who) + '</span>' +
+      '<span class="meta">' + esc(w.meta) + '</span></figcaption></figure>';
+  }
+
+  paintAll();
+
+  /* ═══ countdown ═══════════════════════════════════════════════════ */
+  var cdEl = $('#countdown');
+  function tickCountdown() {
+    var ms = Math.max(0, new Date(content.rallyISO).getTime() - Date.now());
+    var u = [
+      { k: 'DAYS', v: pad(Math.floor(ms / 86400000)) },
+      { k: 'HRS', v: pad(Math.floor(ms / 3600000) % 24) },
+      { k: 'MIN', v: pad(Math.floor(ms / 60000) % 60) },
+      { k: 'SEC', v: pad(Math.floor(ms / 1000) % 60) }
+    ];
+    cdEl.innerHTML = u.map(function (x) {
+      return '<div class="cu"><span class="cu-v">' + x.v + '</span><span class="cu-k">' + x.k + '</span></div>';
+    }).join('');
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
+
+  /* ═══ globe ⇄ roster ══════════════════════════════════════════════ */
+  function spinTo(slug) {
+    var g = document.querySelector('solidarity-globe');
+    if (g && typeof g.focusCity === 'function') g.focusCity(slug);
+  }
+  /* delegated, so it survives a re-render */
+  var grid = $('#city-grid');
+  ['mouseover', 'focusin'].forEach(function (evt) {
+    grid.addEventListener(evt, function (e) {
+      var card = e.target.closest ? e.target.closest('.city[data-slug]') : null;
+      if (card && card !== grid._last) { grid._last = card; spinTo(card.getAttribute('data-slug')); }
+    });
+  });
+  grid.addEventListener('mouseleave', function () { grid._last = null; });
+
+  document.addEventListener('city-select', function (e) {
+    var slug = e.detail && e.detail.slug;
+    if (!slug) return;
+    Array.prototype.forEach.call(document.querySelectorAll('.city.hot'), function (n) {
+      n.classList.remove('hot');
+    });
+    var card = document.getElementById(slug);
+    if (!card) return;
+    card.classList.add('hot');
+    window.scrollTo({
+      top: card.getBoundingClientRect().top + window.pageYOffset - 130,
+      behavior: 'smooth'
+    });
+  });
+
+  /* ═══ wall controls ═══════════════════════════════════════════════ */
+  function scrollWall(dir) {
+    track.scrollBy({ left: dir * Math.max(300, track.clientWidth * 0.7), behavior: 'smooth' });
+  }
+  $('#wall-prev').addEventListener('click', function () { scrollWall(-1); });
+  $('#wall-next').addEventListener('click', function () { scrollWall(1); });
+
+  /* ═══ published content, no rebuild ═══════════════════════════════
+     solidarity.json is the machine-readable twin of the block above and
+     the file the admin dashboard writes. Fetched after first paint so
+     the page never waits on it; #fk-content still wins if both are set.
+     ═══════════════════════════════════════════════════════════════════ */
+  fetch('solidarity.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d || typeof d !== 'object') return;
+      var before = JSON.stringify(content);
+      Object.assign(content, d);
+      if (inlineOverride) Object.assign(content, inlineOverride);   // inline block wins
+      if (JSON.stringify(content) !== before) paintAll();
+    })
+    .catch(function () { /* the inline defaults are the fallback */ });
+
+  /* moderator-approved supporter messages */
+  if (FK.wallLive) {
+    fetch(FK.intake + '/wall?mode=feed', { credentials: 'omit' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || !Array.isArray(d.letters) || !d.letters.length) return;
+        liveWall = d.letters.slice(0, 24).map(function (l) {
+          var where = [l.city, l.state].filter(Boolean).join(', ');
+          var when = '';
+          try {
+            when = new Date(l.at).toLocaleDateString('en-US',
+              { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+          } catch (e) {}
+          return {
+            kind: 'SUPPORTER',
+            quote: l.text,
+            who: (l.name || 'A SUPPORTER').toUpperCase(),
+            meta: [where.toUpperCase(), when].filter(Boolean).join(' · ')
+          };
+        });
+        track.innerHTML = content.wall.concat(liveWall).map(quoteCard).join('') + ADD_CARD;
+      })
+      .catch(function () { /* the seeded wall stands on its own */ });
+  }
+
+  /* ═══ the form ════════════════════════════════════════════════════ */
+  var form = $('#commit-form');
+  var sentPanel = $('#sent-panel');
+  var errEl = $('#form-err');
+  var submitBtn = $('#submit-btn');
+
+  function showErr(msg) {
+    errEl.textContent = msg;
+    errEl.hidden = false;
+    errEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  function clearErr() { errEl.hidden = true; errEl.textContent = ''; }
+
+  /* Turnstile — the worker rejects any submission without a token. */
+  if (FK.turnstileSiteKey) {
+    var slot = $('#turnstile-slot');
+    slot.setAttribute('data-sitekey', FK.turnstileSiteKey);
+    slot.setAttribute('data-theme', 'dark');
+    var ts = document.createElement('script');
+    ts.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    ts.async = true; ts.defer = true;
+    document.head.appendChild(ts);
+  }
+
+  var FIELD_MSG = {
+    invalid_email: 'That email address does not look right.',
+    turnstile_required: 'The human check did not complete. Reload the page and try again.',
+    turnstile_failed: 'The human check did not pass. Reload the page and try again.',
+    html_not_allowed: 'Please remove any HTML tags from your message.',
+    too_long: 'One of the fields is too long.',
+    consent_required: 'Please confirm the peaceful, lawful commitment.'
+  };
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearErr();
+
+    var fd = new FormData(form);
+    var fullName = String(fd.get('name') || '').trim();
+    var email = String(fd.get('email') || '').trim();
+    var slug = String(fd.get('city') || '');
+    var org = String(fd.get('organization') || '').trim();
+    var message = String(fd.get('message') || '').trim();
+    var wallOptIn = fd.get('wall_optin') != null;
+    var affirm = fd.get('affirm') != null;
+
+    if (!fullName || !email || !slug) { showErr('Name, email and city are required.'); return; }
+    if (!affirm) { showErr(FIELD_MSG.consent_required); return; }
+
+    var token = '';
+    var tokenEl = form.querySelector('[name="cf-turnstile-response"]');
+    if (tokenEl) token = tokenEl.value || '';
+    if (!token) {
+      showErr(FK.turnstileSiteKey
+        ? 'The human check is still loading. Give it a second and try again.'
+        : 'This form is not live yet — the Turnstile sitekey has not been set. Reach the campaign at freekarmelo.net/events.');
+      return;
+    }
+
+    /* split "First Last" the way the intake schema expects */
+    var parts = fullName.split(/\s+/);
+    var first = parts.shift() || fullName;
+    var last = parts.join(' ') || '—';
+
+    var opt = sel.options[sel.selectedIndex];
+    var cityName = (opt && opt.getAttribute('data-name')) || '';
+    var region = (opt && opt.getAttribute('data-region')) || '';
+
+    var payload = {
+      form_type: 'signup',
+      turnstile_token: token,
+      first_name: first,
+      last_name: last,
+      email: email,
+      city: cityName || (slug === 'other' ? 'NOT LISTED — STARTING ONE' : slug),
+      state: region,
+      /* consent gate: the worker auto-queues any message ≥3 chars for the
+         wall, so an un-ticked box means the message is never sent at all. */
+      message: wallOptIn ? message : '',
+      commitment_type: FK.commitmentType,
+      /* the signup schema has no `organization` key and rejects unknown
+         fields — carried in `roles` until the worker gains a real one. */
+      roles: org ? ('org: ' + org) : '',
+      sign_manifesto: true,
+      opt_in_newsletter: affirm ? 'yes' : '',
+      want_address: '',
+      source: FK.source + (slug ? '/' + slug : '')
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '.6';
+
+    fetch(FK.intake + '/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (!res.ok || res.d.ok === false) {
+          var code = (res.d && res.d.error) || 'unknown';
+          throw new Error(FIELD_MSG[code] || ('Something went wrong (' + code + '). Please try again.'));
+        }
+        form.hidden = true;
+        sentPanel.hidden = false;
+        sentPanel.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      })
+      .catch(function (err) {
+        showErr(err.message || 'Could not reach the campaign server. Please try again.');
+        if (window.turnstile && window.turnstile.reset) window.turnstile.reset();
+      })
+      .then(function () {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '';
+      });
+  });
+
+  $('#reset-btn').addEventListener('click', function () {
+    form.reset();
+    form.hidden = false;
+    sentPanel.hidden = true;
+    clearErr();
+    if (window.turnstile && window.turnstile.reset) window.turnstile.reset();
+    form.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  });
+
+  /* ═══ nav scrollspy ═══════════════════════════════════════════════ */
+  if ('IntersectionObserver' in window) {
+    var links = {};
+    Array.prototype.forEach.call(document.querySelectorAll('.nav a.navlink'), function (a) {
+      links[a.getAttribute('href').slice(1)] = a;
+    });
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var a = links[en.target.id];
+        if (a) a.setAttribute('aria-current', en.isIntersecting ? 'true' : 'false');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['posters', 'cities', 'record', 'wall'].forEach(function (id) {
+      var s = document.getElementById(id);
+      if (s) spy.observe(s);
+    });
+  }
+})();
+</script>
+</body>
+</html>

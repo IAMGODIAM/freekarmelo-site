@@ -1,0 +1,327 @@
+{
+  "stamp": "AUG 27, 2026 · 03:40 CT",
+  "rallyISO": "2026-08-29T19:00:00Z",
+  "signupCount": "1,480",
+  "posters": [
+    {
+      "src": "flyers-master-23-cities/3c-the-broadside-1080x1350.png",
+      "title": "THE BROADSIDE",
+      "tag": "PRINT THIS ONE",
+      "alt": "Letterpress-style broadside listing all 23 solidarity cities"
+    },
+    {
+      "src": "flyers-master-23-cities/3a-the-wall-1080x1350.png",
+      "title": "THE WALL",
+      "tag": "MASTER",
+      "alt": "Dark master flyer with Karmelo Anthony name set as a monument"
+    },
+    {
+      "src": "flyers-master-23-cities/3b-the-cut-1080x1350.png",
+      "title": "THE CUT",
+      "tag": "MASTER",
+      "alt": "Duotone photo poster for the solidarity weekend"
+    },
+    {
+      "src": "flyers-houston/houston-8-29-2pm-broadside-1080x1350.png",
+      "title": "HOUSTON 8/29",
+      "tag": "CITY",
+      "alt": "Houston solidarity flyer, August 29 at 2 PM CT"
+    },
+    {
+      "src": "flyers-final/solidarity-vertical-1080x1350.png",
+      "title": "SOLIDARITY",
+      "tag": "FEED",
+      "alt": "Vertical solidarity flyer"
+    },
+    {
+      "src": "flyers-final/solidarity-square-1080x1080.png",
+      "title": "SQUARE",
+      "tag": "FEED",
+      "alt": "Square solidarity graphic"
+    },
+    {
+      "src": "flyers-final/solidarity-story-1080x1920.png",
+      "title": "STORY",
+      "tag": "STORY",
+      "alt": "Story-format solidarity graphic"
+    },
+    {
+      "src": "flyers-final/black-august-vertical-1080x1350.png",
+      "title": "BLACK AUGUST",
+      "tag": "CAMPAIGN",
+      "alt": "Black August campaign flyer"
+    },
+    {
+      "src": "flyers-final/victory-01-vertical-1080x1350.png",
+      "title": "RECUSAL WON",
+      "tag": "AUG 19",
+      "alt": "Graphic announcing the trial judge was recused from the case"
+    },
+    {
+      "src": "flyers-final/hearing-watch-vertical-1080x1350.png",
+      "title": "HEARING WATCH",
+      "tag": "ARCHIVE",
+      "alt": "Hearing watch flyer"
+    }
+  ],
+  "cities": [
+    {
+      "name": "HOUSTON",
+      "region": "TX",
+      "slug": "houston",
+      "status": "locked",
+      "when": "SAT AUG 29 · 2:00 PM CT",
+      "where": "Meet point sent to registrants",
+      "flyer": "flyers-houston/houston-8-29-2pm-broadside-1080x1350.png"
+    },
+    {
+      "name": "ATLANTA",
+      "region": "GA",
+      "slug": "atlanta"
+    },
+    {
+      "name": "DEKALB",
+      "region": "GA",
+      "slug": "dekalb"
+    },
+    {
+      "name": "DALLAS",
+      "region": "TX",
+      "slug": "dallas"
+    },
+    {
+      "name": "CHICAGO",
+      "region": "IL",
+      "slug": "chicago",
+      "flyer": "flyers-cities/chicago.png",
+      "art": "flyers-cities/web/chicago.webp"
+    },
+    {
+      "name": "EVANSTON",
+      "region": "IL",
+      "slug": "evanston"
+    },
+    {
+      "name": "GARY",
+      "region": "IN",
+      "slug": "gary",
+      "flyer": "flyers-cities/gary.png",
+      "art": "flyers-cities/web/gary.webp"
+    },
+    {
+      "name": "KENOSHA",
+      "region": "WI",
+      "slug": "kenosha",
+      "flyer": "flyers-cities/kenosha.png",
+      "art": "flyers-cities/web/kenosha.webp"
+    },
+    {
+      "name": "NEW ORLEANS",
+      "region": "LA",
+      "slug": "new-orleans",
+      "flyer": "flyers-cities/new-orleans.png",
+      "art": "flyers-cities/web/new-orleans.webp"
+    },
+    {
+      "name": "BATON ROUGE",
+      "region": "LA",
+      "slug": "baton-rouge",
+      "flyer": "flyers-cities/baton-rouge.png",
+      "art": "flyers-cities/web/baton-rouge.webp"
+    },
+    {
+      "name": "MIAMI",
+      "region": "FL",
+      "slug": "miami",
+      "flyer": "flyers-cities/miami.png",
+      "art": "flyers-cities/web/miami.webp"
+    },
+    {
+      "name": "TAMPA",
+      "region": "FL",
+      "slug": "tampa",
+      "flyer": "flyers-cities/tampa.png",
+      "art": "flyers-cities/web/tampa.webp"
+    },
+    {
+      "name": "BRADENTON",
+      "region": "FL",
+      "slug": "bradenton",
+      "flyer": "flyers-cities/bradenton.png",
+      "art": "flyers-cities/web/bradenton.webp"
+    },
+    {
+      "name": "NEW YORK CITY",
+      "region": "NY",
+      "slug": "nyc",
+      "flyer": "flyers-cities/nyc.png",
+      "art": "flyers-cities/web/nyc.webp"
+    },
+    {
+      "name": "BUFFALO",
+      "region": "NY",
+      "slug": "buffalo",
+      "flyer": "flyers-cities/buffalo.png",
+      "art": "flyers-cities/web/buffalo.webp"
+    },
+    {
+      "name": "BOSTON",
+      "region": "MA",
+      "slug": "boston"
+    },
+    {
+      "name": "TWIN CITIES",
+      "region": "MN",
+      "slug": "twin-cities",
+      "flyer": "flyers-cities/twin-cities.png",
+      "art": "flyers-cities/web/twin-cities.webp"
+    },
+    {
+      "name": "OAKLAND",
+      "region": "CA",
+      "slug": "oakland",
+      "flyer": "flyers-cities/oakland.png",
+      "art": "flyers-cities/web/oakland.webp"
+    },
+    {
+      "name": "LOS ANGELES",
+      "region": "CA",
+      "slug": "los-angeles",
+      "flyer": "flyers-cities/los-angeles.png",
+      "art": "flyers-cities/web/los-angeles.webp"
+    },
+    {
+      "name": "SANTA CLARITA",
+      "region": "CA",
+      "slug": "santa-clarita"
+    },
+    {
+      "name": "BOISE",
+      "region": "ID",
+      "slug": "boise",
+      "flyer": "flyers-cities/boise.png",
+      "art": "flyers-cities/web/boise.webp"
+    },
+    {
+      "name": "ACCRA",
+      "region": "GHANA",
+      "slug": "accra",
+      "intl": true,
+      "flyer": "flyers-cities/accra.png",
+      "art": "flyers-cities/web/accra.webp"
+    },
+    {
+      "name": "STOCKHOLM",
+      "region": "SWEDEN",
+      "slug": "stockholm",
+      "intl": true,
+      "flyer": "flyers-master-23-cities/3a-the-wall-1080x1350.png"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "AUG 19",
+      "chip": "MOTION GRANTED",
+      "tone": "win",
+      "title": "Judge John Roach recused from the case.",
+      "body": "The trial judge was recused from deciding the motion for a new trial. Retired Kaufman County Judge Michael Chitty was assigned to hear the challenge instead.",
+      "source": "WFAA · CBS TEXAS · COLLIN COUNTY RECORD"
+    },
+    {
+      "date": "AUG 20–21",
+      "chip": "TWO-DAY HEARING",
+      "tone": "neutral",
+      "title": "Two days of argument on grounds the jury never heard.",
+      "body": "Appellate counsel argued Karmelo was denied his right to an open trial by restrictions on public access, and that the breakdown of an evidentiary agreement between the parties coerced him into waiving his right to testify. Attorneys unveiled evidence about both teenagers that jurors never heard.",
+      "source": "COURTHOUSE NEWS · DALLAS MORNING NEWS"
+    },
+    {
+      "date": "AUG 22",
+      "chip": "MOTION DENIED",
+      "tone": "loss",
+      "title": "The new trial was denied in a half-page order.",
+      "body": "Judge Chitty denied the motion, writing only that upon reviewing the motion, the record, the evidence and argument, and the relevant case law, the Court had determined the motion should be denied. He did not elaborate. The 35-year sentence stands.",
+      "source": "WFAA · CNN · CBS TEXAS · NBC 5 DFW"
+    },
+    {
+      "date": "NEXT",
+      "chip": "APPEAL LIVE",
+      "tone": "live",
+      "title": "The fight to overturn the conviction moves up.",
+      "body": "The defense has said it will appeal. The case goes to the Fifth District Court of Appeals in Dallas — out of the county that produced the jury. No argument date has been set; this page updates when one is.",
+      "source": "DEFENSE STATEMENT · AUG 22, 2026"
+    }
+  ],
+  "preserved": [
+    "Batson — three Black prospective jurors struck, none seated, in a county roughly 10–12% Black. Raised and overruled at trial, so preserved for review.",
+    "Jury charge — the defense objected to the instructions and was overruled; the court refused criminally negligent homicide as a lesser included offense.",
+    "Public access — the April 18 order restricting press, recording, and attendance is now argued as a Sixth Amendment question.",
+    "Sudden passion — rejected at punishment, where a finding would have capped the sentence at 2–20 years."
+  ],
+  "promises": [
+    {
+      "n": "01",
+      "t": "Your city lead gets a headcount.",
+      "d": "Nothing else works without it — signs, water, permits, and legal observers all scale to the number."
+    },
+    {
+      "n": "02",
+      "t": "You get the meet point before Saturday.",
+      "d": "Locations go to registrants first, not to the open internet."
+    },
+    {
+      "n": "03",
+      "t": "Your message reaches him.",
+      "d": "Opt in and your words post to the Support Wall, which is printed and delivered."
+    },
+    {
+      "n": "04",
+      "t": "Your data stays yours.",
+      "d": "Name and city post publicly if you choose. Email and phone never do, and are never sold."
+    }
+  ],
+  "wall": [
+    {
+      "kind": "APPELLATE COUNSEL",
+      "quote": "We continue to maintain that serious constitutional and legal errors denied Karmelo Anthony the fair trial to which he was entitled.",
+      "who": "RUSSELL WILSON",
+      "meta": "LEAD APPELLATE COUNSEL · AUG 22, 2026"
+    },
+    {
+      "kind": "FAMILY",
+      "quote": "He was not the aggressor. He was not the one who started it.",
+      "who": "ANDREW ANTHONY",
+      "meta": "KARMELO’S FATHER · ON THE RECORD"
+    },
+    {
+      "kind": "IN OPEN COURT",
+      "quote": "How do you know in a split second of chaos when it is too late? If you wait too long to defend yourself, self-defense is meaningless.",
+      "who": "MIKE HOWARD",
+      "meta": "DEFENSE COUNSEL · CLOSING ARGUMENT"
+    },
+    {
+      "kind": "IN OPEN COURT",
+      "quote": "Karmelo is in a public place. He had no legal right to use force to eject Karmelo from the tent.",
+      "who": "MIKE HOWARD",
+      "meta": "DEFENSE COUNSEL · CLOSING ARGUMENT"
+    },
+    {
+      "kind": "ON THE RECORD",
+      "quote": "The restrictions placed on public access to his trial raised fundamental Sixth Amendment concerns.",
+      "who": "DEFENSE STATEMENT",
+      "meta": "AUG 22, 2026"
+    },
+    {
+      "kind": "THE JURY QUESTION",
+      "quote": "The all-white jury was a choice, not inevitable.",
+      "who": "SMU LAW PROFESSOR",
+      "meta": "AS REPORTED · KERA · KWTX"
+    },
+    {
+      "kind": "CAMPAIGN",
+      "quote": "We were coming anyway. A ruling on a Saturday does not cancel twenty-three cities.",
+      "who": "FREE KARMELO CAMPAIGN",
+      "meta": "AUG 22, 2026"
+    }
+  ]
+}
