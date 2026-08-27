@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Solidarity Moderation · Free Karmelo</title>
+<!--
+  FK54 · Moderation console — freekarmelo.net/solidarity/moderate.html
+  Static, token-gated, Base44-independent. Two credentials, both entered
+  here and kept only in this browser:
+    · CAMPAIGN ADMIN TOKEN — the e5-fk-events worker's x-fk-admin secret.
+      Reads the intake queues; approves/rejects wall messages.
+    · GITHUB TOKEN — fine-grained PAT, Contents:Read+Write on
+      IAMGODIAM/freekarmelo-site only. PUBLISH A CITY commits
+      solidarity/solidarity.json to main; GitHub Pages redeploys (~2 min)
+      and the live page paints the new roster card + globe pin itself.
+-->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 13'%3E%3Cpath fill='%23D9B36C' d='M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#080510;--ink-2:#0B0713;--paper:#F7F3FB;--body:#B7ACC9;--muted:#9C8FB5;--faint:#8478A0;
+  --gold:#D9B36C;--gold-lt:#F0DCAC;--violet:#8B5CF6;--lilac:#C9B2FF;--win:#7BE0A8;--loss:#F09090;
+  --line:rgba(139,92,246,.16);--line-2:rgba(139,92,246,.28);
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--sans:'Archivo',system-ui,sans-serif;
+  --black:'Archivo Black','Archivo',sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--lilac);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:0;z-index:9;background:rgba(8,5,16,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 22px}
+.wordmark{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.05em}
+.wordmark s{color:var(--violet);text-decoration:none}.wordmark g{color:var(--gold)}.wordmark m{color:var(--muted)}
+.h1{font-family:var(--black);font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;line-height:1;margin:38px 0 10px}
+.lede{max-width:64ch;color:var(--body);font-size:14.5px;line-height:1.6;margin:0 0 28px}
+.sec{border:1px solid var(--line-2);background:rgba(11,7,19,.7);margin:0 0 26px}
+.sec>.head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:13px 18px;border-bottom:1px solid var(--line)}
+.sec>.head h2{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--gold-lt);margin:0;font-weight:600}
+.sec>.head .n{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted)}
+.sec>.body{padding:18px}
+.f{display:flex;flex-direction:column;gap:6px;margin:0}
+.f span{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--muted)}
+.f span i{color:var(--gold);font-style:normal}
+input,select,textarea{font-family:var(--mono);font-size:13.5px;color:var(--paper);
+  background:rgba(139,92,246,.06);border:1px solid var(--line-2);padding:10px 11px;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--violet)}
+select option{background:var(--ink-2)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;padding:12px 18px}
+.btn.gold{background:var(--gold);color:#0B0713}.btn.gold:hover{background:var(--gold-lt)}
+.btn.ghost{background:none;border:1px solid rgba(199,178,255,.4);color:var(--lilac)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold-lt)}
+.btn.ok{background:none;border:1px solid rgba(123,224,168,.5);color:var(--win)}
+.btn.no{background:none;border:1px solid rgba(240,144,144,.5);color:var(--loss)}
+.btn[disabled]{opacity:.45;cursor:default}
+.msg{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.06em;line-height:1.6;padding:11px 13px;margin-top:12px}
+.msg.err{display:block;border:1px solid rgba(240,144,144,.5);background:rgba(240,144,144,.07);color:var(--loss)}
+.msg.ok{display:block;border:1px solid rgba(123,224,168,.5);background:rgba(123,224,168,.06);color:var(--win)}
+.row{border:1px solid var(--line);padding:14px 16px;margin-bottom:10px;background:rgba(8,5,16,.5)}
+.row .who{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold-lt);margin-bottom:6px}
+.row .who em{font-style:normal;color:var(--muted)}
+.row .txt{font-size:14px;line-height:1.55;color:var(--body);margin:0 0 10px;white-space:pre-wrap}
+.row .act{display:flex;gap:8px;flex-wrap:wrap}
+.chip{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.16em;
+  border:1px solid var(--line-2);color:var(--muted);padding:3px 7px;margin-left:8px}
+.empty{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--faint);padding:6px 0}
+.note{font-family:var(--mono);font-size:10px;letter-spacing:.08em;line-height:1.7;color:var(--faint);margin-top:10px}
+.preview{border:1px solid rgba(217,179,108,.4);background:rgba(217,179,108,.05);padding:16px;margin-top:14px;display:none}
+.preview h3{font-family:var(--black);font-size:22px;letter-spacing:-.02em;margin:0}
+.preview .r{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--muted);margin:5px 0 10px}
+.preview .w{font-family:var(--mono);font-size:11px;color:var(--gold-lt);line-height:1.8}
+footer{padding:30px 0 40px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--faint)}
+@media(max-width:760px){.grid2,.grid4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <span class="wordmark">FREE<s>KARMELO</s><g>.NET</g><m>/SOLIDARITY/MODERATE</m></span>
+  <a href="./" style="font-family:var(--mono);font-size:10px;letter-spacing:.16em">← THE PAGE</a>
+</div></header>
+
+<main class="wrap">
+  <h1 class="h1">MODERATION.</h1>
+  <p class="lede">Wall messages publish on approval. New cities publish straight to the live roster and globe — no laptop, no git. Both credentials stay in this browser only.</p>
+
+  <!-- ══ credentials ══ -->
+  <section class="sec" id="creds">
+    <div class="head"><h2>ACCESS</h2><span class="n" id="cred-state">LOCKED</span></div>
+    <div class="body">
+      <div class="grid2">
+        <label class="f"><span>CAMPAIGN ADMIN TOKEN <i>*</i></span>
+          <input type="password" id="tok-admin" autocomplete="off" placeholder="x-fk-admin secret — queues + approvals"></label>
+        <label class="f"><span>GITHUB TOKEN <i>(only for publishing cities)</i></span>
+          <input type="password" id="tok-gh" autocomplete="off" placeholder="fine-grained PAT · Contents RW on freekarmelo-site"></label>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:14px">
+        <button class="btn gold" id="unlock">UNLOCK →</button>
+        <label style="display:flex;gap:8px;align-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);cursor:pointer">
+          <input type="checkbox" id="remember" style="width:14px;height:14px;accent-color:#D9B36C"> REMEMBER ON THIS DEVICE
+        </label>
+        <button class="btn ghost" id="forget" style="display:none">FORGET TOKENS</button>
+      </div>
+      <div class="msg" id="cred-msg"></div>
+    </div>
+  </section>
+
+  <!-- ══ wall queue ══ -->
+  <section class="sec">
+    <div class="head"><h2>§A · WALL QUEUE — PENDING MESSAGES</h2><span class="n" id="wall-n">—</span>
+      <button class="btn ghost" id="wall-reload" style="margin-left:auto;padding:8px 13px">RELOAD</button></div>
+    <div class="body" id="wall-list"><div class="empty">Unlock to load the queue.</div></div>
+  </section>
+
+  <!-- ══ new city requests ══ -->
+  <section class="sec">
+    <div class="head"><h2>§B · NEW-CITY REQUESTS</h2><span class="n" id="req-n">—</span>
+      <label style="margin-left:auto;display:flex;gap:7px;align-items:center;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--muted);cursor:pointer">
+        <input type="checkbox" id="req-all" style="width:13px;height:13px;accent-color:#8B5CF6"> SHOW ALL SOLIDARITY SIGNUPS
+      </label>
+      <button class="btn ghost" id="req-reload" style="padding:8px 13px">RELOAD</button></div>
+    <div class="body" id="req-list"><div class="empty">Unlock to load requests.</div></div>
+  </section>
+
+  <!-- ══ publish a city ══ -->
+  <section class="sec">
+    <div class="head"><h2>§C · PUBLISH A CITY — LIVE TO THE ROSTER + GLOBE</h2>
+      <span class="n">COMMITS solidarity.json → PAGES REDEPLOYS ~2 MIN</span></div>
+    <div class="body">
+      <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px">
+        <label class="f" style="flex:1;min-width:220px"><span>EDIT AN EXISTING CITY (OPTIONAL)</span>
+          <select id="c-existing"><option value="">— new city —</option></select></label>
+        <button class="btn ghost" id="c-load" style="padding:11px 14px">LOAD CURRENT ROSTER</button>
+      </div>
+      <div class="grid4">
+        <label class="f"><span>CITY NAME <i>*</i></span><input id="c-name" placeholder="DETROIT" style="text-transform:uppercase"></label>
+        <label class="f"><span>REGION <i>*</i></span><input id="c-region" placeholder="MI · or GHANA" style="text-transform:uppercase"></label>
+        <label class="f"><span>SLUG <i>*</i></span><input id="c-slug" placeholder="detroit"></label>
+        <label class="f"><span>INTERNATIONAL</span><select id="c-intl"><option value="">NO</option><option value="1">YES</option></select></label>
+      </div>
+      <div class="grid4" style="margin-top:12px">
+        <label class="f"><span>LATITUDE <i>*</i></span><input id="c-lat" inputmode="decimal" placeholder="42.331"></label>
+        <label class="f"><span>LONGITUDE <i>*</i></span><input id="c-lng" inputmode="decimal" placeholder="-83.045"></label>
+        <label class="f"><span>STATUS</span><select id="c-status"><option value="locked">CONFIRMED</option><option value="">COMMITTED</option></select></label>
+        <label class="f"><span>FLYER PATH (OPTIONAL)</span><input id="c-flyer" placeholder="blank = master sheet"></label>
+      </div>
+      <div class="grid2" style="margin-top:12px">
+        <label class="f"><span>WHEN</span><input id="c-when" value="SAT AUG 29 · SYNCHRONIZED START"></label>
+        <label class="f"><span>WHERE</span><input id="c-where" value="Meet point sent to registrants"></label>
+      </div>
+      <div class="note">Coordinates: search the city on latlong.net and paste. The globe pins from these numbers the moment the deploy lands — solidarity-globe.js needs no edit.</div>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+        <button class="btn ghost" id="c-preview">PREVIEW</button>
+        <button class="btn gold" id="c-publish">PUBLISH TO THE SITE →</button>
+      </div>
+      <div class="preview" id="c-card">
+        <h3 id="p-name">—</h3><div class="r" id="p-region">—</div><div class="w" id="p-detail">—</div>
+      </div>
+      <div class="msg" id="c-msg"></div>
+    </div>
+  </section>
+
+  <footer>FREE KARMELO · MODERATION CONSOLE · INDEPENDENT INTAKE (E5FP WORKER + GITHUB PAGES) · NO THIRD-PARTY PLATFORM IN THE LOOP</footer>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var INTAKE = 'https://e5-fk-events.yisraelleemccartney.workers.dev';
+  var GH = 'https://api.github.com/repos/IAMGODIAM/freekarmelo-site/contents/solidarity/solidarity.json';
+  var $ = function (s) { return document.querySelector(s); };
+  var admin = '', pat = '';
+
+  /* ── credentials ── */
+  function store() { return $('#remember').checked ? localStorage : sessionStorage; }
+  function loadSaved() {
+    try {
+      admin = localStorage.getItem('fk_admin') || sessionStorage.getItem('fk_admin') || '';
+      pat = localStorage.getItem('fk_pat') || sessionStorage.getItem('fk_pat') || '';
+      if (localStorage.getItem('fk_admin')) $('#remember').checked = true;
+      if (admin) { $('#tok-admin').value = admin; }
+      if (pat) { $('#tok-gh').value = pat; }
+    } catch (e) {}
+  }
+  function say(el, cls, text) { el.className = 'msg ' + cls; el.textContent = text; }
+  function unlocked() { return !!admin; }
+  $('#unlock').addEventListener('click', function () {
+    admin = $('#tok-admin').value.trim(); pat = $('#tok-gh').value.trim();
+    if (!admin) { say($('#cred-msg'), 'err', 'THE CAMPAIGN ADMIN TOKEN IS REQUIRED FOR THE QUEUES.'); return; }
+    try {
+      sessionStorage.setItem('fk_admin', admin); if (pat) sessionStorage.setItem('fk_pat', pat);
+      if ($('#remember').checked) { localStorage.setItem('fk_admin', admin); if (pat) localStorage.setItem('fk_pat', pat); }
+    } catch (e) {}
+    $('#cred-state').textContent = 'UNLOCKED'; $('#forget').style.display = '';
+    say($('#cred-msg'), 'ok', 'UNLOCKED. LOADING QUEUES…');
+    loadWall(); loadReqs(); loadRoster();
+  });
+  $('#forget').addEventListener('click', function () {
+    ['fk_admin', 'fk_pat'].forEach(function (k) { try { localStorage.removeItem(k); sessionStorage.removeItem(k); } catch (e) {} });
+    admin = pat = ''; $('#tok-admin').value = ''; $('#tok-gh').value = '';
+    $('#cred-state').textContent = 'LOCKED'; say($('#cred-msg'), 'ok', 'TOKENS CLEARED FROM THIS BROWSER.');
+  });
+
+  function wk(path, opts) {
+    opts = opts || {};
+    opts.headers = Object.assign({ 'x-fk-admin': admin }, opts.headers || {});
+    return fetch(INTAKE + path, opts).then(function (r) {
+      if (r.status === 401) throw new Error('ADMIN TOKEN REJECTED (401).');
+      if (!r.ok) throw new Error('WORKER ERROR ' + r.status + '.');
+      return r.json();
+    });
+  }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function fdate(s) { try { return new Date(s).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }).toUpperCase(); } catch (e) { return ''; } }
+
+  /* ── §A wall queue ── */
+  function loadWall() {
+    if (!unlocked()) return;
+    $('#wall-list').innerHTML = '<div class="empty">LOADING…</div>';
+    wk('/admin/pending').then(function (d) {
+      var rows = (d.items || []).filter(function (r) { return r.form_type === 'letter-wall'; });
+      $('#wall-n').textContent = rows.length + ' PENDING';
+      if (!rows.length) { $('#wall-list').innerHTML = '<div class="empty">QUEUE IS CLEAR.</div>'; return; }
+      $('#wall-list').innerHTML = rows.map(function (r) {
+        var whereBits = [r.city, r.state].filter(Boolean).join(', ');
+        return '<div class="row" data-id="' + esc(r.id) + '">' +
+          '<div class="who">' + esc(r.name || 'A SUPPORTER') + (whereBits ? ' <em>· ' + esc(whereBits.toUpperCase()) + '</em>' : '') +
+          ' <em>· ' + fdate(r.created_at) + '</em><span class="chip">' + esc((r.source || '').toUpperCase()) + '</span></div>' +
+          '<p class="txt">' + esc(r.text || '') + '</p>' +
+          '<div class="act"><button class="btn ok" data-act="approve">APPROVE → WALL</button>' +
+          '<button class="btn no" data-act="reject">REJECT</button></div></div>';
+      }).join('');
+    }).catch(function (e) { $('#wall-list').innerHTML = '<div class="empty">' + esc(e.message) + '</div>'; });
+  }
+  $('#wall-reload').addEventListener('click', loadWall);
+  $('#wall-list').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button[data-act]'); if (!b) return;
+    var row = b.closest('.row'); var id = row.getAttribute('data-id'); var act = b.getAttribute('data-act');
+    row.querySelectorAll('button').forEach(function (x) { x.disabled = true; });
+    wk('/admin/moderate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: id, action: act }) })
+      .then(function () {
+        row.style.opacity = '.45';
+        row.querySelector('.act').innerHTML = '<span class="chip" style="color:' + (act === 'approve' ? 'var(--win)' : 'var(--loss)') + '">' + (act === 'approve' ? 'APPROVED — ON THE WALL' : 'REJECTED') + '</span>';
+        var n = $('#wall-n'); n.textContent = Math.max(0, parseInt(n.textContent, 10) - 1) + ' PENDING';
+      })
+      .catch(function (e) { alert(e.message); row.querySelectorAll('button').forEach(function (x) { x.disabled = false; }); });
+  });
+
+  /* ── §B new-city requests ── */
+  function loadReqs() {
+    if (!unlocked()) return;
+    $('#req-list').innerHTML = '<div class="empty">LOADING…</div>';
+    wk('/admin/recent?days=30').then(function (d) {
+      var all = (d.items || []).filter(function (r) { return (r.source || '').indexOf('solidarity-weekend-2026') === 0; });
+      var rows = $('#req-all').checked ? all : all.filter(function (r) {
+        return r.source === 'solidarity-weekend-2026/other' || /NOT LISTED/i.test(r.city || '');
+      });
+      $('#req-n').textContent = rows.length + ($('#req-all').checked ? ' SIGNUPS · 30 DAYS' : ' REQUESTS · 30 DAYS');
+      if (!rows.length) { $('#req-list').innerHTML = '<div class="empty">NONE YET.</div>'; return; }
+      $('#req-list').innerHTML = rows.map(function (r) {
+        return '<div class="row"><div class="who">' + esc(r.name || '—') +
+          ' <em>· ' + esc(r.email || '') + ' · ' + fdate(r.created_at) + '</em>' +
+          '<span class="chip">' + esc((r.source || '').replace('solidarity-weekend-2026/', '').toUpperCase() || 'SIGNUP') + '</span></div>' +
+          (r.message ? '<p class="txt">' + esc(r.message) + '</p>' : '') +
+          '<div class="act"><button class="btn ghost" data-fill>PUBLISH THEIR CITY ↓</button></div></div>';
+      }).join('');
+    }).catch(function (e) { $('#req-list').innerHTML = '<div class="empty">' + esc(e.message) + '</div>'; });
+  }
+  $('#req-reload').addEventListener('click', loadReqs);
+  $('#req-all').addEventListener('change', loadReqs);
+  $('#req-list').addEventListener('click', function (ev) {
+    if (!ev.target.closest('button[data-fill]')) return;
+    $('#c-name').focus(); $('#c-name').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  /* ── §C publish a city ── */
+  var roster = null, rosterSha = null, rosterRaw = null;
+  function b64decodeUtf8(b64) { var bin = atob(b64.replace(/\n/g, '')); var bytes = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i); return new TextDecoder().decode(bytes); }
+  function b64encodeUtf8(s) { var bytes = new TextEncoder().encode(s); var bin = ''; for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]); return btoa(bin); }
+  function gh(opts) {
+    opts = opts || {};
+    opts.headers = Object.assign({ 'Authorization': 'Bearer ' + pat, 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' }, opts.headers || {});
+    return fetch(GH + (opts.method === 'PUT' ? '' : '?ref=main&t=' + Date.now()), opts).then(function (r) {
+      return r.json().then(function (j) { if (!r.ok) throw new Error('GITHUB ' + r.status + ': ' + (j.message || '')); return j; });
+    });
+  }
+  function loadRoster() {
+    if (!pat) return Promise.resolve(null);
+    return gh({}).then(function (j) {
+      rosterSha = j.sha; rosterRaw = b64decodeUtf8(j.content); roster = JSON.parse(rosterRaw);
+      var sel = $('#c-existing');
+      sel.innerHTML = '<option value="">— new city —</option>' + roster.cities.map(function (c) {
+        return '<option value="' + esc(c.slug) + '">' + esc(c.name) + ' · ' + esc(c.region) + '</option>';
+      }).join('');
+      return roster;
+    }).catch(function (e) { say($('#c-msg'), 'err', e.message); return null; });
+  }
+  $('#c-load').addEventListener('click', function () { loadRoster().then(function (r) { if (r) say($('#c-msg'), 'ok', 'ROSTER LOADED — ' + r.cities.length + ' CITIES.'); }); });
+  $('#c-existing').addEventListener('change', function () {
+    if (!roster) return;
+    var c = roster.cities.filter(function (x) { return x.slug === $('#c-existing').value; })[0];
+    if (!c) return;
+    $('#c-name').value = c.name || ''; $('#c-region').value = c.region || ''; $('#c-slug').value = c.slug || '';
+    $('#c-intl').value = c.intl ? '1' : ''; $('#c-lat').value = c.lat != null ? c.lat : ''; $('#c-lng').value = c.lng != null ? c.lng : '';
+    $('#c-status').value = c.status === 'locked' ? 'locked' : '';
+    $('#c-when').value = c.when || ''; $('#c-where').value = c.where || ''; $('#c-flyer').value = c.flyer || '';
+  });
+  $('#c-name').addEventListener('input', function () {
+    if ($('#c-existing').value) return;
+    $('#c-slug').value = $('#c-name').value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  });
+  function readCity() {
+    var name = $('#c-name').value.trim().toUpperCase();
+    var region = $('#c-region').value.trim().toUpperCase();
+    var slug = $('#c-slug').value.trim().toLowerCase();
+    var lat = parseFloat($('#c-lat').value), lng = parseFloat($('#c-lng').value);
+    if (!name || !region || !slug) throw new Error('NAME, REGION AND SLUG ARE REQUIRED.');
+    if (!/^[a-z0-9-]{2,40}$/.test(slug)) throw new Error('SLUG: LOWERCASE LETTERS, DIGITS, DASHES.');
+    if (!isFinite(lat) || lat < -90 || lat > 90) throw new Error('LATITUDE MUST BE −90…90.');
+    if (!isFinite(lng) || lng < -180 || lng > 180) throw new Error('LONGITUDE MUST BE −180…180.');
+    var c = { name: name, region: region, slug: slug, lat: Math.round(lat * 1000) / 1000, lng: Math.round(lng * 1000) / 1000 };
+    if ($('#c-intl').value) c.intl = true;
+    if ($('#c-status').value === 'locked') {
+      c.status = 'locked';
+      c.when = $('#c-when').value.trim() || 'SAT AUG 29 · SYNCHRONIZED START';
+      c.where = $('#c-where').value.trim() || 'Meet point sent to registrants';
+    } else { if ($('#c-when').value.trim()) c.when = $('#c-when').value.trim(); if ($('#c-where').value.trim()) c.where = $('#c-where').value.trim(); }
+    if ($('#c-flyer').value.trim()) c.flyer = $('#c-flyer').value.trim();
+    return c;
+  }
+  $('#c-preview').addEventListener('click', function () {
+    try {
+      var c = readCity();
+      $('#p-name').textContent = c.name; $('#p-region').textContent = c.region + (c.intl ? ' · INTERNATIONAL' : '');
+      $('#p-detail').textContent = (c.status === 'locked' ? 'CONFIRMED' : 'COMMITTED') + ' · ' + (c.when || 'AUG 29–30 · TIME TBA') + (c.where ? ' · ' + c.where : '') + ' · PIN ' + c.lat + ', ' + c.lng;
+      $('#c-card').style.display = 'block'; $('#c-msg').className = 'msg';
+    } catch (e) { say($('#c-msg'), 'err', e.message); }
+  });
+  function stampNow() {
+    try {
+      var p = {}; new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
+      return (p.month + ' ' + p.day + ', ' + p.year + ' · ' + p.hour + ':' + p.minute + ' CT').toUpperCase();
+    } catch (e) { return new Date().toISOString().slice(0, 10); }
+  }
+  function publish(attempt) {
+    var c;
+    try { c = readCity(); } catch (e) { say($('#c-msg'), 'err', e.message); return; }
+    if (!pat) { say($('#c-msg'), 'err', 'ADD THE GITHUB TOKEN ABOVE TO PUBLISH.'); return; }
+    $('#c-publish').disabled = true;
+    say($('#c-msg'), 'ok', 'PUBLISHING…');
+    loadRoster().then(function (r) {
+      if (!r) throw new Error('COULD NOT LOAD THE CURRENT ROSTER.');
+      var i = -1;
+      r.cities.forEach(function (x, k) { if (x.slug === c.slug) i = k; });
+      var editing = $('#c-existing').value === c.slug;
+      if (i >= 0 && !editing && !confirm('SLUG "' + c.slug + '" ALREADY EXISTS — UPDATE THAT CITY?')) throw new Error('CANCELLED.');
+      if (i >= 0) r.cities[i] = Object.assign({}, r.cities[i], c);
+      else r.cities.push(c);
+      r.stamp = stampNow();
+      var body = JSON.stringify(r, null, 2) + '\n';
+      return gh({ method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
+        message: 'Roster: ' + (i >= 0 ? 'update ' : 'add ') + c.name + ' (' + c.slug + ') via moderation console',
+        content: b64encodeUtf8(body), sha: rosterSha, branch: 'main'
+      }) });
+    }).then(function (j) {
+      $('#c-publish').disabled = false;
+      say($('#c-msg'), 'ok', 'PUBLISHED — COMMIT ' + (j.commit && j.commit.sha ? j.commit.sha.slice(0, 7) : 'OK') + '. PAGES REDEPLOYS IN ~2 MIN; THE PAGE PAINTS THE CARD AND PINS THE GLOBE ON ITS NEXT LOAD.');
+      loadRoster();
+    }).catch(function (e) {
+      if (attempt !== 2 && /409|does not match/.test(e.message)) { publish(2); return; }
+      $('#c-publish').disabled = false; say($('#c-msg'), 'err', e.message);
+    });
+  }
+  $('#c-publish').addEventListener('click', function () { publish(1); });
+
+  loadSaved();
+  if (admin) { $('#cred-state').textContent = 'TOKENS FOUND — PRESS UNLOCK'; $('#forget').style.display = ''; }
+})();
+</script>
+</body>
+</html>

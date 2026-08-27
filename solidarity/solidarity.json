@@ -72,7 +72,9 @@
       "status": "locked",
       "when": "SAT AUG 29 · 2:00 PM CT",
       "where": "KDITC Foundation · 4237 Davenport St",
-      "flyer": "flyers-houston/houston-8-29-2pm-broadside-1080x1350.png"
+      "flyer": "flyers-houston/houston-8-29-2pm-broadside-1080x1350.png",
+      "lat": 29.76,
+      "lng": -95.369
     },
     {
       "name": "ATLANTA",
@@ -82,7 +84,9 @@
       "art": "flyers-cities/web/atlanta-dekalb.webp",
       "status": "locked",
       "when": "SUN AUG 30 · 10 AM–12 PM ET",
-      "where": "Walmart — Gresham Rd"
+      "where": "Walmart — Gresham Rd",
+      "lat": 33.749,
+      "lng": -84.388
     },
     {
       "name": "DEKALB",
@@ -92,7 +96,9 @@
       "art": "flyers-cities/web/atlanta-dekalb.webp",
       "status": "locked",
       "when": "SUN AUG 30 · 10 AM–12 PM ET",
-      "where": "Walmart — Gresham Rd · with Atlanta"
+      "where": "Walmart — Gresham Rd · with Atlanta",
+      "lat": 33.771,
+      "lng": -84.23
     },
     {
       "name": "DALLAS",
@@ -102,7 +108,9 @@
       "art": "flyers-cities/web/dallas.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 32.777,
+      "lng": -96.797
     },
     {
       "name": "CHICAGO",
@@ -112,7 +120,9 @@
       "art": "flyers-cities/web/chicago.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 41.878,
+      "lng": -87.63
     },
     {
       "name": "EVANSTON",
@@ -122,7 +132,9 @@
       "art": "flyers-cities/web/evanston.webp",
       "status": "locked",
       "when": "SAT AUG 29 · 3:00 PM CT",
-      "where": "Ebony Barbershop · Church & Dodge"
+      "where": "Ebony Barbershop · Church & Dodge",
+      "lat": 42.045,
+      "lng": -87.688
     },
     {
       "name": "GARY",
@@ -132,7 +144,9 @@
       "art": "flyers-cities/web/gary.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 41.593,
+      "lng": -87.346
     },
     {
       "name": "KENOSHA",
@@ -142,7 +156,9 @@
       "art": "flyers-cities/web/kenosha.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 42.585,
+      "lng": -87.821
     },
     {
       "name": "NEW ORLEANS",
@@ -152,7 +168,9 @@
       "art": "flyers-cities/web/new-orleans.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 29.951,
+      "lng": -90.072
     },
     {
       "name": "BATON ROUGE",
@@ -162,7 +180,9 @@
       "art": "flyers-cities/web/baton-rouge.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 30.451,
+      "lng": -91.187
     },
     {
       "name": "MIAMI",
@@ -172,7 +192,9 @@
       "art": "flyers-cities/web/miami.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 25.762,
+      "lng": -80.192
     },
     {
       "name": "TAMPA",
@@ -182,7 +204,9 @@
       "art": "flyers-cities/web/tampa.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 27.951,
+      "lng": -82.457
     },
     {
       "name": "BRADENTON",
@@ -192,7 +216,9 @@
       "art": "flyers-cities/web/bradenton.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 27.499,
+      "lng": -82.575
     },
     {
       "name": "NEW YORK CITY",
@@ -202,7 +228,9 @@
       "art": "flyers-cities/web/nyc.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 40.713,
+      "lng": -74.006
     },
     {
       "name": "BUFFALO",
@@ -212,7 +240,9 @@
       "art": "flyers-cities/web/buffalo.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 42.886,
+      "lng": -78.878
     },
     {
       "name": "BOSTON",
@@ -222,7 +252,9 @@
       "art": "flyers-cities/web/boston.webp",
       "status": "locked",
       "when": "SAT AUG 29 · 4–9 PM ET",
-      "where": "Letter-writing campaign — details on the sheet"
+      "where": "Letter-writing campaign — details on the sheet",
+      "lat": 42.36,
+      "lng": -71.059
     },
     {
       "name": "TWIN CITIES",
@@ -232,7 +264,9 @@
       "art": "flyers-cities/web/twin-cities.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 44.978,
+      "lng": -93.265
     },
     {
       "name": "OAKLAND",
@@ -242,7 +276,9 @@
       "art": "flyers-cities/web/oakland.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 37.804,
+      "lng": -122.271
     },
     {
       "name": "LOS ANGELES",
@@ -252,7 +288,9 @@
       "art": "flyers-cities/web/los-angeles.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 34.052,
+      "lng": -118.244
     },
     {
       "name": "SANTA CLARITA",
@@ -262,7 +300,9 @@
       "art": "flyers-cities/web/santa-clarita.webp",
       "status": "locked",
       "when": "SAT AUG 29 · 11 AM–2 PM PT",
-      "where": "BLM Grassroots SCV gathering — see the sheet"
+      "where": "BLM Grassroots SCV gathering — see the sheet",
+      "lat": 34.391,
+      "lng": -118.542
     },
     {
       "name": "BOISE",
@@ -272,7 +312,9 @@
       "art": "flyers-cities/web/boise.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 43.615,
+      "lng": -116.202
     },
     {
       "name": "ACCRA",
@@ -283,7 +325,9 @@
       "art": "flyers-cities/web/accra.webp",
       "status": "locked",
       "when": "SAT AUG 29 · SYNCHRONIZED START",
-      "where": "Meet point sent to registrants"
+      "where": "Meet point sent to registrants",
+      "lat": 5.604,
+      "lng": -0.187
     },
     {
       "name": "STOCKHOLM",
@@ -294,7 +338,9 @@
       "art": "flyers-cities/web/stockholm.webp",
       "status": "locked",
       "when": "SAT AUG 29 · LETTER ACTION",
-      "where": "Wear purple · write to Karmelo · #FreeKarmelo"
+      "where": "Wear purple · write to Karmelo · #FreeKarmelo",
+      "lat": 59.329,
+      "lng": 18.069
     }
   ],
   "timeline": [

@@ -234,3 +234,27 @@ argument date is set.
 a new trial was granted, or any predicted outcome of the appeal. Never contact
 judges, jurors, witnesses, or court staff. Never publish his mugshot or any
 mailing address.
+
+## Publishing a city without a git push — the moderation console
+
+`moderate.html` (unlisted, `noindex`) is the campaign's approval surface,
+independent of any third-party platform. Two tokens, entered in the page and
+kept only in that browser:
+
+| Token | Scope | Used for |
+|---|---|---|
+| Campaign admin token | the worker's `x-fk-admin` secret | reading the wall queue + new-city requests, APPROVE / REJECT |
+| GitHub token | fine-grained PAT, **Contents: Read+Write on `freekarmelo-site` only** | PUBLISH A CITY — commits `solidarity.json` to `main` |
+
+Flow: a supporter picks "MY CITY ISN'T LISTED — I WANT TO START ONE" on the
+commit form → the request appears in §B of the console → fill name / region /
+slug / lat / lng in §C → PUBLISH. The console commits `solidarity.json`,
+GitHub Pages redeploys (~2 min), and the live page paints the new roster card
+AND pins the globe itself — `solidarity-globe.js` is never edited, because
+**the globe now follows the roster**: any city entry carrying `lat`/`lng`
+drives its own pin (FK54). §C also edits existing cities (lock a time, set a
+meet point) from a phone.
+
+Wall messages: §A lists the pending queue; APPROVE puts the message — with the
+supporter's location — on the canonical wall feed, which this page and the
+justice page both render.

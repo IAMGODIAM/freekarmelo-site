@@ -1039,6 +1039,56 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
   $('#wall-prev').addEventListener('click', function () { scrollWall(-1); });
   $('#wall-next').addEventListener('click', function () { scrollWall(1); });
 
+  /* ═══ FK54 · the globe follows the roster ═══════════════════════════
+     Any city in the content that carries lat/lng drives a globe pin
+     directly — a city published through the moderation console pins
+     itself with no edit to solidarity-globe.js. FK_COORDS is the
+     fallback for the founding roster. If the roster changes after the
+     globe has booted (solidarity.json arriving with a new city), the
+     element is rebuilt so the new pin renders. */
+  var FK_ANCHOR = { name: 'McKinney', region: 'TX · COURTHOUSE', slug: 'mckinney', lat: 33.198, lng: -96.615, tier: 'anchor' };
+  var FK_COORDS = {
+    houston: [29.760, -95.369], atlanta: [33.749, -84.388], dekalb: [33.771, -84.230],
+    dallas: [32.777, -96.797], chicago: [41.878, -87.630], evanston: [42.045, -87.688],
+    gary: [41.593, -87.346], kenosha: [42.585, -87.821], 'new-orleans': [29.951, -90.072],
+    'baton-rouge': [30.451, -91.187], miami: [25.762, -80.192], tampa: [27.951, -82.457],
+    bradenton: [27.499, -82.575], nyc: [40.713, -74.006], buffalo: [42.886, -78.878],
+    boston: [42.360, -71.059], 'twin-cities': [44.978, -93.265], oakland: [37.804, -122.271],
+    'los-angeles': [34.052, -118.244], 'santa-clarita': [34.391, -118.542], boise: [43.615, -116.202],
+    accra: [5.604, -0.187], stockholm: [59.329, 18.069]
+  };
+  function globeList() {
+    var out = [FK_ANCHOR];
+    (content.cities || []).forEach(function (c) {
+      var lat = c.lat, lng = c.lng;
+      if ((lat == null || lng == null) && FK_COORDS[c.slug]) { lat = FK_COORDS[c.slug][0]; lng = FK_COORDS[c.slug][1]; }
+      if (lat == null || lng == null) return;
+      out.push({ name: c.name, region: c.region, slug: c.slug, lat: lat, lng: lng, tier: c.intl ? 'intl' : 'city' });
+    });
+    return out;
+  }
+  var globeSig = '';
+  function syncGlobe() {
+    var list = globeList();
+    var sig = list.map(function (c) { return c.slug + ':' + c.lat + ',' + c.lng; }).join('|');
+    if (sig === globeSig) return;
+    var el = document.querySelector('solidarity-globe');
+    if (!el) return;
+    if (!globeSig) {
+      /* first pass runs before the deferred component upgrades — the
+         attribute is read at boot */
+      el.setAttribute('cities', JSON.stringify(list));
+    } else {
+      /* roster changed after boot — rebuild the element with the new pins */
+      var fresh = document.createElement('solidarity-globe');
+      fresh.setAttribute('aria-hidden', 'true');
+      fresh.setAttribute('cities', JSON.stringify(list));
+      el.replaceWith(fresh);
+    }
+    globeSig = sig;
+  }
+  syncGlobe();
+
   /* ═══ published content, no rebuild ═══════════════════════════════
      solidarity.json is the machine-readable twin of the block above and
      the file the admin dashboard writes. Fetched after first paint so
@@ -1051,7 +1101,7 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
       var before = JSON.stringify(content);
       Object.assign(content, d);
       if (inlineOverride) Object.assign(content, inlineOverride);   // inline block wins
-      if (JSON.stringify(content) !== before) paintAll();
+      if (JSON.stringify(content) !== before) { paintAll(); syncGlobe(); }
     })
     .catch(function () { /* the inline defaults are the fallback */ });
 
