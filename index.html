@@ -119,12 +119,13 @@ a { color: inherit; text-decoration: none; }
 .nav {
   border-bottom: 1px solid var(--border);
   background: var(--bg);
-  position: sticky; top: 40px; z-index: 55;
+  position: sticky; top: 40px; z-index: 65;
 }
 .nav-inner {
   max-width: 1200px; margin: 0 auto; padding: 0 28px;
   display: flex; align-items: center; justify-content: space-between;
   height: 60px;
+  position: relative;
 }
 .brand {
   font-family: var(--mono); font-size: 13px;
@@ -132,7 +133,8 @@ a { color: inherit; text-decoration: none; }
   color: var(--purple-light); font-weight: 700;
 }
 .nav-tabs {
-  display: flex; gap: 0;
+  display: flex; gap: 0; align-items: center;
+  flex-wrap: nowrap;
 }
 .nav-tab {
   font-family: var(--mono); font-size: 11px;
@@ -145,6 +147,72 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-tab:hover { color: var(--fg-dim); }
 .nav-tab.active { color: var(--purple-light); border-bottom-color: var(--purple); }
+
+/* Divider */
+.nav-divider {
+  display: none;
+  width: 1px; height: 24px; background: var(--border-2); margin: 0 8px;
+}
+@media (max-width: 860px) {
+  .nav-divider { display: block; }
+}
+
+/* Actions */
+.nav-action {
+  color: var(--purple-light) !important;
+  font-weight: 600;
+}
+.nav-action:hover { color: var(--fg) !important; }
+
+/* More (progressive disclosure) */
+.nav-more {
+  position: relative;
+}
+.nav-more-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  color: var(--fg-dimmer);
+}
+.nav-more-summary::-webkit-details-marker { display: none; }
+.nav-more-summary:hover { color: var(--purple-light); }
+.nav-more-chevron {
+  font-size: 8px; transition: transform .2s ease;
+  color: var(--fg-dimmer);
+}
+.nav-more[open] .nav-more-chevron { transform: rotate(180deg); }
+.nav-more-panel {
+  position: absolute; top: 100%; right: 0; left: 0;
+  background: var(--bg); border: 1px solid var(--border-2);
+  border-radius: 0 0 12px 12px; padding: 8px 0;
+  box-shadow: 0 18px 40px rgba(0,0,0,.55);
+  z-index: 70; display: flex; flex-direction: column; gap: 0;
+}
+.nav-more-panel .nav-tab {
+  height: auto; width: 100%; padding: 14px 28px;
+  justify-content: flex-start; font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  color: var(--fg-dimmer);
+}
+.nav-more-panel .nav-tab:hover { color: var(--purple-light); }
+.nav-more-panel .nav-tab:last-child { border-bottom: none; }
+
+/* Hamburger */
+.nav-hamb { 
+  display:none; 
+  flex-direction:column; justify-content:center; gap:5px; 
+  width:48px; height:48px; background:none; border:1px solid var(--border); 
+  border-radius:8px; cursor:pointer; padding:0 12px; 
+  z-index: 70;
+}
+.nav-hamb span { 
+  display:block; height:2px; width:100%; background:var(--purple-light); 
+  border-radius:2px; transition:transform .2s, opacity .2s; 
+}
+.nav-hamb.on span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav-hamb.on span:nth-child(2){ opacity:0; }
+.nav-hamb.on span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
 .nav-cta-btn {
   background: var(--purple);
   color: #fff; border: none; border-radius: 7px;
@@ -153,30 +221,118 @@ a { color: inherit; text-decoration: none; }
   transition: background .15s ease;
 }
 .nav-cta-btn:hover { background: var(--purple-2); }
+
+/* ============================================================
+   MOBILE NAV — ELEGANT SLIDE-DOWN
+   ============================================================ */
 @media (max-width: 860px) {
   .nav-hamb { display: flex; }
+  
   .nav-tabs {
     display: none;
-    position: absolute; top: 60px; left: 0; right: 0;
+    position: absolute; 
+    top: 60px; left: 0; right: 0;
     flex-direction: column; gap: 0;
-    background: var(--bg); border-bottom: 1px solid var(--purple);
+    background: var(--bg); 
+    border-bottom: 1px solid var(--purple);
     box-shadow: 0 18px 40px rgba(0,0,0,.55);
-    padding: 6px 0 12px; z-index: 60;
+    padding: 0; z-index: 70;
+    /* Slide-down animation */
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .25s cubic-bezier(.16,1,.3,1), 
+                opacity .2s ease, visibility .2s ease;
+    will-change: transform, opacity;
   }
-  .nav-tabs.open { display: flex; }
-  .nav-tabs .nav-tab {
+  
+  .nav-tabs.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-tabs .nav-tab,
+  .nav-tabs .nav-action,
+  .nav-tabs .nav-more {
     height: auto; width: 100%; padding: 14px 28px;
     justify-content: flex-start; font-size: 13px;
     border-bottom: 1px solid rgba(255,255,255,.05);
+    color: var(--fg-dimmer);
   }
-  .nav-tabs .nav-tab.active { border-bottom-color: rgba(255,255,255,.05); }
+  
+  .nav-tabs .nav-tab:hover,
+  .nav-tabs .nav-action:hover,
+  .nav-tabs .nav-more-summary:hover {
+    color: var(--purple-light); background: var(--purple-soft);
+  }
+  
+  .nav-tabs .nav-tab.active {
+    color: var(--purple-light); background: var(--purple-soft);
+    border-bottom-color: rgba(255,255,255,.05);
+  }
+  
+  .nav-divider { display: block; width: 100%; height: 1px; margin: 8px 0; }
+  
+  /* More panel in mobile */
+  .nav-more { width: 100%; }
+  .nav-more[open] .nav-more-panel {
+    position: static; box-shadow: none; border: none;
+    background: var(--bg-1); border-radius: 0;
+    padding: 8px 0 0; margin-top: 8px;
+  }
+  .nav-more-panel .nav-tab {
+    padding: 12px 36px; font-size: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.03);
+  }
+  
   .nav-inner { position: relative; }
 }
-.nav-hamb { display:none; flex-direction:column; justify-content:center; gap:5px; width:42px; height:42px; background:none; border:1px solid var(--border); border-radius:8px; cursor:pointer; padding:0 10px; }
-.nav-hamb span { display:block; height:2px; width:100%; background:var(--purple-light); border-radius:2px; transition:transform .2s, opacity .2s; }
-.nav-hamb.on span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-.nav-hamb.on span:nth-child(2){ opacity:0; }
-.nav-hamb.on span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
+   COMPACT MOBILE (≤480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .ticker { height: 32px; }
+  .ticker-inner { padding: 0 16px; }
+  .live-pill { font-size: 9px; gap: 5px; }
+  .live-dot { width: 5px; height: 5px; }
+  .ticker-sep { display: none; }
+  .ticker-right { display: none; }
+  
+  .nav { top: 32px; z-index: 65; }
+  .nav-tabs { top: 52px; }
+  .nav-inner { height: 52px; padding: 0 16px; }
+  .brand { font-size: 11px; }
+  .nav-hamb { width: 44px; height: 44px; padding: 0 8px; }
+  .nav-cta-btn { padding: 7px 12px; font-size: 12px; }
+  
+  .hero { padding: 60px 0 40px; }
+  .hero-inner { padding: 0 16px; }
+  .section { padding: 48px 16px; }
+  .section-narrow { padding: 48px 16px; }
+  .photo-section { padding: 40px 0; }
+}
+
+/* ============================================================
+   BACKDROP & BODY LOCK
+   ============================================================ */
+.nav-backdrop {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(4px);
+  z-index: 60;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.nav-backdrop.visible { display: block; opacity: 1; }
+
+body.nav-open { overflow: hidden; }
+
+/* Focus trap styles */
+.nav-tabs:focus-within .nav-hamb { outline: none; }
 
 /* ── HERO ── */
 .hero {
@@ -1392,22 +1548,36 @@ body {
   <div class="nav-inner">
     <div class="brand">Free Karmelo</div>
     <div class="nav-tabs" id="navTabs">
+      <!-- PRIMARY TABS (tab-switching) -->
       <button class="nav-tab active" onclick="switchTab('manifesto', true)">Who He Is</button>
       <button class="nav-tab" onclick="switchTab('credo', true)">What Happened</button>
       <button class="nav-tab" onclick="switchTab('facts', true)">The Law</button>
       <button class="nav-tab" onclick="switchTab('charge', true)">The Charge</button>
       <button class="nav-tab" onclick="switchTab('truth', true)">The Truth</button>
-      <a class="nav-tab" href="/updates" style="text-decoration:none;display:flex">Updates &amp; Evidence</a>
-      <a class="nav-tab" href="#letters" style="text-decoration:none;display:flex" onclick="document.getElementById('letters').scrollIntoView({behavior:'smooth'})">💜 Stand With Him</a>
-      <a class="nav-tab" href="/statement" style="text-decoration:none;display:flex">The Statement</a>
-      <a class="nav-tab" href="/medicine" style="text-decoration:none;display:flex;color:var(--purple-light);font-weight:600">💊 His Medicine</a>
-      <a class="nav-tab" href="/signs" style="text-decoration:none;display:flex">Signs &amp; Flyers</a>
-      <a class="nav-tab" href="/events" style="text-decoration:none;display:flex">Black August Events</a>
-      <a class="nav-tab" href="/hearings" style="text-decoration:none;display:flex;color:var(--purple-light);font-weight:600">⚖️ Hearing Watch</a>
-      <a class="nav-tab" href="/bar-complaint" style="text-decoration:none;display:flex;color:var(--purple-light);font-weight:600">⚖️ File a Complaint</a>
-      <a class="nav-tab" href="/mediakit" style="text-decoration:none;display:flex">💜 Media Kit</a>
+      <!-- DIVIDER -->
+      <div class="nav-divider" aria-hidden="true"></div>
+      <!-- ACTIONS (primary CTAs) -->
+      <a class="nav-tab nav-action" href="#letters" onclick="document.getElementById('letters').scrollIntoView({behavior:'smooth'}); closeMobileNav();">💜 Stand With Him</a>
+      <a class="nav-tab nav-action" href="#signup" onclick="closeMobileNav();">📝 Sign Up</a>
+      <a class="nav-tab nav-action" href="/signs">🪧 Print a Sign</a>
+      <a class="nav-tab nav-action" href="/medicine">💊 His Medicine</a>
+      <!-- MORE (progressive disclosure) -->
+      <details class="nav-more" ontoggle="this.open && closeMobileNav()">
+        <summary class="nav-tab nav-more-summary">More <span class="nav-more-chevron">▼</span></summary>
+        <div class="nav-more-panel">
+          <a class="nav-tab" href="/updates">📰 Updates & Evidence</a>
+          <a class="nav-tab" href="/statement">📜 The Statement</a>
+          <a class="nav-tab" href="/hearings">⚖️ Hearing Watch</a>
+          <a class="nav-tab" href="/bar-complaint">⚖️ File a Complaint</a>
+          <a class="nav-tab" href="/mediakit">💜 Media Kit</a>
+          <a class="nav-tab" href="/events">📅 Black August Events</a>
+        </div>
+      </details>
     </div>
-<button class="nav-cta-btn" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth',block:'start'})">Sign Up →</button>
+    <button class="nav-hamb" id="navHamb" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navTabs" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="nav-cta-btn" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth',block:'start'})">Sign Up →</button>
   </div>
 </nav>
 
@@ -2365,11 +2535,102 @@ function copyLink(){if(window.fkTrackShare) window.fkTrackShare('signup_success'
 
 
 <script>
+// ── MOBILE NAV TOGGLE + A11Y ──
+(function() {
+  var navTabs = document.getElementById('navTabs');
+  var navHamb = document.getElementById('navHamb');
+  var backdrop = document.createElement('div');
+  backdrop.className = 'nav-backdrop';
+  document.body.appendChild(backdrop);
+  
+  var lastFocusedElement = null;
+  var focusableElementsSelector = 'a[href], button, details, summary, [tabindex]:not([tabindex="-1"])';
+  
+  function toggleMobileNav() {
+    var isOpen = navTabs.classList.toggle('open');
+    navHamb.classList.toggle('on', isOpen);
+    navHamb.setAttribute('aria-expanded', isOpen);
+    backdrop.classList.toggle('visible', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+    
+    if (isOpen) {
+      lastFocusedElement = document.activeElement;
+      // Focus first focusable element in menu
+      setTimeout(function() {
+        var firstFocusable = navTabs.querySelector(focusableElementsSelector);
+        if (firstFocusable) firstFocusable.focus();
+      }, 100);
+    } else if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
+  }
+  
+  function closeMobileNav() {
+    if (!navTabs.classList.contains('open')) return;
+    navTabs.classList.remove('open');
+    navHamb.classList.remove('on');
+    navHamb.setAttribute('aria-expanded', 'false');
+    backdrop.classList.remove('visible');
+    document.body.classList.remove('nav-open');
+    if (lastFocusedElement) lastFocusedElement.focus();
+  }
+  
+  // Close on backdrop click
+  backdrop.addEventListener('click', closeMobileNav);
+  
+  // Close on ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navTabs.classList.contains('open')) {
+      closeMobileNav();
+    }
+  });
+  
+  // Focus trap
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Tab' || !navTabs.classList.contains('open')) return;
+    
+    var focusableElements = navTabs.querySelectorAll(focusableElementsSelector);
+    var firstElement = focusableElements[0];
+    var lastElement = focusableElements[focusableElements.length - 1];
+    
+    if (e.shiftKey && document.activeElement === firstElement) {
+      e.preventDefault();
+      lastElement.focus();
+    } else if (!e.shiftKey && document.activeElement === lastElement) {
+      e.preventDefault();
+      firstElement.focus();
+    }
+  });
+  
+  // Close on resize > 860px
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      if (window.innerWidth > 860 && navTabs.classList.contains('open')) {
+        closeMobileNav();
+      }
+    }, 100);
+  });
+  
+  // Close More dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    var more = document.querySelector('.nav-more');
+    if (more && more.open && !more.contains(e.target)) {
+      more.open = false;
+    }
+  });
+  
+  // Expose globally
+  window.toggleMobileNav = toggleMobileNav;
+  window.closeMobileNav = closeMobileNav;
+})();
+
+
 // ── TAB SYSTEM ──
 function switchTab(name, doScroll) {
   // close mobile menu on selection
-  var _nt=document.getElementById('navTabs'); if(_nt) _nt.classList.remove('open');
-  var _hb=document.querySelector('.nav-hamb'); if(_hb){_hb.classList.remove('on');_hb.setAttribute('aria-expanded','false');}
+  window.closeMobileNav();
   // doScroll=true only when user explicitly clicks a tab — not on programmatic calls
   if (name === 'signup') {
     var el = document.getElementById('signup');
