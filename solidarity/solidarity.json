@@ -1,5 +1,5 @@
 {
-  "stamp": "AUG 27, 2026 · 03:40 CT",
+  "stamp": "AUG 27, 2026 · 06:15 CT",
   "rallyISO": "2026-08-29T19:00:00Z",
   "signupCount": "1,480",
   "posters": [
@@ -71,18 +71,28 @@
       "slug": "houston",
       "status": "locked",
       "when": "SAT AUG 29 · 2:00 PM CT",
-      "where": "Meet point sent to registrants",
+      "where": "KDITC Foundation · 4237 Davenport St",
       "flyer": "flyers-houston/houston-8-29-2pm-broadside-1080x1350.png"
     },
     {
       "name": "ATLANTA",
       "region": "GA",
-      "slug": "atlanta"
+      "slug": "atlanta",
+      "flyer": "flyers-cities/atlanta-dekalb.jpg",
+      "art": "flyers-cities/web/atlanta-dekalb.webp",
+      "status": "locked",
+      "when": "SUN AUG 30 · 10 AM–12 PM ET",
+      "where": "Walmart — Gresham Rd"
     },
     {
       "name": "DEKALB",
       "region": "GA",
-      "slug": "dekalb"
+      "slug": "dekalb",
+      "flyer": "flyers-cities/atlanta-dekalb.jpg",
+      "art": "flyers-cities/web/atlanta-dekalb.webp",
+      "status": "locked",
+      "when": "SUN AUG 30 · 10 AM–12 PM ET",
+      "where": "Walmart — Gresham Rd · with Atlanta"
     },
     {
       "name": "DALLAS",
@@ -99,7 +109,12 @@
     {
       "name": "EVANSTON",
       "region": "IL",
-      "slug": "evanston"
+      "slug": "evanston",
+      "flyer": "flyers-cities/evanston.jpg",
+      "art": "flyers-cities/web/evanston.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · 3:00 PM CT",
+      "where": "Ebony Barbershop · Church & Dodge"
     },
     {
       "name": "GARY",
@@ -167,7 +182,12 @@
     {
       "name": "BOSTON",
       "region": "MA",
-      "slug": "boston"
+      "slug": "boston",
+      "flyer": "flyers-cities/boston.jpg",
+      "art": "flyers-cities/web/boston.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · 4–9 PM ET",
+      "where": "Letter-writing campaign — details on the sheet"
     },
     {
       "name": "TWIN CITIES",
@@ -193,7 +213,12 @@
     {
       "name": "SANTA CLARITA",
       "region": "CA",
-      "slug": "santa-clarita"
+      "slug": "santa-clarita",
+      "flyer": "flyers-cities/santa-clarita.jpg",
+      "art": "flyers-cities/web/santa-clarita.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · 11 AM–2 PM PT",
+      "where": "BLM Grassroots SCV gathering — see the sheet"
     },
     {
       "name": "BOISE",
@@ -215,7 +240,11 @@
       "region": "SWEDEN",
       "slug": "stockholm",
       "intl": true,
-      "flyer": "flyers-master-23-cities/3a-the-wall-1080x1350.png"
+      "flyer": "flyers-cities/stockholm.jpg",
+      "art": "flyers-cities/web/stockholm.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · LETTER ACTION",
+      "where": "Wear purple · write to Karmelo · #FreeKarmelo"
     }
   ],
   "timeline": [
