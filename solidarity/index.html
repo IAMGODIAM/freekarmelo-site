@@ -146,6 +146,35 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--violet)!
 .tz{font-family:var(--mono);font-size:10px;line-height:1.9;letter-spacing:.1em;color:var(--muted);padding-bottom:2px}
 .globe-slot{position:relative;align-self:stretch;min-height:520px;margin-right:-90px}
 .globe-slot solidarity-globe{position:absolute;inset:0}
+/* ── FK53 · hero media: photo backdrop + from-the-ground strip ──────── */
+.hero-photo{position:absolute;inset:0;background:url('media/crowd-wide.jpg') center 28%/cover no-repeat;
+  opacity:.13;filter:saturate(.55) brightness(.7) contrast(1.08);pointer-events:none;
+  animation:fkDrift 52s ease-in-out infinite alternate;will-change:transform}
+@keyframes fkDrift{from{transform:scale(1.02) translateY(0)}to{transform:scale(1.11) translateY(-2.4%)}}
+.ground{position:relative;max-width:var(--wrap);margin:0 auto;padding:0 var(--pad) 48px}
+.ground-label{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.24em;color:var(--muted);margin-bottom:14px;white-space:nowrap}
+.ground-label b{color:var(--gold);font-weight:600;flex:none}
+.ground-label span{overflow:hidden;text-overflow:ellipsis}
+.ground-label::after{content:'';flex:1;min-width:40px;height:1px;background:var(--line-2)}
+.ground-track{display:grid;grid-template-columns:1.35fr .92fr 1.35fr;gap:14px}
+.snap{position:relative;overflow:hidden;margin:0;border:1px solid rgba(139,92,246,.3);background:var(--ink-2);
+  min-height:clamp(200px,17vw,252px);animation:fkRise .9s ease both}
+.snap:nth-child(1){animation-delay:.2s}
+.snap:nth-child(2){animation-delay:.38s}
+.snap:nth-child(3){animation-delay:.56s}
+.snap img,.snap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.snap figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;
+  background:linear-gradient(transparent,rgba(8,5,16,.94));font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.16em;line-height:1.6;color:var(--gold-lt)}
+.snap .k{position:absolute;top:9px;left:9px;background:rgba(8,5,16,.8);backdrop-filter:blur(6px);
+  padding:4px 8px;font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--lilac)}
+@media (max-width:860px){
+  .ground-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px}
+  .ground-track::-webkit-scrollbar{display:none}
+  .snap{flex:0 0 76%;scroll-snap-align:start;min-height:240px}
+  .snap.is-video{flex:0 0 60%}
+}
 .globe-count{position:absolute;left:0;bottom:34px;display:flex;flex-direction:column;gap:5px;pointer-events:none}
 .globe-count b{font-family:var(--black);font-size:52px;line-height:1;letter-spacing:-.04em;
   color:var(--paper);font-weight:400}
@@ -436,6 +465,7 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
 
 <!-- ══ HERO ══════════════════════════════════════════════════════════ -->
 <section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="hero-photo" aria-hidden="true"></div>
   <div class="hero-glow"></div>
   <div class="wrap">
     <div class="hero-copy">
@@ -458,6 +488,29 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
     <div class="globe-slot">
       <solidarity-globe aria-hidden="true"></solidarity-globe>
       <div class="globe-count"><b>23</b><span>CITIES · 3 COUNTRIES</span></div>
+    </div>
+  </div>
+  <div class="ground" role="group" aria-label="From the ground — photos and video from the campaign">
+    <div class="ground-label"><b>FROM THE GROUND</b><span>McKINNEY · AUG 19 — AND THE ROOMS THAT BUILT THIS WEEKEND</span></div>
+    <div class="ground-track">
+      <figure class="snap">
+        <img src="media/crowd-card.jpg" alt="Supporters in purple raise their fists on the Collin County courthouse steps" fetchpriority="low">
+        <span class="k" aria-hidden="true">AUG 19 · McKINNEY</span>
+        <figcaption>THE COURTHOUSE STEPS · MOTION TO RECUSE GRANTED</figcaption>
+      </figure>
+      <figure class="snap is-video">
+        <video id="stepsLoop" poster="media/steps-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Video: supporters chanting together on the courthouse steps after the recusal ruling">
+          <source src="media/steps-loop.webm" type="video/webm">
+          <source src="media/steps-loop.mp4" type="video/mp4">
+        </video>
+        <span class="k" aria-hidden="true">AUG 19 · 3:02 PM</span>
+        <figcaption>THE STEPS, MINUTES AFTER THE RULING</figcaption>
+      </figure>
+      <figure class="snap">
+        <img src="media/teachin-card.jpg" alt="Organizers and partners standing together at the Free Karmelo teach-in" loading="lazy">
+        <span class="k" aria-hidden="true">THE TEACH-IN</span>
+        <figcaption>THE ORGANIZERS + PARTNERS BEHIND THE WEEKEND</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1169,6 +1222,26 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
       var s = document.getElementById(id);
       if (s) spy.observe(s);
     });
+  }
+})();
+</script>
+<script>
+/* FK53 · hero video governance: honor reduced-motion, pause off-screen */
+(function () {
+  var v = document.getElementById('stepsLoop');
+  if (!v) return;
+  var rm = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+  function respect() { if (rm.matches) { try { v.pause(); } catch (e) {} v.removeAttribute('autoplay'); } }
+  respect();
+  if (rm.addEventListener) rm.addEventListener('change', respect);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (rm.matches) return;
+        if (en.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.12 }).observe(v);
   }
 })();
 </script>
