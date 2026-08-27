@@ -1,5 +1,5 @@
 {
-  "stamp": "AUG 27, 2026 · 06:30 CT",
+  "stamp": "AUG 27, 2026 · 06:55 CT",
   "rallyISO": "2026-08-29T19:00:00Z",
   "signupCount": "1,480",
   "posters": [
@@ -99,14 +99,20 @@
       "region": "TX",
       "slug": "dallas",
       "flyer": "flyers-cities/dallas.jpg",
-      "art": "flyers-cities/web/dallas.webp"
+      "art": "flyers-cities/web/dallas.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "CHICAGO",
       "region": "IL",
       "slug": "chicago",
       "flyer": "flyers-cities/chicago.png",
-      "art": "flyers-cities/web/chicago.webp"
+      "art": "flyers-cities/web/chicago.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "EVANSTON",
@@ -123,63 +129,90 @@
       "region": "IN",
       "slug": "gary",
       "flyer": "flyers-cities/gary.png",
-      "art": "flyers-cities/web/gary.webp"
+      "art": "flyers-cities/web/gary.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "KENOSHA",
       "region": "WI",
       "slug": "kenosha",
       "flyer": "flyers-cities/kenosha.png",
-      "art": "flyers-cities/web/kenosha.webp"
+      "art": "flyers-cities/web/kenosha.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "NEW ORLEANS",
       "region": "LA",
       "slug": "new-orleans",
       "flyer": "flyers-cities/new-orleans.png",
-      "art": "flyers-cities/web/new-orleans.webp"
+      "art": "flyers-cities/web/new-orleans.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "BATON ROUGE",
       "region": "LA",
       "slug": "baton-rouge",
       "flyer": "flyers-cities/baton-rouge.png",
-      "art": "flyers-cities/web/baton-rouge.webp"
+      "art": "flyers-cities/web/baton-rouge.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "MIAMI",
       "region": "FL",
       "slug": "miami",
       "flyer": "flyers-cities/miami.png",
-      "art": "flyers-cities/web/miami.webp"
+      "art": "flyers-cities/web/miami.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "TAMPA",
       "region": "FL",
       "slug": "tampa",
       "flyer": "flyers-cities/tampa.png",
-      "art": "flyers-cities/web/tampa.webp"
+      "art": "flyers-cities/web/tampa.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "BRADENTON",
       "region": "FL",
       "slug": "bradenton",
       "flyer": "flyers-cities/bradenton.png",
-      "art": "flyers-cities/web/bradenton.webp"
+      "art": "flyers-cities/web/bradenton.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "NEW YORK CITY",
       "region": "NY",
       "slug": "nyc",
       "flyer": "flyers-cities/nyc.png",
-      "art": "flyers-cities/web/nyc.webp"
+      "art": "flyers-cities/web/nyc.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "BUFFALO",
       "region": "NY",
       "slug": "buffalo",
       "flyer": "flyers-cities/buffalo.png",
-      "art": "flyers-cities/web/buffalo.webp"
+      "art": "flyers-cities/web/buffalo.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "BOSTON",
@@ -196,21 +229,30 @@
       "region": "MN",
       "slug": "twin-cities",
       "flyer": "flyers-cities/twin-cities.png",
-      "art": "flyers-cities/web/twin-cities.webp"
+      "art": "flyers-cities/web/twin-cities.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "OAKLAND",
       "region": "CA",
       "slug": "oakland",
       "flyer": "flyers-cities/oakland.png",
-      "art": "flyers-cities/web/oakland.webp"
+      "art": "flyers-cities/web/oakland.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "LOS ANGELES",
       "region": "CA",
       "slug": "los-angeles",
       "flyer": "flyers-cities/los-angeles.png",
-      "art": "flyers-cities/web/los-angeles.webp"
+      "art": "flyers-cities/web/los-angeles.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "SANTA CLARITA",
@@ -227,7 +269,10 @@
       "region": "ID",
       "slug": "boise",
       "flyer": "flyers-cities/boise.png",
-      "art": "flyers-cities/web/boise.webp"
+      "art": "flyers-cities/web/boise.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "ACCRA",
@@ -235,7 +280,10 @@
       "slug": "accra",
       "intl": true,
       "flyer": "flyers-cities/accra.png",
-      "art": "flyers-cities/web/accra.webp"
+      "art": "flyers-cities/web/accra.webp",
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants"
     },
     {
       "name": "STOCKHOLM",
