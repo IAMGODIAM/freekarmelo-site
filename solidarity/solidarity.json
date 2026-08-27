@@ -1,5 +1,5 @@
 {
-  "stamp": "AUG 27, 2026 · 06:15 CT",
+  "stamp": "AUG 27, 2026 · 06:30 CT",
   "rallyISO": "2026-08-29T19:00:00Z",
   "signupCount": "1,480",
   "posters": [
@@ -97,7 +97,9 @@
     {
       "name": "DALLAS",
       "region": "TX",
-      "slug": "dallas"
+      "slug": "dallas",
+      "flyer": "flyers-cities/dallas.jpg",
+      "art": "flyers-cities/web/dallas.webp"
     },
     {
       "name": "CHICAGO",
