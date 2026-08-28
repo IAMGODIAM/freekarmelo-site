@@ -901,8 +901,10 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
 
     /* §01 posters */
     $('#poster-grid').innerHTML = content.posters.map(function (p) {
+      /* href = the print-res sheet a supporter downloads;
+         src  = the light webp the grid actually paints (FK55). */
       return '<a class="poster" href="' + esc(p.src) + '" download>' +
-        '<img src="' + esc(p.src) + '" alt="' + esc(p.alt) + '" loading="lazy" decoding="async">' +
+        '<img src="' + esc(p.art || p.src) + '" alt="' + esc(p.alt) + '" loading="lazy" decoding="async">' +
         '<span class="poster-tag">' + esc(p.tag) + '</span>' +
         '<span class="poster-foot"><span>' + esc(p.title) + '</span><i aria-hidden="true">↓</i></span></a>';
     }).join('');

@@ -1,5 +1,5 @@
 {
-  "stamp": "AUG 27, 2026 · 06:55 CT",
+  "stamp": "AUG 28, 2026 · 03:35 CT",
   "rallyISO": "2026-08-29T19:00:00Z",
   "signupCount": "1,480",
   "posters": [
@@ -7,61 +7,71 @@
       "src": "flyers-master-23-cities/3c-the-broadside-1080x1350.png",
       "title": "THE BROADSIDE",
       "tag": "PRINT THIS ONE",
-      "alt": "Letterpress-style broadside listing all 23 solidarity cities"
+      "alt": "Letterpress-style broadside listing all 23 solidarity cities",
+      "art": "flyers-web/3c-the-broadside-1080x1350.webp"
     },
     {
       "src": "flyers-master-23-cities/3a-the-wall-1080x1350.png",
       "title": "THE WALL",
       "tag": "MASTER",
-      "alt": "Dark master flyer with Karmelo Anthony name set as a monument"
+      "alt": "Dark master flyer with Karmelo Anthony name set as a monument",
+      "art": "flyers-web/3a-the-wall-1080x1350.webp"
     },
     {
       "src": "flyers-master-23-cities/3b-the-cut-1080x1350.png",
       "title": "THE CUT",
       "tag": "MASTER",
-      "alt": "Duotone photo poster for the solidarity weekend"
+      "alt": "Duotone photo poster for the solidarity weekend",
+      "art": "flyers-web/3b-the-cut-1080x1350.webp"
     },
     {
       "src": "flyers-houston/houston-8-29-2pm-broadside-1080x1350.png",
       "title": "HOUSTON 8/29",
       "tag": "CITY",
-      "alt": "Houston solidarity flyer, August 29 at 2 PM CT"
+      "alt": "Houston solidarity flyer, August 29 at 2 PM CT",
+      "art": "flyers-web/houston-8-29-2pm-broadside-1080x1350.webp"
     },
     {
       "src": "flyers-final/solidarity-vertical-1080x1350.png",
       "title": "SOLIDARITY",
       "tag": "FEED",
-      "alt": "Vertical solidarity flyer"
+      "alt": "Vertical solidarity flyer",
+      "art": "flyers-web/solidarity-vertical-1080x1350.webp"
     },
     {
       "src": "flyers-final/solidarity-square-1080x1080.png",
       "title": "SQUARE",
       "tag": "FEED",
-      "alt": "Square solidarity graphic"
+      "alt": "Square solidarity graphic",
+      "art": "flyers-web/solidarity-square-1080x1080.webp"
     },
     {
       "src": "flyers-final/solidarity-story-1080x1920.png",
       "title": "STORY",
       "tag": "STORY",
-      "alt": "Story-format solidarity graphic"
+      "alt": "Story-format solidarity graphic",
+      "art": "flyers-web/solidarity-story-1080x1920.webp"
     },
     {
       "src": "flyers-final/black-august-vertical-1080x1350.png",
       "title": "BLACK AUGUST",
       "tag": "CAMPAIGN",
-      "alt": "Black August campaign flyer"
+      "alt": "Black August campaign flyer",
+      "art": "flyers-web/black-august-vertical-1080x1350.webp"
     },
     {
       "src": "flyers-final/victory-01-vertical-1080x1350.png",
       "title": "RECUSAL WON",
       "tag": "AUG 19",
-      "alt": "Graphic announcing the trial judge was recused from the case"
+      "alt": "Graphic announcing the trial judge was recused from the case",
+      "art": "flyers-web/victory-01-vertical-1080x1350.webp"
     },
     {
       "src": "flyers-final/hearing-watch-vertical-1080x1350.png",
       "title": "HEARING WATCH",
       "tag": "ARCHIVE",
-      "alt": "Hearing watch flyer"
+      "alt": "Hearing watch flyer",
+      "art": "flyers-web/hearing-watch-vertical-1080x1350.webp"
     }
   ],
   "cities": [
