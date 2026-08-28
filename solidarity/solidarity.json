@@ -1,5 +1,5 @@
 {
-  "stamp": "AUG 28, 2026 · 04:40 CT",
+  "stamp": "AUG 28, 2026 · 05:20 CT",
   "rallyISO": "2026-08-29T19:00:00Z",
   "signupCount": "1,480",
   "posters": [
@@ -90,7 +90,7 @@
       "name": "ATLANTA",
       "region": "GA",
       "slug": "atlanta",
-      "flyer": "flyers-cities/atlanta-dekalb.jpg",
+      "flyer": "flyers-cities/atlanta-dekalb.png",
       "art": "flyers-cities/web/atlanta-dekalb.webp",
       "status": "locked",
       "when": "SUN AUG 30 · 10 AM–12 PM ET",
@@ -102,7 +102,7 @@
       "name": "DEKALB",
       "region": "GA",
       "slug": "dekalb",
-      "flyer": "flyers-cities/atlanta-dekalb.jpg",
+      "flyer": "flyers-cities/atlanta-dekalb.png",
       "art": "flyers-cities/web/atlanta-dekalb.webp",
       "status": "locked",
       "when": "SUN AUG 30 · 10 AM–12 PM ET",
@@ -334,7 +334,7 @@
       "flyer": "flyers-cities/accra.png",
       "art": "flyers-cities/web/accra.webp",
       "status": "locked",
-      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "when": "SUN AUG 30 · 3:00 PM GMT",
       "where": "Meet point sent to registrants",
       "lat": 5.604,
       "lng": -0.187
