@@ -1,0 +1,35 @@
+name: Site standard
+
+# Runs on every push and pull request. A failure blocks the merge, so a page
+# can never ship without analytics, without an h1, or with a link that goes
+# nowhere — the three things that have actually broken this site before.
+
+on:
+  push:
+    branches: [main]
+    paths: ['**.html', 'tools/**', '.github/workflows/quality.yml']
+  pull_request:
+    paths: ['**.html', 'tools/**']
+  workflow_dispatch:
+
+jobs:
+  standard:
+    name: Check every page
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Enforce the site standard
+        run: node tools/check-pages.mjs
+
+      - name: What this checks
+        if: failure()
+        run: |
+          echo "One or more pages broke the site standard."
+          echo "Run it yourself before pushing:  node tools/check-pages.mjs"
+          echo "The rules live in SITE-STANDARD.md - every one of them exists"
+          echo "because that exact thing went wrong on this site once."
