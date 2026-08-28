@@ -364,7 +364,7 @@ body.nav-open { overflow: hidden; }
   border-radius: 999px; background: var(--bg-1);
   margin-bottom: 28px;
 }
-.hero h1 {
+.hero h1, .hero h2 {
   font-size: clamp(36px, 7.5vw, 72px);  /* FIXED: Was clamp(52px, 10vw, 120px) - caused line collision at mobile */
   font-weight: 700;
   letter-spacing: -0.03em;  /* FIXED: Was -0.05em - too tight */
@@ -374,13 +374,13 @@ body.nav-open { overflow: hidden; }
   word-break: keep-all;  /* ADDED: Prevent mid-word breaks */
   overflow-wrap: anywhere;  /* ADDED: Safety net */
 }
-.hero h1 em {
+.hero h1 em, .hero h2 em {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
   color: var(--purple-light);
 }
-.hero h1 .dim { color: var(--fg-dimmer); }
+.hero h1 .dim, .hero h2 .dim { color: var(--fg-dimmer); }
 .hero-sub {
   font-size: clamp(16px, 2.2vw, 20px);  /* FIXED: Slightly smaller max for mobile */
   line-height: 1.65;  /* FIXED: Was 1.6 */
@@ -1108,7 +1108,7 @@ body {
   .ticker, .nav, .wear-purple-bar, .signup-section, .foot, .print-sign-cta,
   .lw-write, .lw-sharebar, .lw-more, .carousel-hint { display: none !important; }
   .hero { padding: 40px 0; }
-  .hero h1 { font-size: 48px; color: #000; }
+  .hero h1, .hero h2 { font-size: 48px; color: #000; }
   .stat-strip { border: 1px solid #ccc; }
   .carousel-track { display: flex; overflow: visible; gap: 20px; }
   .carousel-slide { width: 200px; flex-shrink: 0; page-break-inside: avoid; }
@@ -1492,10 +1492,269 @@ body {
       .kd-panel:hover img{transform:none;}
     }
   </style>
+<style>
+/* ============================================================
+   ROSTER HERO + SUBPAGE CARDS + MOBILE NAV HARDENING
+   Added 2026-08-28. Scoped classes (rw-*, sx-*) — no collisions.
+   ============================================================ */
+
+/* ---------- 1. THE ROSTER HERO ---------- */
+.rw{
+  position:relative;
+  padding:34px 20px 34px;
+  background:
+    radial-gradient(120% 90% at 50% -20%, rgba(155,89,182,.16), transparent 62%),
+    linear-gradient(180deg,#060410,#0a0718);
+  border-bottom:1px solid var(--border,#241d3f);
+  overflow:hidden;
+}
+.rw-in{max-width:1100px;margin:0 auto}
+.rw-kick{
+  font-family:var(--mono,ui-monospace,monospace);
+  font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:#c9a84c;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1.7;
+}
+.rw-live{
+  width:6px;height:6px;border-radius:50%;background:#ff4d4d;flex:none;
+  box-shadow:0 0 0 0 rgba(255,77,77,.6);animation:rwpulse 2s infinite;
+}
+@keyframes rwpulse{
+  0%{box-shadow:0 0 0 0 rgba(255,77,77,.5)}
+  70%{box-shadow:0 0 0 8px rgba(255,77,77,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,77,77,0)}
+}
+.rw h1.rw-h1{
+  font-family:var(--serif,Georgia,serif);
+  font-weight:700;
+  font-size:clamp(42px,13.5vw,104px);
+  line-height:.88;letter-spacing:-.022em;
+  margin:16px 0 0;color:var(--fg,#f0edfb);
+  text-wrap:balance;
+}
+.rw h1.rw-h1 em{font-style:normal;display:block;color:#dcc079}
+.rw-cd{display:flex;gap:7px;margin-top:20px;max-width:430px}
+.rw-cd div{
+  flex:1;border:1px solid #352b58;border-radius:9px;
+  background:rgba(255,255,255,.03);padding:9px 4px;text-align:center;
+}
+.rw-cd b{
+  display:block;font-family:var(--mono,monospace);
+  font-size:clamp(20px,5.8vw,28px);font-weight:500;
+  color:var(--fg,#f0edfb);font-variant-numeric:tabular-nums;line-height:1.1;
+}
+.rw-cd i{
+  display:block;font-family:var(--mono,monospace);font-size:8.5px;
+  letter-spacing:.15em;color:#635b88;font-style:normal;margin-top:3px;
+}
+.rw-cta{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.rw-btn{
+  font-size:14px;font-weight:600;padding:13px 22px;border-radius:10px;
+  border:1px solid transparent;cursor:pointer;text-decoration:none;
+  display:inline-block;line-height:1.2;transition:background .15s,border-color .15s;
+}
+.rw-btn.p{background:var(--purple,#9b59b6);color:#fff}
+.rw-btn.p:hover{background:var(--purple-2,#8e44ad)}
+.rw-btn.g{background:transparent;color:var(--fg,#f0edfb);border-color:#352b58}
+.rw-btn.g:hover{border-color:#c39bd3}
+.rw-rule{height:1px;background:linear-gradient(90deg,#c9a84c,transparent);margin:26px 0 16px}
+.rw-lab{
+  font-family:var(--mono,monospace);font-size:10px;letter-spacing:.17em;
+  text-transform:uppercase;color:#968fbc;
+}
+.rw-roster{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px 0}
+.rw-roster span{
+  font-family:var(--mono,monospace);font-size:11.5px;
+  color:#968fbc;letter-spacing:.02em;white-space:nowrap;
+}
+.rw-roster span::after{content:"\00B7";color:#352b58;margin:0 7px}
+.rw-roster span:last-child::after{content:""}
+.rw-roster span.intl{color:#dcc079}
+.rw-roster span.anchor{color:var(--fg,#f0edfb);font-weight:500;border-bottom:1px solid #c9a84c}
+.rw-status{
+  margin-top:20px;font-family:var(--mono,monospace);font-size:9.5px;
+  letter-spacing:.11em;color:#635b88;
+  text-transform:uppercase;line-height:1.9;
+}
+@media (min-width:820px){
+  .rw{padding:60px 32px 52px}
+  .rw-roster span{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){ .rw-live{animation:none} }
+
+/* ---------- 2. SUBPAGE CARDS ---------- */
+.sx{padding:64px 20px;background:linear-gradient(180deg,#0a0718,#060410);border-top:1px solid var(--border,#241d3f)}
+.sx-in{max-width:1100px;margin:0 auto}
+.sx-lab{
+  font-family:var(--mono,monospace);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:#c39bd3;
+}
+.sx h2.sx-h{
+  font-family:var(--serif,Georgia,serif);font-size:clamp(28px,6.5vw,42px);
+  font-weight:700;line-height:1.06;margin:10px 0 0;color:var(--fg,#f0edfb);text-wrap:balance;
+}
+.sx-sub{margin-top:10px;color:#968fbc;font-size:15.5px;max-width:62ch;line-height:1.6}
+.sx-grid{margin-top:26px;display:grid;gap:11px;grid-template-columns:1fr}
+@media (min-width:600px){.sx-grid{grid-template-columns:1fr 1fr}}
+@media (min-width:940px){.sx-grid{grid-template-columns:1fr 1fr 1fr}}
+.sx-card{
+  display:block;text-decoration:none;position:relative;
+  border:1px solid var(--border,#241d3f);border-radius:13px;
+  background:#100c20;padding:17px 17px 16px;
+  transition:border-color .16s,background .16s,transform .16s;
+}
+.sx-card:hover,.sx-card:focus-visible{border-color:#6d4a83;background:#161033;transform:translateY(-2px)}
+.sx-card .k{
+  font-family:var(--mono,monospace);font-size:9px;letter-spacing:.16em;
+  text-transform:uppercase;color:#8d84b5;
+}
+.sx-card h3{
+  font-family:var(--serif,Georgia,serif);font-size:21px;font-weight:600;
+  line-height:1.16;margin:7px 0 0;color:var(--fg,#f0edfb);
+}
+.sx-card p{margin-top:7px;font-size:14px;line-height:1.55;color:#968fbc}
+.sx-card .go{
+  margin-top:11px;font-family:var(--mono,monospace);font-size:10px;
+  letter-spacing:.13em;text-transform:uppercase;color:#c39bd3;
+}
+.sx-card.feat{border-color:rgba(201,168,76,.45);background:linear-gradient(160deg,rgba(201,168,76,.09),#100c20 60%)}
+.sx-card.feat .k{color:#dcc079}
+.sx-card.feat .go{color:#dcc079}
+.sx-card.feat:hover{border-color:#c9a84c;background:linear-gradient(160deg,rgba(201,168,76,.14),#161033 60%)}
+@media (min-width:600px){.sx-card.feat{grid-column:1 / -1}}
+
+/* ---------- 3. MOBILE NAV - HARDENED ----------
+   Comes last, so it wins. Guarantees the panel stacks full-width
+   and the More list flows inline instead of overlaying the page. */
+@media (max-width:860px){
+  .nav-inner{position:relative}
+  .nav .nav-groups{
+    position:absolute;left:0;right:0;top:100%;
+    display:none;flex-direction:column;align-items:stretch;
+    gap:0;padding:6px 0 10px;margin:0;
+    background:#0b0818;border-top:1px solid var(--border,#241d3f);
+    border-bottom:1px solid var(--border,#241d3f);
+    box-shadow:0 22px 44px rgba(0,0,0,.6);
+    max-height:calc(100vh - 110px);overflow-y:auto;-webkit-overflow-scrolling:touch;
+    z-index:80;
+  }
+  .nav .nav-groups.open{display:flex}
+  .nav .nav-group{
+    display:flex;flex-direction:column;align-items:stretch;
+    width:100%;gap:0;border:0;padding:0;margin:0;
+  }
+  .nav .nav-group + .nav-group{border-top:1px solid var(--border,#241d3f);margin-top:6px;padding-top:6px}
+  .nav .nav-group + .nav-group::before{display:none !important;content:none !important}
+  .nav .nav-group .nav-tab,
+  .nav .nav-group .nav-action,
+  .nav .nav-group .nav-more-summary{
+    display:flex;align-items:center;width:100%;
+    min-height:46px;padding:0 20px;margin:0;
+    font-size:15px;line-height:1.3;text-align:left;
+    background:transparent;border:0;border-radius:0;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .nav .nav-group-primary .nav-tab.active{
+    color:#c39bd3;box-shadow:inset 3px 0 0 #9b59b6;background:rgba(155,89,182,.07);
+  }
+  .nav .nav-more{position:static}
+  .nav .nav-more-panel{
+    position:static !important;display:none;
+    width:100%;min-width:0;margin:0;padding:0;
+    background:rgba(255,255,255,.022);border:0;border-radius:0;
+    box-shadow:none;transform:none;
+  }
+  .nav .nav-more[open] .nav-more-panel{display:block}
+  .nav .nav-more-panel .nav-tab{padding-left:34px;font-size:14px;min-height:42px}
+}
+@media (max-width:480px){
+  .nav .nav-groups{max-height:calc(100vh - 96px)}
+  .nav .nav-group .nav-tab,
+  .nav .nav-group .nav-action,
+  .nav .nav-group .nav-more-summary{font-size:14.5px;padding:0 16px}
+}
+
+</style>
+
+<!-- ══ SOLIDARITY WEEKEND HERO (The Roster) — added 2026-08-28 ══ -->
+<section class="rw" id="weekend">
+  <div class="rw-in">
+    <div class="rw-kick"><span class="rw-live"></span>August 29&ndash;30, 2026 &middot; 23 cities &middot; 3 countries</div>
+
+    <h1 class="rw-h1">WE WERE<em>COMING</em><em>ANYWAY.</em></h1>
+
+    <div class="rw-cd" id="rwCd" aria-label="Countdown to the Solidarity Weekend">
+      <div><b data-d>&ndash;</b><i>DAYS</i></div>
+      <div><b data-h>&ndash;</b><i>HRS</i></div>
+      <div><b data-m>&ndash;</b><i>MIN</i></div>
+      <div><b data-s>&ndash;</b><i>SEC</i></div>
+    </div>
+
+    <div class="rw-cta">
+      <a href="/solidarity" class="rw-btn p">Find your city &rarr;</a>
+      <a href="#signup" class="rw-btn g" onclick="event.preventDefault();document.getElementById('signup').scrollIntoView({behavior:'smooth',block:'start'})">Add your name</a>
+    </div>
+
+    <div class="rw-rule"></div>
+    <div class="rw-lab">The weekend, in full</div>
+    <div class="rw-roster" id="rwRoster"></div>
+
+    <p class="rw-status">
+      Convicted June&nbsp;9,&nbsp;2026 &middot; Sentenced to 35&nbsp;years<br>
+      Motion for new trial denied Aug&nbsp;22 &middot; Appeal filed
+    </p>
+  </div>
+</section>
+<script>
+(function(){
+  var CITIES=[["Houston"],["Atlanta"],["DeKalb"],["Dallas"],["Chicago"],["Evanston"],["Gary"],["Kenosha"],
+    ["New Orleans"],["Baton Rouge"],["Miami"],["Tampa"],["Bradenton"],["New York"],["Buffalo"],["Boston"],
+    ["Twin Cities"],["Oakland"],["Los Angeles"],["Santa Clarita"],["Boise"],["Accra","intl"],["Stockholm","intl"]];
+  var r=document.getElementById('rwRoster');
+  if(r){
+    CITIES.forEach(function(c){
+      var s=document.createElement('span');
+      s.textContent=c[0];
+      if(c[1]) s.className=c[1];
+      r.appendChild(s);
+    });
+    var a=document.createElement('span');
+    a.textContent='McKinney, TX — the courthouse';
+    a.className='anchor';
+    r.appendChild(a);
+  }
+  var el=document.getElementById('rwCd'); if(!el) return;
+  var TARGET=new Date(2026,7,29,0,0,0).getTime();  /* Aug 29 2026, local */
+  var END=new Date(2026,7,31,0,0,0).getTime();     /* end of the weekend */
+  var d0=el.querySelector('[data-d]'),h0=el.querySelector('[data-h]'),
+      m0=el.querySelector('[data-m]'),s0=el.querySelector('[data-s]');
+  function pad(n){return n<10?'0'+n:''+n;}
+  function tick(){
+    var now=Date.now(), diff=TARGET-now;
+    if(diff<=0){
+      if(now<END){
+        el.innerHTML='<div style="flex:1;text-align:left;padding:9px 0;font-family:var(--mono,monospace);'+
+          'font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:#dcc079;border:0;background:none">'+
+          'The weekend is underway &mdash; 23 cities are out right now.</div>';
+      } else {
+        el.style.display='none';
+      }
+      return;
+    }
+    d0.textContent=Math.floor(diff/864e5);
+    h0.textContent=pad(Math.floor(diff%864e5/36e5));
+    m0.textContent=pad(Math.floor(diff%36e5/6e4));
+    s0.textContent=pad(Math.floor(diff%6e4/1e3));
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+
+
   <section class="kd-hero">
     <div class="kd-wrap">
       <div class="kd-eyebrow">In Solidarity With Black Lives Matter Grassroots<span class="dot"></span>Self-Defense Is Not A Crime</div>
-      <h1 class="kd-name"><span class="free">Free</span>Karmelo Anthony</h1>
+      <h2 class="kd-name"><span class="free">Free</span>Karmelo Anthony</h2>
       <p class="kd-tag">He is a <b>child.</b> &nbsp;He is a <b>hero.</b></p>
 
       <div class="kd-diptych">
@@ -1517,10 +1776,10 @@ body {
       </div>
 
       <div class="kd-cta">
-        <a href="#stand" class="kd-btn primary" data-conv="stand">💜 Stand With Him</a>
+        <a href="#letters" class="kd-btn primary" data-conv="stand">💜 Stand With Him</a>
         <a href="#signup" class="kd-btn ghost">Add Your Name →</a>
       </div>
-      <p class="kd-meta"><span class="live"></span>Convicted June 9, 2026 · Appeal Underway · Collin County, TX</p>
+      <p class="kd-meta"><span class="live"></span>Convicted June 9, 2026 · New Trial Denied Aug 22 &middot; Appeal Filed · Collin County, TX</p>
     </div>
   </section>
 
@@ -1534,7 +1793,7 @@ body {
 <div class="ticker">
   <div class="ticker-inner">
     <div class="ticker-left">
-      <div class="live-pill"><span class="live-dot"></span> Convicted June 9, 2026 · Appeal Underway · Collin County, TX</div>
+      <div class="live-pill"><span class="live-dot"></span> Convicted June 9, 2026 · New Trial Denied Aug 22 &middot; Appeal Filed · Collin County, TX</div>
       <span class="ticker-sep">/</span>
       <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-dimmer);">People v. Anthony · 296th District Court</span>
     </div>
@@ -1592,7 +1851,7 @@ body {
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">💜 Convicted — and Appealing · Stand With Karmelo</div>
-    <h1>He Is <em>a Child.</em><br/><span class="dim">He Has the Right</span><br/>to Defend Himself.</h1>
+    <h2>He Is <em>a Child.</em><br/><span class="dim">He Has the Right</span><br/>to Defend Himself.</h2>
     <p class="hero-sub">
       <strong>Karmelo Sincere Anthony was 17 years old</strong> at the time of a fatal altercation at a high school track meet in <strong>Frisco, Texas</strong>. His defense maintains that he acted in self-defense.
       On <strong>June 9, 2026</strong>, a Collin County jury convicted him of murder and sentenced him to <strong>35 years</strong>. A motion for new trial and a recusal motion are pending, and a notice of appeal has been filed. His family was also targeted with a viral disinformation campaign that Snopes rated <strong>FALSE.</strong> The fight is not over.
@@ -1700,7 +1959,7 @@ body {
     
   <div class="lw-inner">
     <div class="lw-eyebrow">💜 The Living Letter Wall</div>
-    <h1 class="lw-title">Post Him a <em>Public Word.</em></h1>
+    <h2 class="lw-title">Post Him a <em>Public Word.</em></h2>
     <p class="lw-sub">Every message left above appears here, so Karmelo and the whole world can see he is not alone. <a href="#signup" style="color:var(--purple-light);text-decoration:underline">Add your message ↑</a></p>
     <div class="lw-counter"><b id="lwCount">—</b> letters and counting</div>
     <div class="lw-sharebar" aria-label="Share the Letter Wall">
@@ -2331,6 +2590,97 @@ io.observe(b);})();
 
 <!-- ════════════════════════════════════ -->
 <!-- SIGN UP                             -->
+<!-- ══ WHERE TO GO NEXT — subpage index, added 2026-08-28 ══ -->
+<section class="sx" id="explore">
+  <div class="sx-in">
+    <div class="sx-lab">The whole campaign</div>
+    <h2 class="sx-h">Where to go next.</h2>
+    <p class="sx-sub">Eleven pages, each doing one job. The record, the actions, the materials &mdash; take whichever one you came for.</p>
+
+    <div class="sx-grid">
+
+      <a class="sx-card feat" href="/solidarity">
+        <div class="k">Happening now &middot; Aug 29&ndash;30</div>
+        <h3>Worldwide Solidarity Weekend</h3>
+        <p>Twenty-three cities across three countries, from Houston to Accra to Stockholm, with the anchor action at the Collin County courthouse. Find your city, or start one.</p>
+        <div class="go">Find your city &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/updates">
+        <div class="k">The record</div>
+        <h3>Updates &amp; Evidence</h3>
+        <p>The trial and post-trial record with the primary sources beside it &mdash; the on-camera family interview and the State&rsquo;s own arrest affidavit. Read them yourself.</p>
+        <div class="go">Read the record &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/hearings">
+        <div class="k">The record</div>
+        <h3>Hearing Watch</h3>
+        <p>Two days, one court. The Motion to Recuse and the Motion for New Trial, watched and written down as they happened in Collin County.</p>
+        <div class="go">See what happened &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/statement">
+        <div class="k">The record</div>
+        <h3>The Statement</h3>
+        <p>Black Lives Matter Grassroots on the conviction and the 35-year sentence, in their own words and unedited.</p>
+        <div class="go">Read the statement &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/bar-complaint">
+        <div class="k">Take action</div>
+        <h3>File a Bar Complaint</h3>
+        <p>They let the jury believe a lie. File a grievance with the Texas State Bar against the Collin County prosecutors &mdash; the form is prefilled and it takes about ten minutes.</p>
+        <div class="go">File a grievance &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/events">
+        <div class="k">Take action</div>
+        <h3>Black August Events</h3>
+        <p>The verified event calendar &mdash; national rallies, local actions, and an organizer toolkit for anyone putting one together.</p>
+        <div class="go">See the calendar &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/teach-in">
+        <div class="k">Take action</div>
+        <h3>The Teach-In Series</h3>
+        <p>We teach. We write. We show up. Session recaps, the materials to run your own, and first word on the next one.</p>
+        <div class="go">Join a session &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/medicine">
+        <div class="k">Won &middot; keep watching</div>
+        <h3>His Medicine</h3>
+        <p>Karmelo has epilepsy, and Texas held his medication. The pressure worked &mdash; he is receiving it now. Here is what it took, and why the watch continues.</p>
+        <div class="go">What it took &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/mediakit">
+        <div class="k">Materials</div>
+        <h3>Media Kit</h3>
+        <p>Free, ready-to-post graphics. Download the full kit or grab a single image &mdash; every share keeps his name loud.</p>
+        <div class="go">Get the graphics &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/signs">
+        <div class="k">Materials</div>
+        <h3>Printable Signs</h3>
+        <p>Print-ready PNG, PDF and SVG. Download, print, and carry it at the rally. Let them see purple everywhere.</p>
+        <div class="go">Print a sign &rarr;</div>
+      </a>
+
+      <a class="sx-card" href="/flyers">
+        <div class="k">Materials</div>
+        <h3>Flyer Collection</h3>
+        <p>The full flyer family &mdash; wheatpaste-ready, posting-ready, and sized for every wall and window you can reach.</p>
+        <div class="go">Browse the flyers &rarr;</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
 <section class="signup-section" id="signup">
   <div class="signup-wrap">
     <div class="signup-head">
@@ -2493,7 +2843,7 @@ function copyLink(){if(window.fkTrackShare) window.fkTrackShare('signup_success'
   <div class="foot-inner">
     <div>
       <div class="foot-brand">Free Karmelo · Justice Coalition</div>
-      <div class="foot-brand sub">freekarmelo.net · freekarmelo.today<br/>✊🏿 In Solidarity with Black Lives Matter Grassroots<br/>Appeal Underway · We do not stop until he is free</div>
+      <div class="foot-brand sub">freekarmelo.net · freekarmelo.today<br/>✊🏿 In Solidarity with Black Lives Matter Grassroots<br/>New Trial Denied Aug 22 &middot; Appeal Filed · We do not stop until he is free</div>
       <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(155,89,182,0.2);">
         <span style="font-family:monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#5a3a6a;">Produced by</span><br/>
         <a href="https://e5enclave.com/justice/karmelo-anthony/" target="_blank" rel="noopener"
@@ -2668,7 +3018,7 @@ function switchTab(name, doScroll) {
 // ── COUNTDOWN TICKER ──
 function updateTicker() {
   var p = document.querySelector('.live-pill');
-  if (p) p.innerHTML = '<span class="live-dot"></span> Convicted June 9, 2026 · Appeal Underway · Collin County, TX';
+  if (p) p.innerHTML = '<span class="live-dot"></span> Convicted June 9, 2026 · New Trial Denied Aug 22 &middot; Appeal Filed · Collin County, TX';
 }
 updateTicker();
 
