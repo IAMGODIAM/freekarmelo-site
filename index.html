@@ -1582,6 +1582,27 @@ body {
 }
 @media (prefers-reduced-motion:reduce){ .rw-live{animation:none} }
 
+
+/* ---------- 1b. GPU FIELD (vgpu / WebGPU, progressive) ----------
+   Canvas sits behind the hero at opacity 0 and only fades in if
+   WebGPU initialised. Every failure path leaves the CSS gradient
+   exactly as it was. */
+.rw-gpu{
+  position:absolute;inset:0;width:100%;height:100%;
+  z-index:0;opacity:0;pointer-events:none;
+  transition:opacity 1400ms cubic-bezier(.4,0,.2,1);
+  display:block;
+}
+.rw-gpu.on{opacity:.9}
+.rw-scrim{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(120% 85% at 50% -15%, rgba(155,89,182,.22), transparent 60%),
+    linear-gradient(180deg, rgba(6,4,16,.62) 0%, rgba(6,4,16,.20) 38%, rgba(6,4,16,.72) 82%, rgba(6,4,16,.92) 100%);
+}
+.rw-in{position:relative;z-index:2}
+@media (prefers-reduced-motion:reduce){ .rw-gpu{display:none} }
+
 /* ---------- 2. SUBPAGE CARDS ---------- */
 .sx{padding:64px 20px;background:linear-gradient(180deg,#0a0718,#060410);border-top:1px solid var(--border,#241d3f)}
 .sx-in{max-width:1100px;margin:0 auto}
@@ -1678,6 +1699,8 @@ body {
 
 <!-- ══ SOLIDARITY WEEKEND HERO (The Roster) — added 2026-08-28 ══ -->
 <section class="rw" id="weekend">
+  <canvas class="rw-gpu" id="rwGpu" aria-hidden="true"></canvas>
+  <div class="rw-scrim" aria-hidden="true"></div>
   <div class="rw-in">
     <div class="rw-kick"><span class="rw-live"></span>August 29&ndash;30, 2026 &middot; 23 cities &middot; 3 countries</div>
 
@@ -1749,6 +1772,140 @@ body {
   tick(); setInterval(tick,1000);
 })();
 </script>
+
+<!-- ══ GPU FIELD — vgpu (vercel-labs) over WebGPU, progressive enhancement ══
+     Loads only when WebGPU exists, motion is not reduced and Save-Data is off.
+     Every failure path is caught and leaves the CSS gradient underneath, which
+     is the design on its own. API verified against vgpu 0.3.1: surface()
+     auto-resizes, frameLoop() drives, frame.pass(surface, effect). -->
+<script type="module">
+(function () {
+  var cv = document.getElementById('rwGpu');
+  if (!cv) return;
+  if (!('gpu' in navigator)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var conn = navigator.connection;
+  if (conn && (conn.saveData || /^(slow-)?2g$/.test(conn.effectiveType || ''))) return;
+
+  var WGSL = `
+struct Params { time: f32, aspect: f32, gain: f32, pad: f32 }
+@group(0) @binding(0) var<uniform> params: Params;
+
+fn hash(p: vec2f) -> f32 {
+  return fract(sin(dot(p, vec2f(127.1, 311.7))) * 43758.5453123);
+}
+fn noise(p: vec2f) -> f32 {
+  let i = floor(p);
+  let f = fract(p);
+  let u = f * f * (3.0 - 2.0 * f);
+  let a = hash(i);
+  let b = hash(i + vec2f(1.0, 0.0));
+  let c = hash(i + vec2f(0.0, 1.0));
+  let d = hash(i + vec2f(1.0, 1.0));
+  return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+fn fbm(p0: vec2f) -> f32 {
+  var v = 0.0;
+  var a = 0.5;
+  var p = p0;
+  for (var i: i32 = 0; i < 5; i = i + 1) {
+    v = v + a * noise(p);
+    p = p * 2.02;
+    a = a * 0.5;
+  }
+  return v;
+}
+
+@fragment fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
+  let p = vec2f(uv.x * params.aspect, uv.y) * 2.3;
+  let t = params.time * 0.030;
+
+  let q = vec2f(fbm(p + vec2f(0.0, t)),
+                fbm(p + vec2f(5.2, 1.3 - t)));
+  let r = vec2f(fbm(p + 3.6 * q + vec2f(1.7, 9.2) + t * 0.55),
+                fbm(p + 3.6 * q + vec2f(8.3, 2.8) - t * 0.38));
+  let f = fbm(p + 3.6 * r);
+
+  let deep   = vec3f(0.020, 0.014, 0.058);
+  let violet = vec3f(0.315, 0.150, 0.435);
+  let gold   = vec3f(0.790, 0.660, 0.300);
+
+  var col = mix(deep, violet, clamp(f * 1.22, 0.0, 1.0));
+  let hot = smoothstep(0.60, 0.93, f + 0.22 * r.x);
+  col = mix(col, gold, hot * 0.40);
+
+  let d = distance(uv, vec2f(0.5, 0.40));
+  col = col * (0.28 + 0.72 * smoothstep(1.00, 0.26, d));
+  col = col * (0.52 + 0.48 * smoothstep(0.0, 0.58, uv.y));
+
+  return vec4f(col * params.gain, 1.0);
+}`;
+
+  var vg = null, gpu = null, screen = null, fx = null, handle = null;
+  var t0 = 0, onscreen = true, dead = false;
+
+  function pass(f) {
+    fx.set({ params: {
+      time: (performance.now() - t0) / 1000,
+      aspect: cv.width / Math.max(1, cv.height),
+      gain: 1.0,
+      pad: 0.0
+    }});
+    f.pass(screen, fx);
+  }
+  function start() {
+    if (dead || handle || !fx) return;
+    try { handle = vg.frameLoop(gpu, pass); } catch (e) { kill(); }
+  }
+  function halt() {
+    if (!handle) return;
+    try { handle.stop(); } catch (e) {}
+    handle = null;
+  }
+  function kill() { dead = true; halt(); cv.classList.remove('on'); }
+
+  async function boot() {
+    try {
+      vg  = await import('https://cdn.jsdelivr.net/npm/vgpu@0.3.1/+esm');
+      gpu = await vg.init();
+
+      screen = vg.surface(gpu, cv, { dpr: [1, 1.5] });
+      fx     = vg.effect(gpu, WGSL);
+      t0     = performance.now();
+
+      try {
+        if (gpu.device) {
+          gpu.device.onuncapturederror = function () { kill(); };
+          if (gpu.device.lost && gpu.device.lost.then) gpu.device.lost.then(kill);
+        }
+      } catch (e) {}
+
+      cv.classList.add('on');
+      start();
+
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) halt(); else if (onscreen) start();
+      });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          onscreen = es[0].isIntersecting;
+          if (onscreen && !document.hidden) start(); else halt();
+        }, { threshold: 0 }).observe(cv);
+      }
+    } catch (e) {
+      kill();  /* silent — the CSS gradient underneath is the design */
+    }
+  }
+
+  function defer(fn) {
+    if ('requestIdleCallback' in window) requestIdleCallback(fn, { timeout: 2500 });
+    else setTimeout(fn, 900);
+  }
+  if (document.readyState === 'complete') defer(boot);
+  else window.addEventListener('load', function () { defer(boot); });
+})();
+</script>
+
 
 
   <section class="kd-hero">
