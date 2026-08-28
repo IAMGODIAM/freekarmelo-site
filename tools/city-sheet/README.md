@@ -6,7 +6,8 @@ can have its flyer without waiting on a designer.
 
 ```
 node make-sheet.mjs detroit            # one city
-node make-sheet.mjs --all              # rebuild every city on the roster
+node make-sheet.mjs --master           # the universal broadside (all cities + QR)
+node make-sheet.mjs --all              # refuses without --force-overwrite-organizer-art
 node make-sheet.mjs detroit --wire     # also point solidarity.json at the result
 node make-sheet.mjs detroit --site /path/to/solidarity
 ```
@@ -52,8 +53,14 @@ seconds that way, so a plain server or CI box is fine.
 **The existing city sheets are not ours to overwrite.** Most cities on the
 roster carry art made by their own organizers — BLM Grassroots chapters and
 local leads, with their own marks and their own voice. `--all` regenerates
-into those filenames. Run it only when you intend to replace organizer art,
-which is almost never. The tool exists for cities that have **no** sheet yet.
+into those filenames, so it refuses to run unless you add
+`--force-overwrite-organizer-art`. That guard exists because this was learned
+the hard way: a stray `--all --wire` replaced all 23 organizer sheets at once.
+The tool is for cities that have **no** sheet yet.
+
+**Dates and the roll come from the data.** `solidarity.json` carries a `dates`
+block (`headline`, `short`, `sub`); change the range there and every sheet
+picks it up on the next build. Nothing about the schedule is hard-coded.
 
 **Case language is fixed by design.** The sheet asserts nothing about the
 case. It carries the city, the dates, the meet point when one is confirmed,

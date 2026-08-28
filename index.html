@@ -1755,7 +1755,7 @@ body {
   <canvas class="rw-gpu" id="rwGpu" aria-hidden="true"></canvas>
   <div class="rw-scrim" aria-hidden="true"></div>
   <div class="rw-in">
-    <div class="rw-kick"><span class="rw-live"></span>August 29&ndash;30, 2026 &middot; 23 cities &middot; 3 countries</div>
+    <div class="rw-kick"><span class="rw-live"></span>August 29&ndash;31, 2026 &middot; Cities across the world</div>
 
     <h1 class="rw-h1">WE WERE<em>COMING</em><em>ANYWAY.</em></h1>
 
@@ -1811,7 +1811,7 @@ body {
       if(now<END){
         el.innerHTML='<div style="flex:1;text-align:left;padding:9px 0;font-family:var(--mono,monospace);'+
           'font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:#dcc079;border:0;background:none">'+
-          'The weekend is underway &mdash; 23 cities are out right now.</div>';
+          'The weekend is underway &mdash; cities across the world are out right now.</div>';
       } else {
         el.style.display='none';
       }
@@ -2839,9 +2839,9 @@ io.observe(b);})();
     <div class="sx-grid">
 
       <a class="sx-card feat" href="/solidarity">
-        <div class="k">Happening now &middot; Aug 29&ndash;30</div>
+        <div class="k">Happening now &middot; Aug 29&ndash;31</div>
         <h3>Worldwide Solidarity Weekend</h3>
-        <p>Twenty-three cities across three countries, from Houston to Accra to Stockholm, with the anchor action at the Collin County courthouse. Find your city, or start one.</p>
+        <p>Cities across the world, from Houston to Hartford to Accra to Jamaica to Stockholm, with the anchor action at the Collin County courthouse. Find your city, or start one.</p>
         <div class="go">Find your city &rarr;</div>
       </a>
 
@@ -2876,7 +2876,7 @@ io.observe(b);})();
       <a class="sx-card" href="/events">
         <div class="k">Take action</div>
         <h3>Black August Events</h3>
-        <p>The verified event calendar &mdash; national rallies, local actions, and an organizer toolkit for anyone putting one together.</p>
+        <p>The verified event calendar &mdash; worldwide rallies, local actions, and an organizer toolkit for anyone putting one together.</p>
         <div class="go">See the calendar &rarr;</div>
       </a>
 
@@ -3520,6 +3520,118 @@ window.switchTab = function(tab, doScroll) {
     }, { threshold: 0.45 });
     io.observe(sm);
   } else { setTimeout(sweep, 900); }
+})();
+</script>
+
+
+<!-- ══ FK57 · SOLIDARITY WEEKEND TAKEOVER ═══════════════════════════════════
+     Shown once per visitor, dismissible, and self-expiring: after Sept 1 the
+     script returns before doing anything, so nobody has to remember to remove
+     it. The homepage itself is untouched underneath — its signup and the Ad
+     Grant conversion keep working for anyone who dismisses or comes back.  -->
+<style>
+#fk-takeover{position:fixed;inset:0;z-index:9999;display:none;place-items:center;
+  padding:20px;background:rgba(6,4,12,.93);backdrop-filter:blur(10px);
+  font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif}
+#fk-takeover[data-open]{display:grid}
+#fk-takeover .fk-card{position:relative;width:min(880px,100%);max-height:92vh;overflow:auto;
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:0;
+  background:#0B0713;border:1px solid rgba(139,92,246,.42);box-shadow:0 30px 90px rgba(0,0,0,.6)}
+#fk-takeover .fk-rule{position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#3A2C14,#D9B36C 22%,#F0DCAC 50%,#8B5CF6 78%,#2A1A4A)}
+#fk-takeover .fk-art{background:#05030B;display:block}
+#fk-takeover .fk-art img{width:100%;height:100%;object-fit:cover;display:block}
+#fk-takeover .fk-body{padding:34px 32px 28px;display:flex;flex-direction:column;gap:14px}
+#fk-takeover .fk-eyebrow{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  font-size:10.5px;letter-spacing:.24em;color:#D9B36C;margin:0}
+#fk-takeover h2{font-family:'Archivo Black','Archivo',sans-serif;font-size:clamp(26px,4.4vw,38px);
+  line-height:1.02;letter-spacing:-.03em;color:#F7F3FB;margin:0;text-wrap:balance}
+#fk-takeover p{font-size:15px;line-height:1.6;color:#B7ACC9;margin:0}
+#fk-takeover .fk-go{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  background:#D9B36C;color:#0B0713;padding:16px 22px;text-decoration:none;
+  font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:12px;font-weight:600;
+  letter-spacing:.14em;margin-top:4px}
+#fk-takeover .fk-go:hover{background:#F0DCAC}
+#fk-takeover .fk-stay{background:none;border:0;padding:6px 0;cursor:pointer;text-align:left;
+  font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.12em;
+  color:#9C8FB5;text-decoration:underline}
+#fk-takeover .fk-stay:hover{color:#F7F3FB}
+#fk-takeover .fk-x{position:absolute;top:12px;right:12px;width:38px;height:38px;cursor:pointer;
+  background:rgba(8,5,16,.72);border:1px solid rgba(139,92,246,.4);color:#C9B2FF;font-size:17px;line-height:1}
+#fk-takeover .fk-x:hover{border-color:#D9B36C;color:#F0DCAC}
+#fk-takeover :focus-visible{outline:2px solid #D9B36C;outline-offset:2px}
+@media(max-width:720px){
+  #fk-takeover .fk-card{grid-template-columns:1fr}
+  #fk-takeover .fk-art{max-height:34vh}
+  #fk-takeover .fk-body{padding:24px 22px 22px}
+}
+</style>
+<div id="fk-takeover" role="dialog" aria-modal="true" aria-labelledby="fk-tk-h" aria-describedby="fk-tk-p">
+  <div class="fk-card">
+    <div class="fk-rule"></div>
+    <button class="fk-x" type="button" id="fk-tk-x" aria-label="Close">&#x2715;</button>
+    <a class="fk-art" href="/solidarity/" id="fk-tk-art" aria-label="Worldwide Solidarity Weekend flyer">
+      <img src="/solidarity/flyers-web/universal-broadside.webp"
+           alt="Worldwide Solidarity Weekend broadside for Karmelo Anthony" loading="eager" decoding="async">
+    </a>
+    <div class="fk-body">
+      <p class="fk-eyebrow">AUG 29&ndash;31 &middot; 2026 &middot; WORLDWIDE</p>
+      <h2 id="fk-tk-h">The weekend is here.</h2>
+      <p id="fk-tk-p">Cities across the world are standing for Karmelo Anthony this weekend &mdash; from Houston to Hartford to Accra to Jamaica to Stockholm. Find your city, get the sheet, add your name.</p>
+      <a class="fk-go" href="/solidarity/" id="fk-tk-go">SEE ALL THE CITIES<span aria-hidden="true">&rarr;</span></a>
+      <button class="fk-stay" type="button" id="fk-tk-stay">No thanks &mdash; stay on the homepage</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var END = new Date('2026-09-01T06:00:00Z');      /* through Aug 31, US time */
+  var KEY = 'fk_takeover_solidarity_2026';
+  var el = document.getElementById('fk-takeover');
+  if (!el) return;
+
+  /* never for: after the weekend, repeat visitors, anyone already heading to
+     /solidarity, an explicit ?nopopup, or a headless/preview agent */
+  if (Date.now() > END.getTime()) return;
+  if (/[?&]nopopup/.test(location.search)) return;
+  if (/\/solidarity/i.test(location.pathname)) return;
+  if (navigator.webdriver) return;
+  try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+
+  var lastFocus = null;
+  function close(reason) {
+    el.removeAttribute('data-open');
+    document.documentElement.style.overflow = '';
+    try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'solidarity_takeover', { action: reason, site: location.hostname });
+      }
+    } catch (e) {}
+  }
+  function open() {
+    lastFocus = document.activeElement;
+    el.setAttribute('data-open', '');
+    document.documentElement.style.overflow = 'hidden';
+    var go = document.getElementById('fk-tk-go');
+    if (go) go.focus();
+  }
+
+  document.getElementById('fk-tk-x').addEventListener('click', function () { close('dismissed'); });
+  document.getElementById('fk-tk-stay').addEventListener('click', function () { close('stayed'); });
+  document.getElementById('fk-tk-go').addEventListener('click', function () { close('went'); });
+  document.getElementById('fk-tk-art').addEventListener('click', function () { close('went'); });
+  el.addEventListener('click', function (e) { if (e.target === el) close('dismissed'); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && el.hasAttribute('data-open')) close('dismissed');
+  });
+
+  /* DOM-ready plus a short beat: the homepage carries a lot of media, and
+     waiting on window.load would hold the invitation back for seconds. */
+  function arm() { setTimeout(open, 350); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arm);
+  else arm();
 })();
 </script>
 

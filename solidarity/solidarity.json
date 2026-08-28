@@ -1,5 +1,5 @@
 {
-  "stamp": "AUG 28, 2026 · 03:35 CT",
+  "stamp": "AUG 28, 2026 · 04:40 CT",
   "rallyISO": "2026-08-29T19:00:00Z",
   "signupCount": "1,480",
   "posters": [
@@ -7,7 +7,7 @@
       "src": "flyers-master-23-cities/3c-the-broadside-1080x1350.png",
       "title": "THE BROADSIDE",
       "tag": "PRINT THIS ONE",
-      "alt": "Letterpress-style broadside listing all 23 solidarity cities",
+      "alt": "Letterpress-style broadside listing the solidarity cities",
       "art": "flyers-web/3c-the-broadside-1080x1350.webp"
     },
     {
@@ -351,6 +351,31 @@
       "where": "Wear purple · write to Karmelo · #FreeKarmelo",
       "lat": 59.329,
       "lng": 18.069
+    },
+    {
+      "name": "JAMAICA",
+      "region": "CARIBBEAN",
+      "slug": "jamaica",
+      "intl": true,
+      "lat": 17.971,
+      "lng": -76.793,
+      "status": "locked",
+      "when": "SAT AUG 29 · SYNCHRONIZED START",
+      "where": "Meet point sent to registrants",
+      "flyer": "flyers-cities/jamaica.png",
+      "art": "flyers-cities/web/jamaica.webp"
+    },
+    {
+      "name": "HARTFORD",
+      "region": "CT",
+      "slug": "hartford",
+      "lat": 41.764,
+      "lng": -72.685,
+      "status": "locked",
+      "when": "SAT AUG 29 · 7:30–8:30 PM ET",
+      "where": "Sterling Street Sanctuary · 75 Sterling St",
+      "flyer": "flyers-cities/hartford.png",
+      "art": "flyers-cities/web/hartford.webp"
     }
   ],
   "timeline": [
@@ -454,9 +479,14 @@
     },
     {
       "kind": "CAMPAIGN",
-      "quote": "We were coming anyway. A ruling on a Saturday does not cancel twenty-three cities.",
+      "quote": "We were coming anyway. A ruling on a Saturday does not cancel a weekend the world already committed to.",
       "who": "FREE KARMELO CAMPAIGN",
       "meta": "AUG 22, 2026"
     }
-  ]
+  ],
+  "dates": {
+    "headline": "AUG 29 - AUG 31",
+    "short": "8/29 -> 8/31",
+    "sub": "ALL THREE DAYS, EVERYWHERE"
+  }
 }

@@ -52,7 +52,13 @@ def width_of(text, font, track=0.0):
     return sum(d.textlength(c, font=font) for c in text) + track * max(0, len(text) - 1)
 
 def build(spec, bg_path, out_png, out_webp):
+    master = bool(spec.get("master"))
+    qr_path = spec.get("qr")
     city   = spec["city"]
+    dates  = spec.get("dates") or {}
+    d_head = dates.get("headline", "AUG 29 - AUG 31")
+    d_short= dates.get("short", "8/29 -> 8/31")
+    d_sub  = dates.get("sub", "ALL THREE DAYS, EVERYWHERE")
     roster = spec["roster"]                # [{name, region, slug, status, ...}]
     slug   = city["slug"]
 
@@ -75,8 +81,9 @@ def build(spec, bg_path, out_png, out_webp):
 
     # ── eyebrow ───────────────────────────────────────────────────────
     y = 72
-    tracked(d, (M, y), f"{city['name']} CALLS THE ROLL", mono(15, True), LILAC, 2.6)
-    tracked(d, (W - M, y), "8/29 -> 8/30", mono(15), MUTED, 2.6, anchor_right=True)
+    eyebrow = "THE ROLL, EVERYWHERE" if master else f"{city['name']} CALLS THE ROLL"
+    tracked(d, (M, y), eyebrow, mono(15, True), LILAC, 2.6)
+    tracked(d, (W - M, y), d_short, mono(15), MUTED, 2.6, anchor_right=True)
 
     # ── the name, the largest thing on the sheet ───────────────────────
     y = 138
@@ -86,16 +93,16 @@ def build(spec, bg_path, out_png, out_webp):
     # ── date line ─────────────────────────────────────────────────────
     y = 418
     date_f = black(52)
-    d.text((M - 3, y), "AUG 29 + AUG 30", font=date_f, fill=GOLD)
-    sub_f, sub = mono(14), "BOTH DAYS, EVERYWHERE"
-    sub_x = M - 3 + width_of("AUG 29 + AUG 30", date_f) + 26
+    d.text((M - 3, y), d_head, font=date_f, fill=GOLD)
+    sub_f, sub = mono(14), d_sub
+    sub_x = M - 3 + width_of(d_head, date_f) + 26
     if sub_x + width_of(sub, sub_f, 2.2) > W - M:
         sub_x = W - M - width_of(sub, sub_f, 2.2)
     tracked(d, (sub_x, y + 30), sub, sub_f, MUTED, 2.2)
 
     # ── confirmed strip, only when the lead has locked a time ─────────
     y = 500
-    if city.get("status") == "locked" and city.get("when"):
+    if (not master) and city.get("status") == "locked" and city.get("when"):
         d.rectangle([M, y, M + 4, y + 74], fill=GOLD)
         tracked(d, (M + 20, y + 4), "CONFIRMED", mono(12, True), GOLD, 2.4)
         d.text((M + 20, y + 24), city["when"], font=sans(25, "Bold"), fill=GOLD_LT)
@@ -109,11 +116,14 @@ def build(spec, bg_path, out_png, out_webp):
     # ── the roll call ─────────────────────────────────────────────────
     d.line([(M, y), (W - M, y)], fill=(139, 92, 246, 90), width=1)
     y += 26
-    others = [c for c in roster if c["slug"] != slug]
-    others.sort(key=lambda c: (c.get("status") != "locked",))
-    shown = [city] + others[:8]
+    if master:
+        shown = list(roster)[:12]
+    else:
+        others = [c for c in roster if c["slug"] != slug]
+        others.sort(key=lambda c: (c.get("status") != "locked",))
+        shown = [city] + others[:8]
     for i, c in enumerate(shown):
-        me = c["slug"] == slug
+        me = (not master) and c["slug"] == slug
         tracked(d, (M, y + 11), f"{i + 1:02d}", mono(13), GOLD if me else FAINT, 1.4)
         d.text((M + 52, y), c["name"], font=sans(31, "Bold" if me else "SemiBold"),
                fill=GOLD if me else LILAC)
@@ -132,6 +142,11 @@ def build(spec, bg_path, out_png, out_webp):
     tracked(d, (M, y), "HOW THE ROLL GETS ANSWERED", mono(12, True), FAINT, 2.6)
     d.text((M - 2, y + 22), "Wear purple  ·  Write him a letter  ·  Post it and tag it",
            font=sans(27, "Bold"), fill=PAPER)
+
+    if master and qr_path and os.path.exists(qr_path):
+        q = Image.open(qr_path).convert("RGB").resize((132, 132), Image.LANCZOS)
+        im.paste(q, (W - M - 132, 1120))
+        tracked(d, (W - M - 132, 1260), "SCAN FOR YOUR CITY", mono(10, True), GOLD, 1.6)
 
     # ── footer ────────────────────────────────────────────────────────
     d.line([(M, 1268), (W - M, 1268)], fill=(139, 92, 246, 80), width=1)
