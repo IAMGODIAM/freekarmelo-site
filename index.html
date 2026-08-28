@@ -3052,6 +3052,20 @@ io.observe(b);})();
       }
       form.style.display='none';
       var s=document.getElementById('successState'); s.style.display='block';
+      /* ── Ad Grant conversion ────────────────────────────────────────────
+         Only reached after the worker returns OK, so it counts real leads.
+         Wrapped so a analytics failure can never break the thank-you state. */
+      try{
+        if(typeof gtag==='function'){
+          gtag('event','generate_lead',{
+            form_type:'signup',
+            lead_source:'freekarmelo_unified_hero',
+            site:location.hostname,
+            value:5.0,
+            currency:'USD'
+          });
+        }
+      }catch(_e){}
       var hd=document.getElementById('successHd'), msg=document.getElementById('successMsg');
       if(j.wall_status==='approved'){hd.textContent='Your message is live on the wall.';msg.textContent='Karmelo will know you stood with him.';}
       else if(j.wall_status==='held'){hd.textContent='Thank you — your message is in review.';msg.textContent='It will appear on the wall shortly after a quick board glance.';}
