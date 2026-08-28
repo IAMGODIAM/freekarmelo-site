@@ -1,0 +1,16 @@
+{
+  "name": "fk-city-sheet",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Generate a Free Karmelo solidarity city sheet from solidarity.json",
+  "scripts": {
+    "sheet": "node make-sheet.mjs",
+    "all": "node make-sheet.mjs --all",
+    "doctor": "vgpu doctor"
+  },
+  "dependencies": {
+    "vgpu": "^0.3.1",
+    "pngjs": "^7.0.0"
+  }
+}
