@@ -1603,6 +1603,59 @@ body {
 .rw-in{position:relative;z-index:2}
 @media (prefers-reduced-motion:reduce){ .rw-gpu{display:none} }
 
+
+/* ---------- 1c. THE SEAM — replaces the static diptych ---------- */
+.sm{
+  position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;
+  background:#0a0718;border-radius:10px;
+  touch-action:pan-y;cursor:ew-resize;
+  --seam:50%;
+  user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;
+}
+@media(min-width:760px){ .sm{aspect-ratio:16/10} }
+.sm:focus-visible{outline:2px solid #c9a84c;outline-offset:3px}
+.sm-lyr{position:absolute;inset:0}
+.sm-lyr picture,.sm-lyr img{display:block;width:100%;height:100%}
+.sm-lyr img{object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.sm-top{clip-path:inset(0 calc(100% - var(--seam)) 0 0)}
+.sm-bar{
+  position:absolute;top:0;bottom:0;left:var(--seam);width:2px;transform:translateX(-1px);
+  background:linear-gradient(180deg,transparent,#c39bd3 18%,#c9a84c 50%,#c39bd3 82%,transparent);
+  box-shadow:0 0 24px 3px rgba(195,155,211,.5);pointer-events:none;
+}
+.sm-grip{
+  position:absolute;top:50%;left:var(--seam);width:46px;height:46px;margin:-23px 0 0 -23px;
+  border-radius:50%;border:1px solid rgba(240,237,251,.5);background:rgba(6,4,16,.55);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:grid;place-items:center;pointer-events:none;
+  font-family:var(--mono,monospace);font-size:13px;color:#f0edfb;letter-spacing:-.08em;
+}
+.sm-scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,4,16,.30) 0%,transparent 26%,transparent 50%,rgba(6,4,16,.86) 100%);
+}
+.sm-plate{position:absolute;bottom:0;padding:16px 16px 18px;pointer-events:none;max-width:62%;margin:0}
+.sm-plate.sm-l{left:0}
+.sm-plate.sm-r{right:0;text-align:right}
+.sm-plate .role{
+  font-family:var(--mono,monospace);font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:#dcc079;
+}
+.sm-plate .cap{
+  font-family:var(--serif,Georgia,serif);font-size:clamp(20px,5.2vw,30px);
+  line-height:1.12;margin-top:5px;color:#f0edfb;
+  text-shadow:0 2px 18px rgba(6,4,16,.95);
+}
+.sm-hint{
+  position:absolute;top:12px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono,monospace);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(240,237,251,.75);background:rgba(6,4,16,.5);
+  border:1px solid rgba(240,237,251,.2);padding:5px 12px;border-radius:999px;
+  pointer-events:none;transition:opacity .5s;
+}
+.sm.touched .sm-hint{opacity:0}
+@media (prefers-reduced-motion:reduce){ .sm-hint{display:none} }
+
 /* ---------- 2. SUBPAGE CARDS ---------- */
 .sx{padding:64px 20px;background:linear-gradient(180deg,#0a0718,#060410);border-top:1px solid var(--border,#241d3f)}
 .sx-in{max-width:1100px;margin:0 auto}
@@ -1914,22 +1967,51 @@ fn fbm(p0: vec2f) -> f32 {
       <h2 class="kd-name"><span class="free">Free</span>Karmelo Anthony</h2>
       <p class="kd-tag">He is a <b>child.</b> &nbsp;He is a <b>hero.</b></p>
 
-      <div class="kd-diptych">
-        <figure class="kd-panel left" style="margin:0;">
-          <img src="assets/sharp_hero2.jpg" alt="Karmelo Anthony — school portrait in navy blazer and striped tie" loading="eager"/>
-          <figcaption class="kd-plate">
-            <div class="role">The Child</div>
-            <div class="cap">A scholar.<br/>A son.</div>
-          </figcaption>
-        </figure>
-        <div class="kd-seam"></div>
-        <figure class="kd-panel right" style="margin:0;">
-          <img src="assets/sharp_hero1.jpg" alt="Karmelo Anthony standing in a cream suit, arms crossed, poised and confident" loading="eager"/>
-          <figcaption class="kd-plate">
-            <div class="role">The Hero</div>
-            <div class="cap">Poised.<br/>Standing tall.</div>
-          </figcaption>
-        </figure>
+<!-- ══ THE SEAM — one frame, both truths, dragged ══ -->
+      <div class="sm" id="kdSeam" role="slider" tabindex="0"
+           aria-label="Drag to move between the two portraits of Karmelo Anthony"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"
+           aria-valuetext="Half the school portrait, half the formal portrait">
+
+        <div class="sm-lyr sm-bot">
+          <picture>
+            <source type="image/avif" sizes="(min-width:760px) 100vw, 100vw"
+              srcset="assets/r/sharp_hero1-480.avif 480w, assets/r/sharp_hero1-800.avif 800w, assets/r/sharp_hero1-1200.avif 1200w, assets/r/sharp_hero1-1600.avif 1600w">
+            <source type="image/webp" sizes="(min-width:760px) 100vw, 100vw"
+              srcset="assets/r/sharp_hero1-480.webp 480w, assets/r/sharp_hero1-800.webp 800w, assets/r/sharp_hero1-1200.webp 1200w, assets/r/sharp_hero1-1600.webp 1600w">
+            <img src="assets/r/sharp_hero1-800.jpg" width="2048" height="1626" fetchpriority="high"
+              sizes="(min-width:760px) 100vw, 100vw"
+              srcset="assets/r/sharp_hero1-480.jpg 480w, assets/r/sharp_hero1-800.jpg 800w, assets/r/sharp_hero1-1200.jpg 1200w, assets/r/sharp_hero1-1600.jpg 1600w"
+              alt="Karmelo Anthony standing in a cream suit, arms crossed, poised and confident">
+          </picture>
+        </div>
+
+        <div class="sm-lyr sm-top">
+          <picture>
+            <source type="image/avif" sizes="(min-width:760px) 100vw, 100vw"
+              srcset="assets/r/sharp_hero2-480.avif 480w, assets/r/sharp_hero2-800.avif 800w, assets/r/sharp_hero2-1200.avif 1200w">
+            <source type="image/webp" sizes="(min-width:760px) 100vw, 100vw"
+              srcset="assets/r/sharp_hero2-480.webp 480w, assets/r/sharp_hero2-800.webp 800w, assets/r/sharp_hero2-1200.webp 1200w">
+            <img src="assets/r/sharp_hero2-800.jpg" width="1448" height="2048" fetchpriority="high"
+              sizes="(min-width:760px) 100vw, 100vw"
+              srcset="assets/r/sharp_hero2-480.jpg 480w, assets/r/sharp_hero2-800.jpg 800w, assets/r/sharp_hero2-1200.jpg 1200w"
+              alt="Karmelo Anthony in a navy blazer and striped tie, school portrait">
+          </picture>
+        </div>
+
+        <div class="sm-scrim" aria-hidden="true"></div>
+        <div class="sm-bar" aria-hidden="true"></div>
+        <div class="sm-grip" aria-hidden="true">&#9666;&#9656;</div>
+        <div class="sm-hint" id="kdHint" aria-hidden="true">Drag</div>
+
+        <figcaption class="sm-plate sm-l">
+          <div class="role">The Child</div>
+          <div class="cap">A scholar.<br>A son.</div>
+        </figcaption>
+        <figcaption class="sm-plate sm-r">
+          <div class="role">The Hero</div>
+          <div class="cap">Poised.<br>Standing tall.</div>
+        </figcaption>
       </div>
 
       <div class="kd-cta">
@@ -3355,6 +3437,75 @@ window.switchTab = function(tab, doScroll) {
   function dr(){x.clearRect(0,0,W,H);for(var i=0;i<P.length;i++){var p=P[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fillStyle='rgba(195,155,211,.6)';x.fill();for(var j=i+1;j<P.length;j++){var q=P[j],dx=p.x-q.x,dy=p.y-q.y,d=dx*dx+dy*dy;if(d<13000){x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.strokeStyle='rgba(155,89,182,'+(.12*(1-d/13000))+')';x.lineWidth=.6;x.stroke();}}}raf=requestAnimationFrame(dr);}
   function go(){sz();ini();cancelAnimationFrame(raf);dr();}go();
   var to;window.addEventListener('resize',function(){clearTimeout(to);to=setTimeout(go,200);});
+})();
+</script>
+
+<script>
+/* ══ THE SEAM — pointer + keyboard, one auto-sweep to teach the gesture ══ */
+(function(){
+  var sm = document.getElementById('kdSeam');
+  if(!sm) return;
+  var LO = 12, HI = 88, cur = 50, dragging = false, taught = false;
+  var l = sm.querySelector('.sm-l'), r = sm.querySelector('.sm-r');
+
+  function set(p){
+    cur = Math.max(LO, Math.min(HI, p));
+    sm.style.setProperty('--seam', cur + '%');
+    if(l) l.style.opacity = Math.max(0, Math.min(1, (cur - 16) / 30));
+    if(r) r.style.opacity = Math.max(0, Math.min(1, (84 - cur) / 30));
+    sm.setAttribute('aria-valuenow', Math.round(cur));
+    sm.setAttribute('aria-valuetext',
+      cur < 34 ? 'Mostly the formal portrait' :
+      cur > 66 ? 'Mostly the school portrait' : 'Both portraits, half and half');
+  }
+  function pct(e){
+    var b = sm.getBoundingClientRect();
+    var x = (e.touches ? e.touches[0].clientX : e.clientX) - b.left;
+    return (x / b.width) * 100;
+  }
+  function teach(){ if(!taught){ taught = true; sm.classList.add('touched'); } }
+
+  sm.addEventListener('pointerdown', function(e){
+    dragging = true; teach();
+    try{ sm.setPointerCapture(e.pointerId); }catch(err){}
+    set(pct(e));
+  });
+  sm.addEventListener('pointermove', function(e){ if(dragging) set(pct(e)); });
+  function stop(){ dragging = false; }
+  sm.addEventListener('pointerup', stop);
+  sm.addEventListener('pointercancel', stop);
+  window.addEventListener('pointerup', stop);
+
+  sm.addEventListener('keydown', function(e){
+    var k = e.key, step = e.shiftKey ? 10 : 4;
+    if(k === 'ArrowLeft' || k === 'ArrowDown'){ teach(); set(cur - step); e.preventDefault(); }
+    else if(k === 'ArrowRight' || k === 'ArrowUp'){ teach(); set(cur + step); e.preventDefault(); }
+    else if(k === 'Home'){ teach(); set(LO); e.preventDefault(); }
+    else if(k === 'End'){ teach(); set(HI); e.preventDefault(); }
+  });
+
+  set(50);
+
+  /* one slow sweep when it first comes into view, so the gesture is discoverable */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function sweep(){
+    if(reduce || taught) return;
+    var t0 = null, dur = 2800;
+    function step(ts){
+      if(!t0) t0 = ts;
+      var k = (ts - t0) / dur;
+      if(k >= 1 || dragging || taught){ if(!dragging && !taught) set(50); return; }
+      set(50 + Math.sin(k * Math.PI * 2) * 24);
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){ io.disconnect(); setTimeout(sweep, 550); }
+    }, { threshold: 0.45 });
+    io.observe(sm);
+  } else { setTimeout(sweep, 900); }
 })();
 </script>
 
