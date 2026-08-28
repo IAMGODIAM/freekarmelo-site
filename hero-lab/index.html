@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Diptych Lab — Free Karmelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#060410;--panel:#100c20;--rule:#241d3f;--rule2:#352b58;
+  --fg:#f0edfb;--dim:#968fbc;--faint:#635b88;
+  --pur:#9b59b6;--pur-lt:#c39bd3;--gold:#c9a84c;--gold-lt:#dcc079;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--fg);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:70px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.mast{border-bottom:1px solid var(--rule);padding:28px 0 22px;background:linear-gradient(180deg,rgba(155,89,182,.10),transparent)}
+.eye{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.mast h1{font-family:var(--serif);font-size:clamp(30px,7.5vw,44px);font-weight:700;line-height:1.03;margin-top:10px}
+.mast p{margin-top:11px;color:var(--dim);font-size:15.5px;max-width:60ch}
+
+.dir{margin-top:40px}
+.dno{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gold)}
+.dir h2{font-family:var(--serif);font-size:clamp(24px,5.5vw,31px);font-weight:600;line-height:1.1;margin-top:6px}
+.dir .th{margin-top:8px;color:var(--dim);font-size:15px;max-width:62ch}
+.stage{margin-top:16px;border:1px solid var(--rule2);border-radius:14px;overflow:hidden;background:#0a0718;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+.note{margin-top:12px;font-size:14.5px;color:var(--dim)}
+.note b{color:var(--fg)}
+
+/* ═══ A · THE SEAM ═══ */
+.seam{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:#0a0718;
+  touch-action:pan-y;cursor:ew-resize;--seam:50%;user-select:none;-webkit-user-select:none}
+@media(min-width:760px){.seam{aspect-ratio:16/10}}
+.seam .lyr{position:absolute;inset:0}
+.seam .lyr img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.seam .top{clip-path:inset(0 calc(100% - var(--seam)) 0 0)}
+.seam .bar{position:absolute;top:0;bottom:0;left:var(--seam);width:2px;transform:translateX(-1px);
+  background:linear-gradient(180deg,transparent,var(--pur-lt) 18%,var(--gold) 50%,var(--pur-lt) 82%,transparent);
+  box-shadow:0 0 24px 3px rgba(195,155,211,.5);pointer-events:none}
+.seam .grip{position:absolute;top:50%;left:var(--seam);width:44px;height:44px;margin:-22px 0 0 -22px;
+  border-radius:50%;border:1px solid rgba(240,237,251,.5);background:rgba(6,4,16,.55);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:grid;place-items:center;pointer-events:none;
+  font-family:var(--mono);font-size:13px;color:var(--fg);letter-spacing:-.08em}
+.seam .plate{position:absolute;bottom:0;padding:16px 16px 18px;pointer-events:none;max-width:62%}
+.seam .plate.l{left:0}
+.seam .plate.r{right:0;text-align:right}
+.seam .plate .role{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt)}
+.seam .plate .cap{font-family:var(--serif);font-size:clamp(19px,5vw,26px);line-height:1.12;margin-top:5px;
+  text-shadow:0 2px 18px rgba(6,4,16,.95)}
+.seam .plate .fact{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:rgba(240,237,251,.62);margin-top:6px}
+.seam .scrim{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,4,16,.30) 0%,transparent 26%,transparent 52%,rgba(6,4,16,.86) 100%)}
+.seam .hint{position:absolute;top:12px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(240,237,251,.72);background:rgba(6,4,16,.5);border:1px solid rgba(240,237,251,.18);
+  padding:5px 11px;border-radius:999px;pointer-events:none;transition:opacity .5s}
+.seam.touched .hint{opacity:0}
+
+/* ═══ B · THE PLATE ═══ */
+.plates{display:grid;gap:0}
+@media(min-width:760px){.plates{grid-template-columns:1fr 1fr}}
+.pl{position:relative;background:#0a0718}
+.pl img{width:100%;height:auto;display:block;aspect-ratio:4/5;object-fit:cover}
+@media(min-width:760px){.pl img{aspect-ratio:3/4}}
+.pl .meta{padding:16px 18px 20px;border-top:1px solid var(--rule)}
+.pl .ix{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--faint)}
+.pl .cap{font-family:var(--serif);font-size:clamp(22px,5.6vw,28px);line-height:1.1;margin-top:7px}
+.pl .fact{font-size:13.5px;color:var(--dim);margin-top:8px;line-height:1.5}
+.pl .fact em{font-style:normal;color:var(--gold-lt)}
+.pl + .pl .meta{border-left:0}
+@media(min-width:760px){.pl + .pl{border-left:1px solid var(--rule)}}
+
+/* ═══ C · THE HOLD ═══ */
+.hold{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:#0a0718}
+@media(min-width:760px){.hold{aspect-ratio:16/10}}
+.hold img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hold .b{opacity:1}
+.hold .a{opacity:var(--mix,1)}
+.hold .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,4,16,.25),transparent 30%,rgba(6,4,16,.88))}
+.hold .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 18px 22px}
+.hold .role{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt)}
+.hold .line{font-family:var(--serif);font-size:clamp(21px,5.4vw,30px);line-height:1.1;margin-top:5px;position:relative;height:1.15em}
+.hold .line span{position:absolute;left:0;top:0;transition:opacity .35s}
+.hold .track{margin-top:12px;height:2px;background:rgba(240,237,251,.16);border-radius:2px;overflow:hidden}
+.hold .track i{display:block;height:100%;width:var(--pct,0%);background:linear-gradient(90deg,var(--pur-lt),var(--gold))}
+
+footer{margin-top:50px;border-top:1px solid var(--rule);padding-top:18px;font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.9}
+</style>
+</head>
+<body>
+
+<header class="mast"><div class="wrap">
+  <div class="eye">freekarmelo.net · diptych lab · unlisted</div>
+  <h1>Three ways to hold both truths.</h1>
+  <p>Your real photographs, three treatments. Everything here is live — drag the first one. Nothing on this page is linked from the site and it is set to noindex.</p>
+</div></header>
+
+<div class="wrap">
+
+  <section class="dir">
+    <div class="dno">A</div>
+    <h2>The Seam</h2>
+    <p class="th">One frame instead of two. Both portraits occupy the same rectangle and you drag the seam between them — so the visitor performs the sentence rather than reading it. His face fills the width instead of sitting at 342px.</p>
+    <div class="stage">
+      <div class="seam" id="sm">
+        <div class="lyr bot"><img src="/assets/sharp_hero1.jpg" alt="Karmelo Anthony, poised, arms crossed"></div>
+        <div class="lyr top"><img src="/assets/sharp_hero2.jpg" alt="Karmelo Anthony, school portrait"></div>
+        <div class="scrim"></div>
+        <div class="bar"></div>
+        <div class="grip">◂▸</div>
+        <div class="hint">Drag</div>
+        <div class="plate l"><div class="role">The Child</div><div class="cap">A scholar.<br>A son.</div><div class="fact" data-fact-l>caption fact goes here</div></div>
+        <div class="plate r"><div class="role">The Hero</div><div class="cap">Poised.<br>Standing tall.</div><div class="fact" data-fact-r>caption fact goes here</div></div>
+      </div>
+    </div>
+    <p class="note"><b>Why it wins:</b> the seam stops being decoration and becomes the argument. One full-width image also fixes the real problem — right now each portrait renders at 342&times;312 on a phone, cropped, out of files 4&ndash;6&times; larger than needed.</p>
+  </section>
+
+  <section class="dir">
+    <div class="dno">B</div>
+    <h2>The Plate</h2>
+    <p class="th">Museum discipline. Full-width stacked on a phone, paired on desktop, and the inert labels become dated, sourced captions. Specific facts carry more feeling than abstract nouns.</p>
+    <div class="stage">
+      <div class="plates">
+        <figure class="pl">
+          <img src="/assets/sharp_hero2.jpg" alt="Karmelo Anthony, school portrait">
+          <figcaption class="meta">
+            <div class="ix">PLATE I</div>
+            <div class="cap">A scholar. A son.</div>
+            <div class="fact"><em>[date needed]</em> — school portrait. 3.7+ GPA, multi-sport athlete, no prior offenses.</div>
+          </figcaption>
+        </figure>
+        <figure class="pl">
+          <img src="/assets/sharp_hero1.jpg" alt="Karmelo Anthony, poised, arms crossed">
+          <figcaption class="meta">
+            <div class="ix">PLATE II</div>
+            <div class="cap">Poised. Standing tall.</div>
+            <div class="fact"><em>[date needed]</em> — [occasion needed], weeks before the verdict.</div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <p class="note"><b>What it needs from you:</b> the two bracketed facts. When and where was each photograph taken? A real date under a portrait does more work than any effect on this page.</p>
+  </section>
+
+  <section class="dir">
+    <div class="dno">C</div>
+    <h2>The Hold</h2>
+    <p class="th">Scroll-driven. One frame; as it passes through the viewport the child dissolves into the hero and the line changes with him. Cinematic, and it costs the visitor nothing.</p>
+    <div class="stage">
+      <div class="hold" id="hd">
+        <img class="b" src="/assets/sharp_hero1.jpg" alt="Karmelo Anthony, poised">
+        <img class="a" src="/assets/sharp_hero2.jpg" alt="Karmelo Anthony, school portrait">
+        <div class="scrim"></div>
+        <div class="cap">
+          <div class="role" data-role>The Child</div>
+          <div class="line"><span data-l1>A scholar. A son.</span><span data-l2 style="opacity:0">Poised. Standing tall.</span></div>
+          <div class="track"><i></i></div>
+        </div>
+      </div>
+    </div>
+    <p class="note"><b>Watch out:</b> invisible to anyone who scrolls fast, and it reads as a device rather than an idea. Strongest as a desktop grace note, weakest as the load-bearing treatment.</p>
+  </section>
+
+  <footer>
+    Live prototypes · your real assets · noindex, unlinked<br>
+    Measured on the current page: portraits render 342&times;312 on iPhone from 1448&times;2048 and 2048&times;1626 sources.
+  </footer>
+</div>
+
+<script>
+(function(){
+  /* A — the seam */
+  var sm=document.getElementById('sm'); if(sm){
+    var lo=15, hi=85, dragging=false;
+    function set(p){ p=Math.max(lo,Math.min(hi,p)); sm.style.setProperty('--seam',p+'%');
+      var l=sm.querySelector('.plate.l'), r=sm.querySelector('.plate.r');
+      l.style.opacity=Math.max(0,Math.min(1,(p-18)/32));
+      r.style.opacity=Math.max(0,Math.min(1,(82-p)/32));
+    }
+    function px(e){ var b=sm.getBoundingClientRect(); var x=(e.touches?e.touches[0].clientX:e.clientX)-b.left;
+      return (x/b.width)*100; }
+    function down(e){ dragging=true; sm.classList.add('touched'); set(px(e)); }
+    function move(e){ if(!dragging) return; set(px(e)); }
+    function up(){ dragging=false; }
+    sm.addEventListener('pointerdown',down); sm.addEventListener('pointermove',move);
+    window.addEventListener('pointerup',up); sm.addEventListener('pointercancel',up);
+    set(50);
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce){
+      var t0=null, dur=2600;
+      function sweep(ts){ if(!t0)t0=ts; var k=(ts-t0)/dur;
+        if(k>=1||dragging){ if(!dragging) set(50); return; }
+        var e=k<.5 ? 2*k*k : 1-Math.pow(-2*k+2,2)/2;
+        set(50 + Math.sin(e*Math.PI*2)*26); requestAnimationFrame(sweep); }
+      setTimeout(function(){ if(!dragging) requestAnimationFrame(sweep); },700);
+    }
+  }
+  /* C — the hold */
+  var hd=document.getElementById('hd'); if(hd){
+    var l1=hd.querySelector('[data-l1]'), l2=hd.querySelector('[data-l2]'),
+        role=hd.querySelector('[data-role]'), bar=hd.querySelector('.track i');
+    function upd(){ var b=hd.getBoundingClientRect(); var vh=innerHeight;
+      var k=1-Math.max(0,Math.min(1,(b.top+b.height*0.25)/(vh*0.75)));
+      hd.style.setProperty('--mix',String(1-k));
+      bar.style.setProperty('--pct',(k*100).toFixed(1)+'%');
+      l1.style.opacity=String(1-k); l2.style.opacity=String(k);
+      role.textContent = k>0.5 ? 'The Hero' : 'The Child';
+    }
+    addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();
+  }
+})();
+</script>
+</body>
+</html>
