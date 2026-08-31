@@ -53,7 +53,11 @@ for (const file of pages) {
   if (!title || !title.trim()) F(rel, 'title', 'missing <title>');
   else if (title.length > 70) W(rel, 'title', `title is ${title.length} chars â€” Google truncates near 60`);
 
-  const desc = (h.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/) || [])[1];
+  // NB: honour the actual delimiter. A class of [^"']* terminates at the
+  // apostrophe in "Karmelo's ..." and reports a 140-char description as 10
+  // chars — the bug that corrupted eight live descriptions on e5-website.
+  const desc = (h.match(/<meta[^>]+name=["']description["'][^>]*?content="([^"]*)"/) ||
+                h.match(/<meta[^>]+name=["']description["'][^>]*?content='([^']*)'/) || [])[1];
   if (!desc) F(rel, 'description', 'missing meta description');
   else if (desc.length < 50) W(rel, 'description', `description is only ${desc.length} chars`);
   else if (desc.length > 165) W(rel, 'description', `description is ${desc.length} chars â€” truncates near 160`);

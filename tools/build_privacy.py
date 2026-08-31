@@ -1,0 +1,99 @@
+# -*- coding: utf-8 -*-
+"""Assemble privacy.html from about.html's skeleton (same nav/footer/GA4)."""
+import io, re, sys, os
+os.chdir(os.path.join(os.path.dirname(__file__), '..'))
+a = io.open('about.html', encoding='utf-8').read()
+
+head = {
+ '<title>Who Runs This Site — Free Karmelo Anthony</title>':
+ '<title>Privacy — Free Karmelo Anthony</title>',
+ 'freekarmelo.net is a campaign of E5 Enclave Incorporated, a 501(c)(3) public charity in Miami. Who we are, why we run this campaign, and how to reach us.':
+ 'What freekarmelo.net collects, how signups and analytics are used, how long we keep data, and how to ask us to remove yours.',
+ 'https://freekarmelo.net/about': 'https://freekarmelo.net/privacy',
+ '<meta property="og:title" content="Who runs freekarmelo.net">':
+ '<meta property="og:title" content="Privacy on freekarmelo.net">',
+ 'The 501(c)(3) nonprofit behind the Free Karmelo campaign, and how to reach it.':
+ 'One signup form, standard analytics, no data sales. The complete policy.',
+}
+h = a
+for k, v in head.items():
+    assert k in h, 'missing: ' + k[:60]
+    h = h.replace(k, v)
+
+hero_old = h[h.index('<!-- ══ THE ONE H1'):h.index('</header>') + 9]
+hero_new = '''<!-- ══ THE ONE H1 ON THIS PAGE ══ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Effective 31 August 2026</div>
+    <h1>Privacy on this site</h1>
+    <p class="sub">This site collects as little as a campaign can and still function: a signup form you choose to fill in, and standard analytics. Here is all of it, in plain language.</p>
+  </div>
+</header>'''
+h = h.replace(hero_old, hero_new)
+
+body_start = h.index('</header>') + 9
+body_end = h.index('<footer>')
+content = '''
+
+<section>
+  <div class="wrap">
+    <div class="sec-kicker">What we collect</div>
+    <h2 class="sec-title">Three things, two of them optional</h2>
+    <p class="sec-lead">A signup form, aggregate analytics, and the server logs every website has.</p>
+    <p><strong>The signup form.</strong> When you add your name, we receive the name, email address, and city you typed. Nothing is collected until you press the button. Signups are stored in a campaign database operated by E5 Enclave on our own infrastructure.</p>
+    <p><strong>Analytics.</strong> The site runs Google Analytics 4 (property G-05PYDYP5S0), which uses cookies to tell us — in aggregate — which pages are read, on what kind of device, from what approximate region. We use it to understand what the campaign should publish next.</p>
+    <p><strong>Hosting logs.</strong> Our host keeps standard server logs (IP address, page requested, time) as virtually all web hosting does.</p>
+    <p>There are no advertising trackers on this site, no social-media pixels, and no sale or rental of data to anyone, ever.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-kicker">How we use it</div>
+    <h2 class="sec-title">Updates you asked for, and counting</h2>
+    <p class="sec-lead">Signups get campaign updates — hearing dates, events, calls to action. Analytics tells us how many people stood with us.</p>
+    <p>Every email we send includes a way to stop receiving them. We may report aggregate numbers publicly ("more than a thousand people signed"), never individual names without separate, explicit permission.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-kicker">Your choices</div>
+    <h2 class="sec-title">See it, correct it, delete it</h2>
+    <p class="sec-lead">Ask and we act — within 30 days, usually much faster.</p>
+    <p>To unsubscribe, use the link in any email. To request a copy of what we hold about you, correct it, or have it deleted, write to us through <a href="https://e5enclave.com/contact/" rel="noopener">e5enclave.com/contact</a>. Analytics cookies can be blocked with standard browser settings or Google&rsquo;s own opt-out tools; the site works fine without them.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-kicker">Third parties</div>
+    <h2 class="sec-title">Who else touches the data</h2>
+    <p class="sec-lead">Three service providers, each seeing only what its role requires.</p>
+    <p><a href="https://policies.google.com/privacy" rel="noopener">Google</a> processes analytics data under its own privacy policy. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Pages</a> serves the site and keeps hosting logs. <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare</a> provides DNS and delivery. None of them receives your signup information for their own use.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-kicker">Children</div>
+    <h2 class="sec-title">A general-audience site</h2>
+    <p class="sec-lead">We do not knowingly collect personal information from children under 13.</p>
+    <p>If you believe a child submitted the form, contact us and we will delete the entry.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-kicker">The controller</div>
+    <h2 class="sec-title">Who is responsible</h2>
+    <p class="sec-lead">E5 Enclave Incorporated — a 501(c)(3) public charity, EIN 99-3822441, Liberty City, Miami, Florida.</p>
+    <p>Organization-wide privacy practices are published at <a href="https://e5enclave.com/privacy-policy/" rel="noopener">e5enclave.com/privacy-policy</a>, and more about who we are is on the <a href="/about">about page</a>. When this policy changes, the effective date at the top of this page changes with it.</p>
+  </div>
+</section>
+
+'''
+h = h[:body_start] + content + h[body_end:]
+io.open('privacy.html', 'w', encoding='utf-8', newline='\n').write(h)
+n = h.count('<h1')
+print('privacy.html written:', len(h), 'bytes, h1 count:', n)
