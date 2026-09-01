@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  FK58 · freekarmelo.net/weekend — what the Worldwide Solidarity Weekend looked like.
+  Everything on this page comes from media.json, which tools/weekend-media/sync.py
+  rewrites from the shared Dropbox folder. Add photos or clips there, run the tool,
+  and this page carries them — no HTML is ever edited. The counts below are read
+  from the manifest and from the solidarity roster, so they cannot go stale either.
+-->
+<title>The Weekend the World Showed Up · Free Karmelo</title>
+<link rel="canonical" href="https://freekarmelo.net/weekend/">
+<meta name="theme-color" content="#080510">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Photos and video from the Worldwide Solidarity Weekend for Karmelo Anthony, Aug 29–31, 2026 — cities across the world, in their own images.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Weekend the World Showed Up">
+<meta property="og:description" content="Cities across the world stood for Karmelo Anthony. This is what it looked like.">
+<meta property="og:url" content="https://freekarmelo.net/weekend/">
+<meta property="og:image" content="https://freekarmelo.net/solidarity/share-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 13'%3E%3Cpath fill='%23D9B36C' d='M7 12.6 1.6 7.2a3.8 3.8 0 0 1 0-5.4 3.7 3.7 0 0 1 5.3 0L7 1.9l.1-.1a3.7 3.7 0 0 1 5.3 0 3.8 3.8 0 0 1 0 5.4L7 12.6Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-05PYDYP5S0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-05PYDYP5S0');
+</script>
+<style>
+:root{
+  --ink:#080510; --ink-2:#0B0713;
+  --paper:#F7F3FB; --body:#B7ACC9; --muted:#9C8FB5; --faint:#7E7295;
+  --gold:#D9B36C; --gold-lt:#F0DCAC;
+  --violet:#8B5CF6; --lilac:#C9B2FF;
+  --line:rgba(139,92,246,.18); --line-2:rgba(139,92,246,.3);
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --black:'Archivo Black','Archivo',system-ui,sans-serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --wrap:1440px; --pad:34px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+a{color:var(--lilac);text-decoration:none}
+a:hover{color:var(--gold-lt)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.rule{height:3px;background:linear-gradient(90deg,#3A2C14,var(--gold) 22%,var(--gold-lt) 50%,var(--violet) 78%,#2A1A4A)}
+
+header{position:sticky;top:0;z-index:60;background:rgba(8,5,16,.86);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px var(--pad)}
+.wordmark{font-family:var(--mono);font-size:13.5px;font-weight:600;letter-spacing:.05em;color:var(--paper)}
+.wordmark s{color:var(--violet);text-decoration:none}
+.wordmark g{color:var(--gold)}
+.wordmark m{color:var(--muted)}
+nav{display:flex;align-items:center;gap:22px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;white-space:nowrap}
+nav a{color:var(--muted)}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#0B0713;
+  padding:11px 20px;font-weight:600;letter-spacing:.14em;font-family:var(--mono);font-size:11px}
+.btn-gold:hover{background:var(--gold-lt);color:#0B0713}
+
+/* ── hero ─────────────────────────────────────────────────────────── */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-marquee{position:absolute;inset:0;display:flex;gap:10px;opacity:.13;pointer-events:none;
+  filter:saturate(.65) contrast(1.05);mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)}
+.hero-marquee .col{display:flex;flex-direction:column;gap:10px;flex:0 0 auto;
+  animation:fkScroll 90s linear infinite;will-change:transform}
+.hero-marquee .col:nth-child(even){animation-duration:120s;animation-direction:reverse}
+.hero-marquee img{width:190px;height:auto;display:block}
+@keyframes fkScroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.hero-in{position:relative;padding-block:96px 84px}   /* block only — .wrap owns the inline padding */
+.hero-scrim{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(100deg,var(--ink) 0%,rgba(8,5,16,.94) 38%,rgba(8,5,16,.55) 66%,rgba(8,5,16,.8) 100%)}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;color:var(--gold-lt);
+  margin:0 0 22px;display:flex;align-items:center;gap:11px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
+h1{font-family:var(--black);font-size:clamp(48px,8.4vw,116px);line-height:.9;letter-spacing:-.04em;
+  margin:0 0 20px;text-wrap:balance;max-width:16ch}
+.hero-sub{font-family:var(--serif);font-style:italic;font-size:clamp(23px,2.7vw,36px);
+  line-height:1.22;color:var(--gold);margin:0 0 26px;max-width:30ch}
+.hero-body{max-width:56ch;font-size:16.5px;line-height:1.65;color:var(--body);margin:0 0 34px}
+.hero-body strong{color:var(--paper);font-weight:600}
+
+.stats{display:flex;flex-wrap:wrap;gap:14px 52px;padding-top:26px;border-top:1px solid var(--line-2)}
+.stat b{display:block;font-family:var(--black);font-size:clamp(34px,4.6vw,52px);line-height:1;
+  letter-spacing:-.035em;color:var(--paper);font-variant-numeric:tabular-nums}
+.stat span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+  color:var(--muted);margin-top:8px}
+
+/* ── gallery ──────────────────────────────────────────────────────── */
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:18px;margin:0 0 30px}
+.kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;color:var(--violet);margin:0 0 13px}
+h2{font-family:var(--black);font-size:clamp(30px,3.6vw,50px);line-height:1;letter-spacing:-.03em;margin:0}
+.lede{max-width:46ch;font-size:14.5px;line-height:1.62;color:var(--muted);margin:0}
+.gallery{padding:78px 0 84px}
+.grid{columns:4 260px;column-gap:14px}
+@media(max-width:1100px){.grid{columns:3 220px}}
+@media(max-width:700px){.grid{columns:2 150px;column-gap:10px}}
+.tile{break-inside:avoid;margin:0 0 14px;position:relative;display:block;width:100%;padding:0;border:0;
+  background:var(--ink-2);cursor:zoom-in;overflow:hidden;line-height:0;
+  border:1px solid rgba(139,92,246,.16)}
+@media(max-width:700px){.tile{margin-bottom:10px}}
+.tile img{width:100%;height:auto;display:block;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.tile:hover img,.tile:focus-visible img{transform:scale(1.04)}
+.tile::after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(217,179,108,0);
+  transition:box-shadow .3s}
+.tile:hover::after{box-shadow:inset 0 0 0 1px rgba(217,179,108,.55)}
+.badge{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:7px;
+  background:rgba(8,5,16,.82);backdrop-filter:blur(6px);padding:6px 10px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--gold-lt);line-height:1}
+.badge.new{left:auto;right:10px;bottom:auto;top:10px;color:#0B0713;background:var(--gold)}
+.gal-note{margin-top:22px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--faint);line-height:1.9}
+.skeleton{height:220px;background:linear-gradient(100deg,rgba(139,92,246,.05),rgba(139,92,246,.13),rgba(139,92,246,.05));
+  background-size:200% 100%;animation:fkShimmer 1.4s linear infinite;margin-bottom:14px;break-inside:avoid}
+@keyframes fkShimmer{to{background-position:-200% 0}}
+
+/* ── closing ──────────────────────────────────────────────────────── */
+.after{border-top:1px solid var(--line);padding:76px 0 20px;
+  background:radial-gradient(circle at 80% 0%,rgba(139,92,246,.13),transparent 58%)}
+.after-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:start}
+@media(max-width:900px){.after-grid{grid-template-columns:1fr;gap:34px}}
+.after p{font-size:16px;line-height:1.68;color:var(--body);max-width:58ch}
+.after p strong{color:var(--paper);font-weight:600}
+.pledge{border:1px solid rgba(217,179,108,.34);background:rgba(217,179,108,.05);padding:26px 24px}
+.pledge .k{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--gold);margin-bottom:14px}
+.pledge q{font-family:var(--serif);font-size:22px;line-height:1.34;color:var(--paper);display:block;
+  margin:0 0 14px;quotes:none}
+.pledge .who{font-family:var(--mono);font-size:10px;letter-spacing:.13em;color:var(--muted)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(199,178,255,.42);
+  color:var(--paper);padding:15px 24px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.15em}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-lt)}
+
+footer{padding:56px 0 44px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--faint);line-height:2.1}
+footer .top{display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between;
+  padding-top:24px;border-top:1px solid var(--line)}
+
+/* ── lightbox ─────────────────────────────────────────────────────── */
+#lb{position:fixed;inset:0;z-index:200;display:none;background:rgba(5,3,10,.96);
+  backdrop-filter:blur(8px);place-items:center;padding:56px 20px}
+#lb[data-open]{display:grid}
+#lb figure{margin:0;max-width:min(1200px,100%);max-height:100%;display:flex;flex-direction:column;gap:12px}
+#lb img,#lb video{max-width:100%;max-height:78vh;width:auto;height:auto;display:block;margin:0 auto;
+  border:1px solid rgba(139,92,246,.3)}
+#lb figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--muted);text-align:center}
+#lb button{position:absolute;background:rgba(8,5,16,.8);border:1px solid var(--line-2);color:var(--lilac);
+  width:48px;height:48px;cursor:pointer;font-size:19px;line-height:1}
+#lb button:hover{border-color:var(--gold);color:var(--gold-lt)}
+#lb .x{top:16px;right:16px}
+#lb .prev{left:16px;top:50%;transform:translateY(-50%)}
+#lb .next{right:16px;top:50%;transform:translateY(-50%)}
+@media(max-width:700px){#lb{padding:64px 10px}#lb .prev{left:8px}#lb .next{right:8px}}
+
+/* ── narrow screens ───────────────────────────────────────────────── */
+@media(max-width:760px){
+  :root{--pad:20px}
+  header .wrap{gap:10px}
+  .wordmark{font-size:11.5px}
+  nav{gap:0}
+  nav a:not(.btn-gold){display:none}
+  .btn-gold{padding:10px 14px;font-size:10.5px;letter-spacing:.1em}
+  .hero-in{padding-block:64px 58px}
+  .stats{gap:18px 30px}
+  .hero-marquee{display:none}          /* decorative only; never worth a sideways page */
+  .gallery{padding:56px 0 60px}
+  .after{padding:56px 0 16px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  .hero-marquee .col{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="rule"></div>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="/">FREE<s>KARMELO</s><g>.NET</g><m>/WEEKEND</m></a>
+    <nav>
+      <a href="/solidarity/">THE CITIES</a>
+      <a href="/updates/">UPDATES</a>
+      <a class="btn-gold" href="/solidarity/#commit">STAND WITH HIM<span aria-hidden="true">→</span></a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-marquee" id="marquee" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <p class="eyebrow"><span class="dot"></span><span>AUG 29–31 · 2026 · WORLDWIDE SOLIDARITY WEEKEND</span></p>
+    <h1>THE WORLD SHOWED UP.</h1>
+    <p class="hero-sub">And it looked like this.</p>
+    <p class="hero-body">Cities across the world gave a weekend to a teenager they have never met. People painted signs at kitchen tables, stood on corners in the heat, filled sanctuaries, and put his name where it could not be ignored. <strong>Every picture on this page was taken by someone who was there.</strong></p>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="kicker">§ THE RECORD OF IT</p>
+        <h2>WHAT THE WEEKEND LOOKED LIKE.</h2>
+      </div>
+      <p class="lede">Sent in by organizers and supporters. Tap any frame to open it. More arrives as people send it — this page updates itself when it does.</p>
+    </div>
+    <div class="grid" id="grid" aria-live="polite">
+      <div class="skeleton"></div><div class="skeleton" style="height:300px"></div>
+      <div class="skeleton" style="height:260px"></div><div class="skeleton" style="height:190px"></div>
+    </div>
+    <p class="gal-note" id="galnote"></p>
+  </div>
+</section>
+
+<section class="after">
+  <div class="wrap">
+    <div class="after-grid">
+      <div>
+        <p class="kicker">§ WHAT THIS WEEKEND WAS FOR</p>
+        <h2 style="margin-bottom:20px">IT ISN'T OVER.<br>THAT'S THE POINT.</h2>
+        <p>The weekend was never the finish line. On <strong>August 22</strong> a judge denied Karmelo Anthony a new trial in a half-page order with no explanation, and the 35-year sentence stands. The appeal is now live before the <strong>Fifth District Court of Appeals in Dallas</strong> — out of the county that produced the jury. No argument date has been set.</p>
+        <p>What these photographs prove is that the movement did not need a ruling to show up, and will not need one to keep showing up. The letters keep going. The cities are still on the map. The next thing asked of you is smaller than a weekend and it matters just as much.</p>
+        <div class="cta-row">
+          <a class="btn-gold" href="/solidarity/#commit" style="padding:15px 24px;font-size:11.5px">ADD YOUR NAME<span aria-hidden="true">→</span></a>
+          <a class="btn-ghost" href="/solidarity/#wall">WRITE TO KARMELO</a>
+          <a class="btn-ghost" href="/solidarity/">SEE ALL THE CITIES</a>
+        </div>
+      </div>
+      <div class="pledge">
+        <div class="k">POSTURE — UNCHANGED</div>
+        <q>All actions are lawful, nonviolent, accessible, and locally compliant.</q>
+        <p style="font-size:14px;line-height:1.65;color:var(--body);margin:0 0 16px">Never contact judges, jurors, witnesses, or court staff. Do not publish material that could interfere with the appeal.</p>
+        <div class="who">FREE KARMELO CAMPAIGN · E5 ENCLAVE INCORPORATED</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <span>© 2026 · A PROJECT OF E5 ENCLAVE INCORPORATED · 501(C)(3) · EIN 99-3822441</span>
+      <span>PEACEFUL · LAWFUL · NON-PARTISAN</span>
+    </div>
+  </div>
+</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Media viewer">
+  <button class="x" type="button" id="lb-x" aria-label="Close">&#x2715;</button>
+  <button class="prev" type="button" id="lb-prev" aria-label="Previous">&#x2190;</button>
+  <button class="next" type="button" id="lb-next" aria-label="Next">&#x2192;</button>
+  <figure><div id="lb-slot"></div><figcaption id="lb-cap"></figcaption></figure>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (s) { return document.querySelector(s); };
+  var GRID = $('#grid'), items = [], reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function dur(s) {
+    s = Math.round(s || 0);
+    return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  }
+
+  /* ── everything below is painted from the manifest ── */
+  fetch('media.json', { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error('no manifest'); return r.json(); })
+    .then(function (m) {
+      items = (m.items || []).filter(function (i) { return i && i.thumb; });
+      if (!items.length) throw new Error('empty');
+      paintStats(m);
+      paintGrid(m);
+      paintMarquee();
+    })
+    .catch(function () {
+      GRID.innerHTML = '<p class="lede">The gallery could not load right now. ' +
+        '<a href="/solidarity/">See the cities instead →</a></p>';
+    });
+
+  function paintStats(m) {
+    var c = m.counts || {};
+    var cells = [
+      { n: c.photos || 0, k: 'PHOTOGRAPHS' },
+      { n: c.videos || 0, k: 'CLIPS' },
+      { n: '—', k: 'CITIES ON THE ROSTER', id: 'stat-cities' },
+      { n: '3', k: 'DAYS' }
+    ];
+    $('#stats').innerHTML = cells.map(function (x) {
+      return '<div class="stat"><b' + (x.id ? ' id="' + x.id + '"' : '') + '>' + x.n +
+             '</b><span>' + x.k + '</span></div>';
+    }).join('');
+    /* city count comes from the same roster the solidarity page uses */
+    fetch('../solidarity/solidarity.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        var el = document.getElementById('stat-cities');
+        if (d && Array.isArray(d.cities) && el) el.textContent = d.cities.length;
+      })
+      .catch(function () {});
+  }
+
+  function paintGrid(m) {
+    /* mark a genuinely later drop, not the original import */
+    var dates = {}, latest = '';
+    items.forEach(function (i) { if (i.added) { dates[i.added] = 1; if (i.added > latest) latest = i.added; } });
+    var multi = Object.keys(dates).length > 1;
+
+    GRID.innerHTML = items.map(function (it, idx) {
+      var ratio = (it.w && it.h) ? (it.h / it.w) : 0.75;
+      var isNew = multi && it.added === latest;
+      return '<button class="tile" type="button" data-i="' + idx + '" aria-label="' +
+        (it.type === 'video' ? 'Play clip' : 'Open photo') + ' ' + (idx + 1) + ' of ' + items.length + '">' +
+        '<img src="media/' + esc(it.thumb) + '" alt="" loading="lazy" decoding="async"' +
+          ' width="' + (it.w || 800) + '" height="' + Math.round((it.w || 800) * ratio) + '">' +
+        (it.type === 'video'
+          ? '<span class="badge">&#9654;&nbsp; ' + dur(it.dur) + '</span>' : '') +
+        (isNew ? '<span class="badge new">JUST ADDED</span>' : '') +
+        '</button>';
+    }).join('');
+
+    var when = '';
+    try {
+      when = new Date(m.generated).toLocaleDateString('en-US',
+        { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+    } catch (e) {}
+    $('#galnote').innerHTML =
+      (m.counts ? m.counts.total + ' ITEMS' : '') + (when ? ' &middot; LAST UPDATED ' + when : '') +
+      '<br>SENT IN BY ORGANIZERS AND SUPPORTERS. IF YOU HAVE MORE FROM THE WEEKEND, SEND IT AND IT JOINS THIS PAGE.';
+  }
+
+  function paintMarquee() {
+    if (reduce) return;
+    var host = $('#marquee'), pool = items.filter(function (i) { return i.thumb; });
+    if (pool.length < 4) return;
+    var cols = Math.min(9, Math.ceil(window.innerWidth / 200) + 1);
+    var html = '';
+    for (var c = 0; c < cols; c++) {
+      var pics = '';
+      for (var r = 0; r < 5; r++) {
+        var it = pool[(c * 5 + r) % pool.length];
+        pics += '<img src="media/' + esc(it.thumb) + '" alt="" loading="lazy" decoding="async">';
+      }
+      html += '<div class="col">' + pics + pics + '</div>';   /* doubled for a seamless loop */
+    }
+    host.innerHTML = html;
+  }
+
+  /* ── lightbox ── */
+  var lb = $('#lb'), slot = $('#lb-slot'), cap = $('#lb-cap'), cur = -1, lastFocus = null;
+  function show(i) {
+    if (!items.length) return;
+    cur = (i + items.length) % items.length;
+    var it = items[cur];
+    slot.innerHTML = it.type === 'video'
+      ? '<video src="media/' + esc(it.src) + '" poster="media/' + esc(it.poster || '') +
+        '" controls autoplay playsinline preload="metadata"></video>'
+      : '<img src="media/' + esc(it.src) + '" alt="Photograph from the Worldwide Solidarity Weekend">';
+    cap.textContent = (cur + 1) + ' / ' + items.length + '  ·  ' +
+      (it.type === 'video' ? 'CLIP · ' + dur(it.dur) : 'PHOTOGRAPH') + '  ·  WORLDWIDE SOLIDARITY WEEKEND';
+    if (!lb.hasAttribute('data-open')) {
+      lastFocus = document.activeElement;
+      lb.setAttribute('data-open', '');
+      document.documentElement.style.overflow = 'hidden';
+      $('#lb-x').focus();
+    }
+  }
+  function close() {
+    lb.removeAttribute('data-open');
+    slot.innerHTML = '';
+    document.documentElement.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  GRID.addEventListener('click', function (e) {
+    var t = e.target.closest('.tile');
+    if (t) show(parseInt(t.getAttribute('data-i'), 10));
+  });
+  $('#lb-x').addEventListener('click', close);
+  $('#lb-prev').addEventListener('click', function () { show(cur - 1); });
+  $('#lb-next').addEventListener('click', function () { show(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.hasAttribute('data-open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(cur - 1);
+    else if (e.key === 'ArrowRight') show(cur + 1);
+  });
+})();
+</script>
+</body>
+</html>
