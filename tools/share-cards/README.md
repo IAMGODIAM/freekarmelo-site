@@ -14,6 +14,12 @@ python3 tools/share-cards/make-card.py weekend --out /tmp/try.png
 |---|---|---|
 | `weekend` | `weekend/share-weekend.png` | three photographs chosen across `weekend/media.json`, plus the photo and clip counts |
 | `solidarity` | `solidarity/share-solidarity.png` | every city in `solidarity/solidarity.json`, plotted at its real coordinates on a dot-map, each threaded home to McKinney |
+| `updates` | `updates/share-updates.png` | the three newest entries in `updates/feed.json`, set as a wire front page |
+
+`updates` has no tool calling it automatically — re-run it whenever the feed
+changes. And note what it means: **whatever the newest entry says goes into
+every share preview of /updates.** The guardrails in `freekarmelo-guardrails`
+apply at the moment an entry is written, not afterwards.
 
 Because both read the manifests, **the cards go stale only if the site does**.
 `tools/weekend-media/sync.py` calls the weekend card at the end of every run,

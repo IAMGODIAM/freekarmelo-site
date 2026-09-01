@@ -41,6 +41,7 @@ BLACK_F = os.path.join(SHARED, 'ArchivoBlack-Regular.ttf')
 MONO_F  = os.path.join(SHARED, 'IBMPlexMono-SemiBold.ttf')
 MONO_R  = os.path.join(SHARED, 'IBMPlexMono-Regular.ttf')
 SERIF_I = os.path.join(FONTS, 'CormorantGaramond-SemiBoldItalic.ttf')
+SANS_F  = os.path.join(SHARED, 'Archivo.ttf')
 
 ANCHOR = {'name': 'McKINNEY', 'lat': 33.198, 'lng': -96.615}
 
@@ -377,9 +378,69 @@ def card_solidarity(out):
     wordmark(d, x * S, 548 * S, '/SOLIDARITY', px=29)
     finish(im, out)
 
+def clip(d, text, f, max_w, track=0):
+    """Trim to fit, with an ellipsis, so a long headline never runs off the card."""
+    if text_w(d, text, f, track) <= max_w * S:
+        return text
+    out = text
+    while out and text_w(d, out + '\u2026', f, track) > max_w * S:
+        out = out[:-1]
+    return out.rstrip(' ,;:-') + '\u2026'
+
+
+def card_updates(out):
+    """The wire card: the three newest entries in the feed, as published."""
+    feed = json.load(open(os.path.join(ROOT, 'updates', 'feed.json')))
+    items = [i for i in feed if i.get('headline')][:3]
+    if not items:
+        sys.exit('updates/feed.json has no entries')
+
+    im = base_canvas()
+    d = ImageDraw.Draw(im)
+    # a faint dot-field down the right, echoing the map on the solidarity card
+    for gy in range(0, H, 13):
+        for gx in range(760, W, 13):
+            t = max(0.0, min(1.0, (gx - 760) / (W - 760)))
+            d.ellipse([gx, gy, gx + 1.6 * S, gy + 1.6 * S],
+                      fill=(int(28 + 26 * t), int(20 + 20 * t), int(52 + 40 * t)))
+    im.paste(Image.new('RGB', (W * S, H * S), INK), (0, 0),
+             hscrim((W * S, H * S), [(0.0, 255), (0.55, 235), (1.0, 120)]))
+
+    x = 62
+    heart(d, x, 66, 17, GOLD)
+    tracked(d, ((x + 27) * S, 66 * S), u'THE RECORD \u00b7 FREE KARMELO ANTHONY',
+            font(MONO_F, 14.5), GOLD_LT, track=2.4)
+
+    hl = font(BLACK_F, 66)
+    for line in ('THE TRUTH,', 'WITHOUT VARNISH.'):
+        hl = min(hl, fit(BLACK_F, line, 660, 66, 40, d, track=-1.0), key=lambda f: f.size)
+    lead = (hl.size / S) * 0.94
+    for i, line in enumerate(('THE TRUTH,', 'WITHOUT VARNISH.')):
+        tracked(d, (x * S, (112 + i * lead) * S), line, hl, PAPER, track=-1.0)
+
+    y = 112 + 2 * lead + 26
+    d.line([(x * S, y * S), ((W - 62) * S, y * S)], fill=blend(INK, VIOLET, 0.45), width=int(1 * S))
+
+    y += 26
+    for it in items:
+        d.ellipse([x * S, (y + 7) * S, (x + 7) * S, (y + 14) * S], fill=GOLD)
+        meta = (it.get('date', '') + u'  \u00b7  ' + it.get('tag', '')).upper()
+        tracked(d, ((x + 20) * S, y * S), clip(d, meta, font(MONO_F, 12), 1000, 2.0),
+                font(MONO_F, 12), GOLD_LT, track=2.0)
+        head = font(SANS_F, 23)
+        d.text(((x + 20) * S, (y + 22) * S),
+               clip(d, it['headline'], head, W - x - 96), font=head, fill=PAPER)
+        y += 78
+
+    wordmark(d, x * S, 544 * S, '/UPDATES', px=29)
+    tracked(d, ((W - 62 - 210) * S, 556 * S), 'EVERY ENTRY SOURCED', font(MONO_R, 11.5), FAINT, track=2.2)
+    finish(im, out)
+
+
 CARDS = {
     'weekend':    (card_weekend,    os.path.join(ROOT, 'weekend', 'share-weekend.png')),
     'solidarity': (card_solidarity, os.path.join(ROOT, 'solidarity', 'share-solidarity.png')),
+    'updates':    (card_updates,    os.path.join(ROOT, 'updates', 'share-updates.png')),
 }
 
 if __name__ == '__main__':
