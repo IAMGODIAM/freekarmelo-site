@@ -54,6 +54,38 @@ tell you if you missed one.
 
 ---
 
+## Before you ship a page that moves
+
+`check-pages.mjs` reads the markup. It cannot tell you that a photograph never
+faded in, that a canvas painted nothing, or that the page scrolls sideways on a
+phone. `verify-page.mjs` runs the page and checks exactly those things.
+
+```
+npm i playwright          # once; do NOT run "playwright install"
+node tools/verify-page.mjs weekend solidarity
+node tools/verify-page.mjs index.html --keep      # --keep writes screenshots
+```
+
+It opens each page at 390 / 834 / 1024 / 1440 plus a reduced-motion pass, jumps
+to the bottom the way a hash link does, walks back up the way a reader does, and
+fails on:
+
+| Check | Why it is here |
+|---|---|
+| horizontal overflow | a phone that scrolls sideways reads as a broken page, and it has happened twice |
+| script errors | filtered for the sandbox's own Google Fonts / gtag noise |
+| elements that never faded in | an `IntersectionObserver` never fires for something a fast flick skipped, and the photograph stays invisible forever |
+| a 2D canvas that painted nothing | GPU-backed canvases are skipped with a reason — this machine has no adapter, so a progressive hero is blank here by design |
+| broken `<img>` src | `naturalWidth === 0` after load |
+
+It also prints transferred weight per viewport and names the three heaviest
+files whenever a page goes over 3 MB. That is not a failure, but a rally page is
+opened on a phone on cellular, so know the number before you ship it.
+
+Not in CI: GitHub's runner has no browser, and this check wants a real one.
+
+---
+
 ## Images
 
 Never reference a full-size original in an `<img>`. Generate variants:
