@@ -135,5 +135,15 @@ def main():
     print(f'\n{photos} photos, {videos} videos  ({added} new, {kept} unchanged, {removed} swept)')
     print(f'media/ is {size/1048576:.1f} MB   manifest: {manifest_p}')
 
+    # the link-preview card is made of these photographs, so it is rebuilt here:
+    # add media, run this, and what people see when they paste the link is current
+    card = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        'share-cards', 'make-card.py')
+    if os.path.exists(card):
+        r = subprocess.run([sys.executable, card, 'weekend'], capture_output=True, text=True)
+        print((r.stdout or r.stderr).strip() or 'share card unchanged')
+    else:
+        print('! share-cards/make-card.py missing - link preview not rebuilt')
+
 if __name__ == '__main__':
     main()
