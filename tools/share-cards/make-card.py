@@ -433,7 +433,8 @@ def card_updates(out):
         y += 78
 
     wordmark(d, x * S, 544 * S, '/UPDATES', px=29)
-    tracked(d, ((W - 62 - 210) * S, 556 * S), 'EVERY ENTRY SOURCED', font(MONO_R, 11.5), FAINT, track=2.2)
+    # not "every entry sourced": 5 of 57 carry a source field. Claim only what holds.
+    tracked(d, ((W - 62 - 232) * S, 556 * S), 'CORRECTIONS RUN IN PUBLIC', font(MONO_R, 11.5), FAINT, track=2.2)
     finish(im, out)
 
 
