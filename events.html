@@ -833,6 +833,8 @@ function fkCopy(text, btn, doneLabel) {
     const err = document.getElementById("fkFormErr");
     if (!fn || !/.+@.+\..+/.test(fe) || !fc) { err.textContent = "NAME, EMAIL, AND CITY ARE REQUIRED."; err.style.display = "block"; return; }
     if (!fconsent) { err.textContent = "PLEASE AGREE TO THE CAMPAIGN STANDARDS TO SUBMIT."; err.style.display = "block"; return; }
+    var fnotes = document.getElementById("fkFNotes").value.trim();
+    if (fnotes.length < 3) { err.textContent = "PLEASE SAY WHAT YOU ARE PLANNING \u2014 A FEW WORDS AT LEAST."; err.style.display = "block"; return; }
     err.style.display = "none";
     if (FK_CONFIG.FK_FORM_ENDPOINT) {
       var tsTok = (document.querySelector("#fkTurnstileAction input[name=cf-turnstile-response]")||{}).value || "";
