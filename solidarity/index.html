@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://freekarmelo.net/solidarity">
 <meta name="theme-color" content="#080510">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="description" content="Aug 29–31, 2026: Worldwide Solidarity Weekend for Karmelo Anthony. Cities across the world. The new trial was denied Aug 22 — the appeal is live. Find your city, get the flyer, add your name.">
+<meta name="description" content="Aug 29–31, 2026: Worldwide Solidarity Weekend for Karmelo Anthony — complete. Cities across the world showed up. The new trial was denied Aug 22 — the appeal is live. Read the record, get the flyer, add your name.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Worldwide Solidarity for Karmelo Anthony · Cities Across the World">
 <meta property="og:description" content="We were coming anyway. Now you know why. Cities across the world. One name.">
@@ -149,6 +149,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--violet)!
 .cu-v{font-family:var(--black);font-size:30px;line-height:1;letter-spacing:-.03em;
   color:var(--paper);font-variant-numeric:tabular-nums}
 .cu-k{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--muted)}
+.count-done{font-family:var(--black);font-size:24px;line-height:1.25;letter-spacing:-.01em;color:#D9B36C;max-width:22ch}
 .tz{font-family:var(--mono);font-size:10px;line-height:1.9;letter-spacing:.1em;color:var(--muted);padding-bottom:2px}
 .globe-slot{position:relative;align-self:stretch;min-height:520px;margin-right:-90px}
 .globe-slot solidarity-globe{position:absolute;inset:0}
@@ -484,20 +485,20 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
   <div class="hero-glow"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span>AUG 29–31 · 2026 · WORLDWIDE</span></p>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span>AUG 29–31 · 2026 · WORLDWIDE — COMPLETE</span></p>
       <h1 id="hero-h">WE WERE<br>COMING<br>ANYWAY.</h1>
       <p class="hero-sub">Now you know why.</p>
-      <p class="hero-body">On <strong>August 22</strong> a judge denied Karmelo Anthony a new trial in a half-page order with no explanation. The 35-year sentence stands. The appeal is live before the Fifth District Court of Appeals. This weekend was on the calendar long before that ruling — and <strong>cities across the world</strong> are still coming.</p>
+      <p class="hero-body">On <strong>August 22</strong> a judge denied Karmelo Anthony a new trial in a half-page order with no explanation. The 35-year sentence stands. The appeal is live before the Fifth District Court of Appeals. This weekend was on the calendar long before that ruling — and <strong>cities across the world</strong> showed up.</p>
       <div class="hero-actions">
-        <a class="btn-gold" href="#cities">FIND YOUR CITY<span aria-hidden="true">→</span></a>
+        <a class="btn-gold" href="#record">SEE WHAT HAPPENED<span aria-hidden="true">→</span></a>
         <a class="btn-ghost" href="#commit">ADD YOUR NAME</a>
       </div>
       <div class="countbar">
         <div>
-          <div class="count-label">SYNCHRONIZED START</div>
-          <div class="count-units" id="countdown" role="timer" aria-live="off"></div>
+          <div class="count-label">THE WEEKEND</div>
+          <div class="count-done">COMPLETE — CITIES ACROSS THE WORLD SHOWED UP</div>
         </div>
-        <div class="tz">3<span>PM ET</span> · 2<span>CT</span> · 1<span>MT</span> · 12<span>PT</span></div>
+        <a class="tz" href="#record" style="color:#D9B36C;text-decoration:none">WHAT'S NEXT: THE APPEAL<span aria-hidden="true"> →</span></a>
       </div>
     </div>
     <div class="globe-slot">
@@ -568,9 +569,9 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
     <div class="secthead">
       <div>
         <div class="kicker">§02 · THE ROSTER</div>
-        <h2 class="h2" id="cities-h">FIND YOUR CITY.</h2>
+        <h2 class="h2" id="cities-h">THEY SHOWED UP.</h2>
       </div>
-      <p class="lede" style="max-width:44ch">Every city on the roster is confirmed, and each one carries its own sheet. Each local time and meet point publishes here the moment its lead locks it. Hover a city to see its sheet — and to spin the globe to it.</p>
+      <p class="lede" style="max-width:44ch">The roster is the record. Every city below confirmed and carried its own sheet. Hover a city to see its sheet — and to spin the globe to it.</p>
     </div>
     <div class="city-grid" id="city-grid" data-fk-block="cities"></div>
   </div>
@@ -608,7 +609,7 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
     <div>
       <div class="kicker">§04 · COMMIT</div>
       <h2 class="h2" id="commit-h">ADD YOUR NAME<br>TO THE LIST.</h2>
-      <p class="commit-lede">One form. It tells your city lead to expect you, and it puts a number on the record that a courtroom cannot ignore. Your message, if you leave one, posts to the wall for Karmelo to read.</p>
+      <p class="commit-lede">One form. It puts a number on the record that a courtroom cannot ignore. Your message, if you leave one, posts to the wall for Karmelo to read.</p>
       <div class="promises" id="promises"></div>
     </div>
 
@@ -621,7 +622,7 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
       <div class="sent" id="sent-panel" hidden>
         <div class="lbl">RECORDED</div>
         <h3>YOU'RE ON THE LIST.</h3>
-        <p>Your city lead will send the meet point before Saturday. If you left a message, it posts to the wall after a safety check.</p>
+        <p>You're on the record now. If you left a message, it posts to the wall after a safety check.</p>
         <button type="button" id="reset-btn">ADD ANOTHER NAME</button>
       </div>
 
@@ -662,7 +663,7 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
         </div>
 
         <button type="submit" class="btn-gold" id="submit-btn" style="justify-content:center;padding:17px">
-          COUNT ME IN — I'M COMING<span aria-hidden="true">→</span></button>
+          COUNT ME IN — I STAND WITH HIM<span aria-hidden="true">→</span></button>
         <div class="form-fine">FREE · NO SPAM · NO DATA SOLD · UNSUBSCRIBE ANY TIME</div>
       </form>
     </div>
@@ -704,11 +705,11 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
     <div class="foot-grid">
       <div>
         <div class="foot-mark">FREE KARMELO.<br>FREE THEM ALL.</div>
-        <p>Aug 29–31, 2026 · Cities across the world. 1 LOVE</p>
+        <p>Aug 29–31, 2026 · Cities across the world showed up. 1 LOVE</p>
         <div class="foot-stamp">LAST UPDATED <span data-stamp></span></div>
       </div>
       <div class="foot-col">
-        <div class="lbl">THIS WEEKEND</div>
+        <div class="lbl">THE WEEKEND</div>
         <a href="#cities">All the cities</a>
         <a href="#posters">Posters &amp; share kit</a>
         <a href="#commit">Add your name</a>
@@ -790,7 +791,7 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
   var MASTER = 'flyers-master-23-cities/3c-the-broadside-1080x1350.png';
 
   var content = {
-    stamp: 'AUG 27, 2026 · 03:40 CT',
+    stamp: 'SEP 13, 2026 · 04:05 CT',
     rallyISO: '2026-08-29T19:00:00Z',
     signupCount: '1,480',
 
@@ -855,7 +856,7 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
 
     promises: [
       { n: '01', t: 'Your city lead gets a headcount.', d: 'Nothing else works without it — signs, water, permits, and legal observers all scale to the number.' },
-      { n: '02', t: 'You get the meet point before Saturday.', d: 'Locations go to registrants first, not to the open internet.' },
+      { n: '02', t: 'You get verified case updates.', d: 'The fight moved to appeal — the list hears about it first.' },
       { n: '03', t: 'Your message reaches him.', d: 'Opt in and your words post to the Support Wall, which is printed and delivered.' },
       { n: '04', t: 'Your data stays yours.', d: 'Name and city post publicly if you choose. Email and phone never do, and are never sold.' }
     ],
@@ -1008,22 +1009,8 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
 
   paintAll();
 
-  /* ═══ countdown ═══════════════════════════════════════════════════ */
-  var cdEl = $('#countdown');
-  function tickCountdown() {
-    var ms = Math.max(0, new Date(content.rallyISO).getTime() - Date.now());
-    var u = [
-      { k: 'DAYS', v: pad(Math.floor(ms / 86400000)) },
-      { k: 'HRS', v: pad(Math.floor(ms / 3600000) % 24) },
-      { k: 'MIN', v: pad(Math.floor(ms / 60000) % 60) },
-      { k: 'SEC', v: pad(Math.floor(ms / 1000) % 60) }
-    ];
-    cdEl.innerHTML = u.map(function (x) {
-      return '<div class="cu"><span class="cu-v">' + x.v + '</span><span class="cu-k">' + x.k + '</span></div>';
-    }).join('');
-  }
-  tickCountdown();
-  setInterval(tickCountdown, 1000);
+  /* ═══ countdown retired 2026-09-13 — the weekend is complete.
+     The static recap line in .countbar carries it now. ══════════════ */
 
   /* ═══ globe ⇄ roster ══════════════════════════════════════════════ */
   function spinTo(slug) {
