@@ -1200,6 +1200,7 @@ form.commit-form{padding:26px 26px 30px;display:flex;flex-direction:column;gap:1
     var affirm = fd.get('affirm') != null;
 
     if (!fullName || !email || !slug) { showErr('Name, email and city are required.'); return; }
+    if (wallOptIn && message.length < 3) { showErr('Please write your wall message \u2014 a few words at least.'); return; }
     if (!affirm) { showErr(FIELD_MSG.consent_required); return; }
 
     var token = '';
