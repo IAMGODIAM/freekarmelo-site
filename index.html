@@ -1395,6 +1395,7 @@ body {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-05PYDYP5S0');
+  gtag('config', 'G-3YJ6C72JSJ'); /* P10: E5 Enclave Inc property — events now dual-fire */
   window.fkTrackShare = function(surface, channel, context){
     var payload = {
       event_category: 'letter_wall_share',
@@ -3070,6 +3071,7 @@ io.observe(b);})();
           });
         }
       }catch(_e){}
+      try{ if(typeof gtag==='function'){ gtag('event','conversion',{'send_to':'AW-16672489240/uh10CLmQ7_wcEJj-h44-','value':1.0,'currency':'USD'}); } }catch(_e){} /* P10: parallel Ads conversion (E5 Enclave Inc stack) */
       var hd=document.getElementById('successHd'), msg=document.getElementById('successMsg');
       if(j.wall_status==='approved'){hd.textContent='Your message is live on the wall.';msg.textContent='Karmelo will know you stood with him.';}
       else if(j.wall_status==='held'){hd.textContent='Thank you — your message is in review.';msg.textContent='It will appear on the wall shortly after a quick board glance.';}
