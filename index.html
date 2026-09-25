@@ -1416,6 +1416,8 @@ body {
 
 </head>
 <body>
+<!-- Oct 10 promo: rendered from /oct10/event.json by /freekarmelo-shared/event-promo.js; removes itself after the event -->
+<div data-promo="strip"></div>
 
   <!-- ════════ HERO: THE DIPTYCH — Karmelo, the Child & the Hero ════════ -->
   <style>
@@ -1755,12 +1757,14 @@ body {
 
 </style>
 
-<!-- ══ SOLIDARITY WEEKEND HERO (The Roster) — added 2026-08-28 ══ -->
+<div data-promo="band"></div>
+
+<!-- ══ SOLIDARITY WEEKEND RECAP (The Roster) — added 2026-08-28, past tense since 2026-09-25 ══ -->
 <section class="rw" id="weekend">
   <canvas class="rw-gpu" id="rwGpu" aria-hidden="true"></canvas>
   <div class="rw-scrim" aria-hidden="true"></div>
   <div class="rw-in">
-    <div class="rw-kick"><span class="rw-live"></span>August 29&ndash;31, 2026 &middot; Cities across the world</div>
+    <div class="rw-kick">The solidarity weekend &middot; August 29&ndash;31, 2026 &middot; Cities across the world</div>
 
     <h1 class="rw-h1">WE WERE<em>COMING</em><em>ANYWAY.</em></h1>
 
@@ -1772,7 +1776,7 @@ body {
     </div>
 
     <div class="rw-cta">
-      <a href="/solidarity" class="rw-btn p">Find your city &rarr;</a>
+      <a href="/weekend" class="rw-btn p">See the weekend &rarr;</a>
       <a href="#signup" class="rw-btn g" onclick="event.preventDefault();document.getElementById('signup').scrollIntoView({behavior:'smooth',block:'start'})">Add your name</a>
     </div>
 
@@ -2266,7 +2270,7 @@ fn fbm(p0: vec2f) -> f32 {
     var lastSig="";
     function load(){
       if(!FN){ if(!ALL.length) document.getElementById("lwWall").innerHTML='<div class="lw-empty">The wall is loading…</div>'; return; }
-      fetch(FN+"?mode=feed").then(function(r){return r.json();}).then(function(d){
+      fetch(FN).then(function(r){return r.json();}).then(function(d){
         var letters=d.letters||[];
         var sig=(d.count||0)+"|"+(letters[0]?letters[0].text:"");
         document.getElementById("lwCount").textContent=(d.count||0).toLocaleString();
@@ -3647,5 +3651,6 @@ window.switchTab = function(tab, doScroll) {
   freekarmelo.net is a campaign of <a href="https://e5enclave.com/about/" style="color:#b393c9;text-decoration:underline;">E5 Enclave Incorporated</a>, a 501(c)(3) public charity &middot; EIN 99-3822441<br>
   <a href="/about" style="color:#b393c9;text-decoration:underline;">About this site</a> &middot; <a href="/privacy" style="color:#b393c9;text-decoration:underline;">Privacy</a> &middot; <a href="https://e5enclave.com/contact/" style="color:#b393c9;text-decoration:underline;">Contact</a> &middot; <a href="https://e5enclave.com/donate/" style="color:#b393c9;text-decoration:underline;">Donate</a>
 </div>
+<script src="/freekarmelo-shared/event-promo.js" data-event="/oct10/event.json" data-slots="strip band takeover" defer></script>
 </body>
 </html>
