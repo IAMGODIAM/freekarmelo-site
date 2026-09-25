@@ -152,7 +152,9 @@ for (const target of targets) {
     const page = await ctx.newPage();
     const errs = [];
     let bytes = 0;
-    page.on('pageerror', e => errs.push('pageerror: ' + e.message));
+    /* Turnstile 1102xx = "domain not authorised": the widget is keyed to
+       freekarmelo.net and refuses 127.0.0.1 by design. Not the page's fault. */
+    page.on('pageerror', e => { if (!/\[Cloudflare Turnstile\] Error: 1102\d\d/.test(e.message)) errs.push('pageerror: ' + e.message); });
     /* the sandbox cannot reach Google Fonts or gtag; that noise is not the page's fault */
     page.on('console', m => {
       if (m.type() === 'error' && !/net::|ERR_CONNECTION|Failed to load resource/.test(m.text()))

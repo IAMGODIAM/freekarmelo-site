@@ -1,0 +1,139 @@
+{
+  "_readme": "Single source of truth for the Oct 10 page, flyers, share card, .ics and JSON-LD. Edit facts here, never in HTML.",
+  "slug": "political-education-party",
+  "status": "upcoming",
+  "lastVerified": "2026-09-22",
+  "name": "Political Education Party",
+  "umbrella": "Free Karmelo · Free Them All",
+  "tagline": "Free. All ages. Bring your people.",
+  "purpose": "A day in the park to learn about political prisoners and what their families carry — and to leave with a way to help, whether it's your own loved one inside or someone the movement is holding up.",
+  "url": "https://freekarmelo.net/events/political-education-party",
+  "shortUrl": "freekarmelo.net/oct10",
+  "qrUrl": "https://freekarmelo.net/oct10",
+  "start": "2026-10-10T10:00:00-05:00",
+  "end": "2026-10-10T14:00:00-05:00",
+  "dateLong": "Saturday, October 10",
+  "dateShort": "SAT 10.10",
+  "dateNum": "10.10",
+  "timeLabel": "10 AM – 2 PM",
+  "venue": {
+    "name": "Fahim J. Minkah Park",
+    "aka": "formerly College Park",
+    "street": "33000 Highland Woods Dr",
+    "city": "Dallas",
+    "region": "TX",
+    "postal": "75241",
+    "area": "Oak Cliff",
+    "mapsQuery": "Fahim J. Minkah Park, Dallas, TX 75241",
+    "parking": null,
+    "entrance": null
+  },
+  "hosts": "Tamara & Hehe",
+  "featured": { "name": "Chairman Fred Hampton Jr.", "confirmed": true },
+  "highlights": [
+    { "k": "FREE", "v": "Groceries & clothes" },
+    { "k": "KIDS", "v": "Books, face painting, crafts" },
+    { "k": "YOUTH", "v": "3-on-3 tournament, ages 8–16" },
+    { "k": "WRITE", "v": "Letters to political prisoners" },
+    { "k": "LEARN", "v": "Speakers, music & tables" }
+  ],
+  "program": [
+    { "t": "10:00", "m": "AM", "title": "Opening — music & grounding", "who": "", "kind": "music", "confirmed": true },
+    { "t": "10:15", "m": "AM", "title": "Welcome — why we're here", "who": "Hosts Tamara & Hehe", "kind": "talk", "confirmed": true },
+    { "t": "10:25", "m": "AM", "title": "Fahim J. Minkah and the original Black Panther Party of Dallas", "who": "The Minkah family", "kind": "talk", "confirmed": true },
+    { "t": "10:45", "m": "AM", "title": "Jail support, and the letter-writing table", "who": "Richy · Fight Toxic Prisons", "kind": "talk", "confirmed": true },
+    { "t": "11:00", "m": "AM", "title": "Youth 3-on-3 tips off — ages 8–10", "who": "Hosted by Larue", "kind": "youth", "confirmed": true },
+    { "t": "11:10", "m": "AM", "title": "Love, unity and healing", "who": "Ricky Perry · The People's Shield", "kind": "talk", "confirmed": true },
+    { "t": "11:30", "m": "AM", "title": "Stations open — crafts, reading, letters, free groceries & clothes", "who": "", "kind": "community", "confirmed": true },
+    { "t": "11:45", "m": "AM", "title": "Karmelo — and how you can stand with him", "who": "Hosts Tamara & Hehe", "kind": "talk", "confirmed": true },
+    { "t": "12:00", "m": "PM", "title": "The fight for Karmelo", "who": "Chairman Fred Hampton Jr.", "kind": "feature", "confirmed": true },
+    { "t": "12:00", "m": "PM", "title": "Youth 3-on-3 — ages 11–13", "who": "", "kind": "youth", "confirmed": true },
+    { "t": "12:20", "m": "PM", "title": "Music & community dance — electric slide", "who": "", "kind": "music", "confirmed": true },
+    { "t": "12:35", "m": "PM", "title": "Police brutality — raising awareness", "who": "People's Defense Committee", "kind": "talk", "confirmed": false },
+    { "t": "12:45", "m": "PM", "title": "The Prairieland defendants — how to support", "who": "DFW Committee", "kind": "talk", "confirmed": true },
+    { "t": "1:00", "m": "PM", "title": "Fighting for our own liberation", "who": "Haki Shakur · New Afrikan Freedom Campaign", "kind": "talk", "confirmed": true },
+    { "t": "1:00", "m": "PM", "title": "Youth 3-on-3 — ages 14–16", "who": "", "kind": "youth", "confirmed": true },
+    { "t": "1:15", "m": "PM", "title": "Live performance", "who": "Artist to be announced", "kind": "music", "confirmed": true },
+    { "t": "1:30", "m": "PM", "title": "Fighting for our health", "who": "Mike Afrika Jr.", "kind": "talk", "confirmed": true },
+    { "t": "1:50", "m": "PM", "title": "Tournament results", "who": "Larue", "kind": "youth", "confirmed": true },
+    { "t": "2:00", "m": "PM", "title": "Close", "who": "", "kind": "music", "confirmed": true }
+  ],
+  "tables": [
+    { "n": 1, "org": "Karmelo Anthony", "what": "His story, what you can do right now, and the sign-up sheet.", "tags": ["act", "learn"], "confirmed": true },
+    { "n": 2, "org": "Justice for Daniel Erving", "what": "His family's call to action, and sign-ups for City Hall meetings.", "tags": ["act"], "confirmed": true },
+    { "n": 3, "org": "Botham Jean", "what": "His story, kept by the people who carry it.", "tags": ["learn"], "confirmed": true },
+    { "n": 4, "org": "Malcolm X Academy", "what": "Kids' arts & crafts, face painting, and free children's books.", "tags": ["kids", "free"], "confirmed": true },
+    { "n": 5, "org": "Community Movement Builders", "what": "Mutual aid — free groceries and clothes. Pick up a brochure, join the work.", "tags": ["free", "act"], "confirmed": true },
+    { "n": 6, "org": "Political Prisoner Coalition", "what": "Meet the political prisoners the movement holds up — then write to them at the letter station.", "tags": ["learn", "act"], "confirmed": true },
+    { "n": 7, "org": "Jail Support", "what": "How jail support works, and how to give to bail and legal funds.", "tags": ["act"], "confirmed": true },
+    { "n": 8, "org": "Voter & Candidate Info", "what": "Nonpartisan. Check your registration; early voting runs Oct 19–30.", "tags": ["learn"], "confirmed": true },
+    { "n": 9, "org": "Black Ledger League", "what": "", "tags": ["learn"], "confirmed": true },
+    { "n": 10, "org": "DFW Committee", "what": "Support for the Prairieland defendants.", "tags": ["act"], "confirmed": true },
+    { "n": 11, "org": "People's Defense Committee", "what": "", "tags": ["learn"], "confirmed": false },
+    { "n": 12, "org": "BAP", "what": "", "tags": ["learn"], "confirmed": false },
+    { "n": 13, "org": "No Condemnation Worldwide", "what": "", "tags": ["learn"], "confirmed": true },
+    { "n": 14, "org": "Fight Toxic Prisons", "what": "Jail support and letter writing.", "tags": ["act"], "confirmed": true },
+    { "n": 15, "org": "Sandbranch Freedman's Community", "what": "The freedmen's settlement in southeast Dallas County — its history and what it needs now.", "tags": ["learn"], "confirmed": true },
+    { "n": 16, "org": "Arts & Crafts Station", "what": "Make something. All ages.", "tags": ["kids", "free"], "confirmed": true },
+    { "n": 17, "org": "The People's Shield", "what": "Love, unity and healing.", "tags": ["learn"], "confirmed": true },
+    { "n": 18, "org": "", "what": "", "tags": [], "confirmed": false, "open": true },
+    { "n": 19, "org": "", "what": "", "tags": [], "confirmed": false, "open": true },
+    { "n": 20, "org": "", "what": "", "tags": [], "confirmed": false, "open": true }
+  ],
+  "tournament": {
+    "format": "3-on-3 · games to 21 or 20 minutes",
+    "host": "Larue",
+    "prize": "Prizes for the winning team in every bracket",
+    "brackets": [
+      { "ages": "8–10", "time": "11 AM", "teams": 4, "status": "open" },
+      { "ages": "11–13", "time": "12 PM", "teams": 4, "status": "open" },
+      { "ages": "14–16", "time": "1 PM", "teams": 4, "status": "open" }
+    ]
+  },
+  "bring": [
+    { "item": "Non-perishable groceries", "note": "Cans, rice, beans, cereal, diapers" },
+    { "item": "Clean, gently used clothes", "note": "All sizes — kids especially" },
+    { "item": "Children's books", "note": "New or like-new, all reading levels" },
+    { "item": "Arts & crafts supplies", "note": "Markers, paper, glue, beads" }
+  ],
+  "comfort": "For you: a blanket or lawn chair, water, and sunscreen.",
+  "volunteer": [
+    { "role": "Flyer runs", "when": "Now – Oct 9", "what": "Take a stack to your church, barbershop, salon or corner store." },
+    { "role": "Pick-ups", "when": "Oct 8–9", "what": "Basketballs, books, craft supplies, groceries, blankets." },
+    { "role": "Set-up crew", "when": "Oct 10 · 8–10 AM", "what": "Tables, tents, the screen, signage." },
+    { "role": "Welcome & sign-in", "when": "Oct 10 · 10 AM–2 PM", "what": "Greet people, hand out the program, point to the QR." },
+    { "role": "Kids' zone", "when": "Oct 10 · shifts", "what": "Crafts, reading and face painting with Malcolm X Academy." },
+    { "role": "Safety & water", "when": "Oct 10 · shifts", "what": "Marshals, water station, first aid (certified only)." },
+    { "role": "Clean-up crew", "when": "Oct 10 · 2–3 PM", "what": "Leave the park better than we found it." }
+  ],
+  "case": {
+    "name": "Karmelo Anthony",
+    "lines": [
+      "A new trial was denied Aug 22 in a half-page order with no explanation. The 35-year sentence stands.",
+      "His appeal is live before the Fifth District Court of Appeals in Dallas. No argument date has been set."
+    ],
+    "lastConfirmed": "2026-09-01"
+  },
+  "posture": "All actions are lawful, nonviolent, accessible, and locally compliant.",
+  "hashtags": ["#FreeKarmelo", "#FreeThemAll"],
+  "shareText": "Political Education Party — Sat Oct 10, 10 AM–2 PM at Fahim J. Minkah Park in Dallas. Free food, books, a youth 3-on-3, and the people fighting for our loved ones inside.",
+  "captions": [
+    { "id": "announce", "label": "Announcement post", "text": "Saturday, October 10 — Political Education Party at Fahim J. Minkah Park (formerly College Park), Dallas. 10 AM–2 PM. Free groceries and clothes, children's books, face painting, a youth 3-on-3 tournament, letter writing to political prisoners, and Chairman Fred Hampton Jr. on the fight for Karmelo. Free. All ages. RSVP: freekarmelo.net/oct10 #FreeKarmelo #FreeThemAll" },
+    { "id": "youth", "label": "Youth 3-on-3", "text": "Got a team of three? Youth 3-on-3 at the Political Education Party — ages 8–10, 11–13 and 14–16. Saturday Oct 10 at Fahim J. Minkah Park, Dallas. A parent or guardian registers each team: freekarmelo.net/oct10 #FreeKarmelo" },
+    { "id": "bring", "label": "Bring a bag", "text": "Coming Oct 10? Bring a bag: non-perishable groceries, clean clothes, children's books, craft supplies. It all goes back out to the neighborhood the same day. freekarmelo.net/oct10 #FreeThemAll" },
+    { "id": "church", "label": "Church bulletin (52 words)", "text": "POLITICAL EDUCATION PARTY — Saturday, October 10, 10 AM–2 PM, Fahim J. Minkah Park (formerly College Park), Dallas. A free, family day: groceries and clothes, children's books, a youth basketball tournament, and community speakers on supporting incarcerated loved ones and political prisoners. All are welcome. Details and RSVP: freekarmelo.net/oct10" },
+    { "id": "text", "label": "Text-message forward", "text": "Saturday 10/10, 10–2 at Fahim J. Minkah Park (old College Park). Free food, books, kids' stuff, 3-on-3 for the youth. Pull up with me? freekarmelo.net/oct10" }
+  ],
+  "assets": [
+    { "id": "feed", "group": "social", "title": "Announcement", "fmt": "Feed · 4:5", "w": 1080, "h": 1350, "png": "oct10/downloads/pep-announcement-feed-1080x1350.png", "caption": "announce", "alt": "Political Education Party flyer: Saturday October 10, 10 AM to 2 PM, Fahim J. Minkah Park, Dallas. Free. All ages. With Chairman Fred Hampton Jr. freekarmelo.net/oct10" },
+    { "id": "story", "group": "social", "title": "Announcement", "fmt": "Story · 9:16", "w": 1080, "h": 1920, "png": "oct10/downloads/pep-announcement-story-1080x1920.png", "caption": "announce", "alt": "Political Education Party story graphic: Saturday October 10, 10 AM to 2 PM, Fahim J. Minkah Park, Dallas. freekarmelo.net/oct10" },
+    { "id": "square", "group": "social", "title": "Announcement", "fmt": "Square · 1:1", "w": 1080, "h": 1080, "png": "oct10/downloads/pep-announcement-square-1080x1080.png", "caption": "announce", "alt": "Political Education Party square graphic: Saturday October 10, 10 AM to 2 PM, Fahim J. Minkah Park, Dallas." },
+    { "id": "youth", "group": "social", "title": "Youth 3-on-3", "fmt": "Feed · 4:5", "w": 1080, "h": 1350, "png": "oct10/downloads/pep-youth-3on3-feed-1080x1350.png", "caption": "youth", "alt": "Youth 3-on-3 basketball at the Political Education Party: ages 8–10, 11–13 and 14–16. Register a team at freekarmelo.net/oct10" },
+    { "id": "bring", "group": "social", "title": "Bring a bag", "fmt": "Feed · 4:5", "w": 1080, "h": 1350, "png": "oct10/downloads/pep-bring-a-bag-feed-1080x1350.png", "caption": "bring", "alt": "Bring a bag to the Political Education Party: non-perishable groceries, clean clothes, children's books, craft supplies, large blankets." },
+    { "id": "card", "group": "social", "title": "Link preview", "fmt": "Share card · 1.91:1", "w": 1200, "h": 630, "png": "oct10/downloads/pep-share-card-1200x630.png", "caption": "announce", "alt": "Political Education Party — Saturday October 10, 10 AM to 2 PM, Fahim J. Minkah Park, Dallas. Free Karmelo. Free Them All." },
+    { "id": "letter", "group": "print", "title": "Poster · full colour", "fmt": "Letter 8.5×11 in", "w": 816, "h": 1056, "png": "oct10/downloads/pep-poster-letter-colour.png", "pdf": "oct10/downloads/pep-poster-letter-colour.pdf", "caption": "church", "alt": "Letter-size colour poster for the Political Education Party." },
+    { "id": "letterbw", "group": "print", "title": "Poster · black ink only", "fmt": "Letter 8.5×11 in", "w": 816, "h": 1056, "png": "oct10/downloads/pep-poster-letter-black.png", "pdf": "oct10/downloads/pep-poster-letter-black.pdf", "caption": "church", "alt": "Letter-size black-ink poster for the Political Education Party, photocopier-safe." },
+    { "id": "half", "group": "print", "title": "Handout · 2 per sheet", "fmt": "Half-letter 5.5×8.5 in", "w": 1056, "h": 816, "png": "oct10/downloads/pep-handout-half-letter-2up.png", "pdf": "oct10/downloads/pep-handout-half-letter-2up.pdf", "caption": "church", "alt": "Two half-letter handouts on one sheet with a cut line, for church bulletins and counters." },
+    { "id": "screen", "group": "screen", "title": "Day-of screen", "fmt": "Landscape · 16:9", "w": 1920, "h": 1080, "png": "oct10/downloads/pep-day-of-screen-1920x1080.png", "caption": "text", "alt": "Welcome screen for the Political Education Party with a QR code to sign up." }
+  ]
+}
