@@ -2991,6 +2991,11 @@ io.observe(b);})();
           <input type="hidden" id="laneVal" name="lane" value="letter_writer"/>
         </div>
 
+        <!-- Honeypot (E5 form protocol, gate P7): invisible to humans; a filled submission is silently dropped server-side -->
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+          <label>Website <input type="text" id="website" name="website" tabindex="-1" autocomplete="off"/></label>
+        </div>
+
         <!-- GET HIS ADDRESS — A BUTTON, NOT A SEPARATE FORM -->
 
         <label class="manifesto-check">
@@ -3046,7 +3051,7 @@ io.observe(b);})();
       commitment_type:laneInput.value, roles: wantAddr?'letter_writer':'',
       sign_manifesto:document.getElementById('signManifesto').checked,
       opt_in_newsletter:document.querySelector('input[name="opt_in_newsletter"]:checked')?'yes':'',
-      want_address: wantAddr?'yes':'', source:'freekarmelo_unified_hero'
+      want_address: wantAddr?'yes':'', website: g('website'), source:'freekarmelo_unified_hero'
     };
     try{
       var FK_SIGNUP_ENDPOINT="https://e5-fk-events.yisraelleemccartney.workers.dev/submit";
